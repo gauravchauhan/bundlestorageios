@@ -12,16 +12,32 @@ enum apiType : String{
     case POST, PUT, DELETE, GET
 }
 
+//MARK:- Post Delegates
+
+protocol LinkdinAccessTokenDelegate {
+    func linkdinAccessTokenResponse(data : [String : Any])
+}
+
+
 //MARK:- Get Delegates
 
 
-//MARK:- Post Delegates
+protocol GetEmailFromLindinDelegate {
+    func getEmailFromLindinResponse(data : [String : Any])
+}
+protocol GetNameFromLindinDelegate {
+    func getNameFromLindinResponse(data : [String : Any])
+}
+
 //MARK: Start Class
 
 class Service{
     
     var connection = webservices()
     let errorMessage = Constants.networkConnectionErrorMessage.init(status: "networkError", message: "Check your internet connection")
+    var linkdinAccessTokenDelegate : LinkdinAccessTokenDelegate!
+    var getNameFromLindinDelegate : GetNameFromLindinDelegate!
+    var getEmailFromLindinDelegate : GetEmailFromLindinDelegate!
     
     //MARK:- Get Delegates varriables
     
@@ -203,30 +219,14 @@ class Service{
     //MARK:- Return function
     
     func returnResponseToDelegate(apiName : String , response : [String : Any]){
-//        print("API name \(apiName)")
-//        //        print("response \(response)")
-//        switch apiName {
-//        case Constants.AppUrls.experience:
-//            return self.experienceDelgate.experienceListResponse(data: response)
-//        case Constants.AppUrls.learn:
-//            return self.learnListDelegate.LearnListResponse(data: response)
-//        case Constants.AppUrls.login:
-//            self.loginDelegate.LoginResponse(data: response)
-//        case Constants.AppUrls.signup:
-//            self.signupDelegate.SignupResponse(data: response)
-//        case Constants.AppUrls.postNews:
-//            self.postNewsFeedDelegate.postNewsResponse(data: response)
-//        case Constants.AppUrls.myNewsfeed:
-//            self.myNewsfeedDelegate.myNewsfeedResponse(data: response)
-//        case Constants.AppUrls.socialLogin:
-//            self.socialLoginDelegate.socialLoginResponse(data: response)
-//        case Constants.AppUrls.lindindAccess:
-//            self.linkdinAccessTokenDelegate.linkdinAccessTokenResponse(data: response)
-//        case Constants.AppUrls.updateInfo:
-//            self.updateInfoDelegate.updateInfoResponse(data: response)
-//        default:
-//            return returnFromDefaultCase(apiName : apiName , response : response)
-//        }
+        print("API name \(apiName)")
+        //        print("response \(response)")
+        switch apiName {
+        case Constants.AppUrls.lindindAccess:
+            self.linkdinAccessTokenDelegate.linkdinAccessTokenResponse(data: response)
+        default:
+            return returnFromDefaultCase(apiName : apiName , response : response)
+        }
     }
     
     
@@ -252,6 +252,12 @@ class Service{
 //        }else if apiName.contains("api.linkedin.com/v2/me"){
 //            self.getNameFromLindinDelegate.getNameFromLindinResponse(data: response)
 //        }
+        
+        if apiName.contains("api.linkedin.com/v2/emailAddres"){
+            self.getEmailFromLindinDelegate.getEmailFromLindinResponse(data: response)
+        }else if apiName.contains("api.linkedin.com/v2/me"){
+            self.getNameFromLindinDelegate.getNameFromLindinResponse(data: response)
+        }
     }
     
 }

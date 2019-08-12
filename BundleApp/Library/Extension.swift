@@ -911,6 +911,13 @@ extension UIImageView
 
 
 extension UIViewController {
+    func pushToWebController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "WebVC") as! WebVC
+            next.delegate = self as? codeDelegate
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
     
 }
 

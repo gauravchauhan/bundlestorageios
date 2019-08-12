@@ -14,6 +14,7 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,7 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Add the fb  and google signin to the app with the appID's
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        GIDSignIn.sharedInstance().clientID = "16063448195-fr6rubcljrclhc9re3ria8hdipm24k8f.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = Constants.AppUrls.googleClient_id
+        
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        self.window?.rootViewController = navigationController
+        
         return true
     }
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

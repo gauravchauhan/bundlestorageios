@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E7F924B23017EDD006E2CEF /* FbLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F924A23017EDD006E2CEF /* FbLogin.swift */; };
+		1E7F924D2301875A006E2CEF /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F924C2301875A006E2CEF /* WebVC.swift */; };
 		1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */; };
 		1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EC423012E1700D0FCB4 /* ViewController.swift */; };
 		1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB80EC623012E1700D0FCB4 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		121761E2CB17089D10EF81AB /* Pods-BundleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.release.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.release.xcconfig"; sourceTree = "<group>"; };
 		1E7F924A23017EDD006E2CEF /* FbLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbLogin.swift; sourceTree = "<group>"; };
+		1E7F924C2301875A006E2CEF /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		1EB80EBF23012E1700D0FCB4 /* BundleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BundleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EB80EC423012E1700D0FCB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				1EB80F032301574700D0FCB4 /* LoginVC.swift */,
+				1E7F924C2301875A006E2CEF /* WebVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
 				1EB80EDF23013B6200D0FCB4 /* Webservice.swift in Sources */,
 				1E7F924B23017EDD006E2CEF /* FbLogin.swift in Sources */,
+				1E7F924D2301875A006E2CEF /* WebVC.swift in Sources */,
 				1EB80EF32301416900D0FCB4 /* SkyFloatingLabelTextField.swift in Sources */,
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,
 			);

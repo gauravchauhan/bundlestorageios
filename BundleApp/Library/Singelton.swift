@@ -13,7 +13,7 @@ class Singelton {
     
     static let sharedInstance = Singelton()
 //    var validation = Validation()
-//    var service = Service()
+    var service = Service()
     var authToken = ""
 //    var userDataModel = UserData()
     var id : String?

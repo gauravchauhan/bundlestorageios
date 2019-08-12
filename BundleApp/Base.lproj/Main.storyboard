@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-Pm-Ter" customClass="MDCCard">
-                                <rect key="frame" x="20" y="204" width="374" height="488"/>
+                                <rect key="frame" x="20" y="204" width="374" height="530"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="488" id="BOt-Gh-f0c"/>
@@ -61,7 +61,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqw-PO-u5c">
-                                <rect key="frame" x="20" y="204" width="374" height="488"/>
+                                <rect key="frame" x="20" y="204" width="374" height="530"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yre-Oo-GDU" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="334" height="50"/>
@@ -291,6 +291,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="boA-SJ-aZJ"/>
                                                 </constraints>
                                                 <state key="normal" image="linkedin"/>
+                                                <connections>
+                                                    <action selector="click_onLindenButtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SsX-2i-SDG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -333,7 +336,7 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owe-cG-DjH">
-                                <rect key="frame" x="20" y="726" width="374" height="45"/>
+                                <rect key="frame" x="20" y="768" width="374" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="8ri-la-YFR"/>
                                 </constraints>
@@ -377,6 +380,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-30.434782608695656" y="115.84821428571428"/>
+        </scene>
+        <!--WebVC-->
+        <scene sceneID="k5I-Jg-Q2X">
+            <objects>
+                <viewController storyboardIdentifier="WebVC" id="IfZ-ZL-mEq" customClass="WebVC" customModule="BundleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S0l-7l-lpY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqY-7A-kRI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1TQ-sy-s8v" firstAttribute="bottom" secondItem="fqY-7A-kRI" secondAttribute="bottom" id="Ebr-kR-BM1"/>
+                            <constraint firstItem="fqY-7A-kRI" firstAttribute="leading" secondItem="1TQ-sy-s8v" secondAttribute="leading" id="Eoo-gK-fpR"/>
+                            <constraint firstItem="1TQ-sy-s8v" firstAttribute="trailing" secondItem="fqY-7A-kRI" secondAttribute="trailing" id="U7X-3a-u3r"/>
+                            <constraint firstItem="fqY-7A-kRI" firstAttribute="top" secondItem="1TQ-sy-s8v" secondAttribute="top" id="b6P-Cf-rUA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1TQ-sy-s8v"/>
+                    </view>
+                    <connections>
+                        <outlet property="redirectEdView" destination="fqY-7A-kRI" id="9aZ-fJ-CHU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arw-nE-FpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5833" y="-123"/>
         </scene>
     </scenes>
     <resources>
