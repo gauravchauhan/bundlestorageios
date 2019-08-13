@@ -220,9 +220,8 @@ class Service{
     
     func returnResponseToDelegate(apiName : String , response : [String : Any]){
         print("API name \(apiName)")
-        //        print("response \(response)")
         switch apiName {
-        case Constants.AppUrls.lindindAccess:
+        case Constants.Linkden_Credentials.lindenGetAccessToken:
             self.linkdinAccessTokenDelegate.linkdinAccessTokenResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
@@ -231,28 +230,6 @@ class Service{
     
     
     func returnFromDefaultCase(apiName : String , response : [String : Any]){
-//        if apiName.contains("forgotPassword"){
-//            self.forgotPasswordDelegate.forgotPasswordResponse(data: response)
-//        }else if apiName.contains("thumbsup"){
-//            self.thumbsUPDelegate.ThumbsUPResponse(data: response)
-//        }else if apiName.contains("thumbsdown"){
-//            self.thumbsDownDelegate.ThumbsDownResponse(data: response)
-//        }else if apiName.contains("deleteNewsfeed"){
-//            self.deleteNewsFeedDelegate.deleteNewsFeedResponse(data: response)
-//        }else if apiName.contains("postComment"){
-//            self.postCommentDelegate.PostCommentResponse(data: response)
-//        }else if apiName.contains("comment"){
-//            self.getAllCommentDelegate.getAllCommentResponse(data: response)
-//        }else if apiName.contains("grade"){
-//            self.gradeDelegate.gradeResponse(data: response)
-//        }else if apiName.contains("newsfeed"){
-//            self.getNewsFeedDelegate.getNewPostResponse(data: response)
-//        }else if apiName.contains("api.linkedin.com/v2/emailAddres"){
-//            self.getEmailFromLindinDelegate.getEmailFromLindinResponse(data: response)
-//        }else if apiName.contains("api.linkedin.com/v2/me"){
-//            self.getNameFromLindinDelegate.getNameFromLindinResponse(data: response)
-//        }
-        
         if apiName.contains("api.linkedin.com/v2/emailAddres"){
             self.getEmailFromLindinDelegate.getEmailFromLindinResponse(data: response)
         }else if apiName.contains("api.linkedin.com/v2/me"){

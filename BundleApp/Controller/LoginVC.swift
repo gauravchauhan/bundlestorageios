@@ -15,10 +15,11 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, getFBD
     
     //MARK:- Outlets
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emailText: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var passwordText: SkyFloatingLabelTextFieldWithIcon!
     
-    var lindinToken : String?
+    var linkdenToken : String?
     var lindinUserName : String?
     var lindinUserID : String?
     
@@ -27,35 +28,35 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, getFBD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        UINavigationBar.
         self.navigationController?.isNavigationBarHidden = true
         self.emailText.setTheImageWithText(imageName: "email")
         self.passwordText.setTheImageWithText(imageName: "lock")
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
+        setupGradientButtonBGView(gradientView: self.headerView, screen: self)
     }
     
     //MARK:- Delegate
     
     func linkdinAccessTokenResponse(data: [String : Any]) {
         print("Linkdin Acess token response to get the acess token \(data)")
-        data["access_token"] != nil ? (self.lindinToken = data["access_token"]as? String) : nil
+        data["access_token"] != nil ? (self.linkdenToken = data["access_token"]as? String) : nil
         Singelton.sharedInstance.service.getNameFromLindinDelegate = self
         
         //Call the get name from linkden account
-        data["access_token"] != nil ? Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getNameFromLinkdin + self.lindinToken! , api_Type: apiType.GET.rawValue) : nil
+        data["access_token"] != nil ? Singelton.sharedInstance.service.getService(apiName: Constants.Linkden_Credentials.getNameFromLinkden + self.linkdenToken! , api_Type: apiType.GET.rawValue) : nil
     }
     
     func getCode(code: String) {
         print("getCode \(code)")
         Indicator.shared.showProgressView(self.view)
         
-        let param = "grant_type=\(String(describing: "authorization_code"))&client_secret=\(String(describing: Constants.AppUrls.linkdenClient_secret))&client_id=\(String(describing: Constants.AppUrls.linkdenClient_id))&redirect_uri=\(String(describing: "http://testthem.com/redirect"))&code=\(String(describing: code))"
+        let param = "grant_type=\(String(describing: "authorization_code"))&client_secret=\(String(describing: Constants.Linkden_Credentials.linkdenClient_secret))&client_id=\(String(describing: Constants.Linkden_Credentials.linkdenClient_id))&redirect_uri=\(String(describing: "http://testthem.com/redirect"))&code=\(String(describing: code))"
         Singelton.sharedInstance.service.linkdinAccessTokenDelegate = self
         
         //Call the linkden access token api to retrieve the token from the user account
         
-        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.lindindAccess, api_Type: apiType.POST.rawValue)
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.Linkden_Credentials.lindenGetAccessToken, api_Type: apiType.POST.rawValue)
     }
     
     func getNameFromLindinResponse(data: [String : Any]) {
@@ -71,7 +72,7 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, getFBD
         
         //Call the get email from linkden account
         
-        self.lindinToken != nil ? Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getEmailFromLinkdin + self.lindinToken! , api_Type: apiType.GET.rawValue) : nil
+        self.linkdenToken != nil ? Singelton.sharedInstance.service.getService(apiName: Constants.Linkden_Credentials.getEmailFromLinkden + self.linkdenToken! , api_Type: apiType.GET.rawValue) : nil
     }
     
     func getEmailFromLindinResponse(data: [String : Any]) {

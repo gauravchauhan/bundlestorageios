@@ -19,17 +19,17 @@ class WebVC: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         //        self.title = screenName!
         self.redirectEdView.delegate = self
-        let url = URL (string: Constants.AppUrls.webViewURLForLinden)
+        let url = URL (string: Constants.Linkden_Credentials.webViewURLForLinkden)
         let requestObj = URLRequest(url: url!)
         redirectEdView.loadRequest(requestObj)
         // Do any additional setup after loading the view.
     }
     func webViewDidStartLoad(_ webView: UIWebView) {
-        //        Indicator.shared.showProgressView(self.view)
+                Indicator.shared.showProgressView(self.view)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        //        Indicator.shared.hideProgressView()
+                Indicator.shared.hideProgressView()
         
         print("end loading")
         let currentURL = redirectEdView.request?.url

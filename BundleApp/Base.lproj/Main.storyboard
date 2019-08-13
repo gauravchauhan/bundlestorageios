@@ -18,6 +18,21 @@
         </array>
     </customFonts>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="8gQ-Cz-nm2">
+            <objects>
+                <viewController id="Swh-sy-cAV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CVy-gO-up9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Id6-u5-nTd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODp-aB-Vhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-265" y="-455"/>
+        </scene>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -26,6 +41,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKd-9h-65u">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOs-gC-Pcx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
                                 <subviews>
@@ -38,7 +57,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.89411764709999997" green="0.1215686275" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="328" id="KVs-rA-ScN"/>
                                     <constraint firstItem="qXm-Xm-qaG" firstAttribute="centerX" secondItem="cOs-gC-Pcx" secondAttribute="centerX" id="OHt-1D-0vl"/>
@@ -46,7 +65,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-Pm-Ter" customClass="MDCCard">
-                                <rect key="frame" x="20" y="204" width="374" height="530"/>
+                                <rect key="frame" x="20" y="204" width="374" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="488" id="BOt-Gh-f0c"/>
@@ -61,7 +80,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqw-PO-u5c">
-                                <rect key="frame" x="20" y="204" width="374" height="530"/>
+                                <rect key="frame" x="20" y="204" width="374" height="488"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yre-Oo-GDU" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="334" height="50"/>
@@ -126,7 +145,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -336,7 +355,7 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owe-cG-DjH">
-                                <rect key="frame" x="20" y="768" width="374" height="45"/>
+                                <rect key="frame" x="20" y="726" width="374" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="8ri-la-YFR"/>
                                 </constraints>
@@ -358,15 +377,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NnH-Pm-Ter" secondAttribute="trailing" constant="20" id="2n1-t7-b49"/>
                             <constraint firstItem="Owe-cG-DjH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4Mn-e4-Cl6"/>
                             <constraint firstItem="Kqw-PO-u5c" firstAttribute="top" secondItem="NnH-Pm-Ter" secondAttribute="top" id="5yc-nc-rya"/>
+                            <constraint firstItem="cOs-gC-Pcx" firstAttribute="width" secondItem="OKd-9h-65u" secondAttribute="width" id="7if-05-i5n"/>
                             <constraint firstItem="NnH-Pm-Ter" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="8Oh-xb-Cfx"/>
                             <constraint firstItem="cOs-gC-Pcx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9Qv-fc-O3X"/>
+                            <constraint firstItem="OKd-9h-65u" firstAttribute="top" secondItem="cOs-gC-Pcx" secondAttribute="top" id="Byc-Hq-08Z"/>
                             <constraint firstItem="Kqw-PO-u5c" firstAttribute="bottom" secondItem="NnH-Pm-Ter" secondAttribute="bottom" id="Ce6-NO-bot"/>
+                            <constraint firstItem="OKd-9h-65u" firstAttribute="bottom" secondItem="cOs-gC-Pcx" secondAttribute="bottom" id="FWa-wY-oUd"/>
                             <constraint firstItem="NnH-Pm-Ter" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J4M-S0-hSQ"/>
                             <constraint firstItem="Kqw-PO-u5c" firstAttribute="trailing" secondItem="NnH-Pm-Ter" secondAttribute="trailing" id="T73-rp-bE0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NnH-Pm-Ter" secondAttribute="bottom" constant="128" id="TkT-rZ-DjE"/>
+                            <constraint firstItem="cOs-gC-Pcx" firstAttribute="height" secondItem="OKd-9h-65u" secondAttribute="height" id="Vut-Uf-j7W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Owe-cG-DjH" secondAttribute="bottom" constant="49" id="Xnd-tr-P5a"/>
                             <constraint firstItem="cOs-gC-Pcx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d3h-Eg-shb"/>
                             <constraint firstItem="Kqw-PO-u5c" firstAttribute="leading" secondItem="NnH-Pm-Ter" secondAttribute="leading" id="dMO-zu-6hU"/>
+                            <constraint firstItem="OKd-9h-65u" firstAttribute="leading" secondItem="cOs-gC-Pcx" secondAttribute="leading" id="hdd-Il-Ud2"/>
+                            <constraint firstItem="OKd-9h-65u" firstAttribute="trailing" secondItem="cOs-gC-Pcx" secondAttribute="trailing" id="i0g-vh-dRO"/>
                             <constraint firstItem="cOs-gC-Pcx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pDy-p0-Ai7"/>
                             <constraint firstItem="NnH-Pm-Ter" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vwE-eR-DLo"/>
                         </constraints>
@@ -374,12 +399,13 @@
                     </view>
                     <connections>
                         <outlet property="emailText" destination="yre-Oo-GDU" id="UUZ-eE-JUk"/>
+                        <outlet property="headerView" destination="OKd-9h-65u" id="MVH-8z-u9B"/>
                         <outlet property="passwordText" destination="cXN-DZ-aLT" id="3qr-Vl-EgT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-30.434782608695656" y="115.84821428571428"/>
+            <point key="canvasLocation" x="588" y="-455"/>
         </scene>
         <!--WebVC-->
         <scene sceneID="k5I-Jg-Q2X">

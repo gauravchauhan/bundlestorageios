@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Add the fb  and google signin to the app with the appID's
         
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        GIDSignIn.sharedInstance().clientID = Constants.AppUrls.googleClient_id
+        GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
         
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let navigationController = UINavigationController(rootViewController: mainViewController)

@@ -129,9 +129,9 @@ func setupGradientButtonBGView(gradientView:UIView , screen : UIViewController)
 {
     gradientLayer.frame.size = gradientView.frame.size
     gradientLayer.colors = [ UIColor(hex: UInt32(Int32(Constants.Colors.firstGradientColor)), alpha: 1.0).cgColor , UIColor(hex: UInt32(Int32(Constants.Colors.secondGradientColor)), alpha: 1.0).cgColor, UIColor(hex: UInt32(Int32(Constants.Colors.thirdGradientColor)), alpha: 1.0).cgColor]
-    gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+    gradientLayer.startPoint = CGPoint(x: 1, y: 1)
     gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-    gradientLayer.frame.size.height = screen.view.height
+    gradientLayer.frame.size.height = gradientView.height
     gradientLayer.frame.size.width = screen.view.width
     gradientView.layer.addSublayer(gradientLayer)
 }
