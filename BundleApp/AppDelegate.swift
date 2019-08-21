@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import FBSDKCoreKit
 import GoogleSignIn
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,13 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         //Add the fb  and google signin to the app with the appID's
-        
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
+        GMSServices.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
+//        GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")
+        GMSPlacesClient.provideAPIKey("AIzaSyD0a5zNMv7YgIGjVYYbMXgJx1W8kUYOY7w")
         
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        let navigationController = UINavigationController(rootViewController: mainViewController)
-        self.window?.rootViewController = navigationController
+//        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+//        let navigationController = UINavigationController(rootViewController: mainViewController)
+//        self.window?.rootViewController = navigationController
         
         return true
     }
@@ -34,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Register for social logins(Fb, Google)
         
-        return (ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) && GIDSignIn.sharedInstance().handle((url as URL??)!, sourceApplication: sourceApplication, annotation: annotation))
+        return GIDSignIn.sharedInstance().handle((url as URL??)!, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func application(application: UIApplication,

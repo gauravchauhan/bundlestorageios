@@ -217,6 +217,14 @@ extension UITableView{
         let indexPath = NSIndexPath(row: index, section: section)
         self.reloadRows(at: [indexPath as IndexPath], with: .fade)
     }
+    
+    func reloadTable(){
+        DispatchQueue.main.async {
+            self.delegate = self as? UITableViewDelegate
+            self.dataSource = self as? UITableViewDataSource
+            self.reloadData()
+        }
+    }
 }
 
 func relativeDateString(for date: Date) -> (String , Int) {
@@ -911,12 +919,178 @@ extension UIImageView
 
 
 extension UIViewController {
-    func pushToWebController(){
+    
+    func pushToSignUpController(){
         DispatchQueue.main.async {
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "WebVC") as! WebVC
-            next.delegate = self as? codeDelegate
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
             self.navigationController?.pushViewController(next, animated: true)
         }
+    }
+    func pushToLoginController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    func pushToSignINController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    func pushToEnterCodeController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "EnterVerificationCodeVC") as! EnterVerificationCodeVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    func pushToResetCodeController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    
+    func pushToStep_FirstController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "UploadID_StepFirstVC") as! UploadID_StepFirstVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToSpaceSelectController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SpaceLocatedVC") as! SpaceLocatedVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToDescribeListingController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "DescribeListingVC") as! DescribeListingVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    
+    
+    func setBackButtonWithTitle(title : String){
+        let backBtn = UIButton()
+        
+        backBtn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        backBtn.setImage(UIImage(named:"backButton"), for: .normal)
+        
+        backBtn.setTitleColor(UIColor.black, for: .normal)
+        
+        backBtn.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
+        
+        let backNavBtn = UIBarButtonItem.init(customView: backBtn)
+        
+        backNavBtn.customView = backBtn
+        
+        
+        
+        // Title Code
+        
+        let titleLbl = UIButton()
+        
+        titleLbl.setTitle(title, for: .normal)
+        
+        titleLbl.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
+        
+        titleLbl.frame = CGRect(x: 0, y: 0, width: (titleLbl.titleLabel?.optimalWidth)!, height: 40)
+        
+        titleLbl.setTitleColor(UIColor(hex: UInt32(Constants.Colors.redText_borderColor), alpha: 1), for: .normal)
+        
+        let leftItem = UIBarButtonItem.init(customView: titleLbl)
+        
+        leftItem.customView?.frame = CGRect(x: 0, y: 0, width: (titleLbl.titleLabel?.optimalWidth)!, height: 40)
+        
+        leftItem.customView = titleLbl
+        
+        let _ = navigationItem.backBarButtonItem
+        
+        self.navigationItem.leftBarButtonItems = [backNavBtn, leftItem]
+    }
+    
+    @objc func click_BackButton(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setRightBarButtonItems(Step : String){
+        
+        //Add right arrow code
+        
+        let leftArrow = UIButton()
+        
+        leftArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        leftArrow.setImage(UIImage(named:"backButton"), for: .normal)
+        
+        leftArrow.setTitleColor(UIColor.black, for: .normal)
+        
+        let letftArrownNavBttn = UIBarButtonItem.init(customView: leftArrow)
+        
+        letftArrownNavBttn.customView = leftArrow
+        
+        // Add current step code
+        
+        let currentStep = UIButton()
+        
+        currentStep.setTitle("  \(Step)" , for: .normal)
+        
+        currentStep.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
+        
+        currentStep.frame = CGRect(x: 0, y: 0, width: (currentStep.titleLabel?.optimalWidth)!, height: 40)
+        
+        currentStep.setTitleColor(UIColor(hex: UInt32(Constants.Colors.textColor), alpha: 1), for: .normal)
+        
+        let currentStepNavBttn = UIBarButtonItem.init(customView: currentStep)
+        
+        currentStepNavBttn.customView?.frame = CGRect(x: 0, y: 0, width: (currentStep.titleLabel?.optimalWidth)!, height: 40)
+        
+        currentStepNavBttn.customView = currentStep
+        
+        
+        // Add All step code
+        
+        let allStep = UIButton()
+        
+        allStep.setTitle("/ 10", for: .normal)
+        
+        allStep.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
+        
+        allStep.frame = CGRect(x: 0, y: 0, width: (allStep.titleLabel?.optimalWidth)!, height: 40)
+        
+        allStep.setTitleColor(UIColor(hex: UInt32(Constants.Colors.textTitleColor), alpha: 1), for: .normal)
+        
+        let allStepNavBttn = UIBarButtonItem.init(customView: allStep)
+        
+        allStepNavBttn.customView?.frame = CGRect(x: 0, y: 0, width: (allStep.titleLabel?.optimalWidth)!, height: 40)
+        
+        allStepNavBttn.customView = allStep
+        
+        // Add left Arrow code
+        
+        let rightArrow = UIButton()
+        
+        rightArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        rightArrow.setImage(UIImage(named:"backButton"), for: .normal)
+        
+        rightArrow.setTitleColor(UIColor.black, for: .normal)
+        
+        let rightArrowNavButton = UIBarButtonItem.init(customView: rightArrow)
+        
+        rightArrowNavButton.customView = rightArrow
+        
+        let _ = navigationItem.backBarButtonItem
+        
+        // Add all the items into right navigation bar array
+        
+        self.navigationItem.rightBarButtonItems = [letftArrownNavBttn, allStepNavBttn , currentStepNavBttn, rightArrowNavButton]
     }
     
 }
@@ -946,5 +1120,3 @@ extension UIApplication {
         return nil
     }
 }
-
-

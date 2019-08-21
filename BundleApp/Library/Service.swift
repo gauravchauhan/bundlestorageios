@@ -14,20 +14,7 @@ enum apiType : String{
 
 //MARK:- Post Delegates
 
-protocol LinkdinAccessTokenDelegate {
-    func linkdinAccessTokenResponse(data : [String : Any])
-}
-
-
 //MARK:- Get Delegates
-
-
-protocol GetEmailFromLindinDelegate {
-    func getEmailFromLindinResponse(data : [String : Any])
-}
-protocol GetNameFromLindinDelegate {
-    func getNameFromLindinResponse(data : [String : Any])
-}
 
 //MARK: Start Class
 
@@ -35,10 +22,6 @@ class Service{
     
     var connection = webservices()
     let errorMessage = Constants.networkConnectionErrorMessage.init(status: "networkError", message: "Check your internet connection")
-    var linkdinAccessTokenDelegate : LinkdinAccessTokenDelegate!
-    var getNameFromLindinDelegate : GetNameFromLindinDelegate!
-    var getEmailFromLindinDelegate : GetEmailFromLindinDelegate!
-    
     //MARK:- Get Delegates varriables
     
     
@@ -221,8 +204,8 @@ class Service{
     func returnResponseToDelegate(apiName : String , response : [String : Any]){
         print("API name \(apiName)")
         switch apiName {
-        case Constants.Linkden_Credentials.lindenGetAccessToken:
-            self.linkdinAccessTokenDelegate.linkdinAccessTokenResponse(data: response)
+        case Constants.AppUrls.login:
+            print("Login url")
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }
@@ -230,11 +213,6 @@ class Service{
     
     
     func returnFromDefaultCase(apiName : String , response : [String : Any]){
-        if apiName.contains("api.linkedin.com/v2/emailAddres"){
-            self.getEmailFromLindinDelegate.getEmailFromLindinResponse(data: response)
-        }else if apiName.contains("api.linkedin.com/v2/me"){
-            self.getNameFromLindinDelegate.getNameFromLindinResponse(data: response)
-        }
     }
     
 }

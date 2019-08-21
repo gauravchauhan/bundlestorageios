@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Regular.ttf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListingTableViewCell" rowHeight="77" id="79j-n8-4m8" customClass="ListingTableViewCell" customModule="BundleApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="459" height="77"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79j-n8-4m8" id="Bmv-l0-O7d">
+                <rect key="frame" x="0.0" y="0.0" width="459" height="76.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpQ-aj-ifb" customClass="MDCCard">
+                        <rect key="frame" x="8" y="12" width="443" height="52"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygc-vA-AOh" customClass="MDCCard">
+                        <rect key="frame" x="15" y="12" width="429" height="52"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8UM-8g-Ikr">
+                        <rect key="frame" x="15" y="12" width="429" height="52"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylQ-gG-oeh">
+                                <rect key="frame" x="10" y="13" width="409" height="26"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ylQ-gG-oeh" secondAttribute="trailing" constant="10" id="Ecm-Ol-vZ2"/>
+                            <constraint firstItem="ylQ-gG-oeh" firstAttribute="top" secondItem="8UM-8g-Ikr" secondAttribute="top" constant="13" id="bZE-IN-BSd"/>
+                            <constraint firstItem="ylQ-gG-oeh" firstAttribute="leading" secondItem="8UM-8g-Ikr" secondAttribute="leading" constant="10" id="ecd-Bw-aOX"/>
+                            <constraint firstItem="ylQ-gG-oeh" firstAttribute="centerY" secondItem="8UM-8g-Ikr" secondAttribute="centerY" id="olG-mp-noz"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="leading" secondItem="Bmv-l0-O7d" secondAttribute="leading" constant="15" id="3S7-eP-9nU"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="bottom" secondItem="Ygc-vA-AOh" secondAttribute="bottom" id="AS1-yD-U0N"/>
+                    <constraint firstAttribute="trailing" secondItem="cpQ-aj-ifb" secondAttribute="trailing" constant="8" id="E5Y-wI-Xdr"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="height" secondItem="Ygc-vA-AOh" secondAttribute="height" id="HnY-dD-jls"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="top" secondItem="Bmv-l0-O7d" secondAttribute="top" constant="12" id="K2v-Rc-09X"/>
+                    <constraint firstAttribute="bottom" secondItem="8UM-8g-Ikr" secondAttribute="bottom" constant="12.5" id="P9i-yM-aHc"/>
+                    <constraint firstAttribute="trailing" secondItem="8UM-8g-Ikr" secondAttribute="trailing" constant="15" id="SCp-FZ-Uic"/>
+                    <constraint firstItem="cpQ-aj-ifb" firstAttribute="top" secondItem="Bmv-l0-O7d" secondAttribute="top" constant="12" id="U3G-zR-kqH"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="leading" secondItem="Ygc-vA-AOh" secondAttribute="leading" id="XcG-fK-R9H"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="top" secondItem="Ygc-vA-AOh" secondAttribute="top" id="avT-nb-hpE"/>
+                    <constraint firstAttribute="bottom" secondItem="cpQ-aj-ifb" secondAttribute="bottom" constant="12.5" id="cd7-uH-Zaq"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="trailing" secondItem="Ygc-vA-AOh" secondAttribute="trailing" id="iaX-xf-QIs"/>
+                    <constraint firstItem="8UM-8g-Ikr" firstAttribute="width" secondItem="Ygc-vA-AOh" secondAttribute="width" id="uaG-p1-QL9"/>
+                    <constraint firstItem="cpQ-aj-ifb" firstAttribute="leading" secondItem="Bmv-l0-O7d" secondAttribute="leading" constant="8" id="ulR-j4-3Cp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="generalView" destination="Ygc-vA-AOh" id="ktw-2y-iaA"/>
+                <outlet property="selectedView" destination="cpQ-aj-ifb" id="rgt-0y-yw7"/>
+            </connections>
+            <point key="canvasLocation" x="-19.565217391304348" y="59.933035714285708"/>
+        </tableViewCell>
+    </objects>
+</document>

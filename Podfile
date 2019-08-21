@@ -6,8 +6,9 @@ target 'BundleApp' do
   use_frameworks!
 pod 'MaterialComponents'
 pod 'AFNetworking', '~> 2.5.4'
-pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   # Pods for BundleApp
 

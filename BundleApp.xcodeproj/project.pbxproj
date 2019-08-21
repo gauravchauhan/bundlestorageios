@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E7F924B23017EDD006E2CEF /* FbLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F924A23017EDD006E2CEF /* FbLogin.swift */; };
-		1E7F924D2301875A006E2CEF /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F924C2301875A006E2CEF /* WebVC.swift */; };
+		1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AC329230BC1C800CF2373 /* SignUpVC.swift */; };
+		1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573440230BF68F00CB4EF6 /* SignInVC.swift */; };
+		1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */; };
+		1E573446230C07B900CB4EF6 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */; };
+		1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573448230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift */; };
+		1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E57344A230C21F400CB4EF6 /* SpaceLocatedVC.swift */; };
+		1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E57344C230C538600CB4EF6 /* ListingCell.xib */; };
 		1E7F926F2301C19C006E2CEF /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F92512301C199006E2CEF /* IQUITextFieldView+Additions.m */; };
 		1E7F92702301C19C006E2CEF /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F92542301C199006E2CEF /* IQUIViewController+Additions.m */; };
 		1E7F92712301C19C006E2CEF /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F92562301C19A006E2CEF /* IQKeyboardReturnKeyHandler.m */; };
@@ -23,6 +28,8 @@
 		1E7F927A2301C19C006E2CEF /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F92692301C19B006E2CEF /* IQKeyboardManager.m */; };
 		1E7F927B2301C19C006E2CEF /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F926B2301C19C006E2CEF /* IQNSArray+Sort.m */; };
 		1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F926D2301C19C006E2CEF /* IQBarButtonItem.m */; };
+		1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */; };
+		1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */; };
 		1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */; };
 		1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EC423012E1700D0FCB4 /* ViewController.swift */; };
 		1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB80EC623012E1700D0FCB4 /* Main.storyboard */; };
@@ -52,8 +59,13 @@
 
 /* Begin PBXFileReference section */
 		121761E2CB17089D10EF81AB /* Pods-BundleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.release.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.release.xcconfig"; sourceTree = "<group>"; };
-		1E7F924A23017EDD006E2CEF /* FbLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbLogin.swift; sourceTree = "<group>"; };
-		1E7F924C2301875A006E2CEF /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
+		1E2AC329230BC1C800CF2373 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		1E573440230BF68F00CB4EF6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeVC.swift; sourceTree = "<group>"; };
+		1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		1E573448230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadID_StepFirstVC.swift; sourceTree = "<group>"; };
+		1E57344A230C21F400CB4EF6 /* SpaceLocatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceLocatedVC.swift; sourceTree = "<group>"; };
+		1E57344C230C538600CB4EF6 /* ListingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingCell.xib; sourceTree = "<group>"; };
 		1E7F92502301C198006E2CEF /* BundleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BundleApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		1E7F92512301C199006E2CEF /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
 		1E7F92522301C199006E2CEF /* IQBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBarButtonItem.h; sourceTree = "<group>"; };
@@ -85,6 +97,8 @@
 		1E7F926C2301C19C006E2CEF /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
 		1E7F926D2301C19C006E2CEF /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
 		1E7F926E2301C19C006E2CEF /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
+		1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeListingVC.swift; sourceTree = "<group>"; };
 		1EB80EBF23012E1700D0FCB4 /* BundleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BundleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EB80EC423012E1700D0FCB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +141,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E2AC327230BC1AC00CF2373 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				1EB80F032301574700D0FCB4 /* LoginVC.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		1E2AC328230BC1B600CF2373 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				1E2AC329230BC1C800CF2373 /* SignUpVC.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		1E57343F230BF67F00CB4EF6 /* SIgnIn */ = {
+			isa = PBXGroup;
+			children = (
+				1E573440230BF68F00CB4EF6 /* SignInVC.swift */,
+			);
+			path = SIgnIn;
+			sourceTree = "<group>";
+		};
+		1E573442230C03E400CB4EF6 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */,
+				1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		1E573447230C0F5C00CB4EF6 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				1E573448230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift */,
+				1E57344A230C21F400CB4EF6 /* SpaceLocatedVC.swift */,
+				1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */,
+			);
+			path = CreatePost;
+			sourceTree = "<group>";
+		};
 		1EB80EB623012E1700D0FCB4 = {
 			isa = PBXGroup;
 			children = (
@@ -172,12 +229,11 @@
 			children = (
 				1EB80EE923013E1C00D0FCB4 /* Indicator.swift */,
 				1EB80EDA2301347E00D0FCB4 /* Extension.swift */,
-				1EB80EDC2301351200D0FCB4 /* Constants.swift */,
 				1EB80EDE23013B6200D0FCB4 /* Webservice.swift */,
+				1EB80EDC2301351200D0FCB4 /* Constants.swift */,
 				1EB80EE023013BDE00D0FCB4 /* Singelton.swift */,
 				1EB80EE223013C6D00D0FCB4 /* Service.swift */,
 				1EB80EE723013DEB00D0FCB4 /* Validation.swift */,
-				1E7F924A23017EDD006E2CEF /* FbLogin.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -237,6 +293,8 @@
 		1EB80ED8230131BC00D0FCB4 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				1E57344C230C538600CB4EF6 /* ListingCell.xib */,
+				1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -244,8 +302,11 @@
 		1EB80ED9230131C300D0FCB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1EB80F032301574700D0FCB4 /* LoginVC.swift */,
-				1E7F924C2301875A006E2CEF /* WebVC.swift */,
+				1E573447230C0F5C00CB4EF6 /* CreatePost */,
+				1E573442230C03E400CB4EF6 /* ForgotPassword */,
+				1E57343F230BF67F00CB4EF6 /* SIgnIn */,
+				1E2AC328230BC1B600CF2373 /* SignUp */,
+				1E2AC327230BC1AC00CF2373 /* LoginVC */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -371,6 +432,7 @@
 				1EB80F012301479B00D0FCB4 /* ProximaNova-Regular.ttf in Resources */,
 				1EB80EFD2301479B00D0FCB4 /* ProximaNova-Extrabld.ttf in Resources */,
 				1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */,
+				1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */,
 				1EB80EFE2301479B00D0FCB4 /* ProximaNova-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,12 +504,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EB80EDB2301347E00D0FCB4 /* Extension.swift in Sources */,
+				1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */,
 				1EB80EE323013C6D00D0FCB4 /* Service.swift in Sources */,
+				1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */,
 				1EB80F042301574700D0FCB4 /* LoginVC.swift in Sources */,
 				1EB80EE623013CE000D0FCB4 /* Rechablity.swift in Sources */,
+				1E573446230C07B900CB4EF6 /* ResetPasswordVC.swift in Sources */,
 				1EB80EEA23013E1C00D0FCB4 /* Indicator.swift in Sources */,
 				1EB80EE123013BDE00D0FCB4 /* Singelton.swift in Sources */,
 				1E7F92752301C19C006E2CEF /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */,
 				1EB80EE823013DEB00D0FCB4 /* Validation.swift in Sources */,
 				1E7F926F2301C19C006E2CEF /* IQUITextFieldView+Additions.m in Sources */,
 				1E7F927A2301C19C006E2CEF /* IQKeyboardManager.m in Sources */,
@@ -456,19 +522,21 @@
 				1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */,
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
+				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
 				1E7F92782301C19C006E2CEF /* IQUIWindow+Hierarchy.m in Sources */,
 				1E7F92772301C19C006E2CEF /* IQTitleBarButtonItem.m in Sources */,
 				1EB80EDF23013B6200D0FCB4 /* Webservice.swift in Sources */,
 				1E7F92732301C19C006E2CEF /* IQUIView+Hierarchy.m in Sources */,
+				1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */,
 				1E7F92722301C19C006E2CEF /* IQTextView.m in Sources */,
-				1E7F924B23017EDD006E2CEF /* FbLogin.swift in Sources */,
-				1E7F924D2301875A006E2CEF /* WebVC.swift in Sources */,
 				1EB80EF32301416900D0FCB4 /* SkyFloatingLabelTextField.swift in Sources */,
 				1E7F927B2301C19C006E2CEF /* IQNSArray+Sort.m in Sources */,
 				1E7F92702301C19C006E2CEF /* IQUIViewController+Additions.m in Sources */,
+				1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */,
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,
+				1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */,
 				1E7F92712301C19C006E2CEF /* IQKeyboardReturnKeyHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
