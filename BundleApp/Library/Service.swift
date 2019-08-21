@@ -14,7 +14,23 @@ enum apiType : String{
 
 //MARK:- Post Delegates
 
+protocol SignUpDelegate {
+    func signUpResponse(data : [String : Any])
+}
+
+protocol SignInDelegate {
+    func signInResponse(data : [String : Any])
+}
+
+protocol SocialLoginDelegate {
+    func socialLoginResponse(data : [String : Any])
+}
+
 //MARK:- Get Delegates
+
+protocol GetListingTypeDelegate {
+    func listingTypeResponse(data : [String : Any])
+}
 
 //MARK: Start Class
 
@@ -22,8 +38,15 @@ class Service{
     
     var connection = webservices()
     let errorMessage = Constants.networkConnectionErrorMessage.init(status: "networkError", message: "Check your internet connection")
-    //MARK:- Get Delegates varriables
     
+    //MARK:- Post Delegates varriables
+    
+    var signUpDelegate : SignUpDelegate!
+    var socialLoginDelegate : SocialLoginDelegate!
+    var signInDelegate : SignInDelegate!
+    
+    //MARK:- Get Delegates varriables
+    var getListingTypeDelegate : GetListingTypeDelegate!
     
     //MARK:- Post method
     
@@ -199,13 +222,19 @@ class Service{
         }
     }
     
-    //MARK:- Return function
+    //MARK:- Return functions
     
     func returnResponseToDelegate(apiName : String , response : [String : Any]){
         print("API name \(apiName)")
         switch apiName {
+        case Constants.AppUrls.getListType:
+            self.getListingTypeDelegate.listingTypeResponse(data: response)
+        case Constants.AppUrls.signup:
+            self.signUpDelegate.signUpResponse(data: response)
+        case Constants.AppUrls.socialLogin:
+            self.socialLoginDelegate.socialLoginResponse(data: response)
         case Constants.AppUrls.login:
-            print("Login url")
+            self.signInDelegate.signInResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

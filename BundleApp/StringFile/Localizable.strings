@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  BundleApp
+
+  Created by Vijay Mishra on 21/08/19.
+  Copyright © 2019 Rohit Gupta. All rights reserved.
+*/
+"Enter first name" = "Enter first name";
+"Enter last name" = "Enter last name";
+"Enter email" = "Enter email";
+"Enter valid email" = "Enter valid email";
+"Enter mobile number" = "Enter mobile number";
+"Name doesn't contain special characters , numbers and symbols" = "Name doesn't contain special characters , numbers and symbols";
+"Enter password" = "Enter password";
+"Enter confirm password" = "Enter confirm password";
+"Password and confirm password should be same" = "Password and confirm password should be same";
+"Enter company name" = "Enter company name";
+"Enter email or phonr number" = "Enter email or phonr number";

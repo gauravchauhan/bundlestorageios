@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, SignUpDelegate {
     
     //MARK:- Outlets
     
@@ -25,6 +25,9 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var phoneNmber: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var password: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var confirmPassword: SkyFloatingLabelTextFieldWithIcon!
+    
+    //MARK:- Varriables
+    var role : String = "ROLE_USER"
     
     //MARK:- Life Cycle Methods
     
@@ -47,7 +50,12 @@ class SignUpVC: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-
+    //MARK:- Delegate
+    
+    func signUpResponse(data: [String : Any]) {
+        print("signUpResponse  \(data)")
+    }
+    
     //MARK:- Actions
     
     @IBAction func click_User(_ sender: Any) {
@@ -63,6 +71,7 @@ class SignUpVC: UIViewController {
     
     @IBAction func click_host(_ sender: Any) {
         DispatchQueue.main.async {
+            self.role = "ROLE_HOST"
             self.firstName.isHidden =  false
             self.lastName.isHidden =  false
             self.companyName.isHidden =  true
@@ -74,6 +83,7 @@ class SignUpVC: UIViewController {
     
     @IBAction func click_Business(_ sender: Any) {
         DispatchQueue.main.async {
+            self.role = "ROLE_BUSINESS"
             self.firstName.isHidden =  true
             self.lastName.isHidden =  true
             self.companyName.isHidden =  false
@@ -88,6 +98,58 @@ class SignUpVC: UIViewController {
     
     @IBAction func click_AlreadyHaveAnAccnt(_ sender: Any) {
         self.pushToLoginController()
+    }
+    
+    //MARK:- IUser Defined function
+    
+    func validation_ForFields(){
+        if (self.role == "ROLE_USER" || self.role == "ROLE_HOST") {
+            guard let firstName : String = self.firstName.text , firstName != "" else {
+                return alert(message: NSLocalizedString("Enter first name", comment: ""), Controller: self)
+            }
+            guard let firstNameValue : String = self.firstName.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
+                return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+            }
+            guard let lastName : String = self.lastName.text , lastName != "" else {
+                return alert(message: NSLocalizedString("Enter last name", comment: ""), Controller: self)
+            }
+            guard let lastNameValue : String = self.firstName.text, (Singelton.sharedInstance.validation.isValidCharacters(lastNameValue))else {
+                return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+            }
+        }else{
+            guard let companyName : String = self.companyName.text , companyName != "" else {
+                return alert(message: NSLocalizedString("Enter company name", comment: ""), Controller: self)
+            }
+        }
+        guard let emailvalue : String = self.email.text , emailvalue != "" else {
+            return alert(message: NSLocalizedString("Enter email", comment: ""), Controller: self)
+        }
+        guard let email : String = self.email.text ,(Singelton.sharedInstance.validation.isValidEmail(email))else {
+            return alert(message: NSLocalizedString("Enter valid email", comment: ""), Controller: self)
+        }
+        guard let number : String = self.phoneNmber.text , number != ""else {
+            return alert(message: NSLocalizedString("Enter mobile number", comment: ""), Controller: self)
+        }
+        guard let password : String = self.password.text , password != "" else {
+            return alert(message: NSLocalizedString("Enter password", comment: ""), Controller: self)
+        }
+        guard let confirmPassword : String = self.confirmPassword.text , confirmPassword != "" else {
+            return alert(message: NSLocalizedString("Enter confirm password", comment: ""), Controller: self)
+        }
+        guard let cnfrmPassword : String = self.confirmPassword.text , cnfrmPassword == password else {
+            return alert(message: NSLocalizedString("Password and confirm password should be same", comment: ""), Controller: self)
+        }
+        
+        var param = ""
+        
+        if (self.role == "ROLE_USER" || self.role == "ROLE_HOST") {
+            param = "firstName=\(String(describing: self.firstName.text!))&role=\(self.role)&lastName=\(String(describing: self.lastName.text!))&email=\(String(describing: self.email.text!))&mobileNumber=\(String(describing: self.phoneNmber.text!))&password=\(String(describing: self.password.text!))"
+        }else{
+            param = "companyName=\(String(describing: self.firstName.text!))&role=\(self.role)&email=\(String(describing: self.email.text!))&mobileNumber=\(String(describing: self.phoneNmber.text!))&password=\(String(describing: self.password.text!))"
+        }
+        Singelton.sharedInstance.service.signUpDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.signup, api_Type: apiType.POST.rawValue)
+        
     }
     
 }

@@ -18,16 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="H0h-NC-MRl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bundle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="vaF-xx-AEX">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="3RA-xG-Od0"/>
+                                    <constraint firstAttribute="width" constant="300" id="Shz-yI-TZw"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H0h-NC-MRl" secondAttribute="bottom" id="Mgb-gb-vYW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H0h-NC-MRl" secondAttribute="trailing" id="TUK-33-qqY"/>
-                            <constraint firstItem="H0h-NC-MRl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="nwZ-kX-7xt"/>
-                            <constraint firstItem="H0h-NC-MRl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xRX-9j-6dn"/>
+                            <constraint firstItem="vaF-xx-AEX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="12Y-y1-jUF"/>
+                            <constraint firstItem="vaF-xx-AEX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lfR-SD-zmG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splashScreen" width="207" height="368"/>
+        <image name="bundle_logo" width="250" height="250"/>
     </resources>
 </document>

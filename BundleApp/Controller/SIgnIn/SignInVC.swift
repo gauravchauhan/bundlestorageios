@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController , SignInDelegate{
     
     //MARK:- OUTLETS
     
@@ -30,6 +30,10 @@ class SignInVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MAARK:- Delegate
+    func signInResponse(data: [String : Any]) {
+        print("signInResponse   \(data)")
+    }
 
     //MARK:- Actions
     
@@ -67,6 +71,24 @@ class SignInVC: UIViewController {
             self.hostImage.image = UIImage(named: "circle")
             self.businessImage.image = UIImage(named: "filled_Circle")
         }
+    }
+    
+    //MARK:- User Defined functions
+    
+    func validatio_Fields(){
+        guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
+            return alert(message: NSLocalizedString("Enter email or phonr number", comment: ""), Controller: self)
+        }
+        guard let firstNameValue : String = self.emailOrPhone.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
+            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+        }
+        guard let password : String = self.password.text , password != "" else {
+            return alert(message: NSLocalizedString("Enter password", comment: ""), Controller: self)
+        }
+        let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
+        print("Param \(param)")
+        Singelton.sharedInstance.service.signInDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.socialLogin, api_Type: apiType.POST.rawValue)
     }
     
 }

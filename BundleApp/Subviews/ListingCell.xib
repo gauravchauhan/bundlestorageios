@@ -79,6 +79,7 @@
             <connections>
                 <outlet property="generalView" destination="Ygc-vA-AOh" id="ktw-2y-iaA"/>
                 <outlet property="selectedView" destination="cpQ-aj-ifb" id="rgt-0y-yw7"/>
+                <outlet property="typeName" destination="ylQ-gG-oeh" id="aMG-ru-9LS"/>
             </connections>
             <point key="canvasLocation" x="-19.565217391304348" y="59.933035714285708"/>
         </tableViewCell>

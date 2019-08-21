@@ -13,6 +13,8 @@ class ListingTableViewCell: UITableViewCell {
     @IBOutlet weak var selectedView: UIView!
     
     @IBOutlet weak var generalView: UIView!
+    @IBOutlet weak var typeName: UILabel!
+    
     //MDCCard
     
 

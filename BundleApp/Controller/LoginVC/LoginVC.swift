@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate{
+class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, SocialLoginDelegate{
     
     //MARK:- Outlets
     
@@ -31,13 +31,23 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate{
     
     //MARK:- Delegate
     
+    func socialLoginResponse(data: [String : Any]) {
+        print("socialLoginResponse   \(data)")
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         if let error = error {
             print("\(error.localizedDescription)")
         } else {
+            print(user.userID!)
             print(user.profile.name!)
             print(user.profile.givenName!)
+            print(user.profile.email!)
+            let param = "googleId=\(String(describing: user.userID!))&role=ROLE_USER&firstName=\(String(describing: user.profile.givenName!))&lastName=\(String(describing: user.profile.name.components(separatedBy: " ")[1]))&email=\(String(describing: user.profile.email!))"
+            print("Param \(param)")
+            Singelton.sharedInstance.service.socialLoginDelegate = self
+            Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.socialLogin, api_Type: apiType.POST.rawValue)
         }
     }
     
@@ -56,7 +66,7 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate{
     
     @IBAction func click_Signup_Button(_ sender: Any) {
         print("Click sighup")
-        self.pushToStep_FirstController()
+        self.pushToSignUpController()
     }
     
     @IBAction func click_Login_Button(_ sender: Any) {

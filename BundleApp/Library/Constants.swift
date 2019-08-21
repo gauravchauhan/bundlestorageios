@@ -3,17 +3,19 @@ import UIKit
 struct Constants {
     
     struct AppUrls{
-        static let baseUrl = "http://them.teamjft.com"
-        static let experience = "/experience"
-        static let learn = "/interest"
-        static let signup = "/auth/register"
-        static let login = "/auth/login"
+        static let baseUrl = "http://9a7ec758.ngrok.io/"
+        static let getListType = "getListingType"
+        static let getAmenities = "getAmenities"
+        static let login = "login"
+        static let signup = "signup"
+        static let socialLogin = "socialLogin"
+        static let verifyOtp = "verifyOtp"
+        //verifyOtp
     }
     
     struct Google_Credentials {
         static let googleClient_id = "16063448195-fr6rubcljrclhc9re3ria8hdipm24k8f.apps.googleusercontent.com"
         static let googleAPIKey = "AIzaSyD0a5zNMv7YgIGjVYYbMXgJx1W8kUYOY7w"
-        //
     }
     
     struct fonts {
