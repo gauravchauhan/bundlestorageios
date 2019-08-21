@@ -19,7 +19,7 @@ class EnterVerificationCodeVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view. 24 11
-        self.setBackButtonWithTitle(title: "")
+        self.setBackButtonWithTitle(title: "Verification Code")
         self.notReceivedCodeLabel.attributedText = colorString(location: 23, length: 11, String: self.notReceivedCodeLabel.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
     }
     
