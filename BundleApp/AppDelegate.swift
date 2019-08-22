@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Add the fb  and google signin to the app with the appID's
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
         GMSServices.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
-        GMSPlacesClient.provideAPIKey("AIzaSyD0a5zNMv7YgIGjVYYbMXgJx1W8kUYOY7w")
+        GMSPlacesClient.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
         
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let navigationController = UINavigationController(rootViewController: mainViewController)
