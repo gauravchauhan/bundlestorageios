@@ -33,12 +33,13 @@ class SignUpVC: UIViewController, SignUpDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.firstName.setTheImageWithText(imageName: "email")
-        self.lastName.setTheImageWithText(imageName: "lock")
+        self.firstName.setTheImageWithText(imageName: "user")
+        self.lastName.setTheImageWithText(imageName: "user")
         self.email.setTheImageWithText(imageName: "email")
-        self.phoneNmber.setTheImageWithText(imageName: "email")
+        self.phoneNmber.setTheImageWithText(imageName: "phone")
         self.password.setTheImageWithText(imageName: "lock")
         self.confirmPassword.setTheImageWithText(imageName: "lock")
+        self.companyName.setTheImageWithText(imageName: "company")
         self.navigationController?.isNavigationBarHidden = false
         self.setBackButtonWithTitle(title : "Create an account")
         self.alreadyHaveAccountLabel.attributedText = colorString(location: 25, length: 7, String: self.alreadyHaveAccountLabel.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))

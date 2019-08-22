@@ -1458,9 +1458,9 @@
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Hc-XPT">
-                                <rect key="frame" x="20" y="177" width="374" height="331"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="uploadImage" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Hc-XPT">
+                                <rect key="frame" x="20" y="163.5" width="374" height="344.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZr-At-JvM">
                                 <rect key="frame" x="30" y="772" width="354" height="50"/>
@@ -1485,7 +1485,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QhV-Ao-oQ1" firstAttribute="top" secondItem="aJb-fb-Yhs" secondAttribute="top" constant="20" id="Apg-0M-fvz"/>
-                            <constraint firstItem="lzf-Hc-XPT" firstAttribute="top" secondItem="Eh7-a9-mlh" secondAttribute="bottom" constant="23.5" id="J5U-u2-Pgm"/>
+                            <constraint firstItem="lzf-Hc-XPT" firstAttribute="top" secondItem="Eh7-a9-mlh" secondAttribute="bottom" constant="10" id="J5U-u2-Pgm"/>
                             <constraint firstItem="AZr-At-JvM" firstAttribute="top" secondItem="lzf-Hc-XPT" secondAttribute="bottom" constant="264" id="LZ0-NW-Djl"/>
                             <constraint firstItem="AZr-At-JvM" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="30" id="SV4-FK-BRa"/>
                             <constraint firstItem="lzf-Hc-XPT" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="20" id="Tzj-kz-cIR"/>
@@ -2046,5 +2046,6 @@
         <image name="circle" width="16" height="16"/>
         <image name="filled_Circle" width="20" height="20"/>
         <image name="googleIcon" width="24" height="24"/>
+        <image name="uploadImage" width="250" height="200.5"/>
     </resources>
 </document>
