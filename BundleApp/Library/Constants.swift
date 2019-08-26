@@ -2,15 +2,21 @@ import UIKit
 
 struct Constants {
     
+    /*
+     All URLS declare which is used in to the application
+     */
+    
     struct AppUrls{
-        static let baseUrl = "http://9a7ec758.ngrok.io/"
+        static let baseUrl = "http://d080bcf9.ngrok.io/"
         static let getListType = "getListingType"
         static let getAmenities = "getAmenities"
         static let login = "login"
         static let signup = "signup"
         static let socialLogin = "socialLogin"
         static let verifyOtp = "verifyOtp"
-        //verifyOtp
+        static let addStorage = "addStorage"
+        static let getStorageList = "filterStorage"
+        //getHostList
     }
     
     struct Google_Credentials {

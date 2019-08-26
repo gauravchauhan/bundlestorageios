@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GetListingTypeDelegate {
+class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GetListingTypeDelegate, UIGestureRecognizerDelegate {
     
     //MARK:- Outlets
     
+    @IBOutlet weak var lisTopConstraints: NSLayoutConstraint!
     @IBOutlet weak var list: UITableView!
     var listingModal = [ListingModal]()
     
@@ -22,6 +23,7 @@ class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getListType, api_Type: apiType.GET.rawValue)
         self.setBackButtonWithTitle(title: "Create")
         self.setRightBarButtonItems(Step: "03")
+        //self.createPanGestureRecognizer()
         // Do any additional setup after loading the view.
     }
     

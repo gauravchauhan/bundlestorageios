@@ -20,6 +20,12 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, Social
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.value(forKey: "userData") != nil{
+            self.pushToStorageListController()
+        }else{
+            
+        }
+        
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         self.dontHaveAccountLabel.attributedText = colorString(location: 24, length: 10, String: self.dontHaveAccountLabel.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
@@ -32,7 +38,9 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, Social
     //MARK:- Delegate
     
     func socialLoginResponse(data: [String : Any]) {
-        print("socialLoginResponse   \(data)")
+        print("Social login response \(data)")
+        let result = (data["user"]as! [String : Any]).nullKeyRemoval()
+        print("rsult as dictionary \(result["email"]as! String)")
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,

@@ -108,7 +108,7 @@ func breZerPAth(View : UIView){
 
 func alert(message : String, Controller : UIViewController ){
     DispatchQueue.main.async {
-        let alertView = UIAlertController(title: "THEM", message: message, preferredStyle: .alert)
+        let alertView = UIAlertController(title: NSLocalizedString("Bundle App", comment: ""), message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertView.addAction(action)
         Controller.present(alertView, animated: true, completion: nil)
@@ -973,6 +973,13 @@ extension UIViewController {
         }
     }
     
+    func pushToStorageListController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "HostListOnMapVC") as! HostListOnMapVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
     
     
     func setBackButtonWithTitle(title : String){
@@ -1118,5 +1125,19 @@ extension UIApplication {
             return value(forKey: "statusBar") as? UIView
         }
         return nil
+    }
+}
+
+extension Dictionary {
+    func nullKeyRemoval() -> Dictionary {
+        var dict = self
+        
+        let keysToRemove = Array(dict.keys).filter { dict[$0] is NSNull }
+        for key in keysToRemove {
+//            dict.removeValue(forKey: key)
+            dict[key] = "" as? Value
+        }
+        
+        return dict
     }
 }

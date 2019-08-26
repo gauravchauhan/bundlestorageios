@@ -26,11 +26,21 @@ protocol SocialLoginDelegate {
     func socialLoginResponse(data : [String : Any])
 }
 
+protocol AddStorageDelegate {
+    func addStorageResponse(data : [String : Any])
+}
+
+protocol GetStorageListDelegate {
+    func getStorageListResponse(data : [String : Any])
+}
+
+
 //MARK:- Get Delegates
 
 protocol GetListingTypeDelegate {
     func listingTypeResponse(data : [String : Any])
 }
+
 
 //MARK: Start Class
 
@@ -44,6 +54,8 @@ class Service{
     var signUpDelegate : SignUpDelegate!
     var socialLoginDelegate : SocialLoginDelegate!
     var signInDelegate : SignInDelegate!
+    var addStorageDelegate : AddStorageDelegate!
+    var getStorageListDelegate : GetStorageListDelegate!
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
@@ -102,7 +114,7 @@ class Service{
             print("Parameter \(String(describing: data))")
             request.httpBody = data
             print(Singelton.sharedInstance.authToken)
-            print(url)
+            print(url as Any)
             Singelton.sharedInstance.authToken != "" ? request.addValue("JWT " + Singelton.sharedInstance.authToken , forHTTPHeaderField: "Authorization") : nil
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {
@@ -235,11 +247,14 @@ class Service{
             self.socialLoginDelegate.socialLoginResponse(data: response)
         case Constants.AppUrls.login:
             self.signInDelegate.signInResponse(data: response)
+        case Constants.AppUrls.addStorage:
+            self.addStorageDelegate.addStorageResponse(data: response)
+        case Constants.AppUrls.getStorageList:
+            self.getStorageListDelegate.getStorageListResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }
     }
-    
     
     func returnFromDefaultCase(apiName : String , response : [String : Any]){
     }

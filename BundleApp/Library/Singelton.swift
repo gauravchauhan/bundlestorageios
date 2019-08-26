@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 
 class Singelton {
@@ -14,13 +15,18 @@ class Singelton {
     static let sharedInstance = Singelton()
     var validation = Validation()
     var service = Service()
+    var location = Location()
     var authToken = ""
-//    var userDataModel = UserData()
+    var userDataModel = UserDataModal()
     var id : String?
     var currentCountryCode : String?
+    var currentLatitude : CLLocationDegrees!
+    var currentLongitude : CLLocationDegrees!
     
     // METHODS
     private init() {
+        print("Singelton run ")
+        location.setLatLong()
         if UserDefaults.standard.value(forKey:"authToken") != nil {
             print("Singelton authToken")
             authToken = UserDefaults.standard.value(forKey: "authToken") as! String

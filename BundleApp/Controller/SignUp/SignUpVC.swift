@@ -55,6 +55,7 @@ class SignUpVC: UIViewController, SignUpDelegate {
     
     func signUpResponse(data: [String : Any]) {
         print("signUpResponse  \(data)")
+        data["status"]as! Bool ? (_ = self.navigationController?.popViewController(animated: true)) : nil
     }
     
     //MARK:- Actions
@@ -95,13 +96,14 @@ class SignUpVC: UIViewController, SignUpDelegate {
     }
     
     @IBAction func click_SignUp_Button(_ sender: Any) {
+        self.validation_ForFields()
     }
     
     @IBAction func click_AlreadyHaveAnAccnt(_ sender: Any) {
         self.pushToLoginController()
     }
     
-    //MARK:- IUser Defined function
+    //MARK:- User Defined function
     
     func validation_ForFields(){
         if (self.role == "ROLE_USER" || self.role == "ROLE_HOST") {

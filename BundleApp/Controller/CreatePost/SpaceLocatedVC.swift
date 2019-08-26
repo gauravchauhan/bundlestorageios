@@ -35,7 +35,7 @@ class SpaceLocatedVC: UIViewController {
 extension SpaceLocatedVC: GMSAutocompleteViewControllerDelegate {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place \(place.name)")
+        print("Place \(String(describing: place.name))")
         print("Places \(String(describing: place.formattedAddress))")
         dismiss(animated: true, completion: nil)
     }

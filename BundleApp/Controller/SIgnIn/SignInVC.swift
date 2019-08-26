@@ -32,15 +32,22 @@ class SignInVC: UIViewController , SignInDelegate{
     
     //MAARK:- Delegate
     func signInResponse(data: [String : Any]) {
-        print("signInResponse   \(data)")
+        print("signInResponse   \(data.nullKeyRemoval())")
+        let signInResponse = (data["user"]as! [String : Any]).nullKeyRemoval()
+        UserDefaults.standard.set(signInResponse , forKey: "userData")
+        UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
+        Singelton.sharedInstance.authToken = data["token"]as! String
+        data["status"]as! Bool ? self.pushToStorageListController() : print("error")
     }
 
     //MARK:- Actions
     
     @IBAction func click_SignUpBttn(_ sender: Any) {
+        self.validatio_Fields()
     }
     
     @IBAction func click_DontHaveAnAccountBttn(_ sender: Any) {
+        self.pushToSignUpController()
     }
     
     
@@ -79,16 +86,16 @@ class SignInVC: UIViewController , SignInDelegate{
         guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
             return alert(message: NSLocalizedString("Enter email or phonr number", comment: ""), Controller: self)
         }
-        guard let firstNameValue : String = self.emailOrPhone.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
-            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
-        }
+//        guard let firstNameValue : String = self.emailOrPhone.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
+//            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+//        }
         guard let password : String = self.password.text , password != "" else {
             return alert(message: NSLocalizedString("Enter password", comment: ""), Controller: self)
         }
         let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
         print("Param \(param)")
         Singelton.sharedInstance.service.signInDelegate = self
-        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.socialLogin, api_Type: apiType.POST.rawValue)
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.login, api_Type: apiType.POST.rawValue)
     }
     
 }
