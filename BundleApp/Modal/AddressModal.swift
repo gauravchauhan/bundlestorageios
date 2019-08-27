@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleMaps
 
 
 /*
@@ -25,10 +26,20 @@ import Foundation
 class AddressModal {
     private var add : String!
     private var city : String!
-    private var lat : String!
-    private var lng : String!
+    private var lat : CGFloat!
+    private var lng : CGFloat!
     private var state : String!
     private var postalCode : String!
+    private var position : CLLocationCoordinate2D!
+    
+    var storagePosition : CLLocationCoordinate2D?{
+        get{
+            return position!
+        }
+        set{
+            self.position = newValue
+        }
+    }
     
     var storageAddress : String?{
         get{
@@ -48,7 +59,7 @@ class AddressModal {
         }
     }
     
-    var storageLat : String?{
+    var storageLat : CGFloat?{
         get{
             return lat!
         }
@@ -57,7 +68,7 @@ class AddressModal {
         }
     }
     
-    var storageLng : String?{
+    var storageLng : CGFloat?{
         get{
             return lng!
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StorageListModal{
+class x{
     private var amenities : NSArray!
     private var availablityStatus : String!
     private var descripton : String!
@@ -20,6 +20,17 @@ class StorageListModal{
     private var type : String!
     private var name : String!
     private var priceType : String!
+    private var storageAddress : AddressModal!
+    
+    var address : AddressModal?{
+        get{
+            return storageAddress!
+        }
+        set{
+            self.storageAddress = newValue
+        }
+    }
+    
     
     var allAmenities : NSArray?{
         get{

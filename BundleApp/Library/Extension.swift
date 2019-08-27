@@ -6,6 +6,35 @@
 //  Copyright © 2018 Rohit Gupta. All rights reserved.
 //
 import UIKit
+import GoogleMaps
+
+extension GMSMapView{
+    
+    func addMarker(position : CLLocationCoordinate2D, title : String){
+        DispatchQueue.main.async
+            {
+                // 2. Perform UI Operations.
+                let position = position
+                let marker = GMSMarker(position: position)
+                marker.title = title
+                marker.map = self
+        }
+    }
+    
+    func setTheCameraPosition(firstPosition : CLLocationCoordinate2D , lastPosition : CLLocationCoordinate2D){
+        DispatchQueue.main.async
+            {
+                let firstCordinates = firstPosition
+                let lastCordinates = lastPosition
+                let bounds = GMSCoordinateBounds(coordinate: firstCordinates, coordinate: lastCordinates)
+                let camera = self.camera(for: bounds, insets: UIEdgeInsets())!
+                self.camera = camera
+        }
+    }
+    
+}
+
+
 
 protocol BackButtonDelegate {
     func click_BackButton()
@@ -1098,6 +1127,21 @@ extension UIViewController {
         // Add all the items into right navigation bar array
         
         self.navigationItem.rightBarButtonItems = [letftArrownNavBttn, allStepNavBttn , currentStepNavBttn, rightArrowNavButton]
+    }
+    
+    func addDrawerButton(){
+        let leftArrow = UIButton()
+        
+        leftArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        leftArrow.setImage(UIImage(named:"backButton"), for: .normal)
+        
+        leftArrow.setTitleColor(UIColor.black, for: .normal)
+        
+        let letftArrownNavBttn = UIBarButtonItem.init(customView: leftArrow)
+        
+        letftArrownNavBttn.customView = leftArrow
+        self.navigationItem.rightBarButtonItem = letftArrownNavBttn
     }
     
 }
