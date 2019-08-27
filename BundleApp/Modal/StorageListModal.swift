@@ -8,7 +8,7 @@
 
 import Foundation
 
-class x{
+class StorageListModal{
     private var amenities : NSArray!
     private var availablityStatus : String!
     private var descripton : String!
