@@ -1458,7 +1458,7 @@
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="uploadImage" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Hc-XPT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="uploadImage" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Hc-XPT">
                                 <rect key="frame" x="20" y="163.5" width="374" height="344.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -1481,14 +1481,41 @@
                                     <action selector="click_NextBttn:" destination="Jrc-9w-JSJ" eventType="touchUpInside" id="H6i-pL-hgZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEd-LR-BPl">
+                                <rect key="frame" x="30" y="690" width="354" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cHP-BQ-qJX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="click_UploadButton:" destination="Jrc-9w-JSJ" eventType="touchUpInside" id="6HL-oM-4ZZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TEd-LR-BPl" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="30" id="2np-f9-7Yh"/>
                             <constraint firstItem="QhV-Ao-oQ1" firstAttribute="top" secondItem="aJb-fb-Yhs" secondAttribute="top" constant="20" id="Apg-0M-fvz"/>
-                            <constraint firstItem="lzf-Hc-XPT" firstAttribute="top" secondItem="Eh7-a9-mlh" secondAttribute="bottom" constant="10" id="J5U-u2-Pgm"/>
-                            <constraint firstItem="AZr-At-JvM" firstAttribute="top" secondItem="lzf-Hc-XPT" secondAttribute="bottom" constant="264" id="LZ0-NW-Djl"/>
+                            <constraint firstItem="AZr-At-JvM" firstAttribute="top" secondItem="TEd-LR-BPl" secondAttribute="bottom" constant="32" id="GcM-ia-fdm"/>
+                            <constraint firstItem="lzf-Hc-XPT" firstAttribute="top" secondItem="Eh7-a9-mlh" secondAttribute="bottom" constant="10" id="R1m-4v-feP"/>
                             <constraint firstItem="AZr-At-JvM" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="30" id="SV4-FK-BRa"/>
-                            <constraint firstItem="lzf-Hc-XPT" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="20" id="Tzj-kz-cIR"/>
+                            <constraint firstItem="aJb-fb-Yhs" firstAttribute="trailing" secondItem="lzf-Hc-XPT" secondAttribute="trailing" constant="20" id="Sf0-TZ-sjk"/>
+                            <constraint firstItem="TEd-LR-BPl" firstAttribute="top" secondItem="lzf-Hc-XPT" secondAttribute="bottom" constant="182" id="VMo-RX-Hkv"/>
                             <constraint firstItem="QhV-Ao-oQ1" firstAttribute="leading" secondItem="PUT-Nk-vJb" secondAttribute="leading" constant="20" id="ZyD-RC-jaY"/>
                             <constraint firstItem="aJb-fb-Yhs" firstAttribute="trailing" secondItem="Eh7-a9-mlh" secondAttribute="trailing" constant="20" id="bJC-h8-nhk"/>
                             <constraint firstItem="Eh7-a9-mlh" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="20" id="e4U-p0-L7C"/>
@@ -1496,10 +1523,14 @@
                             <constraint firstItem="aJb-fb-Yhs" firstAttribute="trailing" secondItem="AZr-At-JvM" secondAttribute="trailing" constant="30" id="mDG-DY-5vP"/>
                             <constraint firstItem="aJb-fb-Yhs" firstAttribute="trailing" secondItem="QhV-Ao-oQ1" secondAttribute="trailing" constant="20" id="msj-I6-fvA"/>
                             <constraint firstItem="aJb-fb-Yhs" firstAttribute="bottom" secondItem="AZr-At-JvM" secondAttribute="bottom" constant="40" id="q2f-ki-eWH"/>
-                            <constraint firstItem="aJb-fb-Yhs" firstAttribute="trailing" secondItem="lzf-Hc-XPT" secondAttribute="trailing" constant="20" id="t6m-Ga-QZU"/>
+                            <constraint firstItem="aJb-fb-Yhs" firstAttribute="trailing" secondItem="TEd-LR-BPl" secondAttribute="trailing" constant="30" id="rc6-8b-qT7"/>
+                            <constraint firstItem="lzf-Hc-XPT" firstAttribute="leading" secondItem="aJb-fb-Yhs" secondAttribute="leading" constant="20" id="sJs-Gy-I9h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJb-fb-Yhs"/>
                     </view>
+                    <connections>
+                        <outlet property="proof_Image" destination="lzf-Hc-XPT" id="ghj-mw-VKd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9l2-4C-W4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1575,6 +1606,9 @@
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="click_NextButton:" destination="8Xo-AB-38F" eventType="touchUpInside" id="gXc-g7-cWg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1601,6 +1635,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UJE-88-cwQ"/>
                     </view>
+                    <connections>
+                        <outlet property="addressMapView" destination="5U1-EN-HBu" id="evP-HF-Ngg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWL-bu-0J6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
