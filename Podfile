@@ -9,6 +9,8 @@ pod 'AFNetworking', '~> 2.5.4'
 pod 'GoogleSignIn'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+pod 'NWSTokenView'
+pod 'ImageSlideshow', '~> 1.8'
 
   # Pods for BundleApp
 

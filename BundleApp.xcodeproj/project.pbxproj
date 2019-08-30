@@ -67,6 +67,10 @@
 		1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA47AA230FC70400FC939D /* HostListCell.xib */; };
 		1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */; };
 		855B03BE2FA3D10F3EC031DD /* Pods_BundleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */; };
+		9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */; };
+		9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E1678231543FC00DA055C /* DetailViewController.swift */; };
+		9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFD006523164351006D5C97 /* NWSImageToken.xib */; };
+		9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD006723164365006D5C97 /* NWSImageToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +154,10 @@
 		1ECA47AA230FC70400FC939D /* HostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HostListCell.xib; sourceTree = "<group>"; };
 		1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostListTableViewCell.swift; sourceTree = "<group>"; };
 		2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BundleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGFlingActionButton.swift; sourceTree = "<group>"; };
+		9B7E1678231543FC00DA055C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9BFD006523164351006D5C97 /* NWSImageToken.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NWSImageToken.xib; sourceTree = "<group>"; };
+		9BFD006723164365006D5C97 /* NWSImageToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWSImageToken.swift; sourceTree = "<group>"; };
 		D0BE235A0DB7BBBDEDCCEC9C /* Pods-BundleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.debug.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,7 +252,6 @@
 				1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */,
 				1EB80EC423012E1700D0FCB4 /* ViewController.swift */,
 				1EB80EC623012E1700D0FCB4 /* Main.storyboard */,
-				1EB80EC923012E1800D0FCB4 /* Assets.xcassets */,
 				1EB80ECB23012E1800D0FCB4 /* LaunchScreen.storyboard */,
 				1EB80ECE23012E1800D0FCB4 /* Info.plist */,
 			);
@@ -254,6 +261,7 @@
 		1EB80ED42301317400D0FCB4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1EB80EC923012E1800D0FCB4 /* Assets.xcassets */,
 				1EB80EE923013E1C00D0FCB4 /* Indicator.swift */,
 				1EB80EDA2301347E00D0FCB4 /* Extension.swift */,
 				1EB80EDE23013B6200D0FCB4 /* Webservice.swift */,
@@ -337,6 +345,7 @@
 		1EB80ED9230131C300D0FCB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9BE86C4523168D77005C0158 /* DetailsController */,
 				1ECA47A7230FC67900FC939D /* HostList */,
 				1E573447230C0F5C00CB4EF6 /* CreatePost */,
 				1E573442230C03E400CB4EF6 /* ForgotPassword */,
@@ -402,6 +411,17 @@
 				2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BE86C4523168D77005C0158 /* DetailsController */ = {
+			isa = PBXGroup;
+			children = (
+				9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */,
+				9B7E1678231543FC00DA055C /* DetailViewController.swift */,
+				9BFD006523164351006D5C97 /* NWSImageToken.xib */,
+				9BFD006723164365006D5C97 /* NWSImageToken.swift */,
+			);
+			path = DetailsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +499,7 @@
 				1E8AF9C5230D51D400240F65 /* Localizable.strings in Resources */,
 				1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */,
 				1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */,
+				9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */,
 				1EB80EFE2301479B00D0FCB4 /* ProximaNova-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +588,7 @@
 				1E7F926F2301C19C006E2CEF /* IQUITextFieldView+Additions.m in Sources */,
 				1E7F927A2301C19C006E2CEF /* IQKeyboardManager.m in Sources */,
 				1E8AF9BF230D277800240F65 /* SelectSpaceDimensionVC.swift in Sources */,
+				9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */,
 				1EB80EF12301416900D0FCB4 /* UITextField+fixCaretPosition.swift in Sources */,
 				1EA698D9231409D600C50AE7 /* AddressModal.swift in Sources */,
 				1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */,
@@ -574,6 +596,7 @@
 				1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */,
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
+				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
@@ -589,6 +612,7 @@
 				1EB80EF32301416900D0FCB4 /* SkyFloatingLabelTextField.swift in Sources */,
 				1E7F927B2301C19C006E2CEF /* IQNSArray+Sort.m in Sources */,
 				1E7F92702301C19C006E2CEF /* IQUIViewController+Additions.m in Sources */,
+				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescribtionVC.swift in Sources */,
 				1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */,
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,
@@ -744,6 +768,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -752,8 +777,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BundleApp/KeyBoard/BundleApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -766,6 +791,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,8 +799,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jft.BundleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BundleApp/KeyBoard/BundleApp-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

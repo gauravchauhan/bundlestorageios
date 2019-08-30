@@ -42,6 +42,7 @@ struct Constants {
         static let textTitleColor : UInt32 = 0x999999
         static let textColor : UInt32 = 0x3c3c3c
         static let redText_borderColor : UInt32 = 0xFD0E35
+        static let lightGrayColor : UInt32 = 0xF2F2F2
     }
     
     struct networkConnectionErrorMessage{

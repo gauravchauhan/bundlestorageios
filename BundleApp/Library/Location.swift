@@ -38,7 +38,7 @@ class Location : NSObject, CLLocationManagerDelegate{
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                    Singelton.sharedInstance.location.setLatLong()
+                  //  Singelton.sharedInstance.location.setLatLong()
                 }
             }
         }
