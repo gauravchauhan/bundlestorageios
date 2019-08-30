@@ -7,20 +7,50 @@
 //
 
 import Foundation
+import CoreLocation
 
 class AddStorageModal{
     
-    var spaceName : String?
-    var spaceType : String?
-    var spaceHeight : String?
-    var spaceWidth   : String?
-    var availability : String?
-    var price : String?
-    var priceType : String?
-    var discount : String?
-    var amenities : NSArray?
-    var description : String?
-    var Image : NSData?
+    private var spaceName : String?
+    private var spaceType : String?
+    private var spaceHeight : String?
+    private var spaceWidth   : String?
+    private var availability : String?
+    private var price : String?
+    private var priceType : String?
+    private var discount : String?
+    private var amenities : NSArray?
+    private  var description : String?
+    private  var address : String?
+    private var Lat : CLLocationDegrees?
+    private var Lng : CLLocationDegrees?
+    
+    
+    var storageAddress : String?{
+        get{
+            return address!
+        }
+        set{
+            self.address = newValue
+        }
+    }
+    var storageLatitude : CLLocationDegrees?{
+        get{
+            return Lat!
+        }
+        set{
+            self.Lat = newValue
+        }
+    }
+    
+    var storageLongitude : CLLocationDegrees?{
+        get{
+            return Lng!
+        }
+        set{
+            self.Lng = newValue
+        }
+    }
     
     var storageName : String?{
         get{
@@ -94,7 +124,7 @@ class AddStorageModal{
         }
     }
     
-    var storageFaculity : NSArray?{
+    var storageFacility : NSArray?{
         get{
             return amenities!
         }
@@ -111,17 +141,5 @@ class AddStorageModal{
             self.description = newValue
         }
     }
-    
-    var storageImage : NSData?{
-        get{
-            return Image!
-        }
-        set{
-            self.Image = newValue
-        }
-    }
-    
-    
-    
     
 }

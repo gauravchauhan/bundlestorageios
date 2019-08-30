@@ -21,10 +21,10 @@ class Location : NSObject, CLLocationManagerDelegate{
                 self.currentLocation = self.locManager.location
                 self.locManager.delegate = self
                 self.locManager.startUpdatingLocation()
-                print("Location Class Latitude  \(self.currentLocation.coordinate.latitude)")
-                print("Location Class Latitude \(self.currentLocation.coordinate.longitude)")
-                Singelton.sharedInstance.currentLatitude = self.currentLocation.coordinate.latitude
-                Singelton.sharedInstance.currentLongitude = self.currentLocation.coordinate.longitude
+//                print("Location Class Latitude  \(self.currentLocation.coordinate.latitude)")
+//                print("Location Class Latitude \(self.currentLocation.coordinate.longitude)")
+                Singelton.sharedInstance.currentLatitude = 28.77
+                Singelton.sharedInstance.currentLongitude = 77.0
             }else{
                 self.locManager.delegate = self
                 self.locManager.requestAlwaysAuthorization()

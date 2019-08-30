@@ -9,22 +9,33 @@
 import UIKit
 
 class SelectSpaceDimensionVC: UIViewController {
+    
+    
+    //MARK:- Outlets
+    @IBOutlet weak var length: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var width: SkyFloatingLabelTextFieldWithIcon!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setRightBarButtonItems(Step: "04")
+        self.setBackButtonWithTitle(title: "Create")
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func click_NextButton(_ sender: Any) {
+        
+        guard let length : String = self.length.text , length != "" else {
+            return alert(message: NSLocalizedString("Enter length", comment: ""), Controller: self)
+        }
+        guard let width : String = self.width.text , width != "" else {
+            return alert(message: NSLocalizedString("Enter width", comment: ""), Controller: self)
+        }
+        
+        Singelton.sharedInstance.addStorageModal.storageHeight = length
+        Singelton.sharedInstance.addStorageModal.storagewidth = width
+        self.pushToDescribeListingController(fromWhichScreen: "selectSpace")
     }
-    */
+    
 
 }

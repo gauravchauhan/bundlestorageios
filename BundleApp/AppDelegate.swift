@@ -23,8 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Add the fb  and google signin to the app with the appID's
         Singelton.sharedInstance.location.setLatLong()
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
-        GMSServices.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
-        GMSPlacesClient.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
+//        GMSServices.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
+//        GMSPlacesClient.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
+        GMSServices.provideAPIKey("AIzaSyDdDIw3AV25HSDH2e9V6RfurCV4V1uu61k")
+        GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let navigationController = UINavigationController(rootViewController: mainViewController)
         self.window?.rootViewController = navigationController
@@ -35,17 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Register for social logins(Fb, Google)
         
-        return GIDSignIn.sharedInstance().handle((url as URL??)!, sourceApplication: sourceApplication, annotation: annotation)
+        return (GIDSignIn.sharedInstance()?.handle(url as URL))!
     }
     
     func application(application: UIApplication,
                      openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
         //Register for social logins(Fb, Google)
-        
-        var _: [String: AnyObject] = [UIApplication.OpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject,
-                                      UIApplication.OpenURLOptionsKey.annotation.rawValue: annotation!]
-        return GIDSignIn.sharedInstance().handle((url as URL??)!, sourceApplication: sourceApplication, annotation: annotation)
+        return (GIDSignIn.sharedInstance()?.handle(url as URL))!
     }
     
     

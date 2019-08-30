@@ -24,19 +24,16 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
-        self.hostList.register(UINib(nibName:"HostListCell" , bundle: nil), forCellReuseIdentifier: "HostListTableViewCell")
-        self.hostList.isScrollEnabled = false
-        createSwapGestureRecognizer()
-        self.addDrawerButton()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchView))
-        self.view.addGestureRecognizer(tapGesture)
-        self.navigationController?.navigationItem.hidesBackButton = true
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.hostList.register(UINib(nibName:"HostListCell" , bundle: nil), forCellReuseIdentifier: "HostListTableViewCell")
+        self.hostList.isScrollEnabled = false
+        createSwapGestureRecognizer()        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchView))
+        self.view.addGestureRecognizer(tapGesture)
         Indicator.shared.showProgressView(self.view)
         let param = "latitude=\(String(describing: 28.77))&longitude=\(String(describing: 77.0))"
         print("Parameter \(param)")
@@ -103,11 +100,15 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             let storageObj = StorageListModal()
             storageObj.storageName = data[index]["storageName"]as? String
             storageObj.stoargeID = data[index]["id"]as? String
-//            storageObj.storageImage = (data[index]["media"]as! [[String : Any]])[0]["url"]as? String
             storageObj.storageType = data[index]["storageType"]as? String
             print("data[index] price as? String   \(String(describing: data[index]["price"]as? Int))")
             storageObj.storagePrice = "\(data[index]["price"]as! Int)"
-            storageObj.storagePriceType = data[index]["priceType"]as? String
+            if let type = data[index]["priceType"]as? String{
+                storageObj.storagePriceType = type
+            }else{
+                storageObj.storagePriceType = ""
+            }
+            
             storageObj.availablity = data[index]["availability"]as? String
             
             let addressModal = AddressModal()

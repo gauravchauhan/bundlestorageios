@@ -7,8 +7,8 @@ target 'BundleApp' do
 pod 'MaterialComponents'
 pod 'AFNetworking', '~> 2.5.4'
 pod 'GoogleSignIn'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
 
   # Pods for BundleApp
 

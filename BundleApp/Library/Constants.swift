@@ -7,7 +7,7 @@ struct Constants {
      */
     
     struct AppUrls{
-        static let baseUrl = "http://7aa88b9b.ngrok.io/"
+        static let baseUrl = "http://41e09c37.ngrok.io/"
         static let getListType = "getListingType"
         static let getAmenities = "getAmenities"
         static let login = "login"
@@ -16,12 +16,14 @@ struct Constants {
         static let verifyOtp = "verifyOtp"
         static let addStorage = "addStorage"
         static let getStorageList = "filterStorage"
-        //getHostList
+        static let govermentID = "uploadGovernmentIssuedId"
+        //uploadGovernmentIssuedId
+
     }
     
     struct Google_Credentials {
         static let googleClient_id = "16063448195-fr6rubcljrclhc9re3ria8hdipm24k8f.apps.googleusercontent.com"
-        static let googleAPIKey = "AIzaSyD0a5zNMv7YgIGjVYYbMXgJx1W8kUYOY7w"
+        static let googleAPIKey = "AIzaSyAsU61d8SGFtVWNwKbmkaa-PnyUf0PFS08"
     }
     
     struct fonts {

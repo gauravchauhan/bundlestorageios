@@ -49,7 +49,6 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage {
     }
     
     @IBAction func click_NextBttn(_ sender: Any) {
-        Singelton.sharedInstance.addStorageModal.storageImage = self.imageData
         self.pushToSpaceSelectController()
     }
 }

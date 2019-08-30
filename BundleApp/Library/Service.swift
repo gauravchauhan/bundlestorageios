@@ -41,6 +41,10 @@ protocol GetListingTypeDelegate {
     func listingTypeResponse(data : [String : Any])
 }
 
+protocol GetFeatureDelegate {
+    func featureResponse(data : [String : Any])
+}
+
 
 //MARK: Start Class
 
@@ -59,6 +63,7 @@ class Service{
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
+    var featureDelegate : GetFeatureDelegate!
     
     //MARK:- Post method
     
@@ -251,6 +256,8 @@ class Service{
             self.addStorageDelegate.addStorageResponse(data: response)
         case Constants.AppUrls.getStorageList:
             self.getStorageListDelegate.getStorageListResponse(data: response)
+        case Constants.AppUrls.getAmenities:
+            self.featureDelegate.featureResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }
