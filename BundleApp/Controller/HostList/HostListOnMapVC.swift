@@ -20,7 +20,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var arrow_Button: UIButton!
     @IBOutlet weak var storageMapView: GMSMapView!
     
-    var storageModal = [StorageListModal]()
+    private var storageModal = [StorageListModal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

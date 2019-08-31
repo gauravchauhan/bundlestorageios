@@ -19,12 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         //Add the fb  and google signin to the app with the appID's
         Singelton.sharedInstance.location.setLatLong()
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
-//        GMSServices.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
-//        GMSPlacesClient.provideAPIKey("\(Constants.Google_Credentials.googleAPIKey)")
         GMSServices.provideAPIKey("AIzaSyDdDIw3AV25HSDH2e9V6RfurCV4V1uu61k")
         GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC

@@ -656,6 +656,13 @@ extension UIView {
         
     }
     
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+    
 }
 
 
@@ -1200,11 +1207,11 @@ extension UIViewController {
     func addDrawerButton(){
         let leftArrow = UIButton()
         leftArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        leftArrow.setImage(UIImage(named:"backButton"), for: .normal)
+        leftArrow.setImage(UIImage(named:"menu"), for: .normal)
         leftArrow.setTitleColor(UIColor.black, for: .normal)
         let letftArrownNavBttn = UIBarButtonItem.init(customView: leftArrow)
         letftArrownNavBttn.customView = leftArrow
-        navigationItem.rightBarButtonItem = letftArrownNavBttn
+        navigationItem.leftBarButtonItem = letftArrownNavBttn
     }
     
 }

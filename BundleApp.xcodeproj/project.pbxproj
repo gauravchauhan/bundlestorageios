@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AC329230BC1C800CF2373 /* SignUpVC.swift */; };
+		1E43A6292319128C00A1FC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E43A6282319128C00A1FC2E /* Main.storyboard */; };
 		1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573440230BF68F00CB4EF6 /* SignInVC.swift */; };
 		1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */; };
 		1E573446230C07B900CB4EF6 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */; };
@@ -47,7 +48,6 @@
 		1EA6992C2317F52B00C50AE7 /* DiscountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6992B2317F52B00C50AE7 /* DiscountVC.swift */; };
 		1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */; };
 		1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EC423012E1700D0FCB4 /* ViewController.swift */; };
-		1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB80EC623012E1700D0FCB4 /* Main.storyboard */; };
 		1EB80ECA23012E1800D0FCB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EB80EC923012E1800D0FCB4 /* Assets.xcassets */; };
 		1EB80ECD23012E1800D0FCB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB80ECB23012E1800D0FCB4 /* LaunchScreen.storyboard */; };
 		1EB80EDB2301347E00D0FCB4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB80EDA2301347E00D0FCB4 /* Extension.swift */; };
@@ -73,11 +73,16 @@
 		1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA47AA230FC70400FC939D /* HostListCell.xib */; };
 		1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */; };
 		855B03BE2FA3D10F3EC031DD /* Pods_BundleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */; };
+		9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */; };
+		9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E1678231543FC00DA055C /* DetailViewController.swift */; };
+		9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFD006523164351006D5C97 /* NWSImageToken.xib */; };
+		9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD006723164365006D5C97 /* NWSImageToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		121761E2CB17089D10EF81AB /* Pods-BundleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.release.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.release.xcconfig"; sourceTree = "<group>"; };
 		1E2AC329230BC1C800CF2373 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		1E43A6282319128C00A1FC2E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1E573440230BF68F00CB4EF6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeVC.swift; sourceTree = "<group>"; };
 		1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -135,8 +140,7 @@
 		1EB80EBF23012E1700D0FCB4 /* BundleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BundleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EB80EC423012E1700D0FCB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1EB80EC723012E1700D0FCB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1EB80EC923012E1800D0FCB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1EB80EC923012E1800D0FCB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Library/Assets.xcassets; sourceTree = "<group>"; };
 		1EB80ECC23012E1800D0FCB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EB80ECE23012E1800D0FCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EB80EDA2301347E00D0FCB4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -162,6 +166,10 @@
 		1ECA47AA230FC70400FC939D /* HostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HostListCell.xib; sourceTree = "<group>"; };
 		1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostListTableViewCell.swift; sourceTree = "<group>"; };
 		2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BundleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGFlingActionButton.swift; sourceTree = "<group>"; };
+		9B7E1678231543FC00DA055C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9BFD006523164351006D5C97 /* NWSImageToken.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NWSImageToken.xib; sourceTree = "<group>"; };
+		9BFD006723164365006D5C97 /* NWSImageToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWSImageToken.swift; sourceTree = "<group>"; };
 		D0BE235A0DB7BBBDEDCCEC9C /* Pods-BundleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.debug.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,9 +274,9 @@
 				1EB80ED42301317400D0FCB4 /* Library */,
 				1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */,
 				1EB80EC423012E1700D0FCB4 /* ViewController.swift */,
-				1EB80EC623012E1700D0FCB4 /* Main.storyboard */,
-				1EB80EC923012E1800D0FCB4 /* Assets.xcassets */,
+				1E43A6282319128C00A1FC2E /* Main.storyboard */,
 				1EB80ECB23012E1800D0FCB4 /* LaunchScreen.storyboard */,
+				1EB80EC923012E1800D0FCB4 /* Assets.xcassets */,
 				1EB80ECE23012E1800D0FCB4 /* Info.plist */,
 			);
 			path = BundleApp;
@@ -363,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				1E9EB0C42318FF8B003E6F80 /* TabBar */,
+				9BE86C4523168D77005C0158 /* DetailsController */,
 				1ECA47A7230FC67900FC939D /* HostList */,
 				1E573447230C0F5C00CB4EF6 /* CreatePost */,
 				1E573442230C03E400CB4EF6 /* ForgotPassword */,
@@ -428,6 +437,17 @@
 				2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BE86C4523168D77005C0158 /* DetailsController */ = {
+			isa = PBXGroup;
+			children = (
+				9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */,
+				9B7E1678231543FC00DA055C /* DetailViewController.swift */,
+				9BFD006523164351006D5C97 /* NWSImageToken.xib */,
+				9BFD006723164365006D5C97 /* NWSImageToken.swift */,
+			);
+			path = DetailsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,8 +523,9 @@
 				1EB80EFD2301479B00D0FCB4 /* ProximaNova-Extrabld.ttf in Resources */,
 				1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */,
 				1E8AF9C5230D51D400240F65 /* Localizable.strings in Resources */,
-				1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */,
+				1E43A6292319128C00A1FC2E /* Main.storyboard in Resources */,
 				1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */,
+				9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */,
 				1EB80EFE2301479B00D0FCB4 /* ProximaNova-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +616,7 @@
 				1E7F926F2301C19C006E2CEF /* IQUITextFieldView+Additions.m in Sources */,
 				1E7F927A2301C19C006E2CEF /* IQKeyboardManager.m in Sources */,
 				1E8AF9BF230D277800240F65 /* SelectSpaceDimensionVC.swift in Sources */,
+				9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */,
 				1EB80EF12301416900D0FCB4 /* UITextField+fixCaretPosition.swift in Sources */,
 				1EA698D9231409D600C50AE7 /* AddressModal.swift in Sources */,
 				1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */,
@@ -602,6 +624,7 @@
 				1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */,
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
+				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
@@ -621,6 +644,8 @@
 				1E7F92702301C19C006E2CEF /* IQUIViewController+Additions.m in Sources */,
 				1EA6992823169C1E00C50AE7 /* AddStorageModal.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
+				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
+				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
 				1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */,
 				1E9EB0C32318F95E003E6F80 /* StorageChargeVC.swift in Sources */,
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,
@@ -632,14 +657,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1EB80EC623012E1700D0FCB4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1EB80EC723012E1700D0FCB4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1EB80ECB23012E1800D0FCB4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -776,6 +793,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -784,8 +802,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BundleApp/KeyBoard/BundleApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -798,6 +816,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -805,8 +824,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jft.BundleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BundleApp/KeyBoard/BundleApp-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

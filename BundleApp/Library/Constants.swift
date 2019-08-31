@@ -7,7 +7,7 @@ struct Constants {
      */
     
     struct AppUrls{
-        static let baseUrl = "http://41e09c37.ngrok.io/"
+        static let baseUrl = "http://1950e779.ngrok.io/"
         static let getListType = "getListingType"
         static let getAmenities = "getAmenities"
         static let login = "login"
@@ -44,6 +44,7 @@ struct Constants {
         static let textTitleColor : UInt32 = 0x999999
         static let textColor : UInt32 = 0x3c3c3c
         static let redText_borderColor : UInt32 = 0xFD0E35
+        static let lightGrayColor : UInt32 = 0xF2F2F2
     }
     
     struct networkConnectionErrorMessage{
