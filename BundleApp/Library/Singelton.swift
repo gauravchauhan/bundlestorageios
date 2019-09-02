@@ -18,6 +18,7 @@ class Singelton {
     var location = Location()
     var authToken = ""
     var userDataModel = UserDataModal()
+    var addStorageModal = AddStorageModal()
     var id : String?
     var currentCountryCode : String?
     var currentLatitude : CLLocationDegrees!

@@ -951,6 +951,18 @@ extension UIImageView
         targetImageView?.addSubview(blurEffectView)
         
     }
+    
+        func dropShadow() {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowOpacity = 0.5
+            self.layer.shadowOffset = CGSize(width: -1, height: 1)
+            self.layer.shadowRadius = 1
+            self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+            self.layer.shouldRasterize = true
+            self.layer.rasterizationScale = UIScreen.main.scale
+        }
+
 }
 
 
@@ -1002,9 +1014,10 @@ extension UIViewController {
         }
     }
     
-    func pushToDescribeListingController(){
+    func pushToDescribeListingController(fromWhichScreen : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "DescribeListingVC") as! DescribeListingVC
+            next.screnComingFrom = fromWhichScreen
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1016,7 +1029,74 @@ extension UIViewController {
         }
     }
     
+    func pushToSpaceDimensionController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SelectSpaceDimensionVC") as! SelectSpaceDimensionVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
     
+    func pushToFeatureController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "FeaturesVC") as! FeaturesVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToDisocuntController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "DiscountVC") as! DiscountVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToSpaceNameController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SpaceNameVC") as! SpaceNameVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    
+    func pushToDescriptionController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "DescriptionVC") as! DescriptionVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToStorageChargeController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "StorageChargeVC") as! StorageChargeVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToTabBarController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+            next.selectedIndex = 0
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    
+    
+    func setLeftButnEmpty(){
+        let backBtn = UIButton()
+        
+        backBtn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        backBtn.setTitleColor(UIColor.black, for: .normal)
+        
+        let backNavBtn = UIBarButtonItem.init(customView: backBtn)
+        
+        backNavBtn.customView = backBtn
+        
+        let _ = navigationItem.backBarButtonItem
+        
+        self.navigationItem.leftBarButtonItems = [backNavBtn]
+    }
     
     func setBackButtonWithTitle(title : String){
         let backBtn = UIButton()
@@ -1070,7 +1150,7 @@ extension UIViewController {
         
         leftArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         
-        leftArrow.setImage(UIImage(named:"backButton"), for: .normal)
+        leftArrow.setImage(UIImage(named:"rightArrow"), for: .normal)
         
         leftArrow.setTitleColor(UIColor.black, for: .normal)
         
@@ -1121,7 +1201,7 @@ extension UIViewController {
         
         rightArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         
-        rightArrow.setImage(UIImage(named:"backButton"), for: .normal)
+        rightArrow.setImage(UIImage(named:"leftArrow"), for: .normal)
         
         rightArrow.setTitleColor(UIColor.black, for: .normal)
         
@@ -1138,17 +1218,12 @@ extension UIViewController {
     
     func addDrawerButton(){
         let leftArrow = UIButton()
-        
         leftArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        
         leftArrow.setImage(UIImage(named:"backButton"), for: .normal)
-        
         leftArrow.setTitleColor(UIColor.black, for: .normal)
-        
         let letftArrownNavBttn = UIBarButtonItem.init(customView: leftArrow)
-        
         letftArrownNavBttn.customView = leftArrow
-        self.navigationItem.rightBarButtonItem = letftArrownNavBttn
+        navigationItem.rightBarButtonItem = letftArrownNavBttn
     }
     
 }

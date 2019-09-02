@@ -1,18 +1,20 @@
 //
-//  DescribtionVC.swift
+//  TabBarVC.swift
 //  BundleApp
 //
-//  Created by Vijay Mishra on 21/08/19.
+//  Created by Vijay Mishra on 30/08/19.
 //  Copyright © 2019 Rohit Gupta. All rights reserved.
 //
 
 import UIKit
 
-class DescribtionVC: UIViewController {
+class TabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.addDrawerButton()
+        setLeftButnEmpty()
         // Do any additional setup after loading the view.
     }
     

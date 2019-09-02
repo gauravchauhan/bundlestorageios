@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, SocialLoginDelegate{
+class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
     
     //MARK:- Outlets
     
@@ -21,12 +21,10 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, Social
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.value(forKey: "userData") != nil{
-            self.pushToStorageListController()
+            self.pushToTabBarController()
         }else{
             
         }
-        
-        GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         self.dontHaveAccountLabel.attributedText = colorString(location: 24, length: 10, String: self.dontHaveAccountLabel.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
     }
@@ -83,8 +81,8 @@ class LoginVC: UIViewController , GIDSignInDelegate, GIDSignInUIDelegate, Social
     }
     
     @IBAction func click_GoogleSignInButton(_ sender: Any) {
-        GIDSignIn.sharedInstance().signOut()
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance()?.signIn()
     }
     
     @IBAction func click_DontHaveAccountBttn(_ sender: Any) {
