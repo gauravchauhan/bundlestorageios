@@ -54,8 +54,12 @@ class SignUpVC: UIViewController, SignUpDelegate {
     //MARK:- Delegate
     
     func signUpResponse(data: [String : Any]) {
+        Indicator.shared.hideProgressView()
         print("signUpResponse  \(data)")
-        data["status"]as! Bool ? (_ = self.navigationController?.popViewController(animated: true)) : nil
+        data["status"]as! Bool ? DispatchQueue.main.async {
+            alert(message: data["message"]as! String , Controller: self)
+            _ = self.navigationController?.popViewController(animated: true)
+            } : alert(message: data["message"]as! String , Controller: self)
     }
     
     //MARK:- Actions
@@ -150,6 +154,7 @@ class SignUpVC: UIViewController, SignUpDelegate {
         }else{
             param = "companyName=\(String(describing: self.firstName.text!))&role=\(self.role)&email=\(String(describing: self.email.text!))&mobileNumber=\(String(describing: self.phoneNmber.text!))&password=\(String(describing: self.password.text!))"
         }
+        Indicator.shared.showProgressView(self.view)
         Singelton.sharedInstance.service.signUpDelegate = self
         Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.signup, api_Type: apiType.POST.rawValue)
         

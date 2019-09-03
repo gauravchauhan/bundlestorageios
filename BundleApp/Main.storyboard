@@ -2310,7 +2310,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q9e-Cw-R9E"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="lock" id="Pt5-OE-UM6"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="Pt5-OE-UM6"/>
                     <connections>
                         <outlet property="arrow_Button" destination="hPq-TW-OBh" id="vLH-JV-aFn"/>
                         <outlet property="hostList" destination="v2X-K0-VQA" id="wLd-eK-9ym"/>
@@ -2321,7 +2321,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBg-J1-iAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8936" y="-650"/>
+            <point key="canvasLocation" x="8994" y="-650"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="ZKN-22-oRj">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" id="GfA-lt-JOZ" customClass="ChatViewController" customModule="BundleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L1c-Tk-Ai7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EfV-TL-rJ7" customClass="LynnBubbleTableView" customModule="BundleApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9C9-eE-8EI">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PkO-Fo-6Om" customClass="TextField" customModule="BundleApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="10" width="319" height="60"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddH-hg-6ik">
+                                        <rect key="frame" x="344" y="10" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="jX8-G8-Qtc"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="sIq-1P-ID7"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ddH-hg-6ik" firstAttribute="top" secondItem="9C9-eE-8EI" secondAttribute="top" constant="10" id="9ox-tA-wMk"/>
+                                    <constraint firstAttribute="bottom" secondItem="PkO-Fo-6Om" secondAttribute="bottom" constant="10" id="DWn-Bf-PJJ"/>
+                                    <constraint firstAttribute="height" constant="80" id="aXO-uz-e88"/>
+                                    <constraint firstItem="PkO-Fo-6Om" firstAttribute="top" secondItem="9C9-eE-8EI" secondAttribute="top" constant="10" id="cRB-Vw-Rp0"/>
+                                    <constraint firstItem="PkO-Fo-6Om" firstAttribute="leading" secondItem="9C9-eE-8EI" secondAttribute="leading" constant="20" id="dCT-FR-fs5"/>
+                                    <constraint firstAttribute="trailing" secondItem="ddH-hg-6ik" secondAttribute="trailing" constant="10" id="fjO-Ro-Nh6"/>
+                                    <constraint firstItem="ddH-hg-6ik" firstAttribute="leading" secondItem="PkO-Fo-6Om" secondAttribute="trailing" constant="5" id="pP5-lW-zXw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9C9-eE-8EI" firstAttribute="trailing" secondItem="dtt-L2-qsx" secondAttribute="trailing" id="EIM-Z7-1a9"/>
+                            <constraint firstItem="EfV-TL-rJ7" firstAttribute="top" secondItem="dtt-L2-qsx" secondAttribute="top" id="dGe-MQ-YRR"/>
+                            <constraint firstItem="9C9-eE-8EI" firstAttribute="top" secondItem="EfV-TL-rJ7" secondAttribute="bottom" id="dPU-pA-xmu"/>
+                            <constraint firstItem="EfV-TL-rJ7" firstAttribute="leading" secondItem="dtt-L2-qsx" secondAttribute="leading" id="hfl-wf-216"/>
+                            <constraint firstItem="9C9-eE-8EI" firstAttribute="bottom" secondItem="dtt-L2-qsx" secondAttribute="bottom" id="vDd-EN-DXG"/>
+                            <constraint firstItem="EfV-TL-rJ7" firstAttribute="trailing" secondItem="dtt-L2-qsx" secondAttribute="trailing" id="xS7-gY-8Xt"/>
+                            <constraint firstItem="9C9-eE-8EI" firstAttribute="leading" secondItem="dtt-L2-qsx" secondAttribute="leading" id="xiQ-GT-0EA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dtt-L2-qsx"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextView" destination="PkO-Fo-6Om" id="CCT-1a-fSR"/>
+                        <outlet property="tableView" destination="EfV-TL-rJ7" id="TaM-G2-xRM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDb-lB-WTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11184.057971014494" y="-660.26785714285711"/>
         </scene>
         <!--Second controller-->
         <scene sceneID="JIT-e7-G4p">
@@ -2333,7 +2402,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V0q-JL-54z"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second controller" id="8Tj-Q3-iQN"/>
+                    <tabBarItem key="tabBarItem" title="Second controller" image="person" id="8Tj-Q3-iQN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPN-9e-N29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3000,7 +3069,6 @@
         <!--View Controller-->
         <scene sceneID="w2G-9K-8tL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OnR-CJ-8bV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Bh1-cs-Jjr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ja-P8-IJ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -3046,8 +3114,9 @@
                         <viewLayoutGuide key="safeArea" id="skx-tZ-CoV"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OnR-CJ-8bV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9878" y="-650"/>
+            <point key="canvasLocation" x="10790" y="203"/>
         </scene>
     </scenes>
     <resources>
@@ -3058,7 +3127,8 @@
         <image name="downArrow" width="30" height="30"/>
         <image name="filled_Circle" width="20" height="20"/>
         <image name="googleIcon" width="24" height="24"/>
-        <image name="lock" width="16" height="16"/>
+        <image name="home" width="30" height="30"/>
+        <image name="person" width="30" height="30"/>
         <image name="uploadImage" width="250" height="200.5"/>
     </resources>
 </document>

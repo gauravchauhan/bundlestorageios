@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="78.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bundle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Uxx-da-TpX">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="senderImage" translatesAutoresizingMaskIntoConstraints="NO" id="Uxx-da-TpX">
                         <rect key="frame" x="10" y="15" width="50" height="50"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -106,6 +105,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bundle_logo" width="250" height="250"/>
+        <image name="senderImage" width="266" height="189"/>
     </resources>
 </document>

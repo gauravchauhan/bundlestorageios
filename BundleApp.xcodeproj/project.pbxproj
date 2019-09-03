@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AC329230BC1C800CF2373 /* SignUpVC.swift */; };
-		1E43A6292319128C00A1FC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E43A6282319128C00A1FC2E /* Main.storyboard */; };
 		1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573440230BF68F00CB4EF6 /* SignInVC.swift */; };
 		1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */; };
 		1E573446230C07B900CB4EF6 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */; };
@@ -72,17 +71,26 @@
 		1ECA47A9230FC6C200FC939D /* HostListOnMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA47A8230FC6C200FC939D /* HostListOnMapVC.swift */; };
 		1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA47AA230FC70400FC939D /* HostListCell.xib */; };
 		1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */; };
+		1ED68119231D38F60000023A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED68118231D38F60000023A /* Main.storyboard */; };
 		855B03BE2FA3D10F3EC031DD /* Pods_BundleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */; };
 		9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */; };
 		9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E1678231543FC00DA055C /* DetailViewController.swift */; };
 		9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFD006523164351006D5C97 /* NWSImageToken.xib */; };
 		9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD006723164365006D5C97 /* NWSImageToken.swift */; };
+		F9C86F1C23194A11006B6E90 /* LynnBubbleViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */; };
+		F9C86F1D23194A11006B6E90 /* MyBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1123194A11006B6E90 /* MyBubbleViewCell.swift */; };
+		F9C86F1E23194A11006B6E90 /* Someone'sBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1223194A11006B6E90 /* Someone'sBubbleViewCell.swift */; };
+		F9C86F1F23194A11006B6E90 /* LynnBubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1323194A11006B6E90 /* LynnBubbleData.swift */; };
+		F9C86F2023194A11006B6E90 /* Someone'sBubbleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C86F1423194A11006B6E90 /* Someone'sBubbleViewCell.xib */; };
+		F9C86F2323194A11006B6E90 /* LynnBubbleViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C86F1723194A11006B6E90 /* LynnBubbleViewHeaderCell.xib */; };
+		F9C86F2423194A11006B6E90 /* MyBubbleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C86F1823194A11006B6E90 /* MyBubbleViewCell.xib */; };
+		F9C86F2523194A11006B6E90 /* LynnBubbleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1923194A11006B6E90 /* LynnBubbleTableView.swift */; };
+		F9C86F2A23194A86006B6E90 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F2923194A86006B6E90 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		121761E2CB17089D10EF81AB /* Pods-BundleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.release.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.release.xcconfig"; sourceTree = "<group>"; };
 		1E2AC329230BC1C800CF2373 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
-		1E43A6282319128C00A1FC2E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1E573440230BF68F00CB4EF6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeVC.swift; sourceTree = "<group>"; };
 		1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -165,12 +173,22 @@
 		1ECA47A8230FC6C200FC939D /* HostListOnMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostListOnMapVC.swift; sourceTree = "<group>"; };
 		1ECA47AA230FC70400FC939D /* HostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HostListCell.xib; sourceTree = "<group>"; };
 		1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostListTableViewCell.swift; sourceTree = "<group>"; };
+		1ED68118231D38F60000023A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2A79906944A721D11DFE6174 /* Pods_BundleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BundleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B12C6D8231695EF00A41366 /* TGFlingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGFlingActionButton.swift; sourceTree = "<group>"; };
 		9B7E1678231543FC00DA055C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9BFD006523164351006D5C97 /* NWSImageToken.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NWSImageToken.xib; sourceTree = "<group>"; };
 		9BFD006723164365006D5C97 /* NWSImageToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWSImageToken.swift; sourceTree = "<group>"; };
 		D0BE235A0DB7BBBDEDCCEC9C /* Pods-BundleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.debug.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LynnBubbleViewHeaderCell.swift; sourceTree = "<group>"; };
+		F9C86F1123194A11006B6E90 /* MyBubbleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBubbleViewCell.swift; sourceTree = "<group>"; };
+		F9C86F1223194A11006B6E90 /* Someone'sBubbleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Someone'sBubbleViewCell.swift"; sourceTree = "<group>"; };
+		F9C86F1323194A11006B6E90 /* LynnBubbleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LynnBubbleData.swift; sourceTree = "<group>"; };
+		F9C86F1423194A11006B6E90 /* Someone'sBubbleViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Someone'sBubbleViewCell.xib"; sourceTree = "<group>"; };
+		F9C86F1723194A11006B6E90 /* LynnBubbleViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LynnBubbleViewHeaderCell.xib; sourceTree = "<group>"; };
+		F9C86F1823194A11006B6E90 /* MyBubbleViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBubbleViewCell.xib; sourceTree = "<group>"; };
+		F9C86F1923194A11006B6E90 /* LynnBubbleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LynnBubbleTableView.swift; sourceTree = "<group>"; };
+		F9C86F2923194A86006B6E90 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,10 +292,10 @@
 				1EB80ED42301317400D0FCB4 /* Library */,
 				1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */,
 				1EB80EC423012E1700D0FCB4 /* ViewController.swift */,
-				1E43A6282319128C00A1FC2E /* Main.storyboard */,
 				1EB80ECB23012E1800D0FCB4 /* LaunchScreen.storyboard */,
 				1EB80EC923012E1800D0FCB4 /* Assets.xcassets */,
 				1EB80ECE23012E1800D0FCB4 /* Info.plist */,
+				1ED68118231D38F60000023A /* Main.storyboard */,
 			);
 			path = BundleApp;
 			sourceTree = "<group>";
@@ -370,8 +388,9 @@
 		1EB80ED9230131C300D0FCB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1E9EB0C42318FF8B003E6F80 /* TabBar */,
+				F9C86F0D231949E9006B6E90 /* ChatControllers */,
 				9BE86C4523168D77005C0158 /* DetailsController */,
+				1E9EB0C42318FF8B003E6F80 /* TabBar */,
 				1ECA47A7230FC67900FC939D /* HostList */,
 				1E573447230C0F5C00CB4EF6 /* CreatePost */,
 				1E573442230C03E400CB4EF6 /* ForgotPassword */,
@@ -450,6 +469,22 @@
 			path = DetailsController;
 			sourceTree = "<group>";
 		};
+		F9C86F0D231949E9006B6E90 /* ChatControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9C86F1323194A11006B6E90 /* LynnBubbleData.swift */,
+				F9C86F1923194A11006B6E90 /* LynnBubbleTableView.swift */,
+				F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */,
+				F9C86F1723194A11006B6E90 /* LynnBubbleViewHeaderCell.xib */,
+				F9C86F1123194A11006B6E90 /* MyBubbleViewCell.swift */,
+				F9C86F1823194A11006B6E90 /* MyBubbleViewCell.xib */,
+				F9C86F1223194A11006B6E90 /* Someone'sBubbleViewCell.swift */,
+				F9C86F1423194A11006B6E90 /* Someone'sBubbleViewCell.xib */,
+				F9C86F2923194A86006B6E90 /* ChatViewController.swift */,
+			);
+			path = ChatControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -518,13 +553,16 @@
 				1EB80F022301479B00D0FCB4 /* ProximaNova-Semibold.ttf in Resources */,
 				1EB80EFF2301479B00D0FCB4 /* ProximaNova-Light.ttf in Resources */,
 				1EB80ECA23012E1800D0FCB4 /* Assets.xcassets in Resources */,
+				F9C86F2423194A11006B6E90 /* MyBubbleViewCell.xib in Resources */,
 				1EB80EFC2301479B00D0FCB4 /* ProximaNova-Bold.ttf in Resources */,
 				1EB80F012301479B00D0FCB4 /* ProximaNova-Regular.ttf in Resources */,
 				1EB80EFD2301479B00D0FCB4 /* ProximaNova-Extrabld.ttf in Resources */,
 				1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */,
+				F9C86F2323194A11006B6E90 /* LynnBubbleViewHeaderCell.xib in Resources */,
 				1E8AF9C5230D51D400240F65 /* Localizable.strings in Resources */,
-				1E43A6292319128C00A1FC2E /* Main.storyboard in Resources */,
+				F9C86F2023194A11006B6E90 /* Someone'sBubbleViewCell.xib in Resources */,
 				1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */,
+				1ED68119231D38F60000023A /* Main.storyboard in Resources */,
 				9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */,
 				1EB80EFE2301479B00D0FCB4 /* ProximaNova-Black.ttf in Resources */,
 			);
@@ -604,12 +642,14 @@
 				1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */,
 				1EA698D72314076F00C50AE7 /* StorageListModal.swift in Sources */,
 				1EB80F042301574700D0FCB4 /* LoginVC.swift in Sources */,
+				F9C86F1D23194A11006B6E90 /* MyBubbleViewCell.swift in Sources */,
 				1EB80EE623013CE000D0FCB4 /* Rechablity.swift in Sources */,
 				1E573446230C07B900CB4EF6 /* ResetPasswordVC.swift in Sources */,
 				1EB80EEA23013E1C00D0FCB4 /* Indicator.swift in Sources */,
 				1E8AF9BD230D12A800240F65 /* ListingModal.swift in Sources */,
 				1EB80EE123013BDE00D0FCB4 /* Singelton.swift in Sources */,
 				1E7F92752301C19C006E2CEF /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				F9C86F1E23194A11006B6E90 /* Someone'sBubbleViewCell.swift in Sources */,
 				1EA69926231667CF00C50AE7 /* ImagePicker.swift in Sources */,
 				1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */,
 				1EB80EE823013DEB00D0FCB4 /* Validation.swift in Sources */,
@@ -622,6 +662,7 @@
 				1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */,
 				1EA698D52313ED1D00C50AE7 /* Location.swift in Sources */,
 				1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */,
+				F9C86F1C23194A11006B6E90 /* LynnBubbleViewHeaderCell.swift in Sources */,
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
 				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
@@ -635,6 +676,7 @@
 				1EB80EDF23013B6200D0FCB4 /* Webservice.swift in Sources */,
 				1EA698D32313E9EC00C50AE7 /* UserDataModal.swift in Sources */,
 				1E7F92732301C19C006E2CEF /* IQUIView+Hierarchy.m in Sources */,
+				F9C86F2523194A11006B6E90 /* LynnBubbleTableView.swift in Sources */,
 				1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */,
 				1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */,
 				1ECA47A9230FC6C200FC939D /* HostListOnMapVC.swift in Sources */,
@@ -645,6 +687,12 @@
 				1EA6992823169C1E00C50AE7 /* AddStorageModal.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
 				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
+				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
+				F9C86F2A23194A86006B6E90 /* ChatViewController.swift in Sources */,
+				F9C86F1F23194A11006B6E90 /* LynnBubbleData.swift in Sources */,
+				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
+				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
+				1EA6992823169C1E00C50AE7 /* AddStorageModal.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
 				1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */,
 				1E9EB0C32318F95E003E6F80 /* StorageChargeVC.swift in Sources */,
@@ -793,7 +841,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,7 +864,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
