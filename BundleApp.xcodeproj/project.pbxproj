@@ -78,6 +78,11 @@
 		9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFD006523164351006D5C97 /* NWSImageToken.xib */; };
 		9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD006723164365006D5C97 /* NWSImageToken.swift */; };
 		F904BC2E231E6BDB00D0030C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F904BC2D231E6BDB00D0030C /* ProfileViewController.swift */; };
+		F90BD15B231F982A00916512 /* MyQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD15A231F982A00916512 /* MyQRViewController.swift */; };
+		F90BD15F231FBDA100916512 /* UserFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD15E231FBDA100916512 /* UserFeedbackController.swift */; };
+		F90BD161231FC71F00916512 /* ScanQRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD160231FC71F00916512 /* ScanQRController.swift */; };
+		F90BD164231FD9BB00916512 /* SingleListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD163231FD9BB00916512 /* SingleListingViewController.swift */; };
+		F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD166231FDEC000916512 /* PaymentStatusController.swift */; };
 		F9C2E54B231E7F3B0087AF35 /* StatusViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2E549231E7F3B0087AF35 /* StatusViewCell.swift */; };
 		F9C2E54C231E7F3B0087AF35 /* StatusViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C2E54A231E7F3B0087AF35 /* StatusViewCell.xib */; };
 		F9C86F1C23194A11006B6E90 /* LynnBubbleViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */; };
@@ -189,6 +194,11 @@
 		9BFD006723164365006D5C97 /* NWSImageToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWSImageToken.swift; sourceTree = "<group>"; };
 		D0BE235A0DB7BBBDEDCCEC9C /* Pods-BundleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.debug.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F904BC2D231E6BDB00D0030C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F90BD15A231F982A00916512 /* MyQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQRViewController.swift; sourceTree = "<group>"; };
+		F90BD15E231FBDA100916512 /* UserFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedbackController.swift; sourceTree = "<group>"; };
+		F90BD160231FC71F00916512 /* ScanQRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRController.swift; sourceTree = "<group>"; };
+		F90BD163231FD9BB00916512 /* SingleListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListingViewController.swift; sourceTree = "<group>"; };
+		F90BD166231FDEC000916512 /* PaymentStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusController.swift; sourceTree = "<group>"; };
 		F9C2E549231E7F3B0087AF35 /* StatusViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewCell.swift; sourceTree = "<group>"; };
 		F9C2E54A231E7F3B0087AF35 /* StatusViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusViewCell.xib; sourceTree = "<group>"; };
 		F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LynnBubbleViewHeaderCell.swift; sourceTree = "<group>"; };
@@ -297,6 +307,7 @@
 		1EB80EC123012E1700D0FCB4 /* BundleApp */ = {
 			isa = PBXGroup;
 			children = (
+				F90BD162231FD99900916512 /* Listing */,
 				1EB80EF42301473200D0FCB4 /* Fonts */,
 				1EB80EED2301414E00D0FCB4 /* SkyFloating */,
 				1EB80EE423013CD300D0FCB4 /* CheckInterNetConnection */,
@@ -404,6 +415,7 @@
 		1EB80ED9230131C300D0FCB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F90BD165231FDD1100916512 /* Payment */,
 				F904BC2C231E68C300D0030C /* Profile */,
 				F9EBCD35231D41A6003CC022 /* Request&Message */,
 				F9C86F0D231949E9006B6E90 /* ChatControllers */,
@@ -493,8 +505,27 @@
 				F904BC2D231E6BDB00D0030C /* ProfileViewController.swift */,
 				F9C2E549231E7F3B0087AF35 /* StatusViewCell.swift */,
 				F9C2E54A231E7F3B0087AF35 /* StatusViewCell.xib */,
+				F90BD15A231F982A00916512 /* MyQRViewController.swift */,
+				F90BD15E231FBDA100916512 /* UserFeedbackController.swift */,
+				F90BD160231FC71F00916512 /* ScanQRController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F90BD162231FD99900916512 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				F90BD163231FD9BB00916512 /* SingleListingViewController.swift */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
+		F90BD165231FDD1100916512 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				F90BD166231FDEC000916512 /* PaymentStatusController.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		F9C86F0D231949E9006B6E90 /* ChatControllers */ = {
@@ -684,6 +715,7 @@
 				1EB80EE323013C6D00D0FCB4 /* Service.swift in Sources */,
 				1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */,
 				1EA698D72314076F00C50AE7 /* StorageListModal.swift in Sources */,
+				F90BD15F231FBDA100916512 /* UserFeedbackController.swift in Sources */,
 				1EB80F042301574700D0FCB4 /* LoginVC.swift in Sources */,
 				F9C86F1D23194A11006B6E90 /* MyBubbleViewCell.swift in Sources */,
 				1EB80EE623013CE000D0FCB4 /* Rechablity.swift in Sources */,
@@ -694,6 +726,7 @@
 				1E7F92752301C19C006E2CEF /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				F9C86F1E23194A11006B6E90 /* Someone'sBubbleViewCell.swift in Sources */,
 				F9EBCD3E231D4329003CC022 /* RequestViewCell.swift in Sources */,
+				F90BD161231FC71F00916512 /* ScanQRController.swift in Sources */,
 				1EA69926231667CF00C50AE7 /* ImagePicker.swift in Sources */,
 				1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */,
 				1EB80EE823013DEB00D0FCB4 /* Validation.swift in Sources */,
@@ -702,6 +735,7 @@
 				1E8AF9BF230D277800240F65 /* SelectSpaceDimensionVC.swift in Sources */,
 				9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */,
 				1EB80EF12301416900D0FCB4 /* UITextField+fixCaretPosition.swift in Sources */,
+				F90BD164231FD9BB00916512 /* SingleListingViewController.swift in Sources */,
 				1EA698D9231409D600C50AE7 /* AddressModal.swift in Sources */,
 				1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */,
 				1EA698D52313ED1D00C50AE7 /* Location.swift in Sources */,
@@ -712,6 +746,7 @@
 				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
 				1EA6992C2317F52B00C50AE7 /* DiscountVC.swift in Sources */,
 				1E9EB0C823190151003E6F80 /* TabBarVC.swift in Sources */,
@@ -728,6 +763,7 @@
 				1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */,
 				1ECA47A9230FC6C200FC939D /* HostListOnMapVC.swift in Sources */,
 				1E7F92722301C19C006E2CEF /* IQTextView.m in Sources */,
+				F90BD15B231F982A00916512 /* MyQRViewController.swift in Sources */,
 				1EB80EF32301416900D0FCB4 /* SkyFloatingLabelTextField.swift in Sources */,
 				1E7F927B2301C19C006E2CEF /* IQNSArray+Sort.m in Sources */,
 				1E7F92702301C19C006E2CEF /* IQUIViewController+Additions.m in Sources */,
