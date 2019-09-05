@@ -34,6 +34,10 @@ protocol GetStorageListDelegate {
     func getStorageListResponse(data : [String : Any])
 }
 
+protocol UploadIDProofDelegate {
+    func uploadIDProofResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -60,6 +64,7 @@ class Service{
     var signInDelegate : SignInDelegate!
     var addStorageDelegate : AddStorageDelegate!
     var getStorageListDelegate : GetStorageListDelegate!
+    var uploadIDProofDelegate : UploadIDProofDelegate!
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
@@ -111,8 +116,9 @@ class Service{
             //                print("Network error")
             //                return self.returnResponseToDelegate(apiName: apiName, response: errorMessage.toDictionary())
             //            }
-            let url : URL!
-            apiName.contains("www.linkedin.com") ? ( url = URL(string: apiName )!) : ( url = URL(string: Constants.AppUrls.baseUrl + apiName )!)
+            print("api name \(apiName)")
+            let url : URL! = URL(string: Constants.AppUrls.baseUrl + apiName)
+            print("reuest \(String(describing: url))")
             var request = URLRequest(url: url)
             request.httpMethod = api_Type
             let data = parameter.data(using:String.Encoding.ascii, allowLossyConversion: false)
@@ -258,6 +264,8 @@ class Service{
             self.getStorageListDelegate.getStorageListResponse(data: response)
         case Constants.AppUrls.getAmenities:
             self.featureDelegate.featureResponse(data: response)
+        case Constants.AppUrls.govermentID:
+            self.uploadIDProofDelegate.uploadIDProofResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

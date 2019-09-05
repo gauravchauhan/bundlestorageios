@@ -13,5 +13,6 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addDrawerButton()
+        self.setNotification_FilterButton()
     }
 }

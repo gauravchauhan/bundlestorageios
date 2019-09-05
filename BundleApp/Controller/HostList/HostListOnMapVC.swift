@@ -47,7 +47,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         Indicator.shared.hideProgressView()
         print("list resposne \(data)")
         !(data["status"]as! Bool) ? DispatchQueue.main.async {
-            self.hostListheightConstraints.constant = 0 ; alert(message: data["message"]as! String , Controller: self)
+            self.hostListheightConstraints.constant = 100 ; alert(message: data["message"]as! String , Controller: self)
             } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
     }
     

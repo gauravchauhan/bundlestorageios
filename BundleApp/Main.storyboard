@@ -2207,6 +2207,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="2ua-LY-h5g" kind="relationship" relationship="viewControllers" id="meg-s7-HsJ"/>
@@ -2243,7 +2245,7 @@
                                     <constraint firstAttribute="height" constant="60" id="2GM-9Q-b9a"/>
                                     <constraint firstAttribute="width" constant="60" id="at7-KQ-sUZ"/>
                                 </constraints>
-                                <state key="normal" image="filled_Circle"/>
+                                <state key="normal" image="addListing"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="30"/>
@@ -2310,7 +2312,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q9e-Cw-R9E"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home" id="Pt5-OE-UM6"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="Pt5-OE-UM6"/>
                     <connections>
                         <outlet property="arrow_Button" destination="hPq-TW-OBh" id="vLH-JV-aFn"/>
                         <outlet property="hostList" destination="v2X-K0-VQA" id="wLd-eK-9ym"/>
@@ -2392,7 +2394,7 @@
             </objects>
             <point key="canvasLocation" x="11184.057971014494" y="-660.26785714285711"/>
         </scene>
-        <!--Second controller-->
+        <!--View Controller-->
         <scene sceneID="JIT-e7-G4p">
             <objects>
                 <viewController id="Riu-X0-Uc2" sceneMemberID="viewController">
@@ -2402,7 +2404,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V0q-JL-54z"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second controller" image="person" id="8Tj-Q3-iQN"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" selectedImage="person" id="8Tj-Q3-iQN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPN-9e-N29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3120,6 +3122,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addListing" width="30" height="30"/>
         <image name="blankCheckBox" width="30" height="30"/>
         <image name="bundle_logo" width="250" height="250"/>
         <image name="circle" width="16" height="16"/>

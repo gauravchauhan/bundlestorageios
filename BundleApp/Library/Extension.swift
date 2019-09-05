@@ -1226,6 +1226,44 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = letftArrownNavBttn
     }
     
+    //Set the notification and filter icon on the tabBar
+    
+    func setNotification_FilterButton(){
+        
+        //Notification button
+        
+        let notificationBtn = UIButton()
+        
+        notificationBtn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        notificationBtn.setImage(UIImage(named:"notification"), for: .normal)
+        
+        notificationBtn.setTitleColor(UIColor.black, for: .normal)
+        
+        //backBtn.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
+        
+        let notificationNavBtn = UIBarButtonItem.init(customView: notificationBtn)
+        
+        notificationNavBtn.customView = notificationBtn
+        
+        
+        
+        // filter button
+        
+        let filterBttn = UIButton()
+        
+        filterBttn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        filterBttn.setImage(UIImage(named:"filter"), for: .normal)
+        
+        let filterNavButton = UIBarButtonItem.init(customView: filterBttn)
+        
+        filterNavButton.customView = filterBttn
+        
+        let _ = navigationItem.backBarButtonItem
+        
+        self.navigationItem.rightBarButtonItems = [notificationNavBtn, filterNavButton]
+    }
 }
 
 extension UITextField{

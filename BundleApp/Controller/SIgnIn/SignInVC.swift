@@ -43,7 +43,8 @@ class SignInVC: UIViewController , SignInDelegate{
         UserDefaults.standard.set(signInResponse , forKey: "userData")
         UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
         Singelton.sharedInstance.authToken = data["token"]as! String
-        data["status"]as! Bool ? self.pushToTabBarController() : print("error")
+        Singelton.sharedInstance.setUserData(data: signInResponse)
+        self.pushToTabBarController()
     }
 
     //MARK:- Actions
