@@ -44,7 +44,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        storageTypeLabel.roundCorners(corners: .topLeft, radius: 15)
+        storageTypeLabel.roundCorners(corners: .topLeft, radius: 10)
         
         tokenView.layoutIfNeeded()
         tokenView.dataSource = self

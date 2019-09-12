@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95
+        return 70
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

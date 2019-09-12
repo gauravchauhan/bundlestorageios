@@ -26,7 +26,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
 
         // Do any additional setup after loading the view.
         segment.selectedSegmentIndex = 0
-        let font = UIFont.init(name: Constants.fonts.ProximaNova_Semibold, size: 18.0)
+        let font = UIFont.init(name: Constants.fonts.ProximaNova_Semibold, size: 14.0)
         segment.setTitleTextAttributes([NSAttributedString.Key.font: font!],
                                                 for: .normal)
         
@@ -50,7 +50,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95
+        return 70
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
