@@ -96,6 +96,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     //MARK:- User Defined fucntion
     
     func setTheStorageDataIntoModal(data : [[String : Any]]){
+        self.storageModal.removeAll()
         for index in 0...data.count - 1{
             let storageObj = StorageListModal()
             storageObj.storageName = data[index]["storageName"]as? String

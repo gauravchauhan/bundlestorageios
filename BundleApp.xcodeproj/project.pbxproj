@@ -307,7 +307,6 @@
 		1EB80EC123012E1700D0FCB4 /* BundleApp */ = {
 			isa = PBXGroup;
 			children = (
-				F90BD162231FD99900916512 /* Listing */,
 				1EB80EF42301473200D0FCB4 /* Fonts */,
 				1EB80EED2301414E00D0FCB4 /* SkyFloating */,
 				1EB80EE423013CD300D0FCB4 /* CheckInterNetConnection */,
@@ -415,6 +414,7 @@
 		1EB80ED9230131C300D0FCB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F90BD162231FD99900916512 /* Listing */,
 				F90BD165231FDD1100916512 /* Payment */,
 				F904BC2C231E68C300D0030C /* Profile */,
 				F9EBCD35231D41A6003CC022 /* Request&Message */,
