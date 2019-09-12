@@ -30,7 +30,7 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
     
     func uploadIDProofResponse(data: [String : Any]) {
         print("Upload iD response \(data)")
-        data["status"]as! Bool ? self.pushToSpaceSelectController() : ag!lert(message: data["message"]as! Strin, Controller: self)
+        data["status"]as! Bool ? self.pushToSpaceSelectController() : alert(message: data["message"]as! String, Controller: self)
     }
     
     func pickerResponse(userImage: UIImage, imageData: Any) {
