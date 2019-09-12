@@ -11,6 +11,7 @@ pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'NWSTokenView'
 pod 'ImageSlideshow', '~> 1.8'
+pod 'Cosmos', '~> 16.0'
 
   # Pods for BundleApp
 
