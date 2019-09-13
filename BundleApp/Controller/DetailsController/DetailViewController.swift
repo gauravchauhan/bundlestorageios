@@ -13,7 +13,6 @@ import ImageSlideshow
 class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelegate, UIScrollViewDelegate{
    
     // MARK: OUTLETS
-    @IBOutlet weak var imageSlideShow: ImageSlideshow!
     @IBOutlet weak var showOfferButton: UIButton!
     @IBOutlet weak var storageTypeLabel: UILabel!
     @IBOutlet weak var listingTitle: UILabel!
@@ -25,7 +24,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     @IBOutlet weak var readmoreButton: UIButton!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
-    
+    @IBOutlet weak var imageSlideShow: ImageSlideshow!
     
     var selectedContacts = [NWSTokenData]()
     var contact: NWSTokenData!

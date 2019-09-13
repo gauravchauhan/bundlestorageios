@@ -34,18 +34,21 @@ class Singelton {
         }
         if UserDefaults.standard.value(forKey:"userData") != nil {
             print("Singelton userData")
-//            self.setUserData(data: UserDefaults.standard.value(forKey: "userData") as! [String : Any])
+            self.setUserData(data: UserDefaults.standard.value(forKey: "userData") as! [String : Any])
         }
     }
     
-//    func setUserData(data : [String : Any]){
-//        self.userDataModel.authToken = authToken
-//        self.userDataModel.userID = data["id"]as? String
-//        self.userDataModel.emailAddress = data["email"]as? String
-//        self.userDataModel.fullName = data["fullName"]as? String
-//        self.userDataModel.phoneNumber = data["phoneNumber"]as? String
-//        self.userDataModel.gender = data["gender"]as? String
-//        self.userDataModel.dateOfBirth = data["dob"]as? String
-//    }
-    
+    func setUserData(data : [String : Any]){
+        self.userDataModel.companyName = data["companyName"]as? String
+        self.userDataModel.email = data["email"]as? String
+        self.userDataModel.googleID = data["googleId"]as? String
+        self.userDataModel.userFirstName = data["firstName"]as? String
+        self.userDataModel.uploadIDProofStatus = data["isIdProof"]as? Bool
+        self.userDataModel.mobileNumberVerified = data["isMobileVerified"]as? Bool
+        self.userDataModel.userLastName = data["lastName"]as? String
+        self.userDataModel.userPhoneNumber = data["mobileNumber"]as? String
+        self.userDataModel.userProfilePic = data["profileImage"]as? String
+        self.userDataModel.userAuthenticationToken = self.authToken
+        self.userDataModel.userID = data["id"]as? String
+    }
 }

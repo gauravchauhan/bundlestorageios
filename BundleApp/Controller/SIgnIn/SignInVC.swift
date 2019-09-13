@@ -32,12 +32,19 @@ class SignInVC: UIViewController , SignInDelegate{
     
     //MAARK:- Delegate
     func signInResponse(data: [String : Any]) {
+        Indicator.shared.hideProgressView()
         print("signInResponse   \(data.nullKeyRemoval())")
+        
+        guard let status : Bool = data["status"]as? Bool , status != false else{
+            return alert(message: data["message"]as! String , Controller: self)
+        }
+        
         let signInResponse = (data["user"]as! [String : Any]).nullKeyRemoval()
         UserDefaults.standard.set(signInResponse , forKey: "userData")
         UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
         Singelton.sharedInstance.authToken = data["token"]as! String
-        data["status"]as! Bool ? self.pushToStorageListController() : print("error")
+        Singelton.sharedInstance.setUserData(data: signInResponse)
+        self.pushToTabBarController()
     }
 
     //MARK:- Actions
@@ -83,6 +90,8 @@ class SignInVC: UIViewController , SignInDelegate{
     //MARK:- User Defined functions
     
     func validatio_Fields(){
+        
+        Indicator.shared.showProgressView(self.view)
         guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
             return alert(message: NSLocalizedString("Enter email or phonr number", comment: ""), Controller: self)
         }

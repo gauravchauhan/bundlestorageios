@@ -53,7 +53,28 @@ class UserDataModal{
     private var isMobileVerified : Bool!
     private var location : String!
     private var mobile_Number : String!
+    private var userImage : String!
+    private var token : String!
     
+    
+    var userAuthenticationToken : String?{
+        get{
+            return token!
+        }
+        set{
+            self.token = newValue
+        }
+    }
+    
+    
+    var userProfilePic : String?{
+        get{
+            return userImage!
+        }
+        set{
+            self.userImage = newValue
+        }
+    }
     
     var companyName : String?{
         get{

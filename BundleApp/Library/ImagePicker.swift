@@ -103,11 +103,9 @@ class ImagePiker : NSObject, UINavigationControllerDelegate, UIImagePickerContro
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("In imagePickerController ")
-        //        print("In imagePickerController ")
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//        let imageData = UIImageJPEGRepresentation(image, 0.2)
-        let imageData = UIImage.jpegData(image)
-        delegate.pickerResponse(userImage: image , imageData : imageData)
+        let imageData = image.jpegData(compressionQuality: 0.2)
+        delegate.pickerResponse(userImage: image , imageData : imageData!)
         controller.dismiss(animated: true, completion: nil)
     }
     

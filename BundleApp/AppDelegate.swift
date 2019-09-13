@@ -19,31 +19,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        //Add the fb  and google signin to the app with the appID's
         Singelton.sharedInstance.location.setLatLong()
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
         GMSServices.provideAPIKey("AIzaSyDdDIw3AV25HSDH2e9V6RfurCV4V1uu61k")
         GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")
+<<<<<<< HEAD
 //        let mainViewController = storyboard.instantiateViewController(withIdentifier: "PaymentStatusController") as! PaymentStatusController
 //        
 //        let navigationController = UINavigationController(rootViewController: mainViewController)
 //        self.window?.rootViewController = navigationController
         return true
+=======
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        self.window?.rootViewController = navigationController
+>>>>>>> eb148e17cd7bb918cdf93f54bb6417131a6d0611
         
+        return true
     }
-    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         //Register for social logins(Fb, Google)
         
-        return (GIDSignIn.sharedInstance()?.handle(url as URL, sourceApplication: sourceApplication, annotation: annotation))!
+        return (GIDSignIn.sharedInstance()?.handle(url as URL))!
     }
     
     func application(application: UIApplication,
                      openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
         //Register for social logins(Fb, Google)
-         return (GIDSignIn.sharedInstance()?.handle(url as URL, sourceApplication: sourceApplication, annotation: annotation))!
+        return (GIDSignIn.sharedInstance()?.handle(url as URL))!
     }
     
     

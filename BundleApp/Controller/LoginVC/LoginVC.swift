@@ -38,7 +38,11 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
     func socialLoginResponse(data: [String : Any]) {
         print("Social login response \(data)")
         let result = (data["user"]as! [String : Any]).nullKeyRemoval()
-        print("rsult as dictionary \(result["email"]as! String)")
+        UserDefaults.standard.set(result , forKey: "userData")
+        UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
+        Singelton.sharedInstance.authToken = data["token"]as! String
+        Singelton.sharedInstance.setUserData(data: result)
+        self.pushToTabBarController()
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -81,8 +85,8 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
     }
     
     @IBAction func click_GoogleSignInButton(_ sender: Any) {
-//        GIDSignIn.sharedInstance()?.presentingViewController = self
-//        GIDSignIn.sharedInstance()?.signIn()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
     @IBAction func click_DontHaveAccountBttn(_ sender: Any) {

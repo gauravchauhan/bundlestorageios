@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UploadID_StepFirstVC: UIViewController, SelectedImage {
+class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDelegate{
 
     @IBOutlet weak var proof_Image: UIImageView!
     
@@ -28,8 +28,13 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage {
     
     //MARK:- Delgate
     
+    func uploadIDProofResponse(data: [String : Any]) {
+        print("Upload iD response \(data)")
+        data["status"]as! Bool ? self.pushToSpaceSelectController() : alert(message: data["message"]as! String, Controller: self)
+    }
+    
     func pickerResponse(userImage: UIImage, imageData: Any) {
-        print("get image \(userImage)   \(imageData)")
+        print("get image \(userImage) image data  \(imageData)")
         self.proof_Image.image = userImage
         self.imageData = imageData as? NSData
     }
@@ -49,6 +54,11 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage {
     }
     
     @IBAction func click_NextBttn(_ sender: Any) {
-        self.pushToSpaceSelectController()
+        if self.imageData != nil{
+            Singelton.sharedInstance.service.uploadIDProofDelegate = self
+            Singelton.sharedInstance.service.uploadImageFile(image: self.imageData, imageParameter: "fileData", apiName: Constants.AppUrls.govermentID, parameter: ["userID": Singelton.sharedInstance.userDataModel.userID! as NSObject])
+        }else{
+            alert(message: NSLocalizedString("Please upload image", comment: ""), Controller: self)
+        }
     }
 }

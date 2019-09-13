@@ -7,7 +7,7 @@ struct Constants {
      */
     
     struct AppUrls{
-        static let baseUrl = "http://41e09c37.ngrok.io/"
+        static let baseUrl = "http://bundle.teamjft.com/"
         static let getListType = "getListingType"
         static let getAmenities = "getAmenities"
         static let login = "login"

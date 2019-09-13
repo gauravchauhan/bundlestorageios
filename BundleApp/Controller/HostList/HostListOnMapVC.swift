@@ -20,7 +20,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var arrow_Button: UIButton!
     @IBOutlet weak var storageMapView: GMSMapView!
     
-    var storageModal = [StorageListModal]()
+    private var storageModal = [StorageListModal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         Indicator.shared.hideProgressView()
         print("list resposne \(data)")
         !(data["status"]as! Bool) ? DispatchQueue.main.async {
-            self.hostListheightConstraints.constant = 0 ; alert(message: data["message"]as! String , Controller: self)
+            self.hostListheightConstraints.constant = 100 ; alert(message: data["message"]as! String , Controller: self)
             } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
     }
     
@@ -96,6 +96,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     //MARK:- User Defined fucntion
     
     func setTheStorageDataIntoModal(data : [[String : Any]]){
+        self.storageModal.removeAll()
         for index in 0...data.count - 1{
             let storageObj = StorageListModal()
             storageObj.storageName = data[index]["storageName"]as? String
