@@ -11,6 +11,7 @@
 "Enter email" = "Enter email";
 "Enter valid email" = "Enter valid email";
 "Enter mobile number" = "Enter mobile number";
+"Enter valid mobile number" = "Enter valid mobile number";
 "Name doesn't contain special characters , numbers and symbols" = "Name doesn't contain special characters , numbers and symbols";
 "Enter password" = "Enter password";
 "Enter confirm password" = "Enter confirm password";
@@ -27,4 +28,5 @@
 "Enter Storage Name" = "Enter Storage Name";
 "Enter Description" = "Enter Description";
 "Please upload image" = "Please upload image";
+"Enter email or phone number" = "Enter email or phone number";
 //Enter Storage Name

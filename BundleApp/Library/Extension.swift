@@ -13,11 +13,13 @@ extension GMSMapView{
     func addMarker(position : CLLocationCoordinate2D, title : String){
         DispatchQueue.main.async
             {
+                print(position)
                 // 2. Perform UI Operations.
                 let position = position
                 let marker = GMSMarker(position: position)
                 marker.title = title
                 marker.map = self
+                self.setMinZoom(4, maxZoom: 10)
         }
     }
     
@@ -1181,7 +1183,7 @@ extension UIViewController {
         
         let allStep = UIButton()
         
-        allStep.setTitle("/ 10", for: .normal)
+        allStep.setTitle("/ 09", for: .normal)
         
         allStep.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
         
@@ -1236,11 +1238,11 @@ extension UIViewController {
         
         notificationBtn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         
-        notificationBtn.setImage(UIImage(named:"notification"), for: .normal)
+        notificationBtn.setImage(UIImage(named:"logout"), for: .normal)
         
         notificationBtn.setTitleColor(UIColor.black, for: .normal)
         
-        //backBtn.addTarget(self, action: #selector(self.click_BackButton), for: .touchUpInside)
+        notificationBtn.addTarget(self, action: #selector(self.logout_Click), for: .touchUpInside)
         
         let notificationNavBtn = UIBarButtonItem.init(customView: notificationBtn)
         
@@ -1264,6 +1266,23 @@ extension UIViewController {
         
         self.navigationItem.rightBarButtonItems = [notificationNavBtn, filterNavButton]
     }
+    
+    @objc func logout_Click(){
+        
+        var actions:[[String:UIAlertAction.Style]] = []
+        actions.append(["Logout": UIAlertAction.Style.default])
+        actions.append(["Cancel": UIAlertAction.Style.cancel])
+        showActionsheet(viewController: self, title: "", message: "Are you sure want to logout?", actions: actions) { (index) in
+            print("call action \(index)")
+            if index == 0 {
+                UserDefaults.standard.set(nil , forKey: "userData")
+                UserDefaults.standard.set(nil , forKey: "authToken")
+                self.pushToLoginController()
+            }
+        }
+       
+    }
+    
 }
 
 extension UITextField{

@@ -1303,10 +1303,30 @@
                                     <action selector="click_ResendCodeButtn:" destination="CLO-ak-KQB" eventType="touchUpInside" id="WfN-zU-3DQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMO-9k-6Zr">
+                                <rect key="frame" x="30" y="712" width="354" height="50"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gd3-1l-cGh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="click_NextButton:" destination="CLO-ak-KQB" eventType="touchUpInside" id="mP6-hb-EpS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9cQ-qP-bSR" firstAttribute="leading" secondItem="2LH-gC-y9P" secondAttribute="leading" constant="20" id="3oc-Rq-dBK"/>
+                            <constraint firstItem="2LH-gC-y9P" firstAttribute="trailing" secondItem="aMO-9k-6Zr" secondAttribute="trailing" constant="30" id="4Ew-Dd-dJU"/>
                             <constraint firstItem="OQ2-Um-V4o" firstAttribute="top" secondItem="pUg-VD-bZq" secondAttribute="top" id="9Nl-Dn-EaB"/>
                             <constraint firstItem="OQ2-Um-V4o" firstAttribute="leading" secondItem="pUg-VD-bZq" secondAttribute="leading" id="EIm-Co-IYd"/>
                             <constraint firstItem="pUg-VD-bZq" firstAttribute="width" secondItem="OQ2-Um-V4o" secondAttribute="width" id="G74-8f-LsL"/>
@@ -1315,12 +1335,14 @@
                             <constraint firstItem="2LH-gC-y9P" firstAttribute="trailing" secondItem="9cQ-qP-bSR" secondAttribute="trailing" constant="20" id="Nvj-k4-XKa"/>
                             <constraint firstItem="pUg-VD-bZq" firstAttribute="height" secondItem="OQ2-Um-V4o" secondAttribute="height" id="RoP-x0-cIc"/>
                             <constraint firstItem="OQ2-Um-V4o" firstAttribute="bottom" secondItem="pUg-VD-bZq" secondAttribute="bottom" id="WxJ-Qh-E54"/>
+                            <constraint firstItem="pUg-VD-bZq" firstAttribute="top" secondItem="aMO-9k-6Zr" secondAttribute="bottom" constant="30" id="XM1-qD-ZMX"/>
                             <constraint firstItem="BEu-BF-Xef" firstAttribute="leading" secondItem="2LH-gC-y9P" secondAttribute="leading" constant="20" id="Ygj-c8-Cuk"/>
                             <constraint firstItem="2LH-gC-y9P" firstAttribute="trailing" secondItem="BEu-BF-Xef" secondAttribute="trailing" constant="20" id="d8O-ql-HHD"/>
                             <constraint firstAttribute="trailing" secondItem="OQ2-Um-V4o" secondAttribute="trailing" constant="20" id="dtx-QI-76I"/>
                             <constraint firstItem="OQ2-Um-V4o" firstAttribute="trailing" secondItem="pUg-VD-bZq" secondAttribute="trailing" id="gXG-BL-q6b"/>
                             <constraint firstItem="OQ2-Um-V4o" firstAttribute="leading" secondItem="2LH-gC-y9P" secondAttribute="leading" constant="20" id="sCS-WE-jAa"/>
                             <constraint firstItem="9cQ-qP-bSR" firstAttribute="top" secondItem="BEu-BF-Xef" secondAttribute="bottom" constant="43" id="uyg-6Z-ggG"/>
+                            <constraint firstItem="aMO-9k-6Zr" firstAttribute="leading" secondItem="2LH-gC-y9P" secondAttribute="leading" constant="30" id="yl8-Mm-vEi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2LH-gC-y9P"/>
                     </view>
@@ -2023,12 +2045,15 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-dr-0CE">
-                                <rect key="frame" x="20" y="330" width="374" height="22"/>
+                                <rect key="frame" x="20" y="330" width="374" height="30"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="55" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="-70" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="I agree to Bundle Terms of service" image="blankCheckBox">
+                                <state key="normal" title="I agree to Bundle Terms of service" image="check_box_blank">
                                     <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="click_TermsButton:" destination="fgP-sg-ShW" eventType="touchUpInside" id="WJu-a0-lbB"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell renter what make you space special " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nV9-bM-cHB">
                                 <rect key="frame" x="20" y="225" width="374" height="24.5"/>
@@ -2064,8 +2089,10 @@
                         <viewLayoutGuide key="safeArea" id="ILk-jj-fGR"/>
                     </view>
                     <connections>
+                        <outlet property="agreeButton" destination="OaA-dr-0CE" id="VVf-LA-0OY"/>
                         <outlet property="desc" destination="WuT-oh-RB3" id="uMz-qa-ZAe"/>
                         <outlet property="storageName" destination="Die-6G-EuV" id="OsP-oH-k01"/>
+                        <outlet property="submittButton" destination="KKD-UX-y9B" id="5jG-2L-rPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gO4-Jx-CR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2230,7 +2257,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder=" Zip code" translatesAutoresizingMaskIntoConstraints="NO" id="9Qh-Ux-lgx">
+                            <searchBar userInteractionEnabled="NO" contentMode="redraw" searchBarStyle="minimal" placeholder=" Zip code" translatesAutoresizingMaskIntoConstraints="NO" id="9Qh-Ux-lgx">
                                 <rect key="frame" x="30" y="74" width="354" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="VFk-g8-jE0"/>
@@ -4241,6 +4268,7 @@
         <image name="blankCheckBox" width="30" height="30"/>
         <image name="bundle_logo" width="250" height="250"/>
         <image name="camera-red" width="30" height="30"/>
+        <image name="check_box_blank" width="30" height="30"/>
         <image name="circle" width="16" height="16"/>
         <image name="circle button" width="100" height="100"/>
         <image name="downArrow" width="30" height="30"/>

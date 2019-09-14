@@ -29,8 +29,14 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
     //MARK:- Delgate
     
     func uploadIDProofResponse(data: [String : Any]) {
+        Indicator.shared.hideProgressView()
         print("Upload iD response \(data)")
-        data["status"]as! Bool ? self.pushToSpaceSelectController() : alert(message: data["message"]as! String, Controller: self)
+        
+        data["status"]as! Bool ? DispatchQueue.main.async {
+            let uploadResponse = (data["user"]as! [String : Any]).nullKeyRemoval();
+            UserDefaults.standard.set(uploadResponse , forKey: "userData");
+            Singelton.sharedInstance.setUserData(data: uploadResponse); self.pushToSpaceSelectController()
+        }  : alert(message: data["message"]as! String, Controller: self)
     }
     
     func pickerResponse(userImage: UIImage, imageData: Any) {
@@ -55,6 +61,7 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
     
     @IBAction func click_NextBttn(_ sender: Any) {
         if self.imageData != nil{
+            Indicator.shared.showProgressView(self.view)
             Singelton.sharedInstance.service.uploadIDProofDelegate = self
             Singelton.sharedInstance.service.uploadImageFile(image: self.imageData, imageParameter: "fileData", apiName: Constants.AppUrls.govermentID, parameter: ["userID": Singelton.sharedInstance.userDataModel.userID! as NSObject])
         }else{

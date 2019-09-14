@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInVC: UIViewController , SignInDelegate{
+class SignInVC: UIViewController , SignInDelegate,ForgotPasswordDelegate{
     
     //MARK:- OUTLETS
     
@@ -31,6 +31,12 @@ class SignInVC: UIViewController , SignInDelegate{
     }
     
     //MAARK:- Delegate
+    
+    func forgotPasswordResponse(data: [String : Any]) {
+        print("Forgot resposne \(data)")
+        data["status"]as! Bool ?  self.pushToEnterCodeController() : alert(message: data["message"]as! String, Controller: self)
+    }
+    
     func signInResponse(data: [String : Any]) {
         Indicator.shared.hideProgressView()
         print("signInResponse   \(data.nullKeyRemoval())")
@@ -59,7 +65,13 @@ class SignInVC: UIViewController , SignInDelegate{
     
     
     @IBAction func click_ForgotPassword(_ sender: Any) {
-        self.pushToEnterCodeController()
+       //    guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
+//            return alert(message: NSLocalizedString("Enter email or phone number", comment: ""), Controller: self)
+//        }
+//        let param = "email=\(String(describing: self.emailOrPhone.text!))"
+//        Singelton.sharedInstance.service.forgotPasswordDelegate =  self
+//        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.forgotPassword, api_Type: apiType.POST.rawValue)
+    self.pushToEnterCodeController()
     }
     
     

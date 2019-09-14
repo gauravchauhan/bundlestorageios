@@ -55,6 +55,18 @@ class UserDataModal{
     private var mobile_Number : String!
     private var userImage : String!
     private var token : String!
+    private var idProofUrl : String!
+    
+    
+    var userIDProofURL : String?{
+        get{
+            return idProofUrl!
+        }
+        set{
+            self.idProofUrl = newValue
+        }
+    }
+    
     
     
     var userAuthenticationToken : String?{

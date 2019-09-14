@@ -137,6 +137,9 @@ class SignUpVC: UIViewController, SignUpDelegate {
         guard let number : String = self.phoneNmber.text , number != ""else {
             return alert(message: NSLocalizedString("Enter mobile number", comment: ""), Controller: self)
         }
+        guard let mobileNumber : String = self.phoneNmber.text, (Singelton.sharedInstance.validation.isValidPhoneNumber(mobileNumber))else {
+            return alert(message: NSLocalizedString("Enter valid mobile number", comment: ""), Controller: self)
+        }
         guard let password : String = self.password.text , password != "" else {
             return alert(message: NSLocalizedString("Enter password", comment: ""), Controller: self)
         }
@@ -152,7 +155,7 @@ class SignUpVC: UIViewController, SignUpDelegate {
         if (self.role == "ROLE_USER" || self.role == "ROLE_HOST") {
             param = "firstName=\(String(describing: self.firstName.text!))&role=\(self.role)&lastName=\(String(describing: self.lastName.text!))&email=\(String(describing: self.email.text!))&mobileNumber=\(String(describing: self.phoneNmber.text!))&password=\(String(describing: self.password.text!))"
         }else{
-            param = "companyName=\(String(describing: self.firstName.text!))&role=\(self.role)&email=\(String(describing: self.email.text!))&mobileNumber=\(String(describing: self.phoneNmber.text!))&password=\(String(describing: self.password.text!))"
+            param = "companyName=\(String(describing: self.companyName.text!))&role=\(self.role)&email=\(String(describing: self.email.text!))&mobileNumber=\(String(describing: self.phoneNmber.text!))&password=\(String(describing: self.password.text!))"
         }
         Indicator.shared.showProgressView(self.view)
         Singelton.sharedInstance.service.signUpDelegate = self

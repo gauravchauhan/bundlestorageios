@@ -26,4 +26,9 @@ class EnterVerificationCodeVC: UIViewController {
     @IBAction func click_ResendCodeButtn(_ sender: Any) {
         self.pushToResetCodeController()
     }
+    
+    @IBAction func click_NextButton(_ sender: Any) {
+    }
+    
+    
 }

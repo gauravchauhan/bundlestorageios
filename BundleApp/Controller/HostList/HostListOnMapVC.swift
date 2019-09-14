@@ -47,7 +47,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         Indicator.shared.hideProgressView()
         print("list resposne \(data)")
         !(data["status"]as! Bool) ? DispatchQueue.main.async {
-            self.hostListheightConstraints.constant = 100 ; alert(message: data["message"]as! String , Controller: self)
+            self.hostListheightConstraints.constant = 80 ; alert(message: data["message"]as! String , Controller: self)
             } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
     }
     
@@ -87,6 +87,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             self.storageMapView.addMarker(position: (self.storageModal[index].address?.storagePosition!)!, title: self.storageModal[index].storageName!)
         }
         self.storageMapView.setTheCameraPosition(firstPosition: (self.storageModal[0].address?.storagePosition!)!, lastPosition: (self.storageModal[self.storageModal.count - 1].address?.storagePosition!)!)
+//        self.storageMapView.setMinZoom(4, maxZoom: 10)
     }
     
     @objc func touchView(){
@@ -116,11 +117,11 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             addressModal.storageAddress = (data[index]["location"]as! [String : Any])["address"]as? String
             addressModal.storageCity = (data[index]["location"]as! [String : Any])["city"]as? String
             addressModal.storageLat = (data[index]["location"]as! [String : Any])["latitude"]as? CGFloat
-            addressModal.storageLng = (data[index]["location"]as! [String : Any])["latitude"]as? CGFloat
+            addressModal.storageLng = (data[index]["location"]as! [String : Any])["longitude"]as? CGFloat
             print("stoarge lat \(addressModal.storageLat!)    \(addressModal.storageLng!)")
             addressModal.storageState = (data[index]["location"]as! [String : Any])["state"]as? String
             addressModal.zipCode = (data[index]["location"]as! [String : Any])["zipCode"]as? String
-            addressModal.storagePosition = CLLocationCoordinate2D(latitude: (CLLocationDegrees((addressModal.storageLat!))), longitude: (CLLocationDegrees((addressModal.storageLat!))))
+            addressModal.storagePosition = CLLocationCoordinate2D(latitude: (CLLocationDegrees((addressModal.storageLat!))), longitude: (CLLocationDegrees((addressModal.storageLng!))))
             
             storageObj.address = addressModal
             self.storageModal.append(storageObj)
@@ -182,7 +183,8 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     }
     
     @IBAction func click_adStorageButton(_ sender: Any) {
-        self.pushToStep_FirstController()
+        print("Singelton.sharedInstance.userDataModel.uploadIDProofStatus!    \(Singelton.sharedInstance.userDataModel.uploadIDProofStatus!)")
+        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToSpaceSelectController()  : self.pushToStep_FirstController()
     }
 
 }

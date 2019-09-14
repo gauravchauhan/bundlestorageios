@@ -17,6 +17,7 @@ struct Constants {
         static let addStorage = "addStorage"
         static let getStorageList = "filterStorage"
         static let govermentID = "uploadGovernmentIssuedId"
+        static let forgotPassword = "forgotPassword"
         //uploadGovernmentIssuedId
 
     }
