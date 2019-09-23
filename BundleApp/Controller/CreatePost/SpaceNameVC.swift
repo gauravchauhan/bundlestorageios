@@ -24,6 +24,7 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
     
     func addStorageResponse(data: [String : Any]) {
         print("add storage response \(data)")
+        data["status"]as! Bool ? self.pushToTabBarController() : alert(message: data["message"]as! String, Controller: self)
     }
     
     
@@ -34,6 +35,7 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
         Singelton.sharedInstance.addStorageModal.storageName = storageName
         Singelton.sharedInstance.addStorageModal.storageDescription = self.desc.text!
         self.saveStorage()
+        
     }
     
     

@@ -14,7 +14,9 @@ protocol AddImageCellDelegate: class {
 
 class AddImageCollectionViewCell: UICollectionViewCell {
 
+    //MARK:- Outlets
     @IBOutlet weak var btnAdd: UIButton!
+    //MARK:- Properties
     var delegate: AddImageCellDelegate?
     
     var indexPath: IndexPath!

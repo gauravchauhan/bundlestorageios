@@ -10,14 +10,13 @@ import UIKit
 
 class SingleItemRequest_VC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, AddImageCellDelegate {
     
-    
-
-    
+    //MARK:- Outlets
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var disclamerLabel: UILabel!
     
+    //MARK:- Properties
     let imagePicker = UIImagePickerController()
     var imageMaxLimit = 5
     var tableViewItemCount = 0
@@ -87,6 +86,7 @@ class SingleItemRequest_VC: UIViewController,UIImagePickerControllerDelegate, UI
 
 }
 
+//MARK:- Extensions
 extension SingleItemRequest_VC: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

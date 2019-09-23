@@ -10,15 +10,16 @@ import UIKit
 
 class PaymentDetailController: UIViewController {
 
+    //MARK:- Outlets
     @IBOutlet weak var dashedView: UIView!
-    
     @IBOutlet weak var offerLabel: UILabel!
-    
     @IBOutlet weak var agreeButton: UIButton!
-    
     @IBOutlet weak var payNowButton: UIButton!
-    let uncheckImage = UIImage(named: "check_box_blank_black_30.png")
-    let checkImage = UIImage(named: "check_box_fill_black_30")
+    
+    //MARK:- Properties
+    let uncheckImage = UIImage(named: Image.CheckBox_Blank)
+    let checkImage = UIImage(named: Image.CheckBox_Fill)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,12 +10,10 @@ import UIKit
 
 class SideMenuViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
    
-    
+    //MARK:- Outlets
     @IBOutlet weak var companyImage: UIImageView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    
-    let menuItems = ["Profile", "Refer bundle to a friend", "Support", "Switch to a user", "My Earnings"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +28,7 @@ class SideMenuViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuItemsCell", for: indexPath) as! MenuItemsCell
-        cell.menuTitle.text = menuItems[indexPath.row]
+        cell.menuTitle.text = Strings.SideBarMenuItems[indexPath.row]
         return cell
     }
     

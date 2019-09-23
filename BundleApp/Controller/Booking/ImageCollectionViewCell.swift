@@ -10,7 +10,9 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
 
+    //MARK:- Outlets
     @IBOutlet weak var imageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

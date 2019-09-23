@@ -9,7 +9,8 @@
 import UIKit
 
 class PickSingleItemCell: UITableViewCell {
-
+    
+    //MARK:- Outlets
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var generalView: UIView!
     @IBOutlet weak var itemTitleLabel: UILabel!

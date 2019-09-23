@@ -15,8 +15,6 @@ class DiscountPopUpController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        
-        
         self.showAnimate()
     }
     

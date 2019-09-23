@@ -9,15 +9,14 @@
 import UIKit
 
 class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextViewDelegate, AddImageCellDelegate {
-   
-    
-
+     //MARK:- Outlets
     @IBOutlet weak var startDateTextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var endDatetextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var disclamerLabel: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+     //MARK:- Properties
     let imagePicker = UIImagePickerController()
     var imageMaxLimit = 5
     var tableViewItemCount = 0
@@ -97,6 +96,7 @@ class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINa
 
 }
 
+ //MARK:- Extension
 extension RegularBooking_VC: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

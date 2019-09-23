@@ -12,7 +12,6 @@ import GoogleMaps
 class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate{
     
     //MARK:- Outlets
-    
     @IBOutlet weak var hostList: UITableView!
     @IBOutlet weak var hostListView: UIView!
     @IBOutlet weak var hostListBottomConstraints: NSLayoutConstraint!
@@ -20,6 +19,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var arrow_Button: UIButton!
     @IBOutlet weak var storageMapView: GMSMapView!
     
+    // MARK: PROPERTIES
     private var storageModal = [StorageListModal]()
     
     override func viewDidLoad() {

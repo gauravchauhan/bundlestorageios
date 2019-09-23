@@ -26,6 +26,8 @@ struct Constants {
         static let googleAPIKey = "AIzaSyAsU61d8SGFtVWNwKbmkaa-PnyUf0PFS08"
     }
     
+    
+    
     struct fonts {
 
         static let ProximaNova_Black = "ProximaNova-Black"
@@ -47,6 +49,10 @@ struct Constants {
         static let lightGrayColor : UInt32 = 0xF2F2F2
     }
     
+    struct Format{
+        static let TIME = "h:mm a"
+    }
+    
     struct networkConnectionErrorMessage{
         var status : String!
         var message : String!
@@ -54,6 +60,26 @@ struct Constants {
             return ["status": status! ,"message": message!]
         }
     }
+}
+
+struct Strings{
+    
+    static let app_Name = NSLocalizedString("Bundle App", comment: "")
+    static let enter_First_Name = NSLocalizedString("Enter first name", comment: "")
+    static let message = NSLocalizedString("Message", comment: "")
+     static let request = NSLocalizedString("Request", comment: "")
+    static let SideBarMenuItems = [
+        NSLocalizedString("Profile", comment: ""),
+        NSLocalizedString("Refer bundle to a friend", comment: ""),
+        NSLocalizedString("Support", comment: ""),
+        NSLocalizedString("Switch to a user", comment: ""),
+        NSLocalizedString("My Earnings", comment: "")
+    ]
+}
+
+struct Image{
+    static let CheckBox_Blank = "check_box_blank"
+    static let CheckBox_Fill = "check_box_fill"
 }
     
 
