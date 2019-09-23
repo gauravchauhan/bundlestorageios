@@ -10,6 +10,7 @@ import UIKit
 
 class RequestViewCell: UITableViewCell {
 
+     //MARK:- Outlets
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var statusImgView: UIImageView!

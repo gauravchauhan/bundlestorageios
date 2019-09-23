@@ -56,7 +56,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
     //MARK:- Actions
     
     @IBAction func click_SignUpBttn(_ sender: Any) {
-        self.validatio_Fields()
+        self.validation_Fields()
     }
     
     @IBAction func click_DontHaveAnAccountBttn(_ sender: Any) {
@@ -101,7 +101,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
     
     //MARK:- User Defined functions
     
-    func validatio_Fields(){
+    func validation_Fields(){
         
         Indicator.shared.showProgressView(self.view)
         guard let firstName : String = self.emailOrPhone.text , firstName != "" else {

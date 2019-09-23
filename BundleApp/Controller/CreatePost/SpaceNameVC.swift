@@ -45,6 +45,7 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
         Singelton.sharedInstance.addStorageModal.storageName = storageName
         Singelton.sharedInstance.addStorageModal.storageDescription = self.desc.text!
         self.saveStorage()
+        
     }
     
     @IBAction func click_TermsButton(_ sender: Any) {

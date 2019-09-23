@@ -10,8 +10,8 @@ import UIKit
 
 class Someone_sBubbleViewCell: MyBubbleViewCell {
     
+    //MARK:- Outlets
     @IBOutlet weak var imgProfile: UIImageView!
-    
     @IBOutlet weak var constraintForNickHidden: NSLayoutConstraint! // default 24 when hidden set 0
     
     

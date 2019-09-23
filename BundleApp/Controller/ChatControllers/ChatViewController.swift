@@ -10,10 +10,10 @@ import UIKit
 
 class ChatViewController: UIViewController, LynnBubbleViewDataSource {
    
-    
-
+    //MARK:- Outlets
     @IBOutlet weak var messageTextView: UITextField!
     @IBOutlet weak var tableView: LynnBubbleTableView!
+    //MARK:- Properties
      var arrChatTest:Array<LynnBubbleData> = []
     
     override func viewDidLoad() {

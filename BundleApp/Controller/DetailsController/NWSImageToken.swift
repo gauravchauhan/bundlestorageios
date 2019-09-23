@@ -11,9 +11,8 @@ import NWSTokenView
 
 open class NWSImageToken: NWSToken {
 
-    
+    // MARK: OUTLETS
     @IBOutlet weak var titleLabel: UILabel!
-  
     
     open class func initWithTitle(_ title: String) -> NWSImageToken?
     {

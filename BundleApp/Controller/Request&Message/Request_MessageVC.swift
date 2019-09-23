@@ -10,11 +10,13 @@ import UIKit
 
 class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
+    //MARK:- Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
-    
     @IBOutlet weak var searchTextField: UITextField!
-    var currentSegment = "Request"
+    
+    //MARK:- Properties
+    var currentSegment = Strings.request
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
 
         // Do any additional setup after loading the view.
         segment.selectedSegmentIndex = 0
-        let font = UIFont.init(name: Constants.fonts.ProximaNova_Semibold, size: 18.0)
+        let font = UIFont.init(name: Constants.fonts.ProximaNova_Semibold, size: 14.0)
         segment.setTitleTextAttributes([NSAttributedString.Key.font: font!],
                                                 for: .normal)
         
@@ -35,11 +37,11 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         if(segment.selectedSegmentIndex==0){
-            currentSegment = "Request"
+            currentSegment = Strings.request
             (segment.subviews[0] as UIView).tintColor = UIColor.red
         }
         else{
-            currentSegment = "Message"
+            currentSegment = Strings.message
             (segment.subviews[0] as UIView).tintColor = UIColor.red
         }
         tableView.reloadData()
@@ -50,11 +52,11 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95
+        return 70
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if currentSegment == "Message"{
+        if currentSegment == Strings.message{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MessageViewCell", for: indexPath) as! MessageViewCell
             return cell
         }else{

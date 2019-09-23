@@ -83,6 +83,21 @@
 		F90BD161231FC71F00916512 /* ScanQRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD160231FC71F00916512 /* ScanQRController.swift */; };
 		F90BD164231FD9BB00916512 /* SingleListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD163231FD9BB00916512 /* SingleListingViewController.swift */; };
 		F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD166231FDEC000916512 /* PaymentStatusController.swift */; };
+		F919DA9D232A4989008EB40E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919DA9C232A4989008EB40E /* SideMenuViewController.swift */; };
+		F919DAA0232A4A66008EB40E /* MenuItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919DA9E232A4A66008EB40E /* MenuItemsCell.swift */; };
+		F919DAA1232A4A66008EB40E /* MenuItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F919DA9F232A4A66008EB40E /* MenuItemsCell.xib */; };
+		F9215AD223225B0B0053385B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AD123225B0B0053385B /* RootViewController.swift */; };
+		F9215AD923225BF50053385B /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AD723225BF50053385B /* SideMenuController.swift */; };
+		F9215ADA23225BF50053385B /* SideMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9215AD823225BF50053385B /* SideMenuController.xib */; };
+		F9215ADD23226C3F0053385B /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215ADC23226C3F0053385B /* SSASideMenu.swift */; };
+		F9215AE0232275850053385B /* RegularBooking_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215ADF232275850053385B /* RegularBooking_VC.swift */; };
+		F9215AE323228A530053385B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AE123228A530053385B /* ImageCollectionViewCell.swift */; };
+		F9215AE423228A530053385B /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9215AE223228A530053385B /* ImageCollectionViewCell.xib */; };
+		F9215AE7232292300053385B /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AE5232292300053385B /* AddImageCollectionViewCell.swift */; };
+		F9215AE8232292300053385B /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9215AE6232292300053385B /* AddImageCollectionViewCell.xib */; };
+		F98C015A232A14DB00B89FB1 /* SingleItemRequest_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C0159232A14DB00B89FB1 /* SingleItemRequest_VC.swift */; };
+		F98C015D232A1A7800B89FB1 /* PickSingleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C015B232A1A7800B89FB1 /* PickSingleItemCell.swift */; };
+		F98C015E232A1A7800B89FB1 /* PickSingleItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98C015C232A1A7800B89FB1 /* PickSingleItemCell.xib */; };
 		F9C2E54B231E7F3B0087AF35 /* StatusViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2E549231E7F3B0087AF35 /* StatusViewCell.swift */; };
 		F9C2E54C231E7F3B0087AF35 /* StatusViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C2E54A231E7F3B0087AF35 /* StatusViewCell.xib */; };
 		F9C86F1C23194A11006B6E90 /* LynnBubbleViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */; };
@@ -99,6 +114,9 @@
 		F9EBCD3B231D4319003CC022 /* MessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9EBCD39231D4319003CC022 /* MessageViewCell.xib */; };
 		F9EBCD3E231D4329003CC022 /* RequestViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBCD3C231D4329003CC022 /* RequestViewCell.swift */; };
 		F9EBCD3F231D4329003CC022 /* RequestViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9EBCD3D231D4329003CC022 /* RequestViewCell.xib */; };
+		F9F3E0E22327CBCC00BBF871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3E0E12327CBCC00BBF871 /* PaymentViewController.swift */; };
+		F9F3E0E42327CC1000BBF871 /* DiscountPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3E0E32327CC1000BBF871 /* DiscountPopUpController.swift */; };
+		F9F8C3D82329101E001130E3 /* PaymentDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F8C3D72329101E001130E3 /* PaymentDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,6 +217,21 @@
 		F90BD160231FC71F00916512 /* ScanQRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRController.swift; sourceTree = "<group>"; };
 		F90BD163231FD9BB00916512 /* SingleListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListingViewController.swift; sourceTree = "<group>"; };
 		F90BD166231FDEC000916512 /* PaymentStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusController.swift; sourceTree = "<group>"; };
+		F919DA9C232A4989008EB40E /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		F919DA9E232A4A66008EB40E /* MenuItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsCell.swift; sourceTree = "<group>"; };
+		F919DA9F232A4A66008EB40E /* MenuItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemsCell.xib; sourceTree = "<group>"; };
+		F9215AD123225B0B0053385B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		F9215AD723225BF50053385B /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		F9215AD823225BF50053385B /* SideMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuController.xib; sourceTree = "<group>"; };
+		F9215ADC23226C3F0053385B /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
+		F9215ADF232275850053385B /* RegularBooking_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularBooking_VC.swift; sourceTree = "<group>"; };
+		F9215AE123228A530053385B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F9215AE223228A530053385B /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		F9215AE5232292300053385B /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F9215AE6232292300053385B /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		F98C0159232A14DB00B89FB1 /* SingleItemRequest_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemRequest_VC.swift; sourceTree = "<group>"; };
+		F98C015B232A1A7800B89FB1 /* PickSingleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickSingleItemCell.swift; sourceTree = "<group>"; };
+		F98C015C232A1A7800B89FB1 /* PickSingleItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickSingleItemCell.xib; sourceTree = "<group>"; };
 		F9C2E549231E7F3B0087AF35 /* StatusViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewCell.swift; sourceTree = "<group>"; };
 		F9C2E54A231E7F3B0087AF35 /* StatusViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusViewCell.xib; sourceTree = "<group>"; };
 		F9C86F1023194A11006B6E90 /* LynnBubbleViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LynnBubbleViewHeaderCell.swift; sourceTree = "<group>"; };
@@ -215,6 +248,9 @@
 		F9EBCD39231D4319003CC022 /* MessageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewCell.xib; sourceTree = "<group>"; };
 		F9EBCD3C231D4329003CC022 /* RequestViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewCell.swift; sourceTree = "<group>"; };
 		F9EBCD3D231D4329003CC022 /* RequestViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestViewCell.xib; sourceTree = "<group>"; };
+		F9F3E0E12327CBCC00BBF871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		F9F3E0E32327CC1000BBF871 /* DiscountPopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountPopUpController.swift; sourceTree = "<group>"; };
+		F9F8C3D72329101E001130E3 /* PaymentDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +451,8 @@
 			isa = PBXGroup;
 			children = (
 				F90BD162231FD99900916512 /* Listing */,
+				F9215ADE232275670053385B /* Booking */,
+				F9215AD023225A240053385B /* Sidemenu */,
 				F90BD165231FDD1100916512 /* Payment */,
 				F904BC2C231E68C300D0030C /* Profile */,
 				F9EBCD35231D41A6003CC022 /* Request&Message */,
@@ -524,8 +562,48 @@
 			isa = PBXGroup;
 			children = (
 				F90BD166231FDEC000916512 /* PaymentStatusController.swift */,
+				F9F3E0E12327CBCC00BBF871 /* PaymentViewController.swift */,
+				F9F8C3D72329101E001130E3 /* PaymentDetailController.swift */,
 			);
 			path = Payment;
+			sourceTree = "<group>";
+		};
+		F919DA9B232A4951008EB40E /* SideMenuLib */ = {
+			isa = PBXGroup;
+			children = (
+				F9215ADC23226C3F0053385B /* SSASideMenu.swift */,
+			);
+			path = SideMenuLib;
+			sourceTree = "<group>";
+		};
+		F9215AD023225A240053385B /* Sidemenu */ = {
+			isa = PBXGroup;
+			children = (
+				F919DA9B232A4951008EB40E /* SideMenuLib */,
+				F9215AD123225B0B0053385B /* RootViewController.swift */,
+				F9215AD723225BF50053385B /* SideMenuController.swift */,
+				F9215AD823225BF50053385B /* SideMenuController.xib */,
+				F919DA9C232A4989008EB40E /* SideMenuViewController.swift */,
+				F919DA9E232A4A66008EB40E /* MenuItemsCell.swift */,
+				F919DA9F232A4A66008EB40E /* MenuItemsCell.xib */,
+			);
+			path = Sidemenu;
+			sourceTree = "<group>";
+		};
+		F9215ADE232275670053385B /* Booking */ = {
+			isa = PBXGroup;
+			children = (
+				F9215ADF232275850053385B /* RegularBooking_VC.swift */,
+				F98C0159232A14DB00B89FB1 /* SingleItemRequest_VC.swift */,
+				F9F3E0E32327CC1000BBF871 /* DiscountPopUpController.swift */,
+				F9215AE123228A530053385B /* ImageCollectionViewCell.swift */,
+				F9215AE223228A530053385B /* ImageCollectionViewCell.xib */,
+				F9215AE5232292300053385B /* AddImageCollectionViewCell.swift */,
+				F9215AE6232292300053385B /* AddImageCollectionViewCell.xib */,
+				F98C015B232A1A7800B89FB1 /* PickSingleItemCell.swift */,
+				F98C015C232A1A7800B89FB1 /* PickSingleItemCell.xib */,
+			);
+			path = Booking;
 			sourceTree = "<group>";
 		};
 		F9C86F0D231949E9006B6E90 /* ChatControllers */ = {
@@ -620,20 +698,26 @@
 			files = (
 				F9EBCD3F231D4329003CC022 /* RequestViewCell.xib in Resources */,
 				F9EBCD3B231D4319003CC022 /* MessageViewCell.xib in Resources */,
+				F9215AE8232292300053385B /* AddImageCollectionViewCell.xib in Resources */,
 				1EB80ECD23012E1800D0FCB4 /* LaunchScreen.storyboard in Resources */,
 				1E7F92792301C19C006E2CEF /* IQKeyboardManager.bundle in Resources */,
+				F98C015E232A1A7800B89FB1 /* PickSingleItemCell.xib in Resources */,
 				1EB80F002301479B00D0FCB4 /* ProximaNovaT-Thin.ttf in Resources */,
 				1EB80F022301479B00D0FCB4 /* ProximaNova-Semibold.ttf in Resources */,
+				F9215AE423228A530053385B /* ImageCollectionViewCell.xib in Resources */,
 				1EB0A7F7232A584E00F8E29B /* Main.storyboard in Resources */,
 				1EB80EFF2301479B00D0FCB4 /* ProximaNova-Light.ttf in Resources */,
 				1EB80ECA23012E1800D0FCB4 /* Assets.xcassets in Resources */,
 				F9C86F2423194A11006B6E90 /* MyBubbleViewCell.xib in Resources */,
 				1EB80EFC2301479B00D0FCB4 /* ProximaNova-Bold.ttf in Resources */,
 				1EB80F012301479B00D0FCB4 /* ProximaNova-Regular.ttf in Resources */,
+				F9215ADA23225BF50053385B /* SideMenuController.xib in Resources */,
 				1EB80EFD2301479B00D0FCB4 /* ProximaNova-Extrabld.ttf in Resources */,
 				1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */,
 				F9C86F2323194A11006B6E90 /* LynnBubbleViewHeaderCell.xib in Resources */,
 				1E8AF9C5230D51D400240F65 /* Localizable.strings in Resources */,
+				F919DAA1232A4A66008EB40E /* MenuItemsCell.xib in Resources */,
+				1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */,
 				F9C86F2023194A11006B6E90 /* Someone'sBubbleViewCell.xib in Resources */,
 				1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */,
 				9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */,
@@ -709,12 +793,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E8AF9C1230D279C00240F65 /* SpaceNameVC.swift in Sources */,
+				F919DAA0232A4A66008EB40E /* MenuItemsCell.swift in Sources */,
+				F9F3E0E22327CBCC00BBF871 /* PaymentViewController.swift in Sources */,
 				1EB80EDB2301347E00D0FCB4 /* Extension.swift in Sources */,
 				1E15CAF2232CC16200BF56D3 /* Service.swift in Sources */,
 				1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */,
 				1EA6992A2317BB1300C50AE7 /* FeaturesVC.swift in Sources */,
+
+				1EB80EE323013C6D00D0FCB4 /* Service.swift in Sources */,
+				F9215ADD23226C3F0053385B /* SSASideMenu.swift in Sources */,
 				1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */,
 				1EA698D72314076F00C50AE7 /* StorageListModal.swift in Sources */,
+				F9215AE0232275850053385B /* RegularBooking_VC.swift in Sources */,
 				F90BD15F231FBDA100916512 /* UserFeedbackController.swift in Sources */,
 				1EB80F042301574700D0FCB4 /* LoginVC.swift in Sources */,
 				F9C86F1D23194A11006B6E90 /* MyBubbleViewCell.swift in Sources */,
@@ -724,10 +814,13 @@
 				1E8AF9BD230D12A800240F65 /* ListingModal.swift in Sources */,
 				1EB80EE123013BDE00D0FCB4 /* Singelton.swift in Sources */,
 				1E7F92752301C19C006E2CEF /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				F9215AE323228A530053385B /* ImageCollectionViewCell.swift in Sources */,
 				F9C86F1E23194A11006B6E90 /* Someone'sBubbleViewCell.swift in Sources */,
 				F9EBCD3E231D4329003CC022 /* RequestViewCell.swift in Sources */,
+				F9215AD923225BF50053385B /* SideMenuController.swift in Sources */,
 				F90BD161231FC71F00916512 /* ScanQRController.swift in Sources */,
 				1EA69926231667CF00C50AE7 /* ImagePicker.swift in Sources */,
+				F98C015A232A14DB00B89FB1 /* SingleItemRequest_VC.swift in Sources */,
 				1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */,
 				1EB80EE823013DEB00D0FCB4 /* Validation.swift in Sources */,
 				1E7F926F2301C19C006E2CEF /* IQUITextFieldView+Additions.m in Sources */,
@@ -741,11 +834,13 @@
 				1EA698D52313ED1D00C50AE7 /* Location.swift in Sources */,
 				1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */,
 				F9C86F1C23194A11006B6E90 /* LynnBubbleViewHeaderCell.swift in Sources */,
+				F9215AE7232292300053385B /* AddImageCollectionViewCell.swift in Sources */,
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
 				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				F9215AD223225B0B0053385B /* RootViewController.swift in Sources */,
 				F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
 				1EA6992C2317F52B00C50AE7 /* DiscountVC.swift in Sources */,
@@ -757,7 +852,10 @@
 				1EA698D32313E9EC00C50AE7 /* UserDataModal.swift in Sources */,
 				F9EBCD3A231D4319003CC022 /* MessageViewCell.swift in Sources */,
 				1E7F92732301C19C006E2CEF /* IQUIView+Hierarchy.m in Sources */,
+				F9F3E0E42327CC1000BBF871 /* DiscountPopUpController.swift in Sources */,
 				F9EBCD37231D41DF003CC022 /* Request_MessageVC.swift in Sources */,
+				F98C015D232A1A7800B89FB1 /* PickSingleItemCell.swift in Sources */,
+				F919DA9D232A4989008EB40E /* SideMenuViewController.swift in Sources */,
 				F9C86F2523194A11006B6E90 /* LynnBubbleTableView.swift in Sources */,
 				1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */,
 				1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */,
@@ -781,6 +879,7 @@
 				1E9EB0C32318F95E003E6F80 /* StorageChargeVC.swift in Sources */,
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,
 				F904BC2E231E6BDB00D0030C /* ProfileViewController.swift in Sources */,
+				F9F8C3D82329101E001130E3 /* PaymentDetailController.swift in Sources */,
 				1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */,
 				1E7F92712301C19C006E2CEF /* IQKeyboardReturnKeyHandler.m in Sources */,
 			);

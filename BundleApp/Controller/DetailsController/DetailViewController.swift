@@ -26,14 +26,13 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var imageSlideShow: ImageSlideshow!
     
+    //MARK:- PROPERTIES
     var selectedContacts = [NWSTokenData]()
     var contact: NWSTokenData!
     let tokenViewMinHeight: CGFloat = 40.0
     let tokenViewMaxHeight: CGFloat = 150.0
     var readMoreButtonTitle = "readmore...."
-    
     let dataArray : [String] = ["Thor", "Lights Out", "Captian America", "Resident Evil", "Mission Impossible", "MasterMind", "Spiderman", "GodZilla", "Dinasaures", "Titanic"]
-
    var sliderImages =  [BundleImageSource(imageString: "image1"), BundleImageSource(imageString: "image2"), BundleImageSource(imageString: "image3"), BundleImageSource(imageString: "image1"), BundleImageSource(imageString: "image2"), BundleImageSource(imageString: "image3")]
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -43,7 +42,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        storageTypeLabel.roundCorners(corners: .topLeft, radius: 15)
+        storageTypeLabel.roundCorners(corners: .topLeft, radius: 10)
         
         tokenView.layoutIfNeeded()
         tokenView.dataSource = self

@@ -10,12 +10,11 @@ import UIKit
 
 class MessageViewCell: UITableViewCell {
 
+     //MARK:- Outlets
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBOutlet weak var cardView: UIView!
     
     
