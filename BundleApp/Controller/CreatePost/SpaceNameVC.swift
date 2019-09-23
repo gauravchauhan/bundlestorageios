@@ -40,7 +40,7 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
     
     @IBAction func click_NextButton(_ sender: Any) {
         guard let storageName : String = self.storageName.text , storageName != "" else {
-            return alert(message: NSLocalizedString("Enter Storage Name", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Storage_Name , Controller: self)
         }
         Singelton.sharedInstance.addStorageModal.storageName = storageName
         Singelton.sharedInstance.addStorageModal.storageDescription = self.desc.text!

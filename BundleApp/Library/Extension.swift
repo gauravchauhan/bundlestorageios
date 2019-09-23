@@ -139,7 +139,7 @@ func breZerPAth(View : UIView){
 
 func alert(message : String, Controller : UIViewController ){
     DispatchQueue.main.async {
-        let alertView = UIAlertController(title: NSLocalizedString("Bundle App", comment: ""), message: message, preferredStyle: .alert)
+        let alertView = UIAlertController(title: NSLocalizedString(Strings_Const.app_Name, comment: ""), message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertView.addAction(action)
         Controller.present(alertView, animated: true, completion: nil)

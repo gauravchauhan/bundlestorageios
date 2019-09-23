@@ -24,7 +24,7 @@ class DescriptionVC: UIViewController, AddStorageDelegate {
     
     @IBAction func click_submitBttn(_ sender: Any) {
         guard let description : String = self.storageDesc.text , description != "" else {
-            return alert(message: NSLocalizedString("Enter Description", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Description , Controller: self)
         }
         Singelton.sharedInstance.addStorageModal.storageDescription =  description
         Singelton.sharedInstance.service.addStorageDelegate = self

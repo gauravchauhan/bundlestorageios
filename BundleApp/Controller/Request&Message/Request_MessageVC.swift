@@ -16,7 +16,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var searchTextField: UITextField!
     
     //MARK:- Properties
-    var currentSegment = Strings.request
+    var currentSegment = Strings_Const.request
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +37,11 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         if(segment.selectedSegmentIndex==0){
-            currentSegment = Strings.request
+            currentSegment = Strings_Const.request
             (segment.subviews[0] as UIView).tintColor = UIColor.red
         }
         else{
-            currentSegment = Strings.message
+            currentSegment = Strings_Const.message
             (segment.subviews[0] as UIView).tintColor = UIColor.red
         }
         tableView.reloadData()
@@ -56,7 +56,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if currentSegment == Strings.message{
+        if currentSegment == Strings_Const.message{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MessageViewCell", for: indexPath) as! MessageViewCell
             return cell
         }else{

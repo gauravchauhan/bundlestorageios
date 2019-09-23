@@ -65,7 +65,7 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
             Singelton.sharedInstance.service.uploadIDProofDelegate = self
             Singelton.sharedInstance.service.uploadImageFile(image: self.imageData, imageParameter: "fileData", apiName: Constants.AppUrls.govermentID, parameter: ["userID": Singelton.sharedInstance.userDataModel.userID! as NSObject])
         }else{
-            alert(message: NSLocalizedString("Please upload image", comment: ""), Controller: self)
+            alert(message: Strings_Const.upload_Profile , Controller: self)
         }
     }
 }

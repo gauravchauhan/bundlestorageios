@@ -26,10 +26,10 @@ class SelectSpaceDimensionVC: UIViewController {
     @IBAction func click_NextButton(_ sender: Any) {
         
         guard let length : String = self.length.text , length != "" else {
-            return alert(message: NSLocalizedString("Enter length", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Length , Controller: self)
         }
         guard let width : String = self.width.text , width != "" else {
-            return alert(message: NSLocalizedString("Enter width", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Width , Controller: self)
         }
         
         Singelton.sharedInstance.addStorageModal.storageHeight = length

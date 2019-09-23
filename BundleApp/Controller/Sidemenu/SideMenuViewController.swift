@@ -28,7 +28,7 @@ class SideMenuViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuItemsCell", for: indexPath) as! MenuItemsCell
-        cell.menuTitle.text = Strings.SideBarMenuItems[indexPath.row]
+        cell.menuTitle.text = Strings_Const.SideBarMenuItems[indexPath.row]
         return cell
     }
     

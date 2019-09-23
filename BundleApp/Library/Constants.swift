@@ -63,14 +63,14 @@ struct Constants {
     }
 }
 
-struct Strings{
+struct Strings_Const{
     
     static let app_Name = NSLocalizedString("Bundle App", comment: "")
     static let enter_First_Name = NSLocalizedString("Enter first name", comment: "")
     static let enter_Last_Name = NSLocalizedString("Enter last name", comment: "")
     
     static let enter_Email = NSLocalizedString("Enter email", comment: "")
-    static let enter_vali_Email = NSLocalizedString("Enter valid email", comment: "")
+    static let enter_valid_Email = NSLocalizedString("Enter valid email", comment: "")
     static let enter_mobile_Number = NSLocalizedString("Enter mobile number", comment: "")
     static let enter_valid_Mobile_Number = NSLocalizedString("Enter valid mobile number", comment: "")
     static let name_Contain = NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: "")
@@ -102,7 +102,7 @@ struct Strings{
         refer ,
         support ,
         switch_User ,
-        earnings 
+        earnings
     ]
 }
 

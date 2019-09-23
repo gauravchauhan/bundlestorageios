@@ -112,42 +112,42 @@ class SignUpVC: UIViewController, SignUpDelegate {
     func validation_ForFields(){
         if (self.role == "ROLE_USER" || self.role == "ROLE_HOST") {
             guard let firstName : String = self.firstName.text , firstName != "" else {
-                return alert(message: NSLocalizedString("Enter first name", comment: ""), Controller: self)
+                return alert(message: Strings_Const.enter_First_Name, Controller: self)
             }
             guard let firstNameValue : String = self.firstName.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
-                return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+                return alert(message: Strings_Const.name_Contain , Controller: self)
             }
             guard let lastName : String = self.lastName.text , lastName != "" else {
-                return alert(message: NSLocalizedString("Enter last name", comment: ""), Controller: self)
+                return alert(message: Strings_Const.enter_Last_Name, Controller: self)
             }
             guard let lastNameValue : String = self.firstName.text, (Singelton.sharedInstance.validation.isValidCharacters(lastNameValue))else {
-                return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+                return alert(message: Strings_Const.name_Contain , Controller: self)
             }
         }else{
             guard let companyName : String = self.companyName.text , companyName != "" else {
-                return alert(message: NSLocalizedString("Enter company name", comment: ""), Controller: self)
+                return alert(message: Strings_Const.enter_Company_Name , Controller: self)
             }
         }
         guard let emailvalue : String = self.email.text , emailvalue != "" else {
-            return alert(message: NSLocalizedString("Enter email", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Email , Controller: self)
         }
         guard let email : String = self.email.text ,(Singelton.sharedInstance.validation.isValidEmail(email))else {
-            return alert(message: NSLocalizedString("Enter valid email", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_valid_Email , Controller: self)
         }
         guard let number : String = self.phoneNmber.text , (Singelton.sharedInstance.validation.isValidPhoneNumber(number)) else {
-            return alert(message: NSLocalizedString("Enter mobile number", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_mobile_Number  , Controller: self)
         }
         guard let mobileNumber : String = self.phoneNmber.text, (Singelton.sharedInstance.validation.isValidPhoneNumber(mobileNumber))else {
-            return alert(message: NSLocalizedString("Enter valid mobile number", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_valid_Mobile_Number  , Controller: self)
         }
         guard let password : String = self.password.text , password != "" else {
-            return alert(message: NSLocalizedString("Enter password", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Password , Controller: self)
         }
         guard let confirmPassword : String = self.confirmPassword.text , confirmPassword != "" else {
-            return alert(message: NSLocalizedString("Enter confirm password", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Confirm_Password , Controller: self)
         }
         guard let cnfrmPassword : String = self.confirmPassword.text , cnfrmPassword == password else {
-            return alert(message: NSLocalizedString("Password and confirm password should be same", comment: ""), Controller: self)
+            return alert(message: Strings_Const.password_Same , Controller: self)
         }
         
         var param = ""
