@@ -67,14 +67,42 @@ struct Strings{
     
     static let app_Name = NSLocalizedString("Bundle App", comment: "")
     static let enter_First_Name = NSLocalizedString("Enter first name", comment: "")
+    static let enter_Last_Name = NSLocalizedString("Enter last name", comment: "")
+    
+    static let enter_Email = NSLocalizedString("Enter email", comment: "")
+    static let enter_vali_Email = NSLocalizedString("Enter valid email", comment: "")
+    static let enter_mobile_Number = NSLocalizedString("Enter mobile number", comment: "")
+    static let enter_valid_Mobile_Number = NSLocalizedString("Enter valid mobile number", comment: "")
+    static let name_Contain = NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: "")
+    static let enter_Password = NSLocalizedString("Enter password", comment: "")
+    static let enter_Confirm_Password = NSLocalizedString("Enter confirm password", comment: "")
+    static let password_Same = NSLocalizedString("Password and confirm password should be same", comment: "")
+    static let enter_Company_Name = NSLocalizedString("Enter company name", comment: "")
+    static let enter_Email_Or_Phone = NSLocalizedString("Enter email or phone number", comment: "")
+    static let enter_Business_Hours = NSLocalizedString("Business Hours", comment: "")
+    static let by_appoinment = NSLocalizedString("By appoinment only", comment: "")
+    static let select_Atleast_One = NSLocalizedString("Select atleast one item", comment: "")
+    static let enter_Address = NSLocalizedString("Enter address", comment: "")
+    static let enter_Length = NSLocalizedString("Enter length", comment: "")
+    static let enter_Width = NSLocalizedString("Enter width", comment: "")
+    static let enter_Storage_Name = NSLocalizedString("Enter Storage Name", comment: "")
+    static let enter_Description = NSLocalizedString("Enter Description", comment: "")
+    static let upload_Profile = NSLocalizedString("Please upload image", comment: "")
+    static let profile = NSLocalizedString("Please upload image", comment: "")
+    static let refer = NSLocalizedString("Refer bundle to a friend", comment: "")
+    static let support = NSLocalizedString("Support", comment: "")
+    static let switch_User = NSLocalizedString("Switch to a user", comment: "")
+    static let earnings = NSLocalizedString("Switch to a user", comment: "")
+    
+    
     static let message = NSLocalizedString("Message", comment: "")
-     static let request = NSLocalizedString("Request", comment: "")
+    static let request = NSLocalizedString("Request", comment: "")
     static let SideBarMenuItems = [
-        NSLocalizedString("Profile", comment: ""),
-        NSLocalizedString("Refer bundle to a friend", comment: ""),
-        NSLocalizedString("Support", comment: ""),
-        NSLocalizedString("Switch to a user", comment: ""),
-        NSLocalizedString("My Earnings", comment: "")
+        profile ,
+        refer ,
+        support ,
+        switch_User ,
+        earnings 
     ]
 }
 
