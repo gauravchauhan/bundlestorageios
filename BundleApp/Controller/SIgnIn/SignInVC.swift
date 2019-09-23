@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInVC: UIViewController , SignInDelegate,ForgotPasswordDelegate{
+class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
     
     //MARK:- OUTLETS
     
@@ -65,13 +65,13 @@ class SignInVC: UIViewController , SignInDelegate,ForgotPasswordDelegate{
     
     
     @IBAction func click_ForgotPassword(_ sender: Any) {
-       //    guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
-//            return alert(message: NSLocalizedString("Enter email or phone number", comment: ""), Controller: self)
-//        }
-//        let param = "email=\(String(describing: self.emailOrPhone.text!))"
-//        Singelton.sharedInstance.service.forgotPasswordDelegate =  self
-//        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.forgotPassword, api_Type: apiType.POST.rawValue)
-    self.pushToEnterCodeController()
+           guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
+            return alert(message: NSLocalizedString("Enter email or phone number", comment: ""), Controller: self)
+        }
+        let param = "email=\(String(describing: self.emailOrPhone.text!))"
+        Singelton.sharedInstance.service.forgotPasswordDelegate =  self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.forgotPassword, api_Type: apiType.POST.rawValue)
+        self.pushToEnterCodeController()
     }
     
     

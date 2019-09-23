@@ -37,6 +37,9 @@ protocol GetStorageListDelegate {
 protocol UploadIDProofDelegate {
     func uploadIDProofResponse(data : [String : Any])
 }
+protocol ForgotPasswordDelegate {
+    func forgotPasswordResponse(data : [String : Any])
+}
 
 
 //MARK:- Get Delegates
@@ -65,6 +68,7 @@ class Service{
     var addStorageDelegate : AddStorageDelegate!
     var getStorageListDelegate : GetStorageListDelegate!
     var uploadIDProofDelegate : UploadIDProofDelegate!
+    var forgotPasswordDelegate : ForgotPasswordDelegate!
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
@@ -266,6 +270,8 @@ class Service{
             self.featureDelegate.featureResponse(data: response)
         case Constants.AppUrls.govermentID:
             self.uploadIDProofDelegate.uploadIDProofResponse(data: response)
+        case Constants.AppUrls.forgotPassword:
+            self.forgotPasswordDelegate.forgotPasswordResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }
