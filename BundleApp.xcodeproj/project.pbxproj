@@ -29,6 +29,11 @@
 		1E7F927A2301C19C006E2CEF /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F92692301C19B006E2CEF /* IQKeyboardManager.m */; };
 		1E7F927B2301C19C006E2CEF /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F926B2301C19C006E2CEF /* IQNSArray+Sort.m */; };
 		1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7F926D2301C19C006E2CEF /* IQBarButtonItem.m */; };
+		1E84DA2C233A1B51005FC68B /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84DA2B233A1B51005FC68B /* LeftMenuViewController.swift */; };
+		1E84DA74233C899E005FC68B /* StorageImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84DA73233C899E005FC68B /* StorageImageVC.swift */; };
+		1E84DA76233C8A21005FC68B /* UploadImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E84DA75233C8A21005FC68B /* UploadImage.xib */; };
+		1E84DA78233C9116005FC68B /* UploadImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84DA77233C9116005FC68B /* UploadImageCell.swift */; };
+		1E84DA7A233CB6DF005FC68B /* UploadImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */; };
 		1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */; };
 		1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */; };
 		1E8AF9BD230D12A800240F65 /* ListingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BC230D12A800240F65 /* ListingModal.swift */; };
@@ -83,13 +88,6 @@
 		F90BD161231FC71F00916512 /* ScanQRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD160231FC71F00916512 /* ScanQRController.swift */; };
 		F90BD164231FD9BB00916512 /* SingleListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD163231FD9BB00916512 /* SingleListingViewController.swift */; };
 		F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BD166231FDEC000916512 /* PaymentStatusController.swift */; };
-		F919DA9D232A4989008EB40E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919DA9C232A4989008EB40E /* SideMenuViewController.swift */; };
-		F919DAA0232A4A66008EB40E /* MenuItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919DA9E232A4A66008EB40E /* MenuItemsCell.swift */; };
-		F919DAA1232A4A66008EB40E /* MenuItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F919DA9F232A4A66008EB40E /* MenuItemsCell.xib */; };
-		F9215AD223225B0B0053385B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AD123225B0B0053385B /* RootViewController.swift */; };
-		F9215AD923225BF50053385B /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AD723225BF50053385B /* SideMenuController.swift */; };
-		F9215ADA23225BF50053385B /* SideMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9215AD823225BF50053385B /* SideMenuController.xib */; };
-		F9215ADD23226C3F0053385B /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215ADC23226C3F0053385B /* SSASideMenu.swift */; };
 		F9215AE0232275850053385B /* RegularBooking_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215ADF232275850053385B /* RegularBooking_VC.swift */; };
 		F9215AE323228A530053385B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215AE123228A530053385B /* ImageCollectionViewCell.swift */; };
 		F9215AE423228A530053385B /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9215AE223228A530053385B /* ImageCollectionViewCell.xib */; };
@@ -160,6 +158,11 @@
 		1E7F926C2301C19C006E2CEF /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
 		1E7F926D2301C19C006E2CEF /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
 		1E7F926E2301C19C006E2CEF /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		1E84DA2B233A1B51005FC68B /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		1E84DA73233C899E005FC68B /* StorageImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageImageVC.swift; sourceTree = "<group>"; };
+		1E84DA75233C8A21005FC68B /* UploadImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImage.xib; sourceTree = "<group>"; };
+		1E84DA77233C9116005FC68B /* UploadImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCell.swift; sourceTree = "<group>"; };
+		1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageModal.swift; sourceTree = "<group>"; };
 		1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
 		1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeListingVC.swift; sourceTree = "<group>"; };
 		1E8AF9BC230D12A800240F65 /* ListingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingModal.swift; sourceTree = "<group>"; };
@@ -217,13 +220,6 @@
 		F90BD160231FC71F00916512 /* ScanQRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRController.swift; sourceTree = "<group>"; };
 		F90BD163231FD9BB00916512 /* SingleListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleListingViewController.swift; sourceTree = "<group>"; };
 		F90BD166231FDEC000916512 /* PaymentStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusController.swift; sourceTree = "<group>"; };
-		F919DA9C232A4989008EB40E /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
-		F919DA9E232A4A66008EB40E /* MenuItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsCell.swift; sourceTree = "<group>"; };
-		F919DA9F232A4A66008EB40E /* MenuItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemsCell.xib; sourceTree = "<group>"; };
-		F9215AD123225B0B0053385B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		F9215AD723225BF50053385B /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
-		F9215AD823225BF50053385B /* SideMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuController.xib; sourceTree = "<group>"; };
-		F9215ADC23226C3F0053385B /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		F9215ADF232275850053385B /* RegularBooking_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularBooking_VC.swift; sourceTree = "<group>"; };
 		F9215AE123228A530053385B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9215AE223228A530053385B /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -310,6 +306,7 @@
 				1EA699292317BB1300C50AE7 /* FeaturesVC.swift */,
 				1EA6992B2317F52B00C50AE7 /* DiscountVC.swift */,
 				1E9EB0C22318F95E003E6F80 /* StorageChargeVC.swift */,
+				1E84DA73233C899E005FC68B /* StorageImageVC.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -386,6 +383,7 @@
 				1EA698D62314076F00C50AE7 /* StorageListModal.swift */,
 				1EA698D8231409D600C50AE7 /* AddressModal.swift */,
 				1EA6992723169C1E00C50AE7 /* AddStorageModal.swift */,
+				1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -443,6 +441,8 @@
 				1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */,
 				1ECA47AA230FC70400FC939D /* HostListCell.xib */,
 				1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */,
+				1E84DA75233C8A21005FC68B /* UploadImage.xib */,
+				1E84DA77233C9116005FC68B /* UploadImageCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -568,24 +568,10 @@
 			path = Payment;
 			sourceTree = "<group>";
 		};
-		F919DA9B232A4951008EB40E /* SideMenuLib */ = {
-			isa = PBXGroup;
-			children = (
-				F9215ADC23226C3F0053385B /* SSASideMenu.swift */,
-			);
-			path = SideMenuLib;
-			sourceTree = "<group>";
-		};
 		F9215AD023225A240053385B /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
-				F919DA9B232A4951008EB40E /* SideMenuLib */,
-				F9215AD123225B0B0053385B /* RootViewController.swift */,
-				F9215AD723225BF50053385B /* SideMenuController.swift */,
-				F9215AD823225BF50053385B /* SideMenuController.xib */,
-				F919DA9C232A4989008EB40E /* SideMenuViewController.swift */,
-				F919DA9E232A4A66008EB40E /* MenuItemsCell.swift */,
-				F919DA9F232A4A66008EB40E /* MenuItemsCell.xib */,
+				1E84DA2B233A1B51005FC68B /* LeftMenuViewController.swift */,
 			);
 			path = Sidemenu;
 			sourceTree = "<group>";
@@ -700,6 +686,7 @@
 				F9EBCD3B231D4319003CC022 /* MessageViewCell.xib in Resources */,
 				F9215AE8232292300053385B /* AddImageCollectionViewCell.xib in Resources */,
 				1EB80ECD23012E1800D0FCB4 /* LaunchScreen.storyboard in Resources */,
+				1E84DA76233C8A21005FC68B /* UploadImage.xib in Resources */,
 				1E7F92792301C19C006E2CEF /* IQKeyboardManager.bundle in Resources */,
 				F98C015E232A1A7800B89FB1 /* PickSingleItemCell.xib in Resources */,
 				1EB80F002301479B00D0FCB4 /* ProximaNovaT-Thin.ttf in Resources */,
@@ -711,13 +698,10 @@
 				F9C86F2423194A11006B6E90 /* MyBubbleViewCell.xib in Resources */,
 				1EB80EFC2301479B00D0FCB4 /* ProximaNova-Bold.ttf in Resources */,
 				1EB80F012301479B00D0FCB4 /* ProximaNova-Regular.ttf in Resources */,
-				F9215ADA23225BF50053385B /* SideMenuController.xib in Resources */,
 				1EB80EFD2301479B00D0FCB4 /* ProximaNova-Extrabld.ttf in Resources */,
 				1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */,
 				F9C86F2323194A11006B6E90 /* LynnBubbleViewHeaderCell.xib in Resources */,
 				1E8AF9C5230D51D400240F65 /* Localizable.strings in Resources */,
-				F919DAA1232A4A66008EB40E /* MenuItemsCell.xib in Resources */,
-				1EB80EC823012E1700D0FCB4 /* Main.storyboard in Resources */,
 				F9C86F2023194A11006B6E90 /* Someone'sBubbleViewCell.xib in Resources */,
 				1E57344D230C538600CB4EF6 /* ListingCell.xib in Resources */,
 				9BFD006623164351006D5C97 /* NWSImageToken.xib in Resources */,
@@ -793,15 +777,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E8AF9C1230D279C00240F65 /* SpaceNameVC.swift in Sources */,
-				F919DAA0232A4A66008EB40E /* MenuItemsCell.swift in Sources */,
 				F9F3E0E22327CBCC00BBF871 /* PaymentViewController.swift in Sources */,
 				1EB80EDB2301347E00D0FCB4 /* Extension.swift in Sources */,
 				1E15CAF2232CC16200BF56D3 /* Service.swift in Sources */,
 				1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */,
 				1EA6992A2317BB1300C50AE7 /* FeaturesVC.swift in Sources */,
-
-				1EB80EE323013C6D00D0FCB4 /* Service.swift in Sources */,
-				F9215ADD23226C3F0053385B /* SSASideMenu.swift in Sources */,
 				1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */,
 				1EA698D72314076F00C50AE7 /* StorageListModal.swift in Sources */,
 				F9215AE0232275850053385B /* RegularBooking_VC.swift in Sources */,
@@ -817,7 +797,6 @@
 				F9215AE323228A530053385B /* ImageCollectionViewCell.swift in Sources */,
 				F9C86F1E23194A11006B6E90 /* Someone'sBubbleViewCell.swift in Sources */,
 				F9EBCD3E231D4329003CC022 /* RequestViewCell.swift in Sources */,
-				F9215AD923225BF50053385B /* SideMenuController.swift in Sources */,
 				F90BD161231FC71F00916512 /* ScanQRController.swift in Sources */,
 				1EA69926231667CF00C50AE7 /* ImagePicker.swift in Sources */,
 				F98C015A232A14DB00B89FB1 /* SingleItemRequest_VC.swift in Sources */,
@@ -829,6 +808,7 @@
 				9B12C6D9231695EF00A41366 /* TGFlingActionButton.swift in Sources */,
 				1EB80EF12301416900D0FCB4 /* UITextField+fixCaretPosition.swift in Sources */,
 				F90BD164231FD9BB00916512 /* SingleListingViewController.swift in Sources */,
+				1E84DA7A233CB6DF005FC68B /* UploadImageModal.swift in Sources */,
 				1EA698D9231409D600C50AE7 /* AddressModal.swift in Sources */,
 				1E7F927C2301C19C006E2CEF /* IQBarButtonItem.m in Sources */,
 				1EA698D52313ED1D00C50AE7 /* Location.swift in Sources */,
@@ -840,7 +820,6 @@
 				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
-				F9215AD223225B0B0053385B /* RootViewController.swift in Sources */,
 				F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
 				1EA6992C2317F52B00C50AE7 /* DiscountVC.swift in Sources */,
@@ -851,11 +830,11 @@
 				1EB80EDF23013B6200D0FCB4 /* Webservice.swift in Sources */,
 				1EA698D32313E9EC00C50AE7 /* UserDataModal.swift in Sources */,
 				F9EBCD3A231D4319003CC022 /* MessageViewCell.swift in Sources */,
+				1E84DA74233C899E005FC68B /* StorageImageVC.swift in Sources */,
 				1E7F92732301C19C006E2CEF /* IQUIView+Hierarchy.m in Sources */,
 				F9F3E0E42327CC1000BBF871 /* DiscountPopUpController.swift in Sources */,
 				F9EBCD37231D41DF003CC022 /* Request_MessageVC.swift in Sources */,
 				F98C015D232A1A7800B89FB1 /* PickSingleItemCell.swift in Sources */,
-				F919DA9D232A4989008EB40E /* SideMenuViewController.swift in Sources */,
 				F9C86F2523194A11006B6E90 /* LynnBubbleTableView.swift in Sources */,
 				1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */,
 				1ECA47AD230FC71C00FC939D /* HostListTableViewCell.swift in Sources */,
@@ -870,6 +849,7 @@
 				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
 				F9C86F2A23194A86006B6E90 /* ChatViewController.swift in Sources */,
+				1E84DA78233C9116005FC68B /* UploadImageCell.swift in Sources */,
 				F9C86F1F23194A11006B6E90 /* LynnBubbleData.swift in Sources */,
 				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
@@ -880,6 +860,7 @@
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,
 				F904BC2E231E6BDB00D0030C /* ProfileViewController.swift in Sources */,
 				F9F8C3D82329101E001130E3 /* PaymentDetailController.swift in Sources */,
+				1E84DA2C233A1B51005FC68B /* LeftMenuViewController.swift in Sources */,
 				1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */,
 				1E7F92712301C19C006E2CEF /* IQKeyboardReturnKeyHandler.m in Sources */,
 			);

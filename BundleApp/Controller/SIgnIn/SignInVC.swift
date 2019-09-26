@@ -102,8 +102,6 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
     //MARK:- User Defined functions
     
     func validation_Fields(){
-        
-        Indicator.shared.showProgressView(self.view)
         guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
             return alert(message: NSLocalizedString("Enter email or phonr number", comment: ""), Controller: self)
         }
@@ -115,6 +113,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
         }
         let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
         print("Param \(param)")
+        Indicator.shared.showProgressView(self.view)
         Singelton.sharedInstance.service.signInDelegate = self
         Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.login, api_Type: apiType.POST.rawValue)
     }

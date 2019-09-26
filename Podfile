@@ -12,6 +12,8 @@ pod 'GooglePlaces'
 pod 'NWSTokenView'
 pod 'ImageSlideshow', '~> 1.8'
 pod 'Cosmos', '~> 16.0'
+pod 'RESideMenu', '~> 4.0.7'
+
 
   # Pods for BundleApp
 

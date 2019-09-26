@@ -46,6 +46,8 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     func getStorageListResponse(data: [String : Any]) {
         Indicator.shared.hideProgressView()
         print("list resposne \(data)")
+        let left = LeftMenuViewController()
+        left.setTheName()
         !(data["status"]as! Bool) ? DispatchQueue.main.async {
             self.hostListheightConstraints.constant = 80 ; alert(message: data["message"]as! String , Controller: self)
             } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
@@ -88,6 +90,8 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         }
         self.storageMapView.setTheCameraPosition(firstPosition: (self.storageModal[0].address?.storagePosition!)!, lastPosition: (self.storageModal[self.storageModal.count - 1].address?.storagePosition!)!)
 //        self.storageMapView.setMinZoom(4, maxZoom: 10)
+        let left = LeftMenuViewController()
+        left.setTheName()
     }
     
     @objc func touchView(){
@@ -184,7 +188,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     @IBAction func click_adStorageButton(_ sender: Any) {
         print("Singelton.sharedInstance.userDataModel.uploadIDProofStatus!    \(Singelton.sharedInstance.userDataModel.uploadIDProofStatus!)")
-        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToSpaceSelectController()  : self.pushToStep_FirstController()
+        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToUploadStorageImageController()  : self.pushToStep_FirstController()
     }
 
 }

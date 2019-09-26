@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import RESideMenu
 
 class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
     

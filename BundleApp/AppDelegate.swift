@@ -10,6 +10,7 @@ import UIKit
 import GoogleSignIn
 import GoogleMaps
 import GooglePlaces
+import RESideMenu
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,10 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Singelton.sharedInstance.location.setLatLong()
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
         GMSServices.provideAPIKey("AIzaSyDdDIw3AV25HSDH2e9V6RfurCV4V1uu61k")
-        GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")
+        GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")  
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let navigationController = UINavigationController(rootViewController: mainViewController)
-        self.window?.rootViewController = navigationController
+        let sideMenu : RESideMenu = RESideMenu(contentViewController: navigationController , leftMenuViewController: LeftMenuViewController(), rightMenuViewController: LeftMenuViewController())
+        self.window?.rootViewController = sideMenu
         
         return true
     }

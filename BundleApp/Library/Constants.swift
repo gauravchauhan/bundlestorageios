@@ -92,7 +92,8 @@ struct Strings_Const{
     static let refer = NSLocalizedString("Refer bundle to a friend", comment: "")
     static let support = NSLocalizedString("Support", comment: "")
     static let switch_User = NSLocalizedString("Switch to a user", comment: "")
-    static let earnings = NSLocalizedString("Switch to a user", comment: "")
+    static let earnings = NSLocalizedString("My Earnings", comment: "")
+    static let logout = NSLocalizedString("logout", comment: "")
     
     
     static let message = NSLocalizedString("Message", comment: "")
@@ -102,7 +103,8 @@ struct Strings_Const{
         refer ,
         support ,
         switch_User ,
-        earnings
+        earnings,
+        logout
     ]
 }
 

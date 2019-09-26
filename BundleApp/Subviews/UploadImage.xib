@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UploadImageCell" id="0Wa-in-Yeb" customClass="UploadImageCell" customModule="BundleApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-Wj-ltn" customClass="MDCCard">
+                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="SFD-aQ-4Ej">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="0ug-60-PVt"/>
+                            <constraint firstItem="SFD-aQ-4Ej" firstAttribute="top" secondItem="2Cm-Wj-ltn" secondAttribute="top" id="4C5-Bd-3rc"/>
+                            <constraint firstAttribute="height" constant="60" id="Ukd-X0-GMs"/>
+                            <constraint firstAttribute="trailing" secondItem="SFD-aQ-4Ej" secondAttribute="trailing" id="b0O-AY-5BL"/>
+                            <constraint firstItem="SFD-aQ-4Ej" firstAttribute="leading" secondItem="2Cm-Wj-ltn" secondAttribute="leading" id="gc3-zq-s8c"/>
+                            <constraint firstAttribute="bottom" secondItem="SFD-aQ-4Ej" secondAttribute="bottom" id="yJB-84-SiA"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OH8-7U-GQz">
+                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <connections>
+                            <action selector="click_UplaodImage:" destination="0Wa-in-Yeb" eventType="touchUpInside" id="h6r-2l-SDO"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLy-39-GSD">
+                        <rect key="frame" x="2" y="5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="VJp-OH-wbK"/>
+                            <constraint firstAttribute="height" constant="20" id="efc-NP-gfh"/>
+                        </constraints>
+                        <state key="normal" image="cross"/>
+                        <connections>
+                            <action selector="click_CrossButton:" destination="0Wa-in-Yeb" eventType="touchUpInside" id="qqQ-dv-a1y"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="2Cm-Wj-ltn" firstAttribute="width" secondItem="OH8-7U-GQz" secondAttribute="width" id="4oI-l3-xwg"/>
+                <constraint firstItem="2Cm-Wj-ltn" firstAttribute="height" secondItem="OH8-7U-GQz" secondAttribute="height" id="6ug-g9-jdu"/>
+                <constraint firstItem="OH8-7U-GQz" firstAttribute="bottom" secondItem="2Cm-Wj-ltn" secondAttribute="bottom" id="86Z-ju-K5q"/>
+                <constraint firstItem="YLy-39-GSD" firstAttribute="leading" secondItem="0Wa-in-Yeb" secondAttribute="leading" constant="2" id="GOy-77-e5z"/>
+                <constraint firstItem="OH8-7U-GQz" firstAttribute="trailing" secondItem="2Cm-Wj-ltn" secondAttribute="trailing" id="QTZ-6c-Dnp"/>
+                <constraint firstItem="OH8-7U-GQz" firstAttribute="leading" secondItem="2Cm-Wj-ltn" secondAttribute="leading" id="dte-5C-h40"/>
+                <constraint firstItem="2Cm-Wj-ltn" firstAttribute="centerX" secondItem="0Wa-in-Yeb" secondAttribute="centerX" id="gFN-XD-TY3"/>
+                <constraint firstItem="YLy-39-GSD" firstAttribute="top" secondItem="0Wa-in-Yeb" secondAttribute="top" constant="5" id="hhr-fk-JRs"/>
+                <constraint firstItem="2Cm-Wj-ltn" firstAttribute="centerY" secondItem="0Wa-in-Yeb" secondAttribute="centerY" id="mSn-KQ-Xuc"/>
+                <constraint firstItem="OH8-7U-GQz" firstAttribute="top" secondItem="2Cm-Wj-ltn" secondAttribute="top" id="zgq-L9-bEv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Xbl-fW-pO7"/>
+            <size key="customSize" width="119" height="93"/>
+            <connections>
+                <outlet property="cross_Button" destination="YLy-39-GSD" id="EyL-b0-QAy"/>
+                <outlet property="storageImage" destination="SFD-aQ-4Ej" id="nRE-or-wCc"/>
+                <outlet property="uploadImageButton" destination="OH8-7U-GQz" id="poe-ff-tlm"/>
+            </connections>
+            <point key="canvasLocation" x="173.91304347826087" y="114.50892857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cross" width="30" height="30"/>
+        <image name="image1" width="790" height="400"/>
+    </resources>
+</document>

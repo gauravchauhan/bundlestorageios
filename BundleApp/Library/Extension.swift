@@ -1077,7 +1077,14 @@ extension UIViewController {
     func pushToTabBarController(){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-            next.selectedIndex = 0
+            next.selectedIndex = 1
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToUploadStorageImageController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "StorageImageVC") as! StorageImageVC
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1223,9 +1230,15 @@ extension UIViewController {
         leftArrow.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         leftArrow.setImage(UIImage(named:"menu"), for: .normal)
         leftArrow.setTitleColor(UIColor.black, for: .normal)
+        leftArrow.addTarget(self, action: #selector(self.drwaerButtonClicked), for: .touchUpInside)
         let letftArrownNavBttn = UIBarButtonItem.init(customView: leftArrow)
         letftArrownNavBttn.customView = leftArrow
         navigationItem.leftBarButtonItem = letftArrownNavBttn
+    }
+    
+    @objc func drwaerButtonClicked(){
+        print("Click Drwaer")
+        sideMenuViewController.presentRightMenuViewController()
     }
     
     //Set the notification and filter icon on the tabBar
