@@ -31,9 +31,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         self.navigationController?.isNavigationBarHidden = false
         self.hostList.register(UINib(nibName:"HostListCell" , bundle: nil), forCellReuseIdentifier: "HostListTableViewCell")
         self.hostList.isScrollEnabled = false
-        createSwapGestureRecognizer()        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchView))
-        self.view.addGestureRecognizer(tapGesture)
+        createSwapGestureRecognizer()
         Indicator.shared.showProgressView(self.view)
         let param = "latitude=\(String(describing: 28.77))&longitude=\(String(describing: 77.0))"
         print("Parameter \(param)")
@@ -68,8 +66,13 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         cell.spaceName.text! = self.storageModal[indexPath.row].storageName!
         cell.hostName.text! = self.storageModal[indexPath.row].storageName!
         cell.spaceType.text! = self.storageModal[indexPath.row].storageType!.capitalized
-        cell.spaceDescription.text! = "$" + self.storageModal[indexPath.row].storagePrice! + " " + self.storageModal[indexPath.row].storagePriceType!
+        cell.spaceDescription.text! = "$" + self.storageModal[indexPath.row].storageDailyPrice! + " per day | $ " + self.storageModal[indexPath.row].storageWeeklyPrice! + " per week | $ " + self.storageModal[indexPath.row].storageMonthlyPrice! + " per month"
+        cell.hostImage.setImageWith(URL(string : self.storageModal[indexPath.row].storageImage![0].imageURL! ), placeholderImage: UIImage(named: "loader"))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.pushToStorageDetailController(detail: self.storageModal[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -103,17 +106,37 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     func setTheStorageDataIntoModal(data : [[String : Any]]){
         self.storageModal.removeAll()
         for index in 0...data.count - 1{
+            var imageModal = [StorageImageModal]()
             let storageObj = StorageListModal()
             storageObj.storageName = data[index]["storageName"]as? String
             storageObj.stoargeID = data[index]["id"]as? String
             storageObj.storageType = data[index]["storageType"]as? String
-            print("data[index] price as? String   \(String(describing: data[index]["price"]as? Int))")
-            storageObj.storagePrice = "\(data[index]["price"]as! Int)"
+            storageObj.allAmenities = data[index]["amenities"]as? NSArray
+            if let length : Int = data[index]["spaceHeight"]as? Int{
+                storageObj.storageLength = "\(length)"
+            }
+            if let width : Int = data[index]["spaceWidth"]as? Int{
+                storageObj.storageWidth = "\(width)"
+            }
+            data[index]["dailyPrice"] is NSNull ? (storageObj.storageDailyPrice  = "Null" ) :  (storageObj.storageDailyPrice  = "\(data[index]["dailyPrice"]as! Int)")
+            data[index]["monthelyPrice"] is NSNull ? (storageObj.storageMonthlyPrice  = "Null" ) :  (storageObj.storageMonthlyPrice  = "\(data[index]["monthelyPrice"]as! Int)")
+            data[index]["weeklyPrice"] is NSNull ? (storageObj.storageWeeklyPrice  = "Null" ) :  (storageObj.storageWeeklyPrice  = "\(data[index]["weeklyPrice"]as! Int)")
             if let type = data[index]["priceType"]as? String{
                 storageObj.storagePriceType = type
             }else{
                 storageObj.storagePriceType = ""
             }
+            
+            for imageIndex in 0...(data[index]["media"]as? [[String : Any]])!.count - 1{
+                let imageObj = StorageImageModal()
+                imageObj.imageURL = ((data[index]["media"]as? [[String : Any]])![imageIndex])["url"]as? String
+                imageModal.append(imageObj)
+            }
+            
+            
+            storageObj.storageImage = imageModal
+            storageObj.aboutStorage = (data[index]["descripton"] is NSNull) ? Strings_Const.no_Desc : data[index]["descripton"]as? String
+            storageObj.offers = (data[index]["discount"] is NSNull) ? "No discount" : data[index]["descripton"]as? String
             
             storageObj.availablity = data[index]["availability"]as? String
             
@@ -188,7 +211,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     @IBAction func click_adStorageButton(_ sender: Any) {
         print("Singelton.sharedInstance.userDataModel.uploadIDProofStatus!    \(Singelton.sharedInstance.userDataModel.uploadIDProofStatus!)")
-        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToUploadStorageImageController()  : self.pushToStep_FirstController()
+        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToSpaceSelectController()  : self.pushToStep_FirstController()
     }
 
 }

@@ -46,8 +46,8 @@ class UserDataModal{
     private var organsation_Name : String!
     private var mail : String!
     private var gmail_ID : String!
-    private var first_Name : String!
-    private var last_Name : String!
+    private var first_Name : String! = ""
+    private var last_Name : String! = ""
     private var id : String!
     private var isIdProof : Bool!
     private var isMobileVerified : Bool!

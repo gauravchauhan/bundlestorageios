@@ -7,18 +7,22 @@ struct Constants {
      */
     
     struct AppUrls{
-        static let baseUrl = "http://bundle.teamjft.com/"
-        static let getListType = "getListingType"
-        static let getAmenities = "getAmenities"
-        static let login = "login"
-        static let signup = "signup"
-        static let socialLogin = "socialLogin"
-        static let verifyOtp = "verifyOtp"
-        static let addStorage = "addStorage"
-        static let getStorageList = "filterStorage"
-        static let govermentID = "uploadGovernmentIssuedId"
-        static let forgotPassword = "forgotPassword"
-        //uploadGovernmentIssuedId
+        static let baseUrl = "http://0e8932fc.ngrok.io"
+        static let getListType = "/getListingType"
+        static let getAmenities = "/getAmenities"
+        static let login = "/login"
+        static let signup = "/signup"
+        static let socialLogin = "/socialLogin"
+        static let verifyOtp = "/verifyOtp"
+        static let addStorage = "/addStorage"
+        static let getStorageList = "/filterStorage"
+        static let govermentID = "/uploadGovernmentIssuedId"
+        static let forgotPassword = "/forgotPassword"
+        static let uploadFile = "/uploadFile"
+        static let removeUploadFile = "/removeUploadFile"
+        static let storageDetails = "/storageDetails"
+        static let showImage = "/showImage?filePath="
+        //storageDetails
 
     }
     
@@ -94,8 +98,12 @@ struct Strings_Const{
     static let switch_User = NSLocalizedString("Switch to a user", comment: "")
     static let earnings = NSLocalizedString("My Earnings", comment: "")
     static let logout = NSLocalizedString("logout", comment: "")
-    
-    
+    static let someError = NSLocalizedString("Something error", comment: "")
+    static let per_Day = NSLocalizedString("Enter per day price", comment: "")
+    static let per_Week = NSLocalizedString("Enter per week price", comment: "")
+    static let per_Month = NSLocalizedString("Enter per month price", comment: "")
+    static let no_Desc = NSLocalizedString("NO description available", comment: "")
+
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")
     static let SideBarMenuItems = [

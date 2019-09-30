@@ -23,6 +23,20 @@ class StorageChargeVC: UIViewController {
     }
     
     @IBAction func click_NextButton(_ sender: Any) {
+        
+        guard let day : String = self.perDay.text , day != "" else {
+            return alert(message: Strings_Const.per_Day , Controller: self)
+        }
+        guard let week : String = self.perWeek.text , week != "" else {
+            return alert(message: Strings_Const.per_Week , Controller: self)
+        }
+        guard let month : String = self.perMonth.text , month != "" else {
+            return alert(message: Strings_Const.per_Month , Controller: self)
+        }
+        
+        Singelton.sharedInstance.addStorageModal.storageDailyPrice = self.perDay.text!
+        Singelton.sharedInstance.addStorageModal.storageWeeklyPrice = self.perWeek.text!
+        Singelton.sharedInstance.addStorageModal.storageMonthlyPrice = self.perMonth.text!
         self.pushToDisocuntController()
     }
     

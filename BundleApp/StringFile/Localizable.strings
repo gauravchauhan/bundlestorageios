@@ -29,6 +29,10 @@
 "Enter Description" = "Enter Description";
 "Please upload image" = "Please upload image";
 "Enter email or phone number" = "Enter email or phone number";
+"Enter per day price" = "Enter per day price";
+"Enter per week price" = "Enter per week price";
+"Enter per month price" = "Enter per month price";
+"NO description available" = "NO description available";
 
 "Profile" =  "Profile";
 "Refer bundle to a friend" = "Refer bundle to a friend";
@@ -38,4 +42,5 @@
 "Request" = "Request";
 "Message" = "Message";
 "logout" = "Logout";
+"Something error" = "Something error, Please try again";
 //Enter Storage Name

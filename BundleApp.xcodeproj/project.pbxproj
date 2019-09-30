@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E144DF02341CEC100255E39 /* StorageImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E144DEF2341CEC100255E39 /* StorageImageModal.swift */; };
 		1E15CAF2232CC16200BF56D3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15CAF1232CC16200BF56D3 /* Service.swift */; };
 		1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AC329230BC1C800CF2373 /* SignUpVC.swift */; };
 		1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573440230BF68F00CB4EF6 /* SignInVC.swift */; };
@@ -119,6 +120,7 @@
 
 /* Begin PBXFileReference section */
 		121761E2CB17089D10EF81AB /* Pods-BundleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.release.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.release.xcconfig"; sourceTree = "<group>"; };
+		1E144DEF2341CEC100255E39 /* StorageImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageImageModal.swift; sourceTree = "<group>"; };
 		1E15CAF1232CC16200BF56D3 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1E2AC329230BC1C800CF2373 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		1E573440230BF68F00CB4EF6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				1EA698D8231409D600C50AE7 /* AddressModal.swift */,
 				1EA6992723169C1E00C50AE7 /* AddStorageModal.swift */,
 				1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */,
+				1E144DEF2341CEC100255E39 /* StorageImageModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
 				1EA6992823169C1E00C50AE7 /* AddStorageModal.swift in Sources */,
 				1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */,
+				1E144DF02341CEC100255E39 /* StorageImageModal.swift in Sources */,
 				1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */,
 				1E9EB0C32318F95E003E6F80 /* StorageChargeVC.swift in Sources */,
 				1EB80EDD2301351200D0FCB4 /* Constants.swift in Sources */,

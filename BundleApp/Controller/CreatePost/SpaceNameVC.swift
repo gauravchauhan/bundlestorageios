@@ -20,7 +20,7 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setRightBarButtonItems(Step: "09")
+        self.setRightBarButtonItems(Step: "10")
         self.setBackButtonWithTitle(title: "Create")
         submittButton.isEnabled = false
         submittButton.alpha = 0.5
@@ -66,9 +66,9 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
     
     func saveStorage(){
         Indicator.shared.showProgressView(self.view)
-        Singelton.sharedInstance.addStorageModal.storageDescription =  description
+        Singelton.sharedInstance.addStorageModal.storageDescription =  self.desc.text!
         Singelton.sharedInstance.service.addStorageDelegate = self
-        let param : [NSString : NSObject] = ["storageName" : Singelton.sharedInstance.addStorageModal.storageName! as NSObject , "storageType" : Singelton.sharedInstance.addStorageModal.storageType! as NSObject, "spaceHeight" : Singelton.sharedInstance.addStorageModal.storageHeight! as NSObject, "spaceWidth" : Singelton.sharedInstance.addStorageModal.storagewidth! as NSObject, "availability" : Singelton.sharedInstance.addStorageModal.storageAvailablity! as NSObject , "price" : "200" as NSObject, "priceType" : "Monthly" as NSObject, "discount" : Singelton.sharedInstance.addStorageModal.storageDiscount! as NSObject, "amenities" : Singelton.sharedInstance.addStorageModal.storageFacility! as NSObject , "description" : Singelton.sharedInstance.addStorageModal.storageDescription! as NSObject, "latitude" : Singelton.sharedInstance.addStorageModal.storageLatitude! as NSObject, "longitude" : Singelton.sharedInstance.addStorageModal.storageLongitude! as NSObject, "zipCode" : "2222" as NSObject , "address" : Singelton.sharedInstance.addStorageModal.storageAddress! as NSObject]
+        let param : [NSString : NSObject] = ["storageName" : Singelton.sharedInstance.addStorageModal.storageName! as NSObject , "storageType" : Singelton.sharedInstance.addStorageModal.storageType! as NSObject, "spaceHeight" : Singelton.sharedInstance.addStorageModal.storageHeight! as NSObject, "spaceWidth" : Singelton.sharedInstance.addStorageModal.storagewidth! as NSObject, "availability" : Singelton.sharedInstance.addStorageModal.storageAvailablity! as NSObject , "dailyPrice" : Singelton.sharedInstance.addStorageModal.storageDailyPrice! as NSObject, "weeklyPrice" : Singelton.sharedInstance.addStorageModal.storageWeeklyPrice! as NSObject, "monthelyPrice" : Singelton.sharedInstance.addStorageModal.storageMonthlyPrice! as NSObject , "discount" : Singelton.sharedInstance.addStorageModal.storageDiscount! as NSObject, "amenities" : Singelton.sharedInstance.addStorageModal.storageFacility! as NSObject , "description" : Singelton.sharedInstance.addStorageModal.storageDescription! as NSObject, "latitude" : Singelton.sharedInstance.addStorageModal.storageLatitude! as NSObject, "longitude" : Singelton.sharedInstance.addStorageModal.storageLongitude! as NSObject, "zipCode" : "2222" as NSObject , "address" : Singelton.sharedInstance.addStorageModal.storageAddress! as NSObject, "media" : Singelton.sharedInstance.addStorageModal.storageImages! as NSObject]
         print("Parameter \(param)")
         Singelton.sharedInstance.service.postWithAFNetworking(parameter: param, apiName: Constants.AppUrls.addStorage)
     }

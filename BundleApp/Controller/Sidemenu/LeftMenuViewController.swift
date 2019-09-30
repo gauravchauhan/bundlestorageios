@@ -39,7 +39,7 @@ class LeftMenuViewController: UIViewController {
     
     lazy var userName: UILabel = {
         let name = UILabel()
-        name.text = "Rohit Gupta"
+        name.text = Singelton.sharedInstance.userDataModel.userFirstName! + " "  + Singelton.sharedInstance.userDataModel.userLastName!
         print("tableView.x   \(tableView.x)")
         name.frame = CGRect(x: self.view.frame.width - 210  , y: imageView.y + imageView.height + 2, width: 200 , height: 50)
         name.font = UIFont(name: Constants.fonts.ProximaNova_Semibold, size: 22)

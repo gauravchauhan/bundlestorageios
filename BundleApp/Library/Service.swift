@@ -41,6 +41,18 @@ protocol ForgotPasswordDelegate {
     func forgotPasswordResponse(data : [String : Any])
 }
 
+protocol UploadStorageFileDelegate {
+    func uploadStorageFileResponse(data : [String : Any])
+}
+
+protocol RemoveFileDelegate {
+    func removeFileResponse(data : [String : Any])
+}
+
+protocol StorageDetailDelegate {
+    func storageDetailResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -69,6 +81,9 @@ class Service{
     var getStorageListDelegate : GetStorageListDelegate!
     var uploadIDProofDelegate : UploadIDProofDelegate!
     var forgotPasswordDelegate : ForgotPasswordDelegate!
+    var uploadStorageFileDelegate : UploadStorageFileDelegate!
+    var removeFileDelegate : RemoveFileDelegate!
+    var storageDetailDelegate : StorageDetailDelegate!
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
@@ -272,6 +287,12 @@ class Service{
             self.uploadIDProofDelegate.uploadIDProofResponse(data: response)
         case Constants.AppUrls.forgotPassword:
             self.forgotPasswordDelegate.forgotPasswordResponse(data: response)
+        case Constants.AppUrls.uploadFile:
+            self.uploadStorageFileDelegate.uploadStorageFileResponse(data: response)
+        case Constants.AppUrls.removeUploadFile:
+            self.removeFileDelegate.removeFileResponse(data: response)
+        case Constants.AppUrls.storageDetails:
+            self.storageDetailDelegate.storageDetailResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CrossButtonDelegate, SelectedImage{
+class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CrossButtonDelegate, SelectedImage, UploadStorageFileDelegate, RemoveFileDelegate{
 
     @IBOutlet weak var uploadImageList: UICollectionView!
     
@@ -17,6 +17,8 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setRightBarButtonItems(Step: "09")
+        self.setBackButtonWithTitle(title: "Create")
         print("image Data \(uploadImageModal.count)")
         self.uploadImageList.register(UINib(nibName: "UploadImage", bundle: nil), forCellWithReuseIdentifier: "UploadImageCell")
         self.reloadImageList()
@@ -25,9 +27,26 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
     
     //MARK:- Delegate
     
+    func removeFileResponse(data: [String : Any]) {
+        print("removeFileResponse   \(data)")
+    }
+    
+    func uploadStorageFileResponse(data: [String : Any]) {
+        print("upload image resposne \(data)")
+        Indicator.shared.hideProgressView()
+        if data["status"] != nil{
+            data["status"]as! Bool ? (self.uploadImageModal[self.uploadImageModal.count - 1].uploadImageID = data["id"]as? String) : DispatchQueue.main.async {
+                alert(message: "", Controller: self); self.uploadImageModal.remove(at: self.uploadImageModal.count - 1); self.reloadImageList()
+            }
+        }
+        
+    }
     
     func click_Cross(_ cell: UICollectionViewCell, didPressButton: UIButton) {
         print("click index \(cell.tag)")
+        Singelton.sharedInstance.service.removeFileDelegate = self
+        let param = "id=\(String(describing: self.uploadImageModal[cell.tag].uploadImageID!))"
+        Singelton.sharedInstance.service.PostService(parameter: param , apiName: Constants.AppUrls.removeUploadFile, api_Type: apiType.POST.rawValue)
         self.uploadImageModal.remove(at: cell.tag)
         self.reloadImageList()
     }
@@ -46,7 +65,10 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
         image_Description.uploadImage = userImage
         image_Description.uploadImageData = imageData
         image_Description.uploadImageID = ""
+        Singelton.sharedInstance.service.uploadStorageFileDelegate = self
+        Singelton.sharedInstance.service.uploadImageFile(image: imageData as! NSData, imageParameter: "fileData", apiName: Constants.AppUrls.uploadFile, parameter: ["userId" : Singelton.sharedInstance.userDataModel.userID! as NSObject])
         self.uploadImageModal.append(image_Description)
+        Indicator.shared.showProgressView(self.view)
         self.reloadImageList()
     }
     
@@ -94,6 +116,15 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
             self.uploadImageList.dataSource = self
             self.uploadImageList.reloadData()
         }
+    }
+    
+    //MARK:- Actions
+    
+    @IBAction func click_NexrButton(_ sender: Any) {
+//        Singelton.sharedInstance.addStorageModal.storageImages = \
+        print(self.uploadImageModal.map({$0.uploadImageID}) as NSArray)
+        Singelton.sharedInstance.addStorageModal.storageImages = self.uploadImageModal.map({$0.uploadImageID}) as NSArray
+        self.pushToSpaceNameController()
     }
     
     

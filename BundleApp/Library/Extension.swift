@@ -1089,6 +1089,14 @@ extension UIViewController {
         }
     }
     
+    func pushToStorageDetailController(detail : StorageListModal){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+            next.detailModal = detail
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
     
     
     func setLeftButnEmpty(){
@@ -1190,7 +1198,7 @@ extension UIViewController {
         
         let allStep = UIButton()
         
-        allStep.setTitle("/ 09", for: .normal)
+        allStep.setTitle("/ 10", for: .normal)
         
         allStep.titleLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 20)!
         

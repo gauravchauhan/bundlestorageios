@@ -16,7 +16,9 @@ class AddStorageModal{
     private var spaceHeight : String?
     private var spaceWidth   : String?
     private var availability : String?
-    private var price : String?
+    private var dailyprice : String?
+    private var weeklyprice : String?
+    private var monthlyprice : String?
     private var priceType : String?
     private var discount : String?
     private var amenities : NSArray?
@@ -24,7 +26,17 @@ class AddStorageModal{
     private  var address : String?
     private var Lat : CLLocationDegrees?
     private var Lng : CLLocationDegrees?
+    private var imageID : NSArray?
     
+    
+    var storageImages : NSArray?{
+        get{
+            return imageID!
+        }
+        set{
+            self.imageID = newValue
+        }
+    }
     
     var storageAddress : String?{
         get{
@@ -97,12 +109,30 @@ class AddStorageModal{
         }
     }
     
-    var storagePrice : String?{
+    var storageDailyPrice : String?{
         get{
-            return price!
+            return dailyprice!
         }
         set{
-            self.price = newValue
+            self.dailyprice = newValue
+        }
+    }
+    
+    var storageWeeklyPrice : String?{
+        get{
+            return weeklyprice!
+        }
+        set{
+            self.weeklyprice = newValue
+        }
+    }
+    
+    var storageMonthlyPrice : String?{
+        get{
+            return monthlyprice!
+        }
+        set{
+            self.monthlyprice = newValue
         }
     }
     

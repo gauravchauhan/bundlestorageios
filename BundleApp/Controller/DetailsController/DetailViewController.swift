@@ -10,7 +10,7 @@ import UIKit
 import NWSTokenView
 import ImageSlideshow
 
-class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelegate, UIScrollViewDelegate{
+class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelegate, UIScrollViewDelegate {
    
     // MARK: OUTLETS
     @IBOutlet weak var showOfferButton: UIButton!
@@ -25,15 +25,19 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var imageSlideShow: ImageSlideshow!
+    @IBOutlet weak var storage_LengthWidth: UILabel!
     
     //MARK:- PROPERTIES
+    var detailModal = StorageListModal()
     var selectedContacts = [NWSTokenData]()
     var contact: NWSTokenData!
     let tokenViewMinHeight: CGFloat = 40.0
     let tokenViewMaxHeight: CGFloat = 150.0
     var readMoreButtonTitle = "readmore...."
-    let dataArray : [String] = ["Thor", "Lights Out", "Captian America", "Resident Evil", "Mission Impossible", "MasterMind", "Spiderman", "GodZilla", "Dinasaures", "Titanic"]
    var sliderImages =  [BundleImageSource(imageString: "image1"), BundleImageSource(imageString: "image2"), BundleImageSource(imageString: "image3"), BundleImageSource(imageString: "image1"), BundleImageSource(imageString: "image2"), BundleImageSource(imageString: "image3")]
+    
+    
+    var storageListID : String!
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -43,18 +47,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         storageTypeLabel.roundCorners(corners: .topLeft, radius: 10)
-        
-        tokenView.layoutIfNeeded()
-        tokenView.dataSource = self
-        tokenView.delegate = self
-        
-        for data in dataArray {
-            selectedContacts.append(NWSTokenData.init(name: data))
-        }
-        tokenView.reloadData()
-        tokenView.tintColor = .white
-        tokenView.resignFirstResponder()
-        tokenView.endEditing(true)
+        self.setData()
         
         imageSlideShow.slideshowInterval = 5.0
         imageSlideShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
@@ -69,7 +62,10 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         imageSlideShow.pageIndicatorPosition = PageIndicatorPosition(horizontal:.center, vertical: .customBottom(padding: 60))
         imageSlideShow.delegate = self
         imageSlideShow.setImageInputs(sliderImages)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setBackButtonWithTitle(title: "\(self.detailModal.storageName!)")
     }
     
     // Swipe button "Request Single from Storage"
@@ -97,20 +93,32 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK:- User defined function
+    
+    func setData(){
+        self.storageTypeLabel.text! = self.detailModal.storageType!
+        self.listingTitle.text! = self.detailModal.storageName!
+        self.priceLabel.text! = "$" + self.detailModal.storageDailyPrice! + " per day | $ " + self.detailModal.storageWeeklyPrice! + " per week | $ " + self.detailModal.storageMonthlyPrice! + " per month"
+        self.storage_LengthWidth.text! = "Length " + self.detailModal.storageLength! + " ft." + "Width " + self.detailModal.storageWidth! + " ft."
+        self.descriptionLabel.text! = self.detailModal.aboutStorage!
+        
+        tokenView.layoutIfNeeded()
+        tokenView.dataSource = self
+        tokenView.delegate = self
+        for data in self.detailModal.allAmenities! {
+            print("data   \(data)")
+            selectedContacts.append(NWSTokenData.init(name: data as! String))
+        }
+        tokenView.reloadData()
+        tokenView.tintColor = .white
+        tokenView.endEditing(true)
     }
-    */
 
     // MARK: NWSTokenDataSource
+    
     func numberOfTokensForTokenView(_ tokenView: NWSTokenView) -> Int
     {
-        return dataArray.count
+        return self.detailModal.allAmenities!.count
     }
     
     func insetsForTokenView(_ tokenView: NWSTokenView) -> UIEdgeInsets?
