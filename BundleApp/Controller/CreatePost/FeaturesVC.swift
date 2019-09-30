@@ -46,9 +46,11 @@ class FeaturesVC: UIViewController, GetFeatureDelegate, UITableViewDelegate, UIT
         let cell = self.featureList.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath)as! ListingTableViewCell
         cell.typeName.text! = self.featureListModal[indexPath.row].listingType!
         if self.featureListModal[indexPath.row].selectedStatus!{
+            cell.check.isHidden =  false
             cell.generalView.isHidden =  true
             cell.selectedView.isHidden =  false
         }else{
+            cell.check.isHidden =  true
             cell.generalView.isHidden =  false
             cell.selectedView.isHidden =  true
         }

@@ -19,10 +19,11 @@ class DiscountPopUpController: UIViewController {
     }
     
     @IBAction func getOfferButtonClicked(_ sender: UIButton) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closepopupClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
         self.removeAnimate()
     }
     

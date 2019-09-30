@@ -25,6 +25,8 @@ class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackButtonWithTitle(title: "Regular Booking")
+        
         let boldText  = "Disclamer:"
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 11)]
         let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)

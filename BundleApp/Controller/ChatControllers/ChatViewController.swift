@@ -20,6 +20,7 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource {
         super.viewDidLoad()
         tableView.bubbleDelegate = self
         tableView.bubbleDataSource = self
+        self.setBackButtonWithTitle(title: Singelton.sharedInstance.userDataModel.userFirstName!)
         // Do any additional setup after loading the view.
     }
     

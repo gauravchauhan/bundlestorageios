@@ -1024,6 +1024,14 @@ extension UIViewController {
         }
     }
     
+    func openDiscountPopUp(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "DiscountPopUpController") as! DiscountPopUpController
+            next.modalPresentationStyle = .overCurrentContext
+            self.present(next, animated: true, completion: nil)
+        }
+    }
+    
     func pushToStorageListController(){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "HostListOnMapVC") as! HostListOnMapVC
@@ -1089,10 +1097,24 @@ extension UIViewController {
         }
     }
     
+    func pushToRegularBookingController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "RegularBooking_VC") as! RegularBooking_VC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
     func pushToStorageDetailController(detail : StorageListModal){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
             next.detailModal = detail
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToChatController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1268,8 +1290,6 @@ extension UIViewController {
         let notificationNavBtn = UIBarButtonItem.init(customView: notificationBtn)
         
         notificationNavBtn.customView = notificationBtn
-        
-        
         
         // filter button
         

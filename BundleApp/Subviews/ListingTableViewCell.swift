@@ -14,6 +14,7 @@ class ListingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var generalView: UIView!
     @IBOutlet weak var typeName: UILabel!
+    @IBOutlet weak var check: UIImageView!
     
     //MDCCard
     

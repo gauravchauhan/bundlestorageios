@@ -26,6 +26,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var imageSlideShow: ImageSlideshow!
     @IBOutlet weak var storage_LengthWidth: UILabel!
+    @IBOutlet weak var requestStorageButton: TGFlingActionButton!
     
     //MARK:- PROPERTIES
     var detailModal = StorageListModal()
@@ -48,7 +49,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         // Do any additional setup after loading the view.
         storageTypeLabel.roundCorners(corners: .topLeft, radius: 10)
         self.setData()
-        
+        self.requestStorageButton.currentImage?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 20)
         imageSlideShow.slideshowInterval = 5.0
         imageSlideShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         imageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
@@ -61,7 +62,15 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         imageSlideShow.activityIndicator = DefaultActivityIndicator()
         imageSlideShow.pageIndicatorPosition = PageIndicatorPosition(horizontal:.center, vertical: .customBottom(padding: 60))
         imageSlideShow.delegate = self
+//        sliderImages.removeAll()
+//        for data in self.detailModal.storageImage!{
+//            print("Image URl \(data.imageURL!)")
+//            sliderImages.append(BundleImageSource(imageString: data.imageURL!))
+//        }
+        
+//        sliderImages.append(BundleImageSource)
         imageSlideShow.setImageInputs(sliderImages)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,15 +78,20 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     
     // Swipe button "Request Single from Storage"
+    
+    //MARK:- Actions
+    
     @IBAction func requestActionCallback(_ sender: TGFlingActionButton) {
         print("action performed")
     }
     
     
     @IBAction func bookButtonClicked(_ sender: UIButton) {
+        self.pushToRegularBookingController()
     }
     
     @IBAction func messageButtonClicked(_ sender: UIButton) {
+        self.pushToChatController()
     }
     
     @IBAction func readMoreButtonClicked(_ sender: UIButton) {
@@ -93,6 +107,9 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         }
     }
     
+    @IBAction func click_OfferButton(_ sender: Any) {
+        self.openDiscountPopUp()
+    }
     //MARK:- User defined function
     
     func setData(){
@@ -101,10 +118,12 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         self.priceLabel.text! = "$" + self.detailModal.storageDailyPrice! + " per day | $ " + self.detailModal.storageWeeklyPrice! + " per week | $ " + self.detailModal.storageMonthlyPrice! + " per month"
         self.storage_LengthWidth.text! = "Length " + self.detailModal.storageLength! + " ft." + "Width " + self.detailModal.storageWidth! + " ft."
         self.descriptionLabel.text! = self.detailModal.aboutStorage!
+        self.companyName.text! = self.detailModal.storageHostName!
         
         tokenView.layoutIfNeeded()
         tokenView.dataSource = self
         tokenView.delegate = self
+        tokenView.textView.isEditable = false
         for data in self.detailModal.allAmenities! {
             print("data   \(data)")
             selectedContacts.append(NWSTokenData.init(name: data as! String))

@@ -58,6 +58,7 @@ class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.list.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath)as! ListingTableViewCell
         cell.typeName.text! = self.listingModal[indexPath.row].listingType!
+        cell.check.isHidden =  true
         if self.listingModal[indexPath.row].selectedStatus!{
             cell.generalView.isHidden =  true
             cell.selectedView.isHidden =  false

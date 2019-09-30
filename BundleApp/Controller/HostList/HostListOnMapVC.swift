@@ -33,7 +33,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         self.hostList.isScrollEnabled = false
         createSwapGestureRecognizer()
         Indicator.shared.showProgressView(self.view)
-        let param = "latitude=\(String(describing: 28.77))&longitude=\(String(describing: 77.0))"
+        let param = "latitude=\(String(describing: Singelton.sharedInstance.currentLatitude!))&longitude=\(String(describing: Singelton.sharedInstance.currentLongitude!))"
         print("Parameter \(param)")
         Singelton.sharedInstance.service.getStorageListDelegate = self
         Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.getStorageList, api_Type: apiType.POST.rawValue)
@@ -110,6 +110,8 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             let storageObj = StorageListModal()
             storageObj.storageName = data[index]["storageName"]as? String
             storageObj.stoargeID = data[index]["id"]as? String
+            storageObj.storageHostId = data[index]["hostId"]as? String
+            storageObj.storageHostName = data[index]["hostName"]as? String
             storageObj.storageType = data[index]["storageType"]as? String
             storageObj.allAmenities = data[index]["amenities"]as? NSArray
             if let length : Int = data[index]["spaceHeight"]as? Int{

@@ -4835,6 +4835,9 @@
                                                         <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="click_OfferButton:" destination="sjP-jo-ATM" eventType="touchUpInside" id="cz2-fm-lWu"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ea-bL-kDb">
                                                 <rect key="frame" x="25" y="275" width="364" height="18.5"/>
@@ -4950,18 +4953,18 @@
                                                     <constraint firstAttribute="width" constant="240" id="1Sb-JL-fLL"/>
                                                     <constraint firstAttribute="height" constant="50" id="qds-W5-7nb"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="13"/>
                                                 <state key="normal" title="Request Single Item Storage    .">
                                                     <color key="titleColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="ImageOverlay" value="circle button"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="InitialStateColor">
-                                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="FinalStateColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="ImageOverlay" value="double_Arrow"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="requestActionCallback:" destination="sjP-jo-ATM" eventType="touchUpInside" id="30L-bf-jVy"/>
@@ -5035,6 +5038,7 @@
                         <outlet property="messageButton" destination="NSQ-Nf-79w" id="zGe-hA-JRJ"/>
                         <outlet property="priceLabel" destination="DoC-Ui-DTR" id="64O-b9-rOH"/>
                         <outlet property="readmoreButton" destination="8U8-Xu-LxB" id="z6W-PW-CSS"/>
+                        <outlet property="requestStorageButton" destination="HcV-Wr-5hG" id="gav-DI-qXY"/>
                         <outlet property="showOfferButton" destination="3hs-hb-Rhf" id="tXr-W7-sBC"/>
                         <outlet property="storageTypeLabel" destination="tId-Ll-TJi" id="JIS-y7-RmK"/>
                         <outlet property="storage_LengthWidth" destination="QZL-rj-aop" id="HMy-LV-SqK"/>
@@ -5793,7 +5797,7 @@
         <image name="chat" width="30" height="30"/>
         <image name="check_box_blank" width="30" height="30"/>
         <image name="circle" width="16" height="16"/>
-        <image name="circle button" width="100" height="100"/>
+        <image name="double_Arrow" width="10" height="10"/>
         <image name="downArrow" width="30" height="30"/>
         <image name="filled_Circle" width="20" height="20"/>
         <image name="gift-offer-img-100" width="100" height="66.5"/>

@@ -24,11 +24,30 @@ class StorageListModal{
     private var type : String!
     private var name : String!
     private var priceType : String!
+    private var hostName : String!
+    private var hostID : String!
     private var storageAddress : AddressModal!
     private var image : [StorageImageModal]!
     
     
     //MARK:- Gettter setter method
+    
+    var storageHostName : String?{
+        get{
+            return hostName!
+        }
+        set{
+            self.hostName = newValue
+        }
+    }
+    var storageHostId : String?{
+        get{
+            return hostID!
+        }
+        set{
+            self.hostID = newValue
+        }
+    }
     
     var storageLength : String?{
         get{
