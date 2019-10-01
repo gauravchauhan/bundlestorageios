@@ -11,6 +11,8 @@ import GoogleSignIn
 import GoogleMaps
 import GooglePlaces
 import RESideMenu
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //Add the fb  and google signin to the app with the appID's
-        Singelton.sharedInstance.location.setLatLong()
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
         GMSServices.provideAPIKey("AIzaSyDdDIw3AV25HSDH2e9V6RfurCV4V1uu61k")
         GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")  
@@ -29,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: mainViewController)
         let sideMenu : RESideMenu = RESideMenu(contentViewController: navigationController , leftMenuViewController: LeftMenuViewController(), rightMenuViewController: LeftMenuViewController())
         self.window?.rootViewController = sideMenu
+        Fabric.with([Crashlytics.self])
         
         return true
     }

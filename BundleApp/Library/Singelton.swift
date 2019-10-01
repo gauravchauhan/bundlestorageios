@@ -27,7 +27,6 @@ class Singelton {
     // METHODS
     private init() {
         print("Singelton run ")
-        location.setLatLong()
         if UserDefaults.standard.value(forKey:"authToken") != nil {
             print("Singelton authToken")
             authToken = UserDefaults.standard.value(forKey: "authToken") as! String

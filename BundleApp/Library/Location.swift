@@ -9,10 +9,16 @@
 import Foundation
 import CoreLocation
 
+protocol CurrentLocationDelegate {
+    func currentLocationResponse(lat : CLLocationDegrees , lng : CLLocationDegrees)
+    func LocationPermissionDenied()
+}
+
 class Location : NSObject, CLLocationManagerDelegate{
     
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
+    var current_Delegate : CurrentLocationDelegate!
     
     func setLatLong(){
         DispatchQueue.main.async {
@@ -23,8 +29,9 @@ class Location : NSObject, CLLocationManagerDelegate{
                 self.locManager.startUpdatingLocation()
 //                print("Location Class Latitude  \(self.currentLocation.coordinate.latitude)")
 //                print("Location Class Latitude \(self.currentLocation.coordinate.longitude)")
-                Singelton.sharedInstance.currentLatitude = 28.77
-                Singelton.sharedInstance.currentLongitude = 77.0
+//                Singelton.sharedInstance.currentLatitude = self.currentLocation.coordinate.latitude
+//                Singelton.sharedInstance.currentLongitude = self.currentLocation.coordinate.longitude
+//                self.delegate.getLocationResponse(status: true)
             }else{
                 self.locManager.delegate = self
                 self.locManager.requestAlwaysAuthorization()
@@ -33,12 +40,21 @@ class Location : NSObject, CLLocationManagerDelegate{
         }
     }
     
+    func getCurrentLocation(){
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            self.current_Delegate.currentLocationResponse(lat: self.currentLocation.coordinate.latitude, lng: self.currentLocation.coordinate.longitude)
+        }else{
+            self.current_Delegate.LocationPermissionDenied()
+        }
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                  //  Singelton.sharedInstance.location.setLatLong()
+                    print("Authorisation")
                 }
             }
         }

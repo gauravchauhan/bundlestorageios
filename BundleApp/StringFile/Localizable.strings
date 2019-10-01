@@ -33,6 +33,7 @@
 "Enter per week price" = "Enter per week price";
 "Enter per month price" = "Enter per month price";
 "NO description available" = "NO description available";
+"Allow Location" = "Bundle app can't access the location, Please allow the permission to acces your current location from settings \n Settings -> BundleApp -> Location -> Allow";
 
 "Profile" =  "Profile";
 "Refer bundle to a friend" = "Refer bundle to a friend";

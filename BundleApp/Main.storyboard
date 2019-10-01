@@ -4964,10 +4964,10 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="FinalStateColor">
                                                         <color key="value" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="ImageOverlay" value="double_Arrow"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="ImageOverlay" value="WhiteRightArrow"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="requestActionCallback:" destination="sjP-jo-ATM" eventType="touchUpInside" id="30L-bf-jVy"/>
+                                                    <action selector="drag_SingleStorageButton:" destination="sjP-jo-ATM" eventType="valueChanged" id="GYA-KM-XtB"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -5791,13 +5791,13 @@
     </scenes>
     <resources>
         <image name="Icon-64" width="32" height="13.5"/>
+        <image name="WhiteRightArrow" width="88" height="88"/>
         <image name="addListing" width="30" height="30"/>
         <image name="bundle_logo" width="250" height="250"/>
         <image name="camera-red" width="30" height="30"/>
         <image name="chat" width="30" height="30"/>
         <image name="check_box_blank" width="30" height="30"/>
         <image name="circle" width="16" height="16"/>
-        <image name="double_Arrow" width="10" height="10"/>
         <image name="downArrow" width="30" height="30"/>
         <image name="filled_Circle" width="20" height="20"/>
         <image name="gift-offer-img-100" width="100" height="66.5"/>

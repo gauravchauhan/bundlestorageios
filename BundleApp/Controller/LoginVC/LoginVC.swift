@@ -9,25 +9,31 @@
 import UIKit
 import GoogleSignIn
 import RESideMenu
+import CoreLocation
 
-class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
+class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate, CLLocationManagerDelegate{
     
     //MARK:- Outlets
     
     @IBOutlet weak var dontHaveAccountButton: UIButton!
     @IBOutlet weak var dontHaveAccountLabel: UILabel!
     
+    var locManager = CLLocationManager()
+    
+   
     //MARK:- Class lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Singelton.sharedInstance.location.setLatLong()
         if UserDefaults.standard.value(forKey: "userData") != nil{
             self.pushToTabBarController()
         }else{
-            
+            GIDSignIn.sharedInstance().delegate = self
+            self.dontHaveAccountLabel.attributedText = colorString(location: 24, length: 10, String: self.dontHaveAccountLabel.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
         }
-        GIDSignIn.sharedInstance().delegate = self
-        self.dontHaveAccountLabel.attributedText = colorString(location: 24, length: 10, String: self.dontHaveAccountLabel.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
+        locManager.delegate = self
+        locManager.requestAlwaysAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,8 +42,20 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
     
     //MARK:- Delegate
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    print("Location manager")
+                    Singelton.sharedInstance.location.setLatLong()
+                }
+            }
+        }
+    }
+    
     func socialLoginResponse(data: [String : Any]) {
         print("Social login response \(data)")
+        Indicator.shared.hideProgressView()
         let result = (data["user"]as! [String : Any]).nullKeyRemoval()
         UserDefaults.standard.set(result , forKey: "userData")
         UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
@@ -55,6 +73,7 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate{
             print(user.profile.name!)
             print(user.profile.givenName!)
             print(user.profile.email!)
+            Indicator.shared.showProgressView(self.view)
             let param = "googleId=\(String(describing: user.userID!))&role=ROLE_USER&firstName=\(String(describing: user.profile.givenName!))&lastName=\(String(describing: user.profile.name.components(separatedBy: " ")[1]))&email=\(String(describing: user.profile.email!))"
             print("Param \(param)")
             Singelton.sharedInstance.service.socialLoginDelegate = self

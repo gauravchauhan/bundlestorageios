@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate{
+class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate  , CurrentLocationDelegate{
     
     //MARK:- Outlets
     @IBOutlet weak var hostList: UITableView!
@@ -33,13 +33,29 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         self.hostList.isScrollEnabled = false
         createSwapGestureRecognizer()
         Indicator.shared.showProgressView(self.view)
-        let param = "latitude=\(String(describing: Singelton.sharedInstance.currentLatitude!))&longitude=\(String(describing: Singelton.sharedInstance.currentLongitude!))"
+        Singelton.sharedInstance.location.setLatLong()
+        Singelton.sharedInstance.location.current_Delegate = self
+        Singelton.sharedInstance.location.getCurrentLocation()
+    }
+    
+    //MARK:- Delagate
+    
+    
+    func currentLocationResponse(lat: CLLocationDegrees, lng: CLLocationDegrees) {
+        print("current location response \(lat) \(lng)")
+        let param = "latitude=\(String(describing: lat))&longitude=\(String(describing: lng))"
         print("Parameter \(param)")
         Singelton.sharedInstance.service.getStorageListDelegate = self
         Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.getStorageList, api_Type: apiType.POST.rawValue)
     }
     
-    //MARK:- Delagate
+    func LocationPermissionDenied() {
+        print("Permission denied")
+        Indicator.shared.hideProgressView()
+        self.hostListheightConstraints.constant = 80
+        alert(message: Strings_Const.allow_Location, Controller: self)
+    }
+    
     
     func getStorageListResponse(data: [String : Any]) {
         Indicator.shared.hideProgressView()
@@ -67,7 +83,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         cell.hostName.text! = self.storageModal[indexPath.row].storageName!
         cell.spaceType.text! = self.storageModal[indexPath.row].storageType!.capitalized
         cell.spaceDescription.text! = "$" + self.storageModal[indexPath.row].storageDailyPrice! + " per day | $ " + self.storageModal[indexPath.row].storageWeeklyPrice! + " per week | $ " + self.storageModal[indexPath.row].storageMonthlyPrice! + " per month"
-        cell.hostImage.setImageWith(URL(string : self.storageModal[indexPath.row].storageImage![0].imageURL! ), placeholderImage: UIImage(named: "loader"))
+        cell.hostImage.setImageWith(URL(string : self.storageModal[indexPath.row].storageImage![0].imageURL! ), placeholderImage: UIImage(named: "app_Logo"))
         return cell
     }
     

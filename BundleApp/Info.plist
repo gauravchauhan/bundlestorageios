@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>1bed234a4febb8a323b08861ff23fb956673b494</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -48,9 +62,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Bundle App wants to access ypur location</string>
+	<string>Bundle App wants to access your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Bundle App wants to access ypur location</string>
+	<string>Bundle App wants to access your location</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ProximaNova-Thin.ttf</string>

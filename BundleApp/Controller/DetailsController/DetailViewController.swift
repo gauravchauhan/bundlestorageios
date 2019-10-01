@@ -35,8 +35,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     let tokenViewMinHeight: CGFloat = 40.0
     let tokenViewMaxHeight: CGFloat = 150.0
     var readMoreButtonTitle = "readmore...."
-   var sliderImages =  [BundleImageSource(imageString: "image1"), BundleImageSource(imageString: "image2"), BundleImageSource(imageString: "image3"), BundleImageSource(imageString: "image1"), BundleImageSource(imageString: "image2"), BundleImageSource(imageString: "image3")]
-    
+    var storageImages = [SDWebImageSource]()
     
     var storageListID : String!
     
@@ -46,31 +45,11 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.reques==
+//        requestStorageButton.
+        
         storageTypeLabel.roundCorners(corners: .topLeft, radius: 10)
         self.setData()
-        self.requestStorageButton.currentImage?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 20)
-        imageSlideShow.slideshowInterval = 5.0
-        imageSlideShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
-        imageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
-        
-        let pageControl = UIPageControl()
-        pageControl.currentPageIndicatorTintColor = UIColor.white
-        pageControl.pageIndicatorTintColor = UIColor.gray
-        
-        imageSlideShow.pageIndicator = pageControl
-        imageSlideShow.activityIndicator = DefaultActivityIndicator()
-        imageSlideShow.pageIndicatorPosition = PageIndicatorPosition(horizontal:.center, vertical: .customBottom(padding: 60))
-        imageSlideShow.delegate = self
-//        sliderImages.removeAll()
-//        for data in self.detailModal.storageImage!{
-//            print("Image URl \(data.imageURL!)")
-//            sliderImages.append(BundleImageSource(imageString: data.imageURL!))
-//        }
-        
-//        sliderImages.append(BundleImageSource)
-        imageSlideShow.setImageInputs(sliderImages)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,11 +59,12 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     // Swipe button "Request Single from Storage"
     
     //MARK:- Actions
-    
-    @IBAction func requestActionCallback(_ sender: TGFlingActionButton) {
-        print("action performed")
+    @IBAction func drag_SingleStorageButton(_ sender: TGFlingActionButton) {
+        print(self.requestStorageButton.swipe_direction)
+        self.pushToSingleBookingController()
     }
     
+
     
     @IBAction func bookButtonClicked(_ sender: UIButton) {
         self.pushToRegularBookingController()
@@ -124,6 +104,9 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         tokenView.dataSource = self
         tokenView.delegate = self
         tokenView.textView.isEditable = false
+        
+        //Set images into the slider show of image
+        
         for data in self.detailModal.allAmenities! {
             print("data   \(data)")
             selectedContacts.append(NWSTokenData.init(name: data as! String))
@@ -131,6 +114,28 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         tokenView.reloadData()
         tokenView.tintColor = .white
         tokenView.endEditing(true)
+        
+        self.requestStorageButton.currentImage?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 20)
+        imageSlideShow.slideshowInterval = 5.0
+        imageSlideShow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+        imageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        
+        imageSlideShow.pageIndicator = pageControl
+        imageSlideShow.activityIndicator = DefaultActivityIndicator()
+        imageSlideShow.pageIndicatorPosition = PageIndicatorPosition(horizontal:.center, vertical: .customBottom(padding: 60))
+        imageSlideShow.delegate = self
+        
+        for data in self.detailModal.storageImage!{
+            print("Image URl \(data.imageURL!)")
+            storageImages.append(SDWebImageSource(urlString: data.imageURL!)!)
+            
+        }
+        //            sliderImages.append(storageImages)
+        imageSlideShow.setImageInputs(storageImages)
     }
 
     // MARK: NWSTokenDataSource

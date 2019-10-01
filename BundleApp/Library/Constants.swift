@@ -7,7 +7,7 @@ struct Constants {
      */
     
     struct AppUrls{
-        static let baseUrl = "http://4aa6d9cf.ngrok.io"
+        static let baseUrl = "http://a334121b.ngrok.io"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -92,7 +92,7 @@ struct Strings_Const{
     static let enter_Storage_Name = NSLocalizedString("Enter Storage Name", comment: "")
     static let enter_Description = NSLocalizedString("Enter Description", comment: "")
     static let upload_Profile = NSLocalizedString("Please upload image", comment: "")
-    static let profile = NSLocalizedString("Please upload image", comment: "")
+    static let profile = NSLocalizedString("Profile", comment: "")
     static let refer = NSLocalizedString("Refer bundle to a friend", comment: "")
     static let support = NSLocalizedString("Support", comment: "")
     static let switch_User = NSLocalizedString("Switch to a user", comment: "")
@@ -103,6 +103,7 @@ struct Strings_Const{
     static let per_Week = NSLocalizedString("Enter per week price", comment: "")
     static let per_Month = NSLocalizedString("Enter per month price", comment: "")
     static let no_Desc = NSLocalizedString("NO description available", comment: "")
+    static let allow_Location = NSLocalizedString("Allow Location", comment: "")
 
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")

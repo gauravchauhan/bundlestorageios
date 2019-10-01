@@ -14,6 +14,9 @@ pod 'ImageSlideshow', '~> 1.8'
 pod 'Cosmos', '~> 16.0'
 pod 'RESideMenu', '~> 4.0.7'
 
+pod 'Fabric'
+pod 'Crashlytics'
+pod "ImageSlideshow/SDWebImage"
 
   # Pods for BundleApp
 

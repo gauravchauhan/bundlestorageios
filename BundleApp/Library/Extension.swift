@@ -1103,6 +1103,12 @@ extension UIViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
+    func pushToSingleBookingController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SingleItemRequest_VC") as! SingleItemRequest_VC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
     
     func pushToStorageDetailController(detail : StorageListModal){
         DispatchQueue.main.async {
