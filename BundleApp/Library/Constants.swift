@@ -108,6 +108,14 @@ struct Strings_Const{
     static let min_Image = NSLocalizedString("Minimum image", comment: "")
     static let describe_What_Space = NSLocalizedString("Describe what you will be using the space?", comment: "")
     static let storage_Book_Message = NSLocalizedString(" Booking includes whole space listed, or something of that style.", comment: "")
+    
+    static let small_item = NSLocalizedString( "Small item", comment: "")
+    static let medium_item = NSLocalizedString( "Medium item", comment: "")
+    static let large_item = NSLocalizedString( "Big item", comment: "")
+    
+    static let small_items = NSLocalizedString( "Small items", comment: "")
+    static let medium_items = NSLocalizedString( "Medium items", comment: "")
+    static let large_items = NSLocalizedString( "Big items", comment: "")
     //
 
     static let message = NSLocalizedString("Message", comment: "")

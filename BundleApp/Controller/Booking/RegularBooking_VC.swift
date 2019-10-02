@@ -11,14 +11,14 @@ import UIKit
 class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionViewDelegate, UICollectionViewDataSource , CrossButtonDelegate, SelectedImage {
     
     
-     //MARK:- Outlets
+    //MARK:- Outlets
     @IBOutlet weak var startDateTextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var endDatetextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var disclamerLabel: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-     //MARK:- Properties
+    //MARK:- Properties
     
     var storageImageModal = [UploadImageModal]()
     var imagePicker : ImagePiker!
@@ -40,13 +40,13 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
         descriptionTextView.textColor = UIColor.lightGray
         descriptionTextView.delegate = self
         // Do any additional setup after loading the view.
-        imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
-        reloadImageList()
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         self.imageCollectionView.register(UINib(nibName: "UploadImage", bundle: nil), forCellWithReuseIdentifier: "UploadImageCell")
+        reloadImageList()
     }
     
     //MARK:- Actions
@@ -127,6 +127,6 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
         return cell
     }
     
-
+    
 }
 
