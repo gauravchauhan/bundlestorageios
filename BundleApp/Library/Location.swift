@@ -26,7 +26,7 @@ class Location : NSObject, CLLocationManagerDelegate{
                 CLLocationManager.authorizationStatus() ==  .authorizedAlways){
                 self.currentLocation = self.locManager.location
                 self.locManager.delegate = self
-                self.locManager.startUpdatingLocation()
+//                self.locManager.startUpdatingLocation()
 //                print("Location Class Latitude  \(self.currentLocation.coordinate.latitude)")
 //                print("Location Class Latitude \(self.currentLocation.coordinate.longitude)")
 //                Singelton.sharedInstance.currentLatitude = self.currentLocation.coordinate.latitude
@@ -62,6 +62,7 @@ class Location : NSObject, CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Did location updates is called \(locations)")
+        self.currentLocation = manager.location
         //store the user location here to firebase or somewhere
     }
     

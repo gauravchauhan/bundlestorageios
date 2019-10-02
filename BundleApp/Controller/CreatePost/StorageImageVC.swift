@@ -9,7 +9,7 @@
 import UIKit
 
 class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CrossButtonDelegate, SelectedImage, UploadStorageFileDelegate, RemoveFileDelegate{
-
+    
     @IBOutlet weak var uploadImageList: UICollectionView!
     
     private var uploadImageModal  = [UploadImageModal]()
@@ -65,6 +65,9 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
         image_Description.uploadImage = userImage
         image_Description.uploadImageData = imageData
         image_Description.uploadImageID = ""
+        guard let imageCount : Int = self.uploadImageModal.count , imageCount < 5 else {
+            return alert(message: Strings_Const.max_Image, Controller: self)
+        }
         Singelton.sharedInstance.service.uploadStorageFileDelegate = self
         Singelton.sharedInstance.service.uploadImageFile(image: imageData as! NSData, imageParameter: "fileData", apiName: Constants.AppUrls.uploadFile, parameter: ["userId" : Singelton.sharedInstance.userDataModel.userID! as NSObject])
         self.uploadImageModal.append(image_Description)
@@ -84,7 +87,7 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.uploadImageList.dequeueReusableCell(withReuseIdentifier: "UploadImageCell", for: indexPath)as! UploadImageCell
-       //cell.backgroundColor = UIColor.red
+        //cell.backgroundColor = UIColor.red
         cell.tag = indexPath.row
         cell.crossDelegate = self
         if indexPath.row == self.uploadImageModal.count{
@@ -121,7 +124,10 @@ class StorageImageVC: UIViewController , UICollectionViewDelegate, UICollectionV
     //MARK:- Actions
     
     @IBAction func click_NexrButton(_ sender: Any) {
-//        Singelton.sharedInstance.addStorageModal.storageImages = \
+        //        Singelton.sharedInstance.addStorageModal.storageImages = \
+        guard let imageCountNotBeZero : Int = self.uploadImageModal.count , imageCountNotBeZero != 0 else {
+            return alert(message: Strings_Const.min_Image, Controller: self)
+        }
         print(self.uploadImageModal.map({$0.uploadImageID}) as NSArray)
         Singelton.sharedInstance.addStorageModal.storageImages = self.uploadImageModal.map({$0.uploadImageID}) as NSArray
         self.pushToSpaceNameController()

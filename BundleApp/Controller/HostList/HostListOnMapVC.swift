@@ -161,8 +161,8 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             let addressModal = AddressModal()
             addressModal.storageAddress = (data[index]["location"]as! [String : Any])["address"]as? String
             addressModal.storageCity = (data[index]["location"]as! [String : Any])["city"]as? String
-            addressModal.storageLat = (data[index]["location"]as! [String : Any])["latitude"]as? CGFloat
-            addressModal.storageLng = (data[index]["location"]as! [String : Any])["longitude"]as? CGFloat
+            !((data[index]["location"]as! [String : Any])["latitude"] is NSNull) ? (addressModal.storageLat = (data[index]["location"]as! [String : Any])["latitude"]as? CGFloat) : ( addressModal.storageLat = 19.0176086425781)
+            !((data[index]["location"]as! [String : Any])["longitude"] is NSNull) ? (addressModal.storageLng = (data[index]["location"]as! [String : Any])["longitude"]as? CGFloat) : (addressModal.storageLng = 72.8561644)
             print("stoarge lat \(addressModal.storageLat!)    \(addressModal.storageLng!)")
             addressModal.storageState = (data[index]["location"]as! [String : Any])["state"]as? String
             addressModal.zipCode = (data[index]["location"]as! [String : Any])["zipCode"]as? String

@@ -5,9 +5,9 @@ struct Constants {
     /*
      All URLS declare which is used in to the application
      */
-    
+    //http://bundle.teamjft.com
     struct AppUrls{
-        static let baseUrl = "http://a334121b.ngrok.io"
+        static let baseUrl = "http://bundle.teamjft.com"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -104,6 +104,11 @@ struct Strings_Const{
     static let per_Month = NSLocalizedString("Enter per month price", comment: "")
     static let no_Desc = NSLocalizedString("NO description available", comment: "")
     static let allow_Location = NSLocalizedString("Allow Location", comment: "")
+    static let max_Image = NSLocalizedString("Storage Image", comment: "")
+    static let min_Image = NSLocalizedString("Minimum image", comment: "")
+    static let describe_What_Space = NSLocalizedString("Describe what you will be using the space?", comment: "")
+    static let storage_Book_Message = NSLocalizedString(" Booking includes whole space listed, or something of that style.", comment: "")
+    //
 
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")

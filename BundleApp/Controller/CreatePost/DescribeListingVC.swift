@@ -110,7 +110,7 @@ class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func click_NextButton(_ sender: Any) {
         let status = self.listingModal.filter({$0.selectedStatus!})
         let selectedValue = self.listingModal.filter({$0.selectedStatus!}).map({$0.listingType})
-        self.screnComingFrom == "spaceLocated" ? (Singelton.sharedInstance.addStorageModal.storageType = selectedValue[0]!) : (Singelton.sharedInstance.addStorageModal.storageAvailablity = selectedValue[0]!)
+        status.count != 0 ? self.screnComingFrom == "spaceLocated" ? (Singelton.sharedInstance.addStorageModal.storageType = selectedValue[0]!) : (Singelton.sharedInstance.addStorageModal.storageAvailablity = selectedValue[0]!) : alert(message: Strings_Const.select_Atleast_One , Controller: self)
         status.count != 0 ? (self.screnComingFrom == "spaceLocated" ? self.pushToSpaceDimensionController() : self.pushToFeatureController())  : alert(message: Strings_Const.select_Atleast_One , Controller: self)
     }
     

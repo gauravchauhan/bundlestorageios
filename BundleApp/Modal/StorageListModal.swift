@@ -15,8 +15,8 @@ class StorageListModal{
     private var discount : String!
     private var id : String!
     private var location : String!
-    private var length : String!
-    private var width : String!
+    private var length : String! = ""
+    private var width : String! = ""
     private var media : String!
     private var dailyPrice : String! = ""
     private var weeklyPrice : String! = ""

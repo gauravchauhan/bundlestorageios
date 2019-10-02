@@ -19,7 +19,7 @@ extension GMSMapView{
                 let marker = GMSMarker(position: position)
                 marker.title = title
                 marker.map = self
-                self.setMinZoom(4, maxZoom: 10)
+                self.setMinZoom(4, maxZoom: 20)
         }
     }
     

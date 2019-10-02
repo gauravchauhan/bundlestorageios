@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextViewDelegate, AddImageCellDelegate {
+class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionViewDelegate, UICollectionViewDataSource , CrossButtonDelegate, SelectedImage {
+    
+    
      //MARK:- Outlets
     @IBOutlet weak var startDateTextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var endDatetextField: SkyFloatingLabelTextFieldWithIcon!
@@ -17,10 +19,9 @@ class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var descriptionTextView: UITextView!
     
      //MARK:- Properties
-    let imagePicker = UIImagePickerController()
-    var imageMaxLimit = 5
-    var tableViewItemCount = 0
-    var imageArray = [UIImage]()
+    
+    var storageImageModal = [UploadImageModal]()
+    var imagePicker : ImagePiker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,48 +31,60 @@ class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINa
         let boldText  = "Disclamer:"
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 11)]
         let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
-        let normalText = " Booking includes whole space listed, or something of that style."
+        let normalText = Strings_Const.storage_Book_Message
         let normalString = NSMutableAttributedString(string:normalText)
         attributedString.append(normalString)
         disclamerLabel.attributedText = attributedString
         
-        descriptionTextView.text = "Describe what you will be using the space?"
+        descriptionTextView.text = Strings_Const.describe_What_Space
         descriptionTextView.textColor = UIColor.lightGray
         descriptionTextView.delegate = self
         // Do any additional setup after loading the view.
-        
-        imagePicker.delegate = self
         imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
-        imageCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
+        reloadImageList()
     }
     
-    func addButtonTapped(_ tag: Int) {
-        print("Button tapped at index:\(tag)")
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-        imagePicker.modalPresentationStyle = .popover
-        
-        
-        if let popoverController = imagePicker.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
-        
-        self.present(imagePicker, animated: true, completion: nil)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.imageCollectionView.register(UINib(nibName: "UploadImage", bundle: nil), forCellWithReuseIdentifier: "UploadImageCell")
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        
-           let selectedImage = image
-            imageArray.append(selectedImage)
+    //MARK:- Actions
+    
+    
+    //MARK:- User Defined functions
+    
+    func reloadImageList(){
+        DispatchQueue.main.async {
+            self.imageCollectionView.delegate = self
+            self.imageCollectionView.dataSource = self
             self.imageCollectionView.reloadData()
-        
-       
-        picker.dismiss(animated: true, completion: nil)
-        
+        }
+    }
+    
+    
+    //MARK:- Delagte
+    
+    func pickerResponse(userImage: UIImage, imageData: Any) {
+        let image_Description = UploadImageModal()
+        image_Description.uploadImage = userImage
+        image_Description.uploadImageData = imageData
+        image_Description.uploadImageID = ""
+        self.storageImageModal.append(image_Description)
+        self.reloadImageList()
+    }
+    
+    
+    func click_Cross(_ cell: UICollectionViewCell, didPressButton: UIButton) {
+        print("Cross clicked \(cell.tag)")
+        self.storageImageModal.remove(at: cell.tag)
+        self.reloadImageList()
+    }
+    
+    func click_UplaodImage(_ cell: UICollectionViewCell, didPressButton: UIButton) {
+        imagePicker = ImagePiker(screen: self)
+        imagePicker.delegate = self
+        imagePicker.openPicker(pickerOpenType: "uploadProfile")
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -86,56 +99,34 @@ class RegularBooking_VC: UIViewController, UIImagePickerControllerDelegate, UINa
             descriptionTextView.textColor = UIColor.lightGray
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
-    */
-
-}
-
- //MARK:- Extension
-extension RegularBooking_VC: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if imageArray.count<imageMaxLimit{
-            tableViewItemCount = imageArray.count+1
-        }else{
-            tableViewItemCount = imageMaxLimit
-        }
-        return tableViewItemCount
+        return self.storageImageModal.count + 1
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row<tableViewItemCount-1{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as!
-                ImageCollectionViewCell
-            if imageArray.count>0{
-                cell.imageView.image = imageArray[indexPath.row]
-            }
-            return cell
+        let cell = self.imageCollectionView.dequeueReusableCell(withReuseIdentifier: "UploadImageCell", for: indexPath)as! UploadImageCell
+        //cell.backgroundColor = UIColor.red
+        cell.tag = indexPath.row
+        cell.crossDelegate = self
+        if indexPath.row == self.storageImageModal.count{
+            print("uploadImageArray  ")
+            cell.cross_Button.isHidden = true
+            cell.storageImage.image = UIImage(named: "addButton")
+            cell.uploadImageButton.isHidden = false
         }else{
-            if imageArray.count<imageMaxLimit{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-                cell.delegate = self
-                cell.btnAdd.tag = indexPath.row
-                return cell
-            }else{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as!
-                ImageCollectionViewCell
-                if imageArray.count>0{
-                    cell.imageView.image = imageArray[indexPath.row]
-                }
-                return cell
-            }
+            cell.cross_Button.isHidden = false
+            cell.storageImage.image = self.storageImageModal[indexPath.row].uploadImage
+            cell.uploadImageButton.isHidden = true
         }
+        return cell
     }
     
+
 }
+

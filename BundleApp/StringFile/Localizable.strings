@@ -34,6 +34,10 @@
 "Enter per month price" = "Enter per month price";
 "NO description available" = "NO description available";
 "Allow Location" = "Bundle app can't access the location, Please allow the permission to acces your current location from settings \n Settings -> BundleApp -> Location -> Allow";
+"Storage Image" = "Maximum 5 images can be uploaded";
+"Minimum image" = "Atleast one image should be upload";
+"Describe what you will be using the space?" = "Describe what you will be using the space?";
+"Booking includes whole space listed, or something of that style." = "Booking includes whole space listed, or something of that style.";
 
 "Profile" =  "Profile";
 "Refer bundle to a friend" = "Refer bundle to a friend";

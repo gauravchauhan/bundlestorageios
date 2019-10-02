@@ -81,8 +81,8 @@ class DiscountVC: UIViewController , UITableViewDataSource, UITableViewDelegate{
     @IBAction func click_NextBttn(_ sender: Any) {
         let status = self.discountModal.filter({$0.selectedStatus!})
         let selectedValue = self.discountModal.filter({$0.selectedStatus!}).map({$0.listingType})
-        Singelton.sharedInstance.addStorageModal.storageDiscount = selectedValue[0]!
-        status.count != 0 ? self.pushToUploadStorageImageController() : alert(message: NSLocalizedString("Select atleast one item", comment: ""), Controller: self)
+        status.count != 0 ? Singelton.sharedInstance.addStorageModal.storageDiscount = selectedValue[0]! : alert(message: Strings_Const.select_Atleast_One, Controller: self)
+        status.count != 0 ? self.pushToUploadStorageImageController() : alert(message: Strings_Const.select_Atleast_One, Controller: self)
         
     }
     

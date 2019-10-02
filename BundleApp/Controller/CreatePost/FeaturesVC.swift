@@ -79,8 +79,13 @@ class FeaturesVC: UIViewController, GetFeatureDelegate, UITableViewDelegate, UIT
     
     @IBAction func click_NextBttn(_ sender: Any) {
         let selectedValue = self.featureListModal.filter({$0.selectedStatus!}).map({$0.listingType})
-        Singelton.sharedInstance.addStorageModal.storageFacility = selectedValue as NSArray
-        self.pushToStorageChargeController()
+        if selectedValue.count == 0 {
+            alert(message: Strings_Const.select_Atleast_One, Controller: self)
+        }else{
+            Singelton.sharedInstance.addStorageModal.storageFacility = selectedValue as NSArray
+            self.pushToStorageChargeController()
+        }
+
     }
     
     

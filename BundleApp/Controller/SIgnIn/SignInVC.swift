@@ -109,7 +109,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
 //            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
 //        }
         guard let password : String = self.password.text , password != "" else {
-            return alert(message: NSLocalizedString("Enter password", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Password, Controller: self)
         }
         let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
         print("Param \(param)")
