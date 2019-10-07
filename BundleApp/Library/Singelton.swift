@@ -50,5 +50,7 @@ class Singelton {
         self.userDataModel.userAuthenticationToken = self.authToken
         self.userDataModel.userID = data["id"]as? String
         self.userDataModel.userIDProofURL = data["idProofUrl"]as? String
+//        self.userDataModel.userRole =
     }
 }
+

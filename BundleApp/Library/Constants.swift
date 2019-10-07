@@ -7,7 +7,7 @@ struct Constants {
      */
     //http://bundle.teamjft.com
     struct AppUrls{
-        static let baseUrl = "http://bundle.teamjft.com"
+        static let baseUrl = "http://938ef142.ngrok.io"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -22,7 +22,9 @@ struct Constants {
         static let removeUploadFile = "/removeUploadFile"
         static let storageDetails = "/storageDetails"
         static let showImage = "/showImage?filePath="
-        //storageDetails
+        static let bookingStorage = "/bookingStorage"
+        static let editProfile = "/editProfile"
+        //editProfile
 
     }
     
@@ -116,7 +118,10 @@ struct Strings_Const{
     static let small_items = NSLocalizedString( "Small items", comment: "")
     static let medium_items = NSLocalizedString( "Medium items", comment: "")
     static let large_items = NSLocalizedString( "Big items", comment: "")
-    //
+    static let end_date = NSLocalizedString( "End date", comment: "")
+    static let select_start_date = NSLocalizedString( "Select start date", comment: "")
+    static let select_end_date = NSLocalizedString( "Select end date", comment: "")
+    //"Select start date" = "Select start date";
 
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")

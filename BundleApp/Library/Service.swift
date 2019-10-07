@@ -53,6 +53,13 @@ protocol StorageDetailDelegate {
     func storageDetailResponse(data : [String : Any])
 }
 
+protocol BookingStorageDelegate {
+    func bookingStorageResponse(data : [String : Any])
+}
+
+protocol EditProfileDelegate {
+    func editProfileResponse(data : [String : Any])
+}
 
 //MARK:- Get Delegates
 
@@ -84,6 +91,8 @@ class Service{
     var uploadStorageFileDelegate : UploadStorageFileDelegate!
     var removeFileDelegate : RemoveFileDelegate!
     var storageDetailDelegate : StorageDetailDelegate!
+    var bookingStorageDelegate : BookingStorageDelegate!
+    var editProfileDelegate : EditProfileDelegate!
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
@@ -293,6 +302,10 @@ class Service{
             self.removeFileDelegate.removeFileResponse(data: response)
         case Constants.AppUrls.storageDetails:
             self.storageDetailDelegate.storageDetailResponse(data: response)
+        case Constants.AppUrls.bookingStorage:
+            self.bookingStorageDelegate.bookingStorageResponse(data: response)
+        case Constants.AppUrls.editProfile:
+            self.editProfileDelegate.editProfileResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

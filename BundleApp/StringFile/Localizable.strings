@@ -42,6 +42,9 @@
 "Small item" = "Small item";
 "Medium item" = "Medium item";
 "Big item" = "Big item";
+"End date" = "End date should be greater than start date.";
+"Select start date" = "Select start date";
+"Select end date" = "Select end date";
 
 "small items" = "Microwave,suitcase,guitar,Lawn ,Mower etc";
 "medium items" = "Desk, sufboard, Bike etc";

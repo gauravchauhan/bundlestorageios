@@ -44,6 +44,15 @@ protocol BackButtonDelegate {
 
 let gradientLayer = CAGradientLayer()
 
+func convertinto_Date(date : String , dateFormat : String)-> Date{
+    let isoDate = "\(date)"
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "\(dateFormat)"
+    dateFormatter.locale = Locale(identifier: "en_IN_POSIX") // set locale to reliable US_POSIX
+    let date = dateFormatter.date(from:isoDate)!
+    return date
+}
+
 func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
     let imageView: UIImageView = UIImageView(image: image)
     let layer = imageView.layer
@@ -1082,6 +1091,13 @@ extension UIViewController {
         }
     }
     
+    func pushToEditProfileController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
     func pushToTabBarController(){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
@@ -1097,18 +1113,31 @@ extension UIViewController {
         }
     }
     
-    func pushToRegularBookingController(){
+    func pushToRegularBookingController(storageId : String , hostID : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "RegularBooking_VC") as! RegularBooking_VC
+            next.storageId = storageId
+            next.hostId = hostID 
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
-    func pushToSingleBookingController(){
+    func pushToSingleBookingController(storageId : String , hostID : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "SingleItemRequest_VC") as! SingleItemRequest_VC
+            next.storageId = storageId
+            next.hostId = hostID
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
+    
+    func pushToPaymentController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentDetailController") as! PaymentDetailController
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    //PaymentDetailController
     
     func pushToStorageDetailController(detail : StorageListModal){
         DispatchQueue.main.async {

@@ -28,7 +28,7 @@ class LeftMenuViewController: UIViewController {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "senderImage")
+        imageView.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userIDProofURL!), placeholderImage: UIImage(named: "app_Logo"))
         imageView.frame = CGRect(x: self.tableView.x + 100, y: self.tableView.height - 150, width: 80 , height: 80)
         imageView.layer.cornerRadius = imageView.width / 2
         imageView.clipsToBounds = true

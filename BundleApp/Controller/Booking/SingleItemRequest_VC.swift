@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource , CrossButtonDelegate, SelectedImage ,  UITableViewDataSource, UITableViewDelegate{
+class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource , CrossButtonDelegate, SelectedImage ,  UITableViewDataSource, UITableViewDelegate, UploadStorageFileDelegate, RemoveFileDelegate, BookingStorageDelegate{
     
     //MARK:- Outlets
     @IBOutlet weak var imageCollectionView: UICollectionView!
@@ -23,6 +23,8 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     var itemListModal = [ListingModal]()
     var itemListContent = [Strings_Const.small_item, Strings_Const.medium_item, Strings_Const.large_item]
     var itemListDescribtion = [Strings_Const.small_items, Strings_Const.medium_items, Strings_Const.large_items]
+    var storageId : String?
+    var hostId : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,11 +69,38 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     
     //MARK:- Delegate
     
+    func uploadStorageFileResponse(data: [String : Any]) {
+        print("uplaod file reposne \(data)")
+        
+        Indicator.shared.hideProgressView()
+        if data["status"] != nil{
+            data["status"]as! Bool ? (self.singleStorageImageModal[self.singleStorageImageModal.count - 1].uploadImageID = data["id"]as? String) : DispatchQueue.main.async {
+                alert(message: "", Controller: self); self.singleStorageImageModal.remove(at: self.singleStorageImageModal.count - 1); self.reloadImagList()
+            }
+        }
+    }
+    
+    
+    func removeFileResponse(data: [String : Any]) {
+        print("remove file response \(data)")
+    }
+    
+    func bookingStorageResponse(data: [String : Any]) {
+        print("bookingStorageResponse  \(data)")
+    }
+    
+    
     func pickerResponse(userImage: UIImage, imageData: Any) {
         let image_Description = UploadImageModal()
         image_Description.uploadImage = userImage
         image_Description.uploadImageData = imageData
         image_Description.uploadImageID = ""
+        guard let imageCount : Int = self.singleStorageImageModal.count , imageCount < 5 else {
+            return alert(message: Strings_Const.max_Image, Controller: self)
+        }
+        Singelton.sharedInstance.service.uploadStorageFileDelegate = self
+        Singelton.sharedInstance.service.uploadImageFile(image: imageData as! NSData, imageParameter: "fileData", apiName: Constants.AppUrls.uploadFile, parameter: ["userId" : Singelton.sharedInstance.userDataModel.userID! as NSObject])
+        Indicator.shared.showProgressView(self.view)
         self.singleStorageImageModal.append(image_Description)
         self.reloadImagList()
     }
@@ -79,6 +108,8 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     
     func click_Cross(_ cell: UICollectionViewCell, didPressButton: UIButton) {
         print("Cross clicked \(cell.tag)")
+        let param = "id=\(String(describing: self.singleStorageImageModal[cell.tag].uploadImageID!))"
+        Singelton.sharedInstance.service.PostService(parameter: param , apiName: Constants.AppUrls.removeUploadFile, api_Type: apiType.POST.rawValue)
         self.singleStorageImageModal.remove(at: cell.tag)
         self.reloadImagList()
     }
@@ -157,6 +188,27 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     
+    //MARK:- User Defined fucntion
+    
+    func validatio_items(){
+        guard let imageCountNotBeZero : Int = self.singleStorageImageModal.count , imageCountNotBeZero != 0 else {
+            return alert(message: Strings_Const.min_Image, Controller: self)
+        }
+        guard let itemSelectCount : Int = self.itemListModal.filter({$0.selectedStatus!}).map({$0.listingType}).count , itemSelectCount != 0 else {
+            return alert(message: Strings_Const.select_Atleast_One, Controller: self)
+        }
+        
+        guard let desc : String = self.descriptionTextView.text , desc != "" else {
+            return alert(message: Strings_Const.enter_Description, Controller: self)
+        }
+        //self.uploadImageModal.map({$0.uploadImageID}) as NSArra
+        
+        let param = "itemType=\(String(describing: self.itemListModal.filter({$0.selectedStatus!}).map({$0.listingType})[0]) )&bookingType=regular&storage=\(String(describing: self.storageId!))&host=\(String(describing: self.hostId!))&media=\(String(describing: self.singleStorageImageModal.map({$0.uploadImageID}) as NSArray))&description=\(String(describing: self.descriptionTextView.text!))"
+        print("Paramter \(param)")
+        Singelton.sharedInstance.service.bookingStorageDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.bookingStorage, api_Type: apiType.POST.rawValue)
+        
+    }
+    
+    
 }
-
-//MARK:- Extensions

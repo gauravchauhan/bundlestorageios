@@ -34,6 +34,7 @@ class PaymentDetailController: UIViewController {
         payNowButton.isEnabled = false
         payNowButton.alpha = 0.5
         offerLabel.font = offerLabel.font.italic
+        setBackButtonWithTitle(title: "Summary")
     }
     
     

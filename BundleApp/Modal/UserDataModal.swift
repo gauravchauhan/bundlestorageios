@@ -56,11 +56,22 @@ class UserDataModal{
     private var userImage : String!
     private var token : String!
     private var idProofUrl : String!
+    private var userType : String!
+    
+    
+    var userRole : String?{
+        get{
+            return userType
+        }
+        set{
+            self.userType = newValue
+        }
+    }
     
     
     var userIDProofURL : String?{
         get{
-            return idProofUrl!
+            return Constants.AppUrls.baseUrl + Constants.AppUrls.showImage + idProofUrl!
         }
         set{
             self.idProofUrl = newValue

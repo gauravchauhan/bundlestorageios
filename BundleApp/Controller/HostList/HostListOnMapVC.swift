@@ -125,7 +125,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             var imageModal = [StorageImageModal]()
             let storageObj = StorageListModal()
             storageObj.storageName = data[index]["storageName"]as? String
-            storageObj.stoargeID = data[index]["id"]as? String
+            storageObj.stoargeID = data[index]["storageId"]as? String
             storageObj.storageHostId = data[index]["hostId"]as? String
             storageObj.storageHostName = data[index]["hostName"]as? String
             storageObj.storageType = data[index]["storageType"]as? String

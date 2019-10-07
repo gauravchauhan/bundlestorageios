@@ -61,13 +61,13 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     //MARK:- Actions
     @IBAction func drag_SingleStorageButton(_ sender: TGFlingActionButton) {
         print(self.requestStorageButton.swipe_direction)
-        self.pushToSingleBookingController()
+        self.pushToSingleBookingController(storageId: self.detailModal.stoargeID!, hostID:  self.detailModal.storageHostId!)
     }
     
 
     
     @IBAction func bookButtonClicked(_ sender: UIButton) {
-        self.pushToRegularBookingController()
+        self.pushToRegularBookingController(storageId: self.detailModal.stoargeID!, hostID:  self.detailModal.storageHostId!)
     }
     
     @IBAction func messageButtonClicked(_ sender: UIButton) {
