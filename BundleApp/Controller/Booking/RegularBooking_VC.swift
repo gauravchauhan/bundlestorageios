@@ -76,6 +76,7 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
         
         let param = "startDate=\(String(describing: self.startDateTextField.text!))&endDate=\(String(describing: self.endDatetextField.text!))&bookingType=regular&storage=\(String(describing: self.storageId!))&host=\(String(describing: self.hostId!))&media=\(String(describing: self.storageImageModal.map({$0.uploadImageID}) as NSArray))&description=\(String(describing: self.descriptionTextView.text!))"
         print("Paramter \(param)")
+        Indicator.shared.showProgressView(self.view)
         Singelton.sharedInstance.service.bookingStorageDelegate = self
         Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.bookingStorage, api_Type: apiType.POST.rawValue)
         
@@ -94,6 +95,7 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
     
     func bookingStorageResponse(data: [String : Any]) {
         print("Storage response \(data)")
+        Indicator.shared.hideProgressView()
         data["status"]as! Bool ? self.pushToPaymentController() : alert(message: data["message"]as! String, Controller: self)
         
     }

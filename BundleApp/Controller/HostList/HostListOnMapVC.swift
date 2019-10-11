@@ -92,7 +92,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 77
+        return 100
     }
     
     func reloadHostList(){

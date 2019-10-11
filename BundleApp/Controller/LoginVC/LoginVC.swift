@@ -56,12 +56,21 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate, CLLoca
     func socialLoginResponse(data: [String : Any]) {
         print("Social login response \(data)")
         Indicator.shared.hideProgressView()
-        let result = (data["user"]as! [String : Any]).nullKeyRemoval()
-        UserDefaults.standard.set(result , forKey: "userData")
-        UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
-        Singelton.sharedInstance.authToken = data["token"]as! String
-        Singelton.sharedInstance.setUserData(data: result)
-        self.pushToTabBarController()
+        if data["status"] as! Bool {
+            var result = (data["user"]as! [String : Any]).nullKeyRemoval()
+            let location = (result["location"]as! [String : Any]).nullKeyRemoval()
+            result.updateValue( location , forKey: "location")
+           // (result["location"]as! [String : Any]).nullKeyRemoval()
+            print("result \(result)")
+            UserDefaults.standard.set(result , forKey: "userData")
+            UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
+            Singelton.sharedInstance.authToken = data["token"]as! String
+            Singelton.sharedInstance.setUserData(data: result)
+            self.pushToTabBarController()
+        }else{
+            alert(message: data["message"] as! String, Controller: self)
+        }
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -105,8 +114,38 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate, CLLoca
     }
     
     @IBAction func click_GoogleSignInButton(_ sender: Any) {
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.signIn()
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance()?.signIn()
+        
+        let firstActivityItem = "Text you want"
+        let secondActivityItem : NSURL = NSURL(string: "http//:urlyouwant")!
+        // If you want to put an image
+        let image : UIImage = UIImage(named: "app_Logo")!
+        
+        let activityViewController : UIActivityViewController = UIActivityViewController(
+            activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+        
+        // This lines is for the popover you need to show in iPad
+        activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+        
+        // This line remove the arrow of the popover to show in iPad
+        activityViewController.popoverPresentationController?.permittedArrowDirections = .down
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+        
+        // Anything you want to exclude
+        activityViewController.excludedActivityTypes = [
+            UIActivity.ActivityType.postToWeibo,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.assignToContact,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.postToFlickr,
+            UIActivity.ActivityType.postToVimeo,
+            UIActivity.ActivityType.postToTencentWeibo
+        ]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+
     }
     
     @IBAction func click_DontHaveAccountBttn(_ sender: Any) {

@@ -45,7 +45,9 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
             return alert(message: data["message"]as! String , Controller: self)
         }
         
-        let signInResponse = (data["user"]as! [String : Any]).nullKeyRemoval()
+        var signInResponse = (data["user"]as! [String : Any]).nullKeyRemoval()
+        let location = (signInResponse["location"]as! [String : Any]).nullKeyRemoval()
+        signInResponse.updateValue( location , forKey: "location")
         UserDefaults.standard.set(signInResponse , forKey: "userData")
         UserDefaults.standard.set(data["token"]as! String , forKey: "authToken")
         Singelton.sharedInstance.authToken = data["token"]as! String
@@ -102,20 +104,42 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
     //MARK:- User Defined functions
     
     func validation_Fields(){
+        var mess = "invalid Email"
+        if !(self.emailOrPhone.text!.isEmpty){
+            if Singelton.sharedInstance.validation.isValidEmail(self.emailOrPhone.text!){
+               print("Valid email")
+                mess = ""
+            }else if Singelton.sharedInstance.validation.isValidPhoneNumber(self.emailOrPhone.text!){
+                print("Valid phone number")
+                mess = ""
+            }else{
+                alert(message: Strings_Const.enter_Email_Or_Phone, Controller: self)
+            }
+            
+            if mess.isEmpty {
+                guard let password : String = self.password.text , password != "" else {
+                    return alert(message: Strings_Const.enter_Password, Controller: self)
+                }
+                
+                let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
+                print("Param \(param)")
+                Indicator.shared.showProgressView(self.view)
+                Singelton.sharedInstance.service.signInDelegate = self
+                Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.login, api_Type: apiType.POST.rawValue)
+            }
+            
+        }else{
+            alert(message: Strings_Const.enter_Email_Or_Phone, Controller: self)
+        }
+        
+        
         guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
-            return alert(message: NSLocalizedString("Enter email or phonr number", comment: ""), Controller: self)
+            return alert(message: Strings_Const.enter_Email_Or_Phone, Controller: self)
         }
 //        guard let firstNameValue : String = self.emailOrPhone.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
 //            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
 //        }
-        guard let password : String = self.password.text , password != "" else {
-            return alert(message: Strings_Const.enter_Password, Controller: self)
-        }
-        let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
-        print("Param \(param)")
-        Indicator.shared.showProgressView(self.view)
-        Singelton.sharedInstance.service.signInDelegate = self
-        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.login, api_Type: apiType.POST.rawValue)
+    
     }
     
 }

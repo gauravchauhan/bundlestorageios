@@ -134,7 +134,7 @@ class SignUpVC: UIViewController, SignUpDelegate {
         guard let email : String = self.email.text ,(Singelton.sharedInstance.validation.isValidEmail(email))else {
             return alert(message: Strings_Const.enter_valid_Email , Controller: self)
         }
-        guard let number : String = self.phoneNmber.text , (Singelton.sharedInstance.validation.isValidPhoneNumber(number)) else {
+        guard let number : String = self.phoneNmber.text , number != ""  else {
             return alert(message: Strings_Const.enter_mobile_Number  , Controller: self)
         }
         guard let mobileNumber : String = self.phoneNmber.text, (Singelton.sharedInstance.validation.isValidPhoneNumber(mobileNumber))else {

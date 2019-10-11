@@ -53,12 +53,20 @@ class UserDataModal{
     private var isMobileVerified : Bool!
     private var location : String!
     private var mobile_Number : String!
-    private var userImage : String!
+    private var userImage : String! = ""
     private var token : String!
-    private var idProofUrl : String!
-    private var userType : String!
+    private var idProofUrl : String! = ""
+    private var userType : String! = ""
+    private var address : AddressModal!
     
-    
+    var userAddress : AddressModal?{
+        get{
+            return address
+        }
+        set{
+            self.address = newValue
+        }
+    }
     var userRole : String?{
         get{
             return userType
@@ -92,7 +100,7 @@ class UserDataModal{
     
     var userProfilePic : String?{
         get{
-            return userImage!
+            return Constants.AppUrls.baseUrl + Constants.AppUrls.showImage + userImage!
         }
         set{
             self.userImage = newValue

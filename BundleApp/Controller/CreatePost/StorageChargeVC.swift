@@ -24,15 +24,16 @@ class StorageChargeVC: UIViewController {
     
     @IBAction func click_NextButton(_ sender: Any) {
         
-        guard let day : String = self.perDay.text , day != "" else {
+        guard let day : String = self.perDay.text , day != "" && day != "0" else {
             return alert(message: Strings_Const.per_Day , Controller: self)
         }
-        guard let week : String = self.perWeek.text , week != "" else {
+        guard let week : String = self.perWeek.text , week != "" && week != "0"  else {
             return alert(message: Strings_Const.per_Week , Controller: self)
         }
-        guard let month : String = self.perMonth.text , month != "" else {
+        guard let month : String = self.perMonth.text , month != "" && month != "0" else {
             return alert(message: Strings_Const.per_Month , Controller: self)
         }
+        
         
         Singelton.sharedInstance.addStorageModal.storageDailyPrice = self.perDay.text!
         Singelton.sharedInstance.addStorageModal.storageWeeklyPrice = self.perWeek.text!

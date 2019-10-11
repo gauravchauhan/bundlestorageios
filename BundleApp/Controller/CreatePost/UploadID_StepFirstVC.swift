@@ -33,7 +33,9 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
         print("Upload iD response \(data)")
         
         data["status"]as! Bool ? DispatchQueue.main.async {
-            let uploadResponse = (data["user"]as! [String : Any]).nullKeyRemoval();
+            var uploadResponse = (data["user"]as! [String : Any]).nullKeyRemoval();
+            let location = (uploadResponse["location"]as! [String : Any]).nullKeyRemoval()
+            uploadResponse.updateValue( location , forKey: "location")
             UserDefaults.standard.set(uploadResponse , forKey: "userData");
             Singelton.sharedInstance.setUserData(data: uploadResponse); self.pushToSpaceSelectController()
         }  : alert(message: data["message"]as! String, Controller: self)

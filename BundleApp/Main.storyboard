@@ -1492,7 +1492,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To protect our community, we need a valid goverment-issued ID." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhV-Ao-oQ1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To insure security for our users, please provide a valid government ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhV-Ao-oQ1">
                                 <rect key="frame" x="20" y="64" width="374" height="49"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1507,6 +1507,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="uploadImage" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Hc-XPT">
                                 <rect key="frame" x="20" y="163.5" width="374" height="344.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="344.5" id="DcX-hV-0Y1"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZr-At-JvM">
                                 <rect key="frame" x="30" y="772" width="354" height="50"/>
@@ -1590,7 +1593,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where is your space located?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODx-UN-kvw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Provide the Listings Location?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODx-UN-kvw">
                                 <rect key="frame" x="20" y="64" width="374" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1745,6 +1748,7 @@
                         <viewLayoutGuide key="safeArea" id="VgL-Dg-FAo"/>
                     </view>
                     <connections>
+                        <outlet property="heading" destination="MtI-Ts-zNr" id="Jia-Xy-31q"/>
                         <outlet property="list" destination="QKt-T8-AoS" id="BPI-kd-cVN"/>
                     </connections>
                 </viewController>
@@ -1760,14 +1764,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are the dimensions of your listing? " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsi-Xu-cat">
-                                <rect key="frame" x="20" y="64" width="374" height="24.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please set the following dimensions of your space" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsi-Xu-cat">
+                                <rect key="frame" x="20" y="64" width="374" height="49"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Length" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ua-9V-yNK" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="118" width="374" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Length (Ft.)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ua-9V-yNK" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="142.5" width="374" height="50"/>
                                 <color key="tintColor" red="0.2470588235" green="0.58823529409999997" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gze-DZ-CpD"/>
@@ -1820,8 +1824,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Width" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I9G-9a-5Zi" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="188" width="374" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Width (Ft.)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I9G-9a-5Zi" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="212.5" width="374" height="50"/>
                                 <color key="tintColor" red="0.2470588235" green="0.58823529409999997" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ff3-ti-EBQ"/>
@@ -2542,9 +2546,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="chat" selectedImage="chat" id="lcJ-HZ-fhA"/>
                     <connections>
+                        <outlet property="bookingRequestList" destination="ksT-Qh-4Ml" id="CE7-BK-zZe"/>
                         <outlet property="searchTextField" destination="6s7-m3-K2q" id="44k-EJ-Cbc"/>
                         <outlet property="segment" destination="Ug0-av-lWN" id="8Zw-yZ-CjR"/>
-                        <outlet property="tableView" destination="ksT-Qh-4Ml" id="1le-ZC-YvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJy-yd-1Gy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2761,9 +2765,11 @@
                         <color key="badgeColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="acceptSingleItemSwitch" destination="Chk-0D-sDp" id="Yqs-oU-gSI"/>
                         <outlet property="companyTitle" destination="4hV-J1-sZw" id="6qZ-gn-bmq"/>
                         <outlet property="profileImage" destination="kr0-5B-qr4" id="1D1-PV-zcf"/>
                         <outlet property="ratingView" destination="v4c-MK-gbb" id="6CD-UQ-Txd"/>
+                        <outlet property="singleItemAccept" destination="wt7-cO-LEh" id="Kqu-HE-HbR"/>
                         <outlet property="tableView" destination="hk6-fo-rg5" id="0NW-Pc-j2L"/>
                     </connections>
                 </viewController>
@@ -4956,7 +4962,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8C-LW-olf">
                                                         <rect key="frame" x="192" y="0.0" width="182" height="45"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
-                                                        <state key="normal" title="Add Another">
+                                                        <state key="normal" title="Cancel">
                                                             <color key="titleColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -4972,6 +4978,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="addAnotherButtonClicked:" destination="Fcm-Fo-LIj" eventType="touchUpInside" id="MEI-LD-zO3"/>
+                                                            <action selector="click_Cancel:" destination="Fcm-Fo-LIj" eventType="touchUpInside" id="XVd-7T-mXZ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -5229,8 +5236,8 @@
                                                         <color key="textColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="AVAILABILITY 24X7" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFT-Mn-us3">
-                                                        <rect key="frame" x="255" y="39" width="104" height="12.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="AVAILABILITY Business Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFT-Mn-us3">
+                                                        <rect key="frame" x="255" y="39" width="104" height="24.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="104" id="TSi-H8-kHT"/>
                                                         </constraints>
@@ -5478,6 +5485,7 @@
                         <viewLayoutGuide key="safeArea" id="cz1-Ye-Ddh"/>
                     </view>
                     <connections>
+                        <outlet property="availablity" destination="NFT-Mn-us3" id="1JD-kF-ydX"/>
                         <outlet property="bookButton" destination="O2E-Uo-47d" id="W7J-Ca-y1z"/>
                         <outlet property="companyName" destination="umB-bs-JON" id="5Oy-Ie-ExF"/>
                         <outlet property="descriptionLabel" destination="6f4-vS-aQX" id="Fvf-wx-yjf"/>
@@ -5754,7 +5762,7 @@
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price per day" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X04-jv-Cix" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price per day ($)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X04-jv-Cix" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="118" width="374" height="50"/>
                                 <color key="tintColor" red="0.2470588235" green="0.58823529409999997" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -5808,7 +5816,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price per week" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="exg-Tn-Mdq" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price per week ($)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="exg-Tn-Mdq" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="188" width="374" height="50"/>
                                 <color key="tintColor" red="0.2470588235" green="0.58823529409999997" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -5862,7 +5870,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price per month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txa-pj-ZlH" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price per month ($)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txa-pj-ZlH" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="BundleApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="267" width="374" height="50"/>
                                 <color key="tintColor" red="0.2470588235" green="0.58823529409999997" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

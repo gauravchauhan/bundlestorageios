@@ -43,7 +43,7 @@ class Location : NSObject, CLLocationManagerDelegate{
     func getCurrentLocation(){
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() ==  .authorizedAlways){
-            self.current_Delegate.currentLocationResponse(lat: self.currentLocation.coordinate.latitude, lng: self.currentLocation.coordinate.longitude)
+            self.current_Delegate.currentLocationResponse(lat: 28.0, lng: 77.0)
         }else{
             self.current_Delegate.LocationPermissionDenied()
         }

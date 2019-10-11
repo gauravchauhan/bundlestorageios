@@ -61,6 +61,10 @@ protocol EditProfileDelegate {
     func editProfileResponse(data : [String : Any])
 }
 
+
+protocol UpdateBookingRequestDelegate {
+    func updateBookingRequestResponse(data : [String : Any])
+}
 //MARK:- Get Delegates
 
 protocol GetListingTypeDelegate {
@@ -69,6 +73,14 @@ protocol GetListingTypeDelegate {
 
 protocol GetFeatureDelegate {
     func featureResponse(data : [String : Any])
+}
+
+protocol GetUpcomingBookinRequestDelegate {
+    func getUpcomingBookinRequestResponse(data : [String : Any])
+}
+
+protocol UserBookinRequestDelegate {
+    func userBookinRequestResponse(data : [String : Any])
 }
 
 
@@ -93,10 +105,13 @@ class Service{
     var storageDetailDelegate : StorageDetailDelegate!
     var bookingStorageDelegate : BookingStorageDelegate!
     var editProfileDelegate : EditProfileDelegate!
+    var updateBookingRequestDelegate : UpdateBookingRequestDelegate!
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
     var featureDelegate : GetFeatureDelegate!
+    var getUpcomingBookinRequestDelegate : GetUpcomingBookinRequestDelegate!
+    var userBookinRequestDelegate : UserBookinRequestDelegate!
     
     //MARK:- Post method
     
@@ -306,6 +321,12 @@ class Service{
             self.bookingStorageDelegate.bookingStorageResponse(data: response)
         case Constants.AppUrls.editProfile:
             self.editProfileDelegate.editProfileResponse(data: response)
+        case Constants.AppUrls.getUpcomingBookingRequest:
+            self.getUpcomingBookinRequestDelegate.getUpcomingBookinRequestResponse(data: response)
+        case Constants.AppUrls.updateBookingRequest:
+            self.updateBookingRequestDelegate.updateBookingRequestResponse(data: response)
+        case Constants.AppUrls.userBookingRequest:
+            self.userBookinRequestDelegate.userBookinRequestResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

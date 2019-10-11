@@ -7,7 +7,7 @@ struct Constants {
      */
     //http://bundle.teamjft.com
     struct AppUrls{
-        static let baseUrl = "http://938ef142.ngrok.io"
+        static let baseUrl = "http://e1d9954e.ngrok.io"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -24,7 +24,10 @@ struct Constants {
         static let showImage = "/showImage?filePath="
         static let bookingStorage = "/bookingStorage"
         static let editProfile = "/editProfile"
-        //editProfile
+        static let getUpcomingBookingRequest = "/getUpcomingBookingRequest"
+        static let updateBookingRequest = "/updateBookingRequest"
+        static let userBookingRequest = "/userBookingRequest"
+        //userBookingRequest
 
     }
     
@@ -98,6 +101,7 @@ struct Strings_Const{
     static let refer = NSLocalizedString("Refer bundle to a friend", comment: "")
     static let support = NSLocalizedString("Support", comment: "")
     static let switch_User = NSLocalizedString("Switch to a user", comment: "")
+    static let switch_Host = NSLocalizedString("Switch to a host", comment: "")
     static let earnings = NSLocalizedString("My Earnings", comment: "")
     static let logout = NSLocalizedString("logout", comment: "")
     static let someError = NSLocalizedString("Something error", comment: "")
@@ -125,13 +129,20 @@ struct Strings_Const{
 
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")
-    static let SideBarMenuItems = [
+    static let SideBarMenuItems_host = [
         profile ,
         refer ,
         support ,
-        switch_User ,
+        switch_User,
         earnings,
         logout
+    ]
+    
+    static let SideBarMenuItems_User = [
+        profile ,
+        refer ,
+        support ,
+        switch_Host
     ]
 }
 

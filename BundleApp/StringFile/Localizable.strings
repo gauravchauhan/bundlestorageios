@@ -25,7 +25,7 @@
 "Enter address" = "Enter address";
 "Enter length" =  "Enter length";
 "Enter width" = "Enter width";
-"Enter Storage Name" = "Enter Storage Name";
+"Enter Storage Name" = "Enter Listing title";
 "Enter Description" = "Enter Description";
 "Please upload image" = "Please upload image";
 "Enter email or phone number" = "Enter email or phone number";
@@ -55,6 +55,7 @@
 "Refer bundle to a friend" = "Refer bundle to a friend";
 "Support" = "Support";
 "Switch to a user" = "Switch to a user";
+"Switch to a host" = "Switch to a host";
 "My Earnings" = "My Earnings";
 "Request" = "Request";
 "Message" = "Message";

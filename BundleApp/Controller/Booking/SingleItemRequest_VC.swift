@@ -50,6 +50,7 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     }
     
     @IBAction func submitButtonClicked(_ sender: UIButton) {
+        self.validatio_items()
     }
     
     
@@ -87,6 +88,8 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     
     func bookingStorageResponse(data: [String : Any]) {
         print("bookingStorageResponse  \(data)")
+        Indicator.shared.hideProgressView()
+        data["status"]as! Bool ? self.pushToPaymentController() : alert(message: data["message"]as! String, Controller: self)
     }
     
     
@@ -203,12 +206,18 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
         }
         //self.uploadImageModal.map({$0.uploadImageID}) as NSArra
         
-        let param = "itemType=\(String(describing: self.itemListModal.filter({$0.selectedStatus!}).map({$0.listingType})[0]) )&bookingType=regular&storage=\(String(describing: self.storageId!))&host=\(String(describing: self.hostId!))&media=\(String(describing: self.singleStorageImageModal.map({$0.uploadImageID}) as NSArray))&description=\(String(describing: self.descriptionTextView.text!))"
+        let param = "itemType=\(String(describing: self.itemListModal.filter({$0.selectedStatus!}).map({$0.listingType})[0]) )&bookingType=single&storage=\(String(describing: self.storageId!))&host=\(String(describing: self.hostId!))&media=\(String(describing: self.singleStorageImageModal.map({$0.uploadImageID}) as NSArray))&description=\(String(describing: self.descriptionTextView.text!))"
         print("Paramter \(param)")
+        Indicator.shared.showProgressView(self.view)
         Singelton.sharedInstance.service.bookingStorageDelegate = self
         Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.bookingStorage, api_Type: apiType.POST.rawValue)
         
     }
+    
+    @IBAction func click_Cancel(_ sender: Any) {
+        self.click_BackButton()
+    }
+    
     
     
 }

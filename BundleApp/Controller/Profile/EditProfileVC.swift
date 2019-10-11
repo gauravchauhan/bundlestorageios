@@ -29,28 +29,43 @@ class EditProfileVC: UIViewController , SelectedImage, EditProfileDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setBackButtonWithTitle(title: "Edit profile")
         imagePicker = ImagePiker(screen: self)
         imagePicker.delegate = self
-        self.setData()
     }
     
     
     func setData(){
-        self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userIDProofURL!), placeholderImage: UIImage(named: "app_Logo"))
+        print("Singelton.sharedInstance.userDataModel.userProfilePic!   \(Singelton.sharedInstance.userDataModel.userProfilePic!)")
+        self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         self.firstName.text! = Singelton.sharedInstance.userDataModel.userFirstName!
         self.lastName.text! = Singelton.sharedInstance.userDataModel.userLastName!
         self.email.text! = Singelton.sharedInstance.userDataModel.email!
         self.phoneNumber.text! = Singelton.sharedInstance.userDataModel.userPhoneNumber!
+        self.address.text! = Singelton.sharedInstance.userDataModel.userAddress!.storageAddress!
+        
+        if !self.address.text!.isEmpty{
+            self.lat = Double(Singelton.sharedInstance.userDataModel.userAddress!.storageLat!)
+            self.lng = Double(Singelton.sharedInstance.userDataModel.userAddress!.storageLng!)
+        }
+        
     }
     
     func editProfileResponse(data: [String : Any]) {
         print("editProfileResponse   \(data)")
         Indicator.shared.hideProgressView()
-        data["status"]as! Bool ? Singelton.sharedInstance.setUserData(data: data["user"]as! [String : Any]) : alert(message: data["message"]as! String, Controller: self)
+        data["status"]as! Bool ? DispatchQueue.main.async {
+            var uploadResponse = (data["user"]as! [String : Any]).nullKeyRemoval();
+            let location = (uploadResponse["location"]as! [String : Any]).nullKeyRemoval()
+            uploadResponse.updateValue( location , forKey: "location")
+            UserDefaults.standard.set(uploadResponse , forKey: "userData");
+            Singelton.sharedInstance.setUserData(data: uploadResponse);
+            } : alert(message: data["message"]as! String, Controller: self)
+        data["status"]as! Bool ? self.setData() : nil
     }
     
     

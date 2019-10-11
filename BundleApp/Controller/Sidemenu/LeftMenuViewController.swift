@@ -16,7 +16,8 @@ class LeftMenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.frame = CGRect(x: self.view.frame.width - 200, y: 300, width: 200, height: CGFloat(54 * Strings_Const.SideBarMenuItems.count))
+        print("Singelton.sharedInstance.userDataModel.userRole! \(Singelton.sharedInstance.userDataModel.userRole!)")
+        tableView.frame = CGRect(x: self.view.frame.width - 200, y: 300, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
         tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.isOpaque = false
@@ -28,7 +29,7 @@ class LeftMenuViewController: UIViewController {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userIDProofURL!), placeholderImage: UIImage(named: "app_Logo"))
+        imageView.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         imageView.frame = CGRect(x: self.tableView.x + 100, y: self.tableView.height - 150, width: 80 , height: 80)
         imageView.layer.cornerRadius = imageView.width / 2
         imageView.clipsToBounds = true
@@ -82,7 +83,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Strings_Const.SideBarMenuItems.count
+        return Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,7 +97,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular , size: 18)
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text  = Strings_Const.SideBarMenuItems[indexPath.row]
+        cell.textLabel?.text  = Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host[indexPath.row] : Strings_Const.SideBarMenuItems_User[indexPath.row]
         print("cell width \(String(describing: cell.textLabel?.width))")
 //        cell.textLabel?.backgroundColor = UIColor.blue
         cell.textLabel?.numberOfLines = 0
@@ -109,6 +110,49 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Select option form the side menu ")
+        
+        if Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER"{
+            switch indexPath.row {
+            case 0:
+                print("profile")
+            case 1:
+                print("refer")
+            case 2:
+                print("support")
+            case 3:
+                print("switch to HOST \(UserDefaults.standard.value(forKey: "userData") as! [String : Any])")
+                var userData = UserDefaults.standard.value(forKey: "userData") as! [String : Any]
+                userData.updateValue("ROLE_USER", forKey: "role")
+                print("After change \(userData)")
+                UserDefaults.standard.set(userData , forKey: "userData")
+                Singelton.sharedInstance.setUserData(data: userData)
+                self.tableView.reloadData()
+            default:
+                print("default")
+            }
+        }else{
+            switch indexPath.row {
+            case 0:
+                print("profile")
+            case 1:
+                print("refer")
+            case 2:
+                print("support")
+            case 3:
+                print("switch to user \(UserDefaults.standard.value(forKey: "userData") as! [String : Any])")
+                var userData = UserDefaults.standard.value(forKey: "userData") as! [String : Any]
+                userData.updateValue("ROLE_HOST", forKey: "role")
+                print("After change \(userData)")
+                UserDefaults.standard.set(userData , forKey: "userData")
+                Singelton.sharedInstance.setUserData(data: userData)
+                print(Singelton.sharedInstance.userDataModel.userRole!)
+                self.tableView.reloadData()
+            case 4:
+                print("switch to user")
+            default:
+                print("default")
+            }
+        }
         sideMenuViewController.hideViewController()
     }
 }

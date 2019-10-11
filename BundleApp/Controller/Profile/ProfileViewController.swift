@@ -16,11 +16,24 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var ratingImage: UIImageView!
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var acceptSingleItemSwitch: UISwitch!
+    @IBOutlet weak var singleItemAccept: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userIDProofURL!), placeholderImage: UIImage(named: "app_Logo"))
+
+//        Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? DispatchQueue.main.async {
+//            self.acceptSingleItemSwitch.isHidden = false; self.singleItemAccept.isHidden = false;
+//            } : DispatchQueue.main.async {
+//                self.acceptSingleItemSwitch.isHidden = true; self.singleItemAccept.isHidden = true;
+//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Singelton.sharedInstance.userDataModel.userProfilePic   \(Singelton.sharedInstance.userDataModel.userProfilePic!)")
+        self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         self.companyTitle.text! = Singelton.sharedInstance.userDataModel.userFirstName! + " " + Singelton.sharedInstance.userDataModel.userLastName!
         tableView.register(UINib(nibName: "StatusViewCell", bundle: nil), forCellReuseIdentifier: "StatusViewCell")
     }

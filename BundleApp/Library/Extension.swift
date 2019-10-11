@@ -203,6 +203,21 @@ func setupGradientButtonBGView(gradientView:UIView , screen : UIViewController)
  
  }*/
 
+
+func setTheBookingStatus(status : String )-> UIImage{
+    print("setTheBookingStatus   \(status)")
+    switch status {
+    case "Pending":
+        return UIImage(named : "Pending")!
+    case "Denied":
+        return UIImage(named : "Denied")!
+    case "Approved":
+        return UIImage(named : "Approved")!
+    default:
+        return UIImage(named : "Pending")!
+    }
+}
+
 func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
     
     let size = image.size

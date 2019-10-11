@@ -50,7 +50,13 @@ class Singelton {
         self.userDataModel.userAuthenticationToken = self.authToken
         self.userDataModel.userID = data["id"]as? String
         self.userDataModel.userIDProofURL = data["idProofUrl"]as? String
-//        self.userDataModel.userRole =
+        self.userDataModel.userRole =  data["role"]as? String
+        let addressModal = AddressModal()
+        addressModal.storageAddress = ((data["location"]as! [String : Any])["address"] is NSNull) ? "" : (data["location"]as! [String : Any])["address"]as! String
+        addressModal.storageLat = (data["location"]as! [String : Any])["latitude"] is String ? 0.0 : (data["location"]as! [String : Any])["latitude"] as! CGFloat
+        addressModal.storageLng = (data["location"]as! [String : Any])["longitude"] is String ? 0.0 : (data["location"]as! [String : Any])["latitude"] as! CGFloat
+        self.userDataModel.userAddress = addressModal
+        
     }
 }
 

@@ -14,6 +14,8 @@ class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBOutlet weak var lisTopConstraints: NSLayoutConstraint!
     @IBOutlet weak var list: UITableView!
+    @IBOutlet weak var heading: UILabel!
+    
     
     var accessingList : [String] = [NSLocalizedString("24/7", comment: ""), NSLocalizedString("Business Hours", comment: ""), NSLocalizedString("By appoinment only" , comment: "")]
     

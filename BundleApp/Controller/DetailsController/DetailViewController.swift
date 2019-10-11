@@ -27,6 +27,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     @IBOutlet weak var imageSlideShow: ImageSlideshow!
     @IBOutlet weak var storage_LengthWidth: UILabel!
     @IBOutlet weak var requestStorageButton: TGFlingActionButton!
+    @IBOutlet weak var availablity: UILabel!
     
     //MARK:- PROPERTIES
     var detailModal = StorageListModal()
@@ -49,11 +50,12 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
 //        requestStorageButton.
         
         storageTypeLabel.roundCorners(corners: .topLeft, radius: 10)
-        self.setData()
+        self.setData_OnDetailController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setBackButtonWithTitle(title: "\(self.detailModal.storageName!)")
+//        self.req
     }
     
     // Swipe button "Request Single from Storage"
@@ -92,19 +94,24 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     //MARK:- User defined function
     
-    func setData(){
+    func setData_OnDetailController(){
         self.storageTypeLabel.text! = self.detailModal.storageType!
         self.listingTitle.text! = self.detailModal.storageName!
         self.priceLabel.text! = "$" + self.detailModal.storageDailyPrice! + " per day | $ " + self.detailModal.storageWeeklyPrice! + " per week | $ " + self.detailModal.storageMonthlyPrice! + " per month"
-        self.storage_LengthWidth.text! = "Length " + self.detailModal.storageLength! + " ft." + "Width " + self.detailModal.storageWidth! + " ft."
+        self.storage_LengthWidth.text! = "Length " + self.detailModal.storageLength! + " ft. " + "Width " + self.detailModal.storageWidth! + " ft."
         self.descriptionLabel.text! = self.detailModal.aboutStorage!
         self.companyName.text! = self.detailModal.storageHostName!
+        self.availablity.text! = "AVAILABILITY " + self.detailModal.availablity!
         
         tokenView.layoutIfNeeded()
         tokenView.dataSource = self
         tokenView.delegate = self
         tokenView.textView.isEditable = false
-        
+        self.descriptionLabel.text! == Strings_Const.no_Desc ? DispatchQueue.main.async {
+            self.readmoreButton.isHidden = true
+            } : DispatchQueue.main.async {
+                self.readmoreButton.isHidden = false
+        }
         //Set images into the slider show of image
         
         for data in self.detailModal.allAmenities! {
