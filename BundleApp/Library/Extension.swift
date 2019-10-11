@@ -203,6 +203,37 @@ func setupGradientButtonBGView(gradientView:UIView , screen : UIViewController)
  
  }*/
 
+func shareApplication(){
+    let firstActivityItem = "Text you want"
+    let secondActivityItem : NSURL = NSURL(string: "http//:urlyouwant")!
+    // If you want to put an image
+    let image : UIImage = UIImage(named: "app_Logo")!
+    
+    let activityViewController : UIActivityViewController = UIActivityViewController(
+        activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+    
+    // This lines is for the popover you need to show in iPad
+    activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+    
+    // This line remove the arrow of the popover to show in iPad
+    activityViewController.popoverPresentationController?.permittedArrowDirections = .down
+    activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+    
+    // Anything you want to exclude
+    activityViewController.excludedActivityTypes = [
+        UIActivity.ActivityType.postToWeibo,
+        UIActivity.ActivityType.print,
+        UIActivity.ActivityType.assignToContact,
+        UIActivity.ActivityType.saveToCameraRoll,
+        UIActivity.ActivityType.addToReadingList,
+        UIActivity.ActivityType.postToFlickr,
+        UIActivity.ActivityType.postToVimeo,
+        UIActivity.ActivityType.postToTencentWeibo
+    ]
+    
+    self.present(activityViewController, animated: true, completion: nil)
+}
+
 
 func setTheBookingStatus(status : String )-> UIImage{
     print("setTheBookingStatus   \(status)")
