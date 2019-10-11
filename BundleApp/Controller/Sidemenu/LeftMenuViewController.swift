@@ -53,7 +53,7 @@ class LeftMenuViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.view.backgroundColor =  UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0)
-        
+        nav = sideMenuViewController?.contentViewController as! UINavigationController
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +127,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.set(userData , forKey: "userData")
                 Singelton.sharedInstance.setUserData(data: userData)
                 self.tableView.reloadData()
+                NotificationCenter.default.post(name: Notification.Name(rawValue:"Switch_User"), object: nil, userInfo: nil)
             default:
                 print("default")
             }
@@ -136,6 +137,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 print("profile")
             case 1:
                 print("refer")
+                pushToReferalController()
             case 2:
                 print("support")
             case 3:
@@ -147,6 +149,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 Singelton.sharedInstance.setUserData(data: userData)
                 print(Singelton.sharedInstance.userDataModel.userRole!)
                 self.tableView.reloadData()
+                NotificationCenter.default.post(name: Notification.Name(rawValue:"Switch_User"), object: nil, userInfo: nil)
             case 4:
                 print("switch to user")
             default:

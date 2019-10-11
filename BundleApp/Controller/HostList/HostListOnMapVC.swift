@@ -24,6 +24,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.SwitchUserObserverActions), name: NSNotification.Name(rawValue:"Switch_User"), object: nil)
     }
     
     
@@ -212,6 +213,10 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     }
     
     //MARK:- USerDefined function
+    
+    @objc  func SwitchUserObserverActions(notification: Notification){
+        print("User Change")
+    }
     
     func swipeUp_DownAction(height : CGFloat){
         UIView.animate(withDuration: 0.5, animations: {

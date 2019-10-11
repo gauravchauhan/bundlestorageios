@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ClickRateDelegate {
     
     //MARK:- Outlets
     @IBOutlet weak var profileImage: UIImageView!
@@ -23,19 +23,34 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.SwitchUserObserverActions), name: NSNotification.Name(rawValue:"Switch_User"), object: nil)
 
-//        Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? DispatchQueue.main.async {
-//            self.acceptSingleItemSwitch.isHidden = false; self.singleItemAccept.isHidden = false;
-//            } : DispatchQueue.main.async {
-//                self.acceptSingleItemSwitch.isHidden = true; self.singleItemAccept.isHidden = true;
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? DispatchQueue.main.async {
+            self.acceptSingleItemSwitch.isHidden = false; self.singleItemAccept.isHidden = false;
+            } : DispatchQueue.main.async {
+                self.acceptSingleItemSwitch.isHidden = true; self.singleItemAccept.isHidden = true;
+        }
         print("Singelton.sharedInstance.userDataModel.userProfilePic   \(Singelton.sharedInstance.userDataModel.userProfilePic!)")
         self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         self.companyTitle.text! = Singelton.sharedInstance.userDataModel.userFirstName! + " " + Singelton.sharedInstance.userDataModel.userLastName!
         tableView.register(UINib(nibName: "StatusViewCell", bundle: nil), forCellReuseIdentifier: "StatusViewCell")
+    }
+    
+    
+    //MARK:- Delagate
+    
+    
+    func click_Rate(_ cell: UITableViewCell, didPressButton: UIButton) {
+        print("Click rate ")
+        self.pushToRatingController()
+    }
+    
+    @objc  func SwitchUserObserverActions(notification: Notification){
+        print("User Change")
+        self.viewWillAppear(true)
     }
     
 
@@ -43,7 +58,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 77
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +67,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusViewCell", for: indexPath) as! StatusViewCell
+        cell.rateClickDelgate = self
+        cell.tag = indexPath.row
         return cell
     }
     
@@ -60,5 +77,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.pushToEditProfileController()
     }
     
-
+    @IBAction func click_Settings(_ sender: Any) {
+        pushToSettingsController()
+    }
+    
 }

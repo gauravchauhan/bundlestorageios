@@ -14,6 +14,7 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
     
     var imagePicker : ImagePiker!
     var imageData : NSData!
+    @IBOutlet weak var caption: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
     
     func pickerResponse(userImage: UIImage, imageData: Any) {
         print("get image \(userImage) image data  \(imageData)")
+        self.caption.text = "Upload Valid ID"
         self.proof_Image.image = userImage
         self.imageData = imageData as? NSData
     }

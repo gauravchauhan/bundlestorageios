@@ -13,6 +13,7 @@ class MyBubbleViewCell: UITableViewCell {
      //MARK:- Outlets
     @IBOutlet weak var lbText: UILabel?
     @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var senderImage: UIImageView!
     
     weak var gestureTarget:BubbleViewCellEventDelegate?
     
@@ -34,10 +35,9 @@ class MyBubbleViewCell: UITableViewCell {
     }
     
     func setBubbleData(data:LynnBubbleData) {
-        
         self.lbText!.text = data.text
         self.lbTime.text = data.date._stringFromDateFormat(Constants.Format.TIME)
-        
+        self.senderImage.image = data.userData.userProfileImage!
     }
     
     @objc func longTap(sender : UIGestureRecognizer){

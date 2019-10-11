@@ -42,6 +42,9 @@ class SpaceNameVC: UIViewController , AddStorageDelegate{
         guard let storageName : String = self.storageName.text , storageName != "" else {
             return alert(message: Strings_Const.enter_Storage_Name , Controller: self)
         }
+        guard let aboutStorage : String = self.desc.text , aboutStorage != "" else {
+            return alert(message: Strings_Const.enter_Description , Controller: self)
+        }
         Singelton.sharedInstance.addStorageModal.storageName = storageName
         Singelton.sharedInstance.addStorageModal.storageDescription = self.desc.text!
         self.saveStorage()

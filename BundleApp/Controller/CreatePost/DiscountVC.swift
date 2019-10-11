@@ -40,13 +40,15 @@ class DiscountVC: UIViewController , UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.disclontList.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath)as! ListingTableViewCell
         cell.typeName.text! = self.discountModal[indexPath.row].listingType!
-        cell.check.isHidden =  true
+        
         if self.discountModal[indexPath.row].selectedStatus!{
             cell.generalView.isHidden =  true
             cell.selectedView.isHidden =  false
+            cell.check.isHidden =  false
         }else{
             cell.generalView.isHidden =  false
             cell.selectedView.isHidden =  true
+            cell.check.isHidden =  true
         }
         return cell
     }

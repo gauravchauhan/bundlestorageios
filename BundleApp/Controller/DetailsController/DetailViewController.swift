@@ -55,7 +55,12 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     
     override func viewWillAppear(_ animated: Bool) {
         setBackButtonWithTitle(title: "\(self.detailModal.storageName!)")
-//        self.req
+//        self.requestStorageButton
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("view did disappear")
+        self.requestStorageButton.reset()
     }
     
     // Swipe button "Request Single from Storage"
@@ -73,7 +78,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     
     @IBAction func messageButtonClicked(_ sender: UIButton) {
-        self.pushToChatController()
+        self.pushToChatController(userName: self.detailModal.storageHostName!)
     }
     
     @IBAction func readMoreButtonClicked(_ sender: UIButton) {

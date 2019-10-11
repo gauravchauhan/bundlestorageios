@@ -19,8 +19,8 @@
 "Enter company name" = "Enter company name";
 "Enter email or phone number" = "Enter email or phone number";
 "24/7" = "24/7";
-"Business Hours" = "Business Hours";
-"By appoinment only" = "By appoinment only";
+"Business Hours" = "Business Operating Hours";
+"By appoinment only" = "Mutually Agreeable Time (Messages)";
 "Select atleast one item" = "Select atleast one item";
 "Enter address" = "Enter address";
 "Enter length" =  "Enter length";
@@ -36,19 +36,20 @@
 "Allow Location" = "Bundle app can't access the location, Please allow the permission to acces your current location from settings \n Settings -> BundleApp -> Location -> Allow";
 "Storage Image" = "Maximum 5 images can be uploaded";
 "Minimum image" = "Atleast one image should be upload";
-"Describe what you will be using the space?" = "Describe what you will be using the space?";
+"Describe what you will be using the space?" = "Tell us a little about the purposes of your rental";
 "Booking includes whole space listed, or something of that style." = "Booking includes whole space listed, or something of that style.";
+"Message can't be empty" = "Message can't be empty";
 
 "Small item" = "Small item";
 "Medium item" = "Medium item";
-"Big item" = "Big item";
+"Big item" = "Large item";
 "End date" = "End date should be greater than start date.";
 "Select start date" = "Select start date";
 "Select end date" = "Select end date";
 
-"small items" = "Microwave,suitcase,guitar,Lawn ,Mower etc";
-"medium items" = "Desk, sufboard, Bike etc";
-"Big items" = "Fridge, oudoor grill, kayak etc";
+"small items" = "Microwave,suitcase,guitar,Lawn ,Mower , Camera, Game console, Backpack ,etc";
+"medium items" = "Desk, sufboard, Bike , Mini Fridge, Large Suitcase, Guitar, Bicycle etc";
+"Big items" = "Fridge, oudoor grill, kayak, Mattress, Couch, Outdoor Grill, Kaya etc";
 
 
 "Profile" =  "Profile";
@@ -61,4 +62,16 @@
 "Message" = "Message";
 "logout" = "Logout";
 "Something error" = "Something error, Please try again";
+
+//Settings items
+
+"Support" = "Support";
+"Community guidlines" = "Community guidlines";
+"Terms & Conditions" = "Terms & Conditions";
+"Privacy Policy" = "Privacy Policy";
+"User Licensing Agreement" = "User Licensing Agreement";
+"FAQ's" = "FAQ's";
+"Web Link" = "Web Link";
+
+
 //Enter Storage Name

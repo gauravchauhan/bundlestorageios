@@ -22,6 +22,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.SwitchUserObserverActions), name: NSNotification.Name(rawValue:"Switch_User"), object: nil)
         bookingRequestList.register(UINib(nibName: "RequestViewCell", bundle: nil), forCellReuseIdentifier: "RequestViewCell")
         bookingRequestList.register(UINib(nibName: "MessageViewCell", bundle: nil), forCellReuseIdentifier: "MessageViewCell")
         
@@ -47,8 +48,15 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     //MARK:- Delegate
     
+    
+    @objc  func SwitchUserObserverActions(notification: Notification){
+        print("User Change")
+        self.viewWillAppear(true)
+    }
+    
     func click_PayNow(_ cell: UITableViewCell, didPressButton: UIButton) {
         print("click Paynow")
+        self.pushToPaymentController()
     }
     
     func click_Approved(_ cell: UITableViewCell, didPressButton: UIButton) {

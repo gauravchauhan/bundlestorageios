@@ -8,11 +8,24 @@
 
 import UIKit
 
-class StatusViewCell: UITableViewCell {
+protocol ClickRateDelegate {
+    func click_Rate(_ cell: UITableViewCell, didPressButton: UIButton)
+}
 
+class StatusViewCell: UITableViewCell {
+    
+    @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var curretnStatus: UILabel!
+    
+    var rateClickDelgate : ClickRateDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        self.userImage.layer.masksToBounds =  true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +33,10 @@ class StatusViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func click_RateButton(_ sender: UIButton) {
+        rateClickDelgate.click_Rate(self, didPressButton: sender)
+    }
+    
     
 }

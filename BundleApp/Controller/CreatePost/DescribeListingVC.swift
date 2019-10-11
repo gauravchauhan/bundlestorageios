@@ -30,7 +30,9 @@ class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         if screnComingFrom == "spaceLocated"{
             Singelton.sharedInstance.service.getListingTypeDelegate =  self
             Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getListType, api_Type: apiType.GET.rawValue)
+            self.heading.text! = "What type of space are you listing?"
         }else{
+            self.heading.text! = "What's the availability of the space?"
             self.setTheDataForAceesingListing()
         }
       
@@ -60,13 +62,15 @@ class DescribeListingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.list.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath)as! ListingTableViewCell
         cell.typeName.text! = self.listingModal[indexPath.row].listingType!
-        cell.check.isHidden =  true
+        
         if self.listingModal[indexPath.row].selectedStatus!{
             cell.generalView.isHidden =  true
             cell.selectedView.isHidden =  false
+            cell.check.isHidden =  false
         }else{
             cell.generalView.isHidden =  false
             cell.selectedView.isHidden =  true
+            cell.check.isHidden =  true
         }
         return cell
     }

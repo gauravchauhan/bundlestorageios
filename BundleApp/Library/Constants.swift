@@ -7,7 +7,7 @@ struct Constants {
      */
     //http://bundle.teamjft.com
     struct AppUrls{
-        static let baseUrl = "http://e1d9954e.ngrok.io"
+        static let baseUrl = "http://19e64039.ngrok.io"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -125,6 +125,7 @@ struct Strings_Const{
     static let end_date = NSLocalizedString( "End date", comment: "")
     static let select_start_date = NSLocalizedString( "Select start date", comment: "")
     static let select_end_date = NSLocalizedString( "Select end date", comment: "")
+    static let message_empty = NSLocalizedString( "Message can't be empty", comment: "")
     //"Select start date" = "Select start date";
 
     static let message = NSLocalizedString("Message", comment: "")
@@ -144,6 +145,34 @@ struct Strings_Const{
         support ,
         switch_Host
     ]
+    
+    
+    /*"Support" = "Support";
+     "Community guidlines" = "Community guidlines";
+     "Terms & Conditions" = "Terms & Conditions";
+     "Privacy Policy" = "Privacy Policy";
+     "User Licensing Agreement" = "User Licensing Agreement";
+     "FAQ's" = "FAQ's";
+     "Web Link" = "Web Link";*/
+    
+    static let setting_Support = NSLocalizedString( "Support", comment: "")
+    static let setting_Community = NSLocalizedString( "Community guidlines", comment: "")
+    static let setting_Terms = NSLocalizedString( "Terms & Conditions", comment: "")
+    static let setting_Policy = NSLocalizedString( "Privacy Policy", comment: "")
+    static let setting_License = NSLocalizedString( "User Licensing Agreement", comment: "")
+    static let setting_FAQ = NSLocalizedString( "FAQ's", comment: "")
+    static let setting_WebLink = NSLocalizedString( "Web Link", comment: "")
+    
+    static let Settings_Items = [
+        setting_Support ,
+        setting_Community ,
+        setting_Terms ,
+        setting_Policy,
+        setting_License,
+        setting_FAQ,
+        setting_WebLink
+    ]
+    
 }
 
 struct Image{

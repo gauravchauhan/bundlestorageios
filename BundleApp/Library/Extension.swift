@@ -203,7 +203,7 @@ func setupGradientButtonBGView(gradientView:UIView , screen : UIViewController)
  
  }*/
 
-func shareApplication(){
+func shareApplication(controller : UIViewController){
     let firstActivityItem = "Text you want"
     let secondActivityItem : NSURL = NSURL(string: "http//:urlyouwant")!
     // If you want to put an image
@@ -213,7 +213,7 @@ func shareApplication(){
         activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
     
     // This lines is for the popover you need to show in iPad
-    activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+//    activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
     
     // This line remove the arrow of the popover to show in iPad
     activityViewController.popoverPresentationController?.permittedArrowDirections = .down
@@ -231,7 +231,7 @@ func shareApplication(){
         UIActivity.ActivityType.postToTencentWeibo
     ]
     
-    self.present(activityViewController, animated: true, completion: nil)
+    controller.present(activityViewController, animated: true, completion: nil)
 }
 
 
@@ -299,6 +299,38 @@ func stringToDate(date : String , comingPattern : String , OutGoingPattern : Str
 }
 
 extension UITableView{
+    
+    
+    func updateTableContentInset() {
+        let numRows = self.numberOfRows(inSection: numberOfSections - 1)
+        var contentInsetTop = self.bounds.size.height
+        for i in 0..<numRows {
+            let rowRect = self.rectForRow(at: IndexPath(item: i, section: 0))
+            contentInsetTop -= rowRect.size.height
+            if contentInsetTop <= 0 {
+                contentInsetTop = 0
+            }
+        }
+        self.contentInset = UIEdgeInsets(top: contentInsetTop,left: 0,bottom: 0,right: 0)
+    }
+    
+    
+    func scrollToLastRow() {
+        
+        let numberOfSections = self.numberOfSections
+        
+        let numberOfRows = self.numberOfRows(inSection: numberOfSections - 1)
+        
+        DispatchQueue.main.async(execute: { () -> Void in
+            
+            let indexPath = IndexPath(row: (numberOfRows - 1) , section: (numberOfSections-1))
+            
+            self.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: false)
+            
+        })
+    }
+    
+    
     func reloaSpecificIndex(index : Int , section : Int){
         let indexPath = NSIndexPath(row: index, section: section)
         self.reloadRows(at: [indexPath as IndexPath], with: .fade)
@@ -1193,9 +1225,37 @@ extension UIViewController {
         }
     }
     
-    func pushToChatController(){
+    func pushToChatController(userName : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+            next.userName = userName
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    func pushToSettingsController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToFilterController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToReferalController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "ReferalVC") as! ReferalVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToRatingController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "UserFeedbackController") as! UserFeedbackController
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1380,6 +1440,8 @@ extension UIViewController {
         
         filterBttn.setImage(UIImage(named:"filter"), for: .normal)
         
+        filterBttn.addTarget(self, action: #selector(self.filterSreenClick), for: .touchUpInside)
+        
         let filterNavButton = UIBarButtonItem.init(customView: filterBttn)
         
         filterNavButton.customView = filterBttn
@@ -1387,6 +1449,10 @@ extension UIViewController {
         let _ = navigationItem.backBarButtonItem
         
         self.navigationItem.rightBarButtonItems = [notificationNavBtn, filterNavButton]
+    }
+    
+    @objc func filterSreenClick(){
+        self.pushToFilterController()
     }
     
     @objc func logout_Click(){

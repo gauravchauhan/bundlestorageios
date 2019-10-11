@@ -33,7 +33,7 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackButtonWithTitle(title: "Regular Booking")
+        setBackButtonWithTitle(title: "Book Space")
         self.datePicker.delegate = self
         let boldText  = "Disclamer:"
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 11)]

@@ -13,33 +13,44 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource {
     //MARK:- Outlets
     @IBOutlet weak var messageTextView: UITextField!
     @IBOutlet weak var tableView: LynnBubbleTableView!
+    @IBOutlet weak var message: TextField!
+    
+    var userName : String!
+    
     //MARK:- Properties
      var arrChatTest:Array<LynnBubbleData> = []
+    var image = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.bubbleDelegate = self
         tableView.bubbleDataSource = self
-        self.setBackButtonWithTitle(title: Singelton.sharedInstance.userDataModel.userFirstName!)
+        self.setBackButtonWithTitle(title: self.userName)
+        Indicator.shared.showProgressView(self.view)
+        DispatchQueue.global(qos: .background).async {
+            do
+            {
+                let data = try Data.init(contentsOf: URL.init(string: Singelton.sharedInstance.userDataModel.userProfilePic!)!)
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data)!
+                    print("Print image Data  \(self.image)")
+                        Indicator.shared.hideProgressView()
+                }
+            }
+            catch {
+                // error
+            }
+        }
+        
+//        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.testChatData()
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //MARK:- Delegate Methods
     
     func bubbleTableView(dataAt index: Int, bubbleTableView: LynnBubbleTableView) -> LynnBubbleData {
         return self.arrChatTest[index]
@@ -54,7 +65,7 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource {
         var messageMine = "Hi Elizabeth, what's do you have on this weekend? "
         var messageSomeone = "Urgent Work"
         
-        let userMe = LynnUserData(userUniqueId: "123", userNickName: "me", userProfileImage: nil, additionalInfo: nil)
+        let userMe = LynnUserData(userUniqueId: "123", userNickName: "me", userProfileImage: self.image, additionalInfo: nil)
         let userSomeone = LynnUserData(userUniqueId: "234", userNickName: "you", userProfileImage: UIImage(named: "ico_girlprofile"), additionalInfo: nil)
         let yesterDay = Date().addingTimeInterval(-60*60*24)
         for index in 0..<10 {
@@ -94,6 +105,21 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource {
         }
         self.tableView.reloadData()
     }
+    
+    
+    @IBAction func click_SendMessageButton(_ sender: Any) {
+        print("Click send button")
+        guard let message : String = self.message.text , message != "" else {
+            return alert(message: Strings_Const.message_empty, Controller: self)
+        }
+        let userMe = LynnUserData(userUniqueId: "123", userNickName: "roh_JFT", userProfileImage: self.image , additionalInfo: nil)
+        let bubbleData:LynnBubbleData = LynnBubbleData(userData: userMe, dataOwner: .me, message: self.message.text!, messageDate: Date())
+        print("send message data \(bubbleData)   \(userMe)")
+        self.arrChatTest.append(bubbleData)
+        self.tableView.reloadData()
+        self.tableView.scrollToLastRow()
+    }
+    
 }
 
 

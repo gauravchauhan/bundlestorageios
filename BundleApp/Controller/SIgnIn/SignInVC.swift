@@ -54,7 +54,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
         Singelton.sharedInstance.setUserData(data: signInResponse)
         self.pushToTabBarController()
     }
-
+    
     //MARK:- Actions
     
     @IBAction func click_SignUpBttn(_ sender: Any) {
@@ -67,7 +67,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
     
     
     @IBAction func click_ForgotPassword(_ sender: Any) {
-           guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
+        guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
             return alert(message: NSLocalizedString("Enter email or phone number", comment: ""), Controller: self)
         }
         let param = "email=\(String(describing: self.emailOrPhone.text!))"
@@ -107,7 +107,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
         var mess = "invalid Email"
         if !(self.emailOrPhone.text!.isEmpty){
             if Singelton.sharedInstance.validation.isValidEmail(self.emailOrPhone.text!){
-               print("Valid email")
+                print("Valid email")
                 mess = ""
             }else if Singelton.sharedInstance.validation.isValidPhoneNumber(self.emailOrPhone.text!){
                 print("Valid phone number")
@@ -133,13 +133,13 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
         }
         
         
-        guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
-            return alert(message: Strings_Const.enter_Email_Or_Phone, Controller: self)
-        }
-//        guard let firstNameValue : String = self.emailOrPhone.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
-//            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+//        guard let firstName : String = self.emailOrPhone.text , firstName != "" else {
+//            return alert(message: Strings_Const.enter_Email_Or_Phone, Controller: self)
 //        }
-    
+        //        guard let firstNameValue : String = self.emailOrPhone.text, (Singelton.sharedInstance.validation.isValidCharacters(firstNameValue))else {
+        //            return alert(message: NSLocalizedString("Name doesn't contain special characters , numbers and symbols", comment: ""), Controller: self)
+        //        }
+        
     }
     
 }

@@ -42,6 +42,7 @@ public class LynnUserData :NSObject {
         
         self.userID = userId
         self.userNickName = nick
+//        print("Coming user image \(String(describing: Singelton.sharedInstance.userImage))")
         self.userProfileImage = profileImg
         self.userInfo = userInfo
         
