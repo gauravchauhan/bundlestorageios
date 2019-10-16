@@ -78,6 +78,10 @@ protocol CreateChatDelegate {
     func createChatResponse(data : [String : Any])
 }
 
+protocol SubmitReviewDelegate {
+    func submitReviewResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -126,6 +130,7 @@ class Service{
     var filterDataDelegate : FilterDataDelegate!
     var getChatHistoryDelegate : GetChatHistoryDelegate!
     var createChatDelegate : CreateChatDelegate!
+    var submitReviewDelegate : SubmitReviewDelegate!
     
     
     //MARK:- Get Delegates varriables
@@ -357,6 +362,8 @@ class Service{
             self.getChatHistoryDelegate.getChatHistoryResponse(data: response)
         case Constants.AppUrls.createChat:
             self.createChatDelegate.createChatResponse(data: response)
+        case Constants.AppUrls.submitReview:
+            self.submitReviewDelegate.submitReviewResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

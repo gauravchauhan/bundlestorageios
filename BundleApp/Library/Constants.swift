@@ -31,7 +31,8 @@ struct Constants {
         static let chatList = "/getChatsList"
         static let chatHistory = "/chatHistory"
         static let createChat = "/createChat"
-        //createChat
+        static let submitReview = "/submitReview"
+        //submitReview
 
     }
     

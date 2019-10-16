@@ -9,22 +9,20 @@
 import UIKit
 
 class UserFeedbackController: UIViewController {
+    
+    @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var feedBack: UITextView!
+    @IBOutlet weak var profileImage: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackButtonWithTitle(title: "My QR Code")
+        self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func click_Sendbutton(_ sender: Any) {
     }
-    */
-
+    
 }
