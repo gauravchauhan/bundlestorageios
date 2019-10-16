@@ -9,10 +9,15 @@
 import UIKit
 
 class DiscountPopUpController: UIViewController {
+    
+    @IBOutlet weak var get_offer: UILabel!
+    
+    var offer : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.get_offer.text! = offer
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()

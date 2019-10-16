@@ -65,6 +65,20 @@ protocol EditProfileDelegate {
 protocol UpdateBookingRequestDelegate {
     func updateBookingRequestResponse(data : [String : Any])
 }
+
+protocol FilterDataDelegate {
+    func filterDataRequestResponse(data : [String : Any])
+}
+
+protocol GetChatHistoryDelegate {
+    func getChatHistoryResponse(data : [String : Any])
+}
+
+protocol CreateChatDelegate {
+    func createChatResponse(data : [String : Any])
+}
+
+
 //MARK:- Get Delegates
 
 protocol GetListingTypeDelegate {
@@ -81,6 +95,9 @@ protocol GetUpcomingBookinRequestDelegate {
 
 protocol UserBookinRequestDelegate {
     func userBookinRequestResponse(data : [String : Any])
+}
+protocol GetChatListDelegate {
+    func getChatListResponse(data : [String : Any])
 }
 
 
@@ -106,12 +123,17 @@ class Service{
     var bookingStorageDelegate : BookingStorageDelegate!
     var editProfileDelegate : EditProfileDelegate!
     var updateBookingRequestDelegate : UpdateBookingRequestDelegate!
+    var filterDataDelegate : FilterDataDelegate!
+    var getChatHistoryDelegate : GetChatHistoryDelegate!
+    var createChatDelegate : CreateChatDelegate!
+    
     
     //MARK:- Get Delegates varriables
     var getListingTypeDelegate : GetListingTypeDelegate!
     var featureDelegate : GetFeatureDelegate!
     var getUpcomingBookinRequestDelegate : GetUpcomingBookinRequestDelegate!
     var userBookinRequestDelegate : UserBookinRequestDelegate!
+    var getChatListDelegate : GetChatListDelegate!
     
     //MARK:- Post method
     
@@ -151,8 +173,8 @@ class Service{
     
     func PostService(parameter:String , apiName: String, api_Type : String){
         do {
-            try Network.reachability = Reachability(hostname: "www.google.com")
-            print("Network.reachability \(String(describing: Network.reachability.status))")
+//            try Network.reachability = Reachability(hostname: "www.google.com")
+//            print("Network.reachability \(String(describing: Network.reachability.status))")
             print("api_Type\(String(describing: api_Type))")
             
             //            guard let networkStatus : String = "\(Network.reachability.status)",  networkStatus != "unreachable"else {
@@ -327,6 +349,14 @@ class Service{
             self.updateBookingRequestDelegate.updateBookingRequestResponse(data: response)
         case Constants.AppUrls.userBookingRequest:
             self.userBookinRequestDelegate.userBookinRequestResponse(data: response)
+        case Constants.AppUrls.filter_Data:
+            self.filterDataDelegate.filterDataRequestResponse(data: response)
+        case Constants.AppUrls.chatList:
+            self.getChatListDelegate.getChatListResponse(data: response)
+        case Constants.AppUrls.chatHistory:
+            self.getChatHistoryDelegate.getChatHistoryResponse(data: response)
+        case Constants.AppUrls.createChat:
+            self.createChatDelegate.createChatResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

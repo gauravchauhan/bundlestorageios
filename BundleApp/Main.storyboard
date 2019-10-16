@@ -2287,12 +2287,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <searchBar userInteractionEnabled="NO" contentMode="redraw" searchBarStyle="minimal" placeholder=" Zip code" translatesAutoresizingMaskIntoConstraints="NO" id="9Qh-Ux-lgx">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder=" Zip code" translatesAutoresizingMaskIntoConstraints="NO" id="9Qh-Ux-lgx">
                                 <rect key="frame" x="30" y="74" width="354" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="VFk-g8-jE0"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1L-KP-5V6">
                                 <rect key="frame" x="334" y="578" width="60" height="60"/>
@@ -2374,6 +2374,7 @@
                         <outlet property="hostListView" destination="oBg-ek-E8d" id="wCa-uc-gLy"/>
                         <outlet property="hostListheightConstraints" destination="3Fl-aq-idA" id="kp4-Yw-Wa0"/>
                         <outlet property="storageMapView" destination="7iG-Ui-kOL" id="teV-ee-ZFe"/>
+                        <outlet property="zipCode" destination="9Qh-Ux-lgx" id="Qbj-Qi-BKs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBg-J1-iAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2530,7 +2531,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ksT-Qh-4Ml">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ksT-Qh-4Ml">
                                 <rect key="frame" x="0.0" y="164" width="414" height="649"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -3444,7 +3445,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cb1-6P-UWb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cb1-6P-UWb">
                                 <rect key="frame" x="0.0" y="58" width="406" height="683"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -3455,7 +3456,7 @@
                                     <constraint firstAttribute="height" constant="45" id="ABW-qC-372"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -4393,6 +4394,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="click_ApplyButton:" destination="fie-Qb-Nuu" eventType="touchUpInside" id="Bae-k7-0Dh"/>
                                             <action selector="submitButtonClicked:" destination="Fcm-Fo-LIj" eventType="touchUpInside" id="CWL-4h-RZb"/>
                                         </connections>
                                     </button>
@@ -4416,6 +4418,7 @@
                                         <connections>
                                             <action selector="addAnotherButtonClicked:" destination="Fcm-Fo-LIj" eventType="touchUpInside" id="uzL-G1-8AN"/>
                                             <action selector="click_Cancel:" destination="Fcm-Fo-LIj" eventType="touchUpInside" id="YIH-Gc-2J8"/>
+                                            <action selector="click_CancelButton:" destination="fie-Qb-Nuu" eventType="touchUpInside" id="q8C-a3-7cb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -5085,6 +5088,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Vp-kI-VVW"/>
                     </view>
+                    <connections>
+                        <outlet property="get_offer" destination="d3y-EQ-2jQ" id="Pzo-tt-dzF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dag-tz-vvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

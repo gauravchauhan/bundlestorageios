@@ -13,6 +13,9 @@ class Someone_sBubbleViewCell: MyBubbleViewCell {
     //MARK:- Outlets
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var constraintForNickHidden: NSLayoutConstraint! // default 24 when hidden set 0
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var message_Time: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
     
     
     override func awakeFromNib() {
@@ -28,9 +31,13 @@ class Someone_sBubbleViewCell: MyBubbleViewCell {
     }
     
     func setBubbleData(data:LynnBubbleData, grouping:Bool, showNickName:Bool) {
+        print(" in  setBubbleData   \(data)")
+        print("Sender image \(Constants.AppUrls.baseUrl + Constants.AppUrls.showImage + Singelton.sharedInstance.senderImage)")
+        self.userImage.setImageWith(URL(string : Constants.AppUrls.baseUrl + Constants.AppUrls.showImage + Singelton.sharedInstance.senderImage  ), placeholderImage: UIImage(named: "app_Logo"))
+        self.message.text! = data.text!
+        self.message_Time.text = data.date._stringFromDateFormat(Constants.Format.TIME)
         
-        self.imgProfile.isHidden = grouping
-        self.setBubbleData(data: data)
+//        self.setBubbleData(data: data)
     }
     
     override func setBubbleData(data: LynnBubbleData) {

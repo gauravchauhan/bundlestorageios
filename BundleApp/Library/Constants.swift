@@ -7,7 +7,7 @@ struct Constants {
      */
     //http://bundle.teamjft.com
     struct AppUrls{
-        static let baseUrl = "http://19e64039.ngrok.io"
+        static let baseUrl = "http://bundle.teamjft.com"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -27,7 +27,11 @@ struct Constants {
         static let getUpcomingBookingRequest = "/getUpcomingBookingRequest"
         static let updateBookingRequest = "/updateBookingRequest"
         static let userBookingRequest = "/userBookingRequest"
-        //userBookingRequest
+        static let filter_Data = "/filterStorage1"
+        static let chatList = "/getChatsList"
+        static let chatHistory = "/chatHistory"
+        static let createChat = "/createChat"
+        //createChat
 
     }
     

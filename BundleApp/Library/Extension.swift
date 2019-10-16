@@ -8,6 +8,11 @@
 import UIKit
 import GoogleMaps
 
+
+protocol FilterButtonClick {
+    func filterClick()
+}
+
 extension GMSMapView{
     
     func addMarker(position : CLLocationCoordinate2D, title : String){
@@ -43,6 +48,7 @@ protocol BackButtonDelegate {
 }
 
 let gradientLayer = CAGradientLayer()
+var filterButtonClickObserver : FilterButtonClick!
 
 func convertinto_Date(date : String , dateFormat : String)-> Date{
     let isoDate = "\(date)"
@@ -319,7 +325,7 @@ extension UITableView{
         
         let numberOfSections = self.numberOfSections
         
-        let numberOfRows = self.numberOfRows(inSection: numberOfSections - 1)
+        let numberOfRows = self.numberOfRows(inSection: 0)
         
         DispatchQueue.main.async(execute: { () -> Void in
             
@@ -1111,9 +1117,10 @@ extension UIViewController {
         }
     }
     
-    func openDiscountPopUp(){
+    func openDiscountPopUp(offerData : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "DiscountPopUpController") as! DiscountPopUpController
+            next.offer = offerData
             next.modalPresentationStyle = .overCurrentContext
             self.present(next, animated: true, completion: nil)
         }
@@ -1225,10 +1232,12 @@ extension UIViewController {
         }
     }
     
-    func pushToChatController(userName : String){
+    func pushToChatController(userName : String, chatId : String, reciverId : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
             next.userName = userName
+            next.chatID =  chatId
+            next.hostId = reciverId
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1240,10 +1249,7 @@ extension UIViewController {
     }
     
     func pushToFilterController(){
-        DispatchQueue.main.async {
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
-            self.navigationController?.pushViewController(next, animated: true)
-        }
+        filterButtonClickObserver.filterClick()
     }
     
     func pushToReferalController(){
@@ -1259,6 +1265,13 @@ extension UIViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
+    
+//    func pushToAddCardController(){
+//        DispatchQueue.main.async {
+//            let next = self.storyboard?.instantiateViewController(withIdentifier: "AddCardDetailVC") as! AddCardDetailVC
+//            self.navigationController?.pushViewController(next, animated: true)
+//        }
+//    }
     
     
     

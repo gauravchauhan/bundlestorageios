@@ -46,6 +46,7 @@
 		1E8AF9C1230D279C00240F65 /* SpaceNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9C0230D279C00240F65 /* SpaceNameVC.swift */; };
 		1E8AF9C3230D281100240F65 /* DescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9C2230D281100240F65 /* DescriptionVC.swift */; };
 		1E8AF9C5230D51D400240F65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E8AF9C4230D51D400240F65 /* Localizable.strings */; };
+		1E8EF6F0235589B100AB4478 /* ChatListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EF6EF235589B100AB4478 /* ChatListModal.swift */; };
 		1E9EB0C32318F95E003E6F80 /* StorageChargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9EB0C22318F95E003E6F80 /* StorageChargeVC.swift */; };
 		1E9EB0C823190151003E6F80 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9EB0C723190151003E6F80 /* TabBarVC.swift */; };
 		1EA698D32313E9EC00C50AE7 /* UserDataModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA698D22313E9EC00C50AE7 /* UserDataModal.swift */; };
@@ -179,6 +180,7 @@
 		1E8AF9C0230D279C00240F65 /* SpaceNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceNameVC.swift; sourceTree = "<group>"; };
 		1E8AF9C2230D281100240F65 /* DescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVC.swift; sourceTree = "<group>"; };
 		1E8AF9C4230D51D400240F65 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1E8EF6EF235589B100AB4478 /* ChatListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModal.swift; sourceTree = "<group>"; };
 		1E9EB0C22318F95E003E6F80 /* StorageChargeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageChargeVC.swift; sourceTree = "<group>"; };
 		1E9EB0C723190151003E6F80 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		1EA698D22313E9EC00C50AE7 /* UserDataModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModal.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */,
 				1E144DEF2341CEC100255E39 /* StorageImageModal.swift */,
 				1E892A77234DE3E80023D4DF /* BookingRequestModal.swift */,
+				1E8EF6EF235589B100AB4478 /* ChatListModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 			files = (
 				1E8AF9C1230D279C00240F65 /* SpaceNameVC.swift in Sources */,
 				F9F3E0E22327CBCC00BBF871 /* PaymentViewController.swift in Sources */,
+				1E8EF6F0235589B100AB4478 /* ChatListModal.swift in Sources */,
 				1EB80EDB2301347E00D0FCB4 /* Extension.swift in Sources */,
 				1E15CAF2232CC16200BF56D3 /* Service.swift in Sources */,
 				1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */,

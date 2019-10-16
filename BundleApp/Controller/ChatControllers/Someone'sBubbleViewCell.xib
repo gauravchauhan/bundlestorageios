@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,9 +94,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imgProfile" destination="m4W-WA-mYt" id="j0e-cF-5gB"/>
-                <outlet property="lbText" destination="gOk-pN-jKC" id="rQT-3S-TTU"/>
-                <outlet property="lbTime" destination="9eO-W8-YsN" id="3nw-7x-jdf"/>
+                <outlet property="message" destination="gOk-pN-jKC" id="iaX-zs-87d"/>
+                <outlet property="message_Time" destination="9eO-W8-YsN" id="nQs-7M-QM9"/>
+                <outlet property="userImage" destination="m4W-WA-mYt" id="xGw-Gn-2gR"/>
             </connections>
             <point key="canvasLocation" x="595.20000000000005" y="312.14392803598201"/>
         </tableViewCell>

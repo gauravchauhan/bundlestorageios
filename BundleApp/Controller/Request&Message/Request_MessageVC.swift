@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate , GetUpcomingBookinRequestDelegate, UserBookinRequestDelegate, UpdateBookingRequestDelegate, UpdateBookingRequest{
+class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate , GetUpcomingBookinRequestDelegate, UserBookinRequestDelegate, UpdateBookingRequestDelegate, UpdateBookingRequest, GetChatListDelegate, CreateChatDelegate{
     
     
     //MARK:- Outlets
@@ -19,6 +19,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     //MARK:- Properties
     var currentSegment = Strings_Const.request
     var bookingRequestmodal = [BookingRequestModal]()
+    var chatListModal = [ChatListModal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,18 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     override func viewWillAppear(_ animated: Bool) {
+        segment.selectedSegmentIndex == 0 ? self.getRequests() : self.messageList()
+    }
+    
+    
+    //MARK:- Delegate
+    
+    func createChatResponse(data: [String : Any]) {
+        print("createChatResponse   \(data)")
+    }
+    
+    func getRequests(){
+        Indicator.shared.showProgressView(self.view)
         if Singelton.sharedInstance.userDataModel.userRole != "ROLE_USER"{
             Singelton.sharedInstance.service.getUpcomingBookinRequestDelegate = self
             Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getUpcomingBookingRequest, api_Type: apiType.GET.rawValue)
@@ -45,8 +58,19 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
+    func messageList(){
+        Indicator.shared.showProgressView(self.view)
+        Singelton.sharedInstance.service.getChatListDelegate = self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.chatList, api_Type: apiType.GET.rawValue)
+    }
     
-    //MARK:- Delegate
+    func getChatListResponse(data: [String : Any]) {
+        print("chat list reponse \(data)")
+        Indicator.shared.hideProgressView()
+        data["status"]as! Bool ? self.setTheChatListData(data: data["filterFoundChats"]as! [[String :  Any]]) : DispatchQueue.main.async {
+            alert(message: data["message"]as! String  , Controller: self);
+        }
+    }
     
     
     @objc  func SwitchUserObserverActions(notification: Notification){
@@ -79,6 +103,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     func userBookinRequestResponse(data: [String : Any]) {
         print("userBookinRequestResponsev   \(data)")
+        Indicator.shared.hideProgressView()
         data["status"]as! Bool ? self.setTheUserRequestData(data: data["filterUserRequest"]as! [[String :  Any]]) : DispatchQueue.main.async {
             alert(message: data["message"]as! String  , Controller: self);}
     }
@@ -86,7 +111,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     func getUpcomingBookinRequestResponse(data: [String : Any]) {
         print("getUpcomingBookinRequestResponse   \(data)")
-        
+        Indicator.shared.hideProgressView()
         data["status"]as! Bool ? self.setTheBookingRquestData(data: data["bookingRequest"]as! [[String :  Any]]) : DispatchQueue.main.async {
             alert(message: data["message"]as! String  , Controller: self);
             
@@ -95,7 +120,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentSegment == Strings_Const.message ? 10 : self.bookingRequestmodal.count
+        return segment.selectedSegmentIndex == 0 ? self.bookingRequestmodal.count : self.chatListModal.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,6 +130,10 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if currentSegment == Strings_Const.message{
             let cell = bookingRequestList.dequeueReusableCell(withIdentifier: "MessageViewCell", for: indexPath) as! MessageViewCell
+            cell.nameLabel.text! = self.chatListModal[indexPath.row].message_RecieverName!
+            cell.descriptionLabel.text! = self.chatListModal[indexPath.row].message_lastMessage!
+            cell.timeLabel.text! = self.chatListModal[indexPath.row].message_Time!
+            cell.userImage!.setImageWith(URL(string : self.chatListModal[indexPath.row].message_RecieverImage!), placeholderImage: UIImage(named: "app_Logo"))
             return cell
         }else{
             let cell = bookingRequestList.dequeueReusableCell(withIdentifier: "RequestViewCell", for: indexPath) as! RequestViewCell
@@ -129,6 +158,16 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             return cell
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if segment.selectedSegmentIndex == 1{
+//            let param = "user=\(String(describing: self.chatListModal[indexPath.row].message_reciver_Id!))"
+//            print("Parameter \(param)")
+//            Singelton.sharedInstance.service.createChatDelegate = self
+//            Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.createChat, api_Type: apiType.POST.rawValue)
+            self.pushToChatController(userName: self.chatListModal[indexPath.row].message_RecieverName!, chatId: self.chatListModal[indexPath.row].message_ChatId!, reciverId: self.chatListModal[indexPath.row].message_reciver_Id!)
+        }
+    }
     
     //MARK:- User Defined fucntion
     
@@ -146,6 +185,22 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             bookingModal.booking_UserName = (data[index])["userName"]as? String
             bookingModal.booking_StorageName = (data[index])["storageName"]as? String
             self.bookingRequestmodal.append(bookingModal)
+        }
+        reload_RequestList()
+    }
+    
+    func setTheChatListData(data : [[String : Any]]){
+        self.chatListModal.removeAll()
+        print("Set the chat list modal")
+        for index in 0...data.count - 1{
+            let list = ChatListModal()
+            list.message_ChatId = (data[index])["chatId"]as? String
+            list.message_lastMessage = (data[index])["lastMessage"]as? String
+            list.message_RecieverImage = !(data[index]["profileImage"] is NSNull) ? (data[index])["profileImage"]as? String : ""
+            list.message_Time = (data[index])["time"]as? String
+            list.message_RecieverName = (data[index])["userName"]as? String
+            list.message_reciver_Id = (data[index])["userId"]as? String
+            self.chatListModal.append(list)
         }
         reload_RequestList()
     }
@@ -188,14 +243,16 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         if(segment.selectedSegmentIndex==0){
+            self.getRequests()
             currentSegment = Strings_Const.request
             (segment.subviews[0] as UIView).tintColor = UIColor.red
         }
         else{
+            print("Message API")
+            self.messageList()
             currentSegment = Strings_Const.message
             (segment.subviews[0] as UIView).tintColor = UIColor.red
         }
-        bookingRequestList.reloadData()
     }
     
     

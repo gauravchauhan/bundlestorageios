@@ -138,7 +138,9 @@ open class LynnBubbleTableView: UITableView {
             
         }
         
-        super.reloadData()
+        DispatchQueue.main.async {
+             super.reloadData()
+        }
     }
 }
 

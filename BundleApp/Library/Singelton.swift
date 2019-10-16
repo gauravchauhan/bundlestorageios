@@ -23,6 +23,7 @@ class Singelton {
     var currentCountryCode : String?
     var currentLatitude : CLLocationDegrees!
     var currentLongitude : CLLocationDegrees!
+    var senderImage : String!
     
     // METHODS
     private init() {

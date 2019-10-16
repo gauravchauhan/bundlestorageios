@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate  , CurrentLocationDelegate{
+class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate  , CurrentLocationDelegate, UISearchBarDelegate, FilterDataDelegate, FilterParameterDelgate, FilterButtonClick{
     
     //MARK:- Outlets
     @IBOutlet weak var hostList: UITableView!
@@ -18,6 +18,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var hostListheightConstraints: NSLayoutConstraint!
     @IBOutlet weak var arrow_Button: UIButton!
     @IBOutlet weak var storageMapView: GMSMapView!
+    @IBOutlet weak var zipCode: UISearchBar!
     
     // MARK: PROPERTIES
     private var storageModal = [StorageListModal]()
@@ -29,6 +30,8 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     
     override func viewDidAppear(_ animated: Bool) {
+        filterButtonClickObserver =  self
+        self.zipCode.delegate = self
         self.navigationController?.isNavigationBarHidden = false
         self.hostList.register(UINib(nibName:"HostListCell" , bundle: nil), forCellReuseIdentifier: "HostListTableViewCell")
         self.hostList.isScrollEnabled = false
@@ -42,8 +45,51 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     //MARK:- Delagate
     
     
+    func filterClick() {
+        print("filter clcik")
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+            next.filterDelgate = self
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func getFilterParameter(param: String) {
+        print("filter screen paarmater \(param)")
+        Singelton.sharedInstance.service.filterDataDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.filter_Data, api_Type: apiType.POST.rawValue)
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Change   \(searchText)")
+        searchText.isEmpty ? Singelton.sharedInstance.location.getCurrentLocation() : nil
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        print("text \(searchBar.text!)")
+        return true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        let param = "zipCode=\(String(describing: self.zipCode.text!))"
+        print("Parameter \(param)")
+        Singelton.sharedInstance.service.filterDataDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.filter_Data, api_Type: apiType.POST.rawValue)
+    }
+    
+    
+    func filterDataRequestResponse(data: [String : Any]) {
+        print("filter response \(data)")
+        !(data["status"]as! Bool) ? DispatchQueue.main.async {
+            alert(message: data["message"]as! String , Controller: self)
+            } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
+    }
+    
     func currentLocationResponse(lat: CLLocationDegrees, lng: CLLocationDegrees) {
         print("current location response \(lat) \(lng)")
+        self.view.endEditing(true)
         let param = "latitude=\(String(describing: lat))&longitude=\(String(describing: lng))"
         print("Parameter \(param)")
         Singelton.sharedInstance.service.getStorageListDelegate = self
@@ -59,11 +105,13 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     
     func getStorageListResponse(data: [String : Any]) {
+        
         Indicator.shared.hideProgressView()
         print("list resposne \(data)")
         let left = LeftMenuViewController()
         left.setTheName()
         !(data["status"]as! Bool) ? DispatchQueue.main.async {
+            self.view.endEditing(true);
             self.hostListheightConstraints.constant = 80 ; alert(message: data["message"]as! String , Controller: self)
             } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
     }
@@ -98,6 +146,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     func reloadHostList(){
         DispatchQueue.main.async {
+            self.view.endEditing(true)
             self.hostList.delegate =  self
             self.hostList.dataSource = self
             self.hostList.reloadData()
@@ -122,6 +171,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     func setTheStorageDataIntoModal(data : [[String : Any]]){
         self.storageModal.removeAll()
+        self.hostListheightConstraints.constant = 250
         for index in 0...data.count - 1{
             var imageModal = [StorageImageModal]()
             let storageObj = StorageListModal()
@@ -155,7 +205,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
             
             storageObj.storageImage = imageModal
             storageObj.aboutStorage = (data[index]["descripton"] is NSNull) ? Strings_Const.no_Desc : data[index]["descripton"]as? String
-            storageObj.offers = (data[index]["discount"] is NSNull) ? "No discount" : data[index]["descripton"]as? String
+            storageObj.offers = (data[index]["discount"] is NSNull) ? "No discount" : data[index]["discount"]as? String
             
             storageObj.availablity = data[index]["availability"]as? String
             

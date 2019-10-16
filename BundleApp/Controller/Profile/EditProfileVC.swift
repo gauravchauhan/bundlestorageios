@@ -65,7 +65,6 @@ class EditProfileVC: UIViewController , SelectedImage, EditProfileDelegate{
             UserDefaults.standard.set(uploadResponse , forKey: "userData");
             Singelton.sharedInstance.setUserData(data: uploadResponse);
             } : alert(message: data["message"]as! String, Controller: self)
-        data["status"]as! Bool ? self.setData() : nil
     }
     
     

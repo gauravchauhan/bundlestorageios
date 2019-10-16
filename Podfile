@@ -17,6 +17,7 @@ pod 'RESideMenu', '~> 4.0.7'
 pod 'Fabric'
 pod 'Crashlytics'
 pod "ImageSlideshow/SDWebImage"
+pod 'Socket.IO-Client-Swift', '~> 13.2.0'
 
   # Pods for BundleApp
 

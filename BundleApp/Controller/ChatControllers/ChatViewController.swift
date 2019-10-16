@@ -7,19 +7,39 @@
 //
 
 import UIKit
+import SocketIO
 
-class ChatViewController: UIViewController, LynnBubbleViewDataSource {
-   
+private struct SendMessage {
+    var message : String
+    var chatId : String
+    var userId : String
+    var receiverId : String!
+    func toDictionary()-> NSDictionary{
+        return ["message": message, "chatId": chatId ,"userId": userId , "receiverId" : receiverId]
+    }
+}
+
+class ChatViewController: UIViewController, LynnBubbleViewDataSource, GetChatHistoryDelegate {
+    
     //MARK:- Outlets
     @IBOutlet weak var messageTextView: UITextField!
     @IBOutlet weak var tableView: LynnBubbleTableView!
     @IBOutlet weak var message: TextField!
     
     var userName : String!
+    var chatID : String?
+    var hostId : String?
+    
+    
+    var chatHistoryModal = [ChatListModal]()
+    
+    //    var hostDetailModal = StorageListModal()
     
     //MARK:- Properties
-     var arrChatTest:Array<LynnBubbleData> = []
+    var chat_Array:Array<LynnBubbleData> = []
     var image = UIImage()
+    let manager = SocketManager(socketURL: URL(string: Constants.AppUrls.baseUrl)!, config: [.log(true), .compress])
+    var userMe : LynnUserData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,83 +47,132 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource {
         tableView.bubbleDataSource = self
         self.setBackButtonWithTitle(title: self.userName)
         Indicator.shared.showProgressView(self.view)
-        DispatchQueue.global(qos: .background).async {
-            do
-            {
-                let data = try Data.init(contentsOf: URL.init(string: Singelton.sharedInstance.userDataModel.userProfilePic!)!)
-                DispatchQueue.main.async {
-                    self.image = UIImage(data: data)!
-                    print("Print image Data  \(self.image)")
-                        Indicator.shared.hideProgressView()
-                }
-            }
-            catch {
-                // error
-            }
-        }
+        self.connectToSocket()
+//        DispatchQueue.global(qos: .background).async {
+//            do
+//            {
+//                let data = try Data.init(contentsOf: URL.init(string: Singelton.sharedInstance.userDataModel.userProfilePic!)!)
+//                DispatchQueue.main.async {
+////                    self.image = UIImage(data: data)!
+//                    print("Print image Data  \(self.image)")
+//                    //                    self.userMe = LynnUserData(userUniqueId: Singelton.sharedInstance.userDataModel.userID!, userNickName: Singelton.sharedInstance.userDataModel.userFirstName! + Singelton.sharedInstance.userDataModel.userLastName!, userProfileImage: self.image , additionalInfo: nil)
+//                    //                    let param = "chatId=\(String(describing: self.chatID!))"
+//                    //                    print("Parameter \(param)")
+//                    //                    Singelton.sharedInstance.service.getChatHistoryDelegate = self
+//                    //                    Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.chatHistory, api_Type: apiType.POST.rawValue)
+//                }
+//            }
+//            catch {
+//                // error
+//            }
+//        }
         
-//        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        // Do any additional setup after loading the view.
+        self.userMe = LynnUserData(userUniqueId: Singelton.sharedInstance.userDataModel.userID!, userNickName: Singelton.sharedInstance.userDataModel.userFirstName! + Singelton.sharedInstance.userDataModel.userLastName!, userProfileImage: nil , additionalInfo: nil)
+        let param = "chatId=\(String(describing: self.chatID!))"
+        print("Parameter \(param)")
+        Singelton.sharedInstance.service.getChatHistoryDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.chatHistory, api_Type: apiType.POST.rawValue)
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+//        manager.disconnect()
+    }
+    
+    
+    //MARK:- user Defined function
+    
+    func connectToSocket(){
+        DispatchQueue.main.async {
+            let socket = self.manager.defaultSocket
+            socket.on(clientEvent: .connect) {data, ack in
+            }
+            self.socketData()
+            socket.connect()
+        }
+    }
+    
+    func socketEmit(messageDict : NSDictionary){
+        DispatchQueue.main.async {
+            let socket = self.manager.defaultSocket
+            socket.emit(self.chatID!, messageDict)
+            self.message.text! = ""
+        }
+    }
+    
+    func socketData(){
+        let socket = self.manager.defaultSocket
+        socket.on("\(self.chatID!)client") {data, ack in
+            print("Socket Data \(data)")
+            self.socketResponse(Data: data)
+        }
+    }
+    
+    
+    func socketResponse(Data : [Any]){
+        print("")
+        let messageDict = (Data[0]as! [String : Any])
+        print("message distionary   \(messageDict)")
+        let status = (messageDict["userId"]as! String == Singelton.sharedInstance.userDataModel.userID!)
+        if !status{
+            Singelton.sharedInstance.senderImage = !(messageDict["profileImage"]is NSNull) ? messageDict["profileImage"]as? String : ""
+            let bubbleData:LynnBubbleData = LynnBubbleData(userData: self.userMe, dataOwner: status ? .me : .someone , message: messageDict["message"]as? String , messageDate: Date())
+            self.chat_Array.append(bubbleData)
+            self.tableView.reloadData()
+            //            self.tableView.scrollToLastRow()
+        }
+    }
+    
     //MARK:- Delegate Methods
     
+    func getChatHistoryResponse(data: [String : Any]) {
+        print("chat Hitory  \(data)")
+        data["status"]as! Bool ? self.setChatHistoryData(data: data["message"]as! [[String :  Any]]) : Indicator.shared.hideProgressView()
+    }
+    
     func bubbleTableView(dataAt index: Int, bubbleTableView: LynnBubbleTableView) -> LynnBubbleData {
-        return self.arrChatTest[index]
+        return self.chat_Array[index]
     }
     
     func bubbleTableView(numberOfRows bubbleTableView: LynnBubbleTableView) -> Int {
-        return self.arrChatTest.count
+        return self.chat_Array.count
     }
     
-    func testChatData () {
-       
-        var messageMine = "Hi Elizabeth, what's do you have on this weekend? "
-        var messageSomeone = "Urgent Work"
-        
-        let userMe = LynnUserData(userUniqueId: "123", userNickName: "me", userProfileImage: self.image, additionalInfo: nil)
-        let userSomeone = LynnUserData(userUniqueId: "234", userNickName: "you", userProfileImage: UIImage(named: "ico_girlprofile"), additionalInfo: nil)
-        let yesterDay = Date().addingTimeInterval(-60*60*24)
-        for index in 0..<10 {
+    
+    func setChatHistoryData(data : [[String : Any]]){
+        self.chatHistoryModal.removeAll()
+        print("Set the chat list modal")
+        Singelton.sharedInstance.senderImage = !((data[0])["profileImage"] is NSNull) ? (data[0])["profileImage"]as? String : ""
+        for index in 0...data.count - 1{
             
-            if index % 4 == 0 {
-                
-                let bubbleData:LynnBubbleData = LynnBubbleData(userData: userMe, dataOwner: .me, message: messageMine, messageDate: yesterDay)
-                
-                self.arrChatTest.append(bubbleData)
-                messageMine += " " + messageMine
-            }else {
-                
-                let bubbleData:LynnBubbleData = LynnBubbleData(userData: userSomeone, dataOwner: .someone, message: messageSomeone, messageDate: yesterDay)
-                self.arrChatTest.append(bubbleData)
-                messageSomeone += " " + messageSomeone
-            }
-            
+            let status = (data[index])["userId"]as? String == Singelton.sharedInstance.userDataModel.userID!
+            let bubbleData:LynnBubbleData = LynnBubbleData(userData: self.userMe, dataOwner: status ? .me : .someone , message: (data[index])["message"]as? String, messageDate: Date())
+            self.chat_Array.append(bubbleData)
         }
         
-        messageMine = "Start Conversation by your name Please."
-        messageSomeone = "Heelo Joe!"
-        let tommorow = Date().addingTimeInterval(60*60*24)
-        
-        for index in 0..<10 {
-            
-            if index % 4 == 0 {
-                let bubbleData:LynnBubbleData = LynnBubbleData(userData: userMe, dataOwner: .me, message: messageMine, messageDate: tommorow)
-                
-                self.arrChatTest.append(bubbleData)
-                messageMine += " | " + messageMine
-            }else {
-                let bubbleData:LynnBubbleData = LynnBubbleData(userData: userSomeone, dataOwner: .someone, message: messageSomeone, messageDate: tommorow)
-                self.arrChatTest.append(bubbleData)
-                messageSomeone += " | " + messageSomeone
-            }
-            
+        DispatchQueue.main.async {
+//            self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentSize.height - UIScreen.main.bounds.height), animated: true)
+            self.tableView.reloadData()
+            print("nimber of sections  \(self.tableView.numberOfSections)    \(self.tableView.numberOfRows(inSection: 0))   \(self.tableView.numberOfSections(in: self.tableView))")
+            Indicator.shared.hideProgressView()
         }
-        self.tableView.reloadData()
+    }
+    
+    func scrollToBottom()  {
+//        let point = CGPoint(x: 0, y: self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.frame.height)
+//        if point.y >= 0{
+//            self.tableView.setContentOffset(point, animated: true)
+//        }
+        
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: 7 , section: 2)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     
@@ -112,12 +181,17 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource {
         guard let message : String = self.message.text , message != "" else {
             return alert(message: Strings_Const.message_empty, Controller: self)
         }
-        let userMe = LynnUserData(userUniqueId: "123", userNickName: "roh_JFT", userProfileImage: self.image , additionalInfo: nil)
-        let bubbleData:LynnBubbleData = LynnBubbleData(userData: userMe, dataOwner: .me, message: self.message.text!, messageDate: Date())
-        print("send message data \(bubbleData)   \(userMe)")
-        self.arrChatTest.append(bubbleData)
+        self.appendMessageToChatArray(senderStatus: true, message: self.message.text!)
+    }
+    
+    
+    func appendMessageToChatArray(senderStatus : Bool , message : String ){
+        let bubbleData:LynnBubbleData = LynnBubbleData(userData: self.userMe, dataOwner: senderStatus ? .me : .someone , message: message, messageDate: Date())
+        let sendMessage = SendMessage(message: self.message.text!, chatId: self.chatID!, userId: Singelton.sharedInstance.userDataModel.userID!, receiverId: self.hostId!)
+        self.socketEmit(messageDict: sendMessage.toDictionary())
+        self.chat_Array.append(bubbleData)
         self.tableView.reloadData()
-        self.tableView.scrollToLastRow()
+        //        self.tableView.scrollToLastRow()
     }
     
 }
@@ -130,7 +204,7 @@ extension ChatViewController : LynnBubbleViewDelegate {
     }
     
     func bubbleTableView(_ bubbleTableView: LynnBubbleTableView, didLongTouchedAt index: Int) {
-     
+        
     }
     
     func bubbleTableView(_ bubbleTableView: LynnBubbleTableView, didTouchedAttachedImage image: UIImage, at index: Int) {

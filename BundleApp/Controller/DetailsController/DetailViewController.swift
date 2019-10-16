@@ -10,7 +10,7 @@ import UIKit
 import NWSTokenView
 import ImageSlideshow
 
-class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelegate, UIScrollViewDelegate {
+class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelegate, UIScrollViewDelegate , CreateChatDelegate, StorageDetailDelegate{
    
     // MARK: OUTLETS
     @IBOutlet weak var showOfferButton: UIButton!
@@ -39,6 +39,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     var storageImages = [SDWebImageSource]()
     
     var storageListID : String!
+    var chatId : String!
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -54,6 +55,10 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let param = "storageId=\(String(describing: self.detailModal.stoargeID!))"
+        print("Parameter \(param)")
+        Singelton.sharedInstance.service.storageDetailDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.storageDetails, api_Type: apiType.POST.rawValue)
         setBackButtonWithTitle(title: "\(self.detailModal.storageName!)")
 //        self.requestStorageButton
     }
@@ -64,6 +69,12 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     
     // Swipe button "Request Single from Storage"
+    
+    func storageDetailResponse(data: [String : Any]) {
+        print("storage detail response \(data)")
+        data["status"]as! Bool ? (self.chatId = data["chatId"]as? String) : (self.chatId = "")
+    }
+    
     
     //MARK:- Actions
     @IBAction func drag_SingleStorageButton(_ sender: TGFlingActionButton) {
@@ -78,7 +89,14 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     
     @IBAction func messageButtonClicked(_ sender: UIButton) {
-        self.pushToChatController(userName: self.detailModal.storageHostName!)
+        if self.chatId.isEmpty{
+            let param = "user=\(String(describing: self.detailModal.storageHostId!))"
+            print("Parameter \(param)")
+            Singelton.sharedInstance.service.createChatDelegate = self
+            Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.createChat, api_Type: apiType.POST.rawValue)
+        }else{
+            self.pushToChatController(userName: self.detailModal.storageHostName!, chatId: self.chatId! , reciverId: self.detailModal.storageHostId!)
+        }
     }
     
     @IBAction func readMoreButtonClicked(_ sender: UIButton) {
@@ -95,9 +113,18 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     }
     
     @IBAction func click_OfferButton(_ sender: Any) {
-        self.openDiscountPopUp()
+        detailModal.offers != "Discard offer discount" ? self.openDiscountPopUp(offerData: detailModal.offers!) : alert(message: "No discount", Controller: self)
+        
     }
     //MARK:- User defined function
+    
+    func createChatResponse(data: [String : Any]) {
+        print("craete chat respnse  \(data)")
+        data["status"]as! Bool ? self.pushToChatController(userName: self.detailModal.storageHostName!, chatId: data["chatId"]as! String, reciverId: self.detailModal.storageHostId!) : alert(message: data["message"]as! String, Controller: self)
+    }
+    
+    
+    
     
     func setData_OnDetailController(){
         self.storageTypeLabel.text! = self.detailModal.storageType!
