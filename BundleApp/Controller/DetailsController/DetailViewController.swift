@@ -139,7 +139,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
         tokenView.dataSource = self
         tokenView.delegate = self
         tokenView.textView.isEditable = false
-        self.descriptionLabel.text! == Strings_Const.no_Desc ? DispatchQueue.main.async {
+        (self.descriptionLabel.text! == Strings_Const.no_Desc) ? DispatchQueue.main.async {
             self.readmoreButton.isHidden = true
             } : DispatchQueue.main.async {
                 self.readmoreButton.isHidden = false

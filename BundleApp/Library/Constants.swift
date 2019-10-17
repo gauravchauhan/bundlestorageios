@@ -140,8 +140,7 @@ struct Strings_Const{
         refer ,
         support ,
         switch_User,
-        earnings,
-        logout
+        earnings
     ]
     
     static let SideBarMenuItems_User = [

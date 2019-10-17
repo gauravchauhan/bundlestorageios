@@ -89,6 +89,12 @@ class EditProfileVC: UIViewController , SelectedImage, EditProfileDelegate{
         guard let validEmail : String = self.email.text ,(Singelton.sharedInstance.validation.isValidEmail(validEmail))else {
             return alert(message: Strings_Const.enter_valid_Email , Controller: self)
         }
+        guard let number : String = self.phoneNumber.text ,number != ""else {
+            return alert(message: Strings_Const.enter_mobile_Number , Controller: self)
+        }
+        guard let mobileNumber : String = self.phoneNumber.text, (Singelton.sharedInstance.validation.isValidPhoneNumber(mobileNumber))else {
+            return alert(message: Strings_Const.enter_valid_Mobile_Number  , Controller: self)
+        }
         guard let contactNumber : String = self.phoneNumber.text , contactNumber != "" else {
             return alert(message: "Enter phone number", Controller: self)
         }

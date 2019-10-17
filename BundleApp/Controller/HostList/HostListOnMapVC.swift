@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Crashlytics
 
 class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate  , CurrentLocationDelegate, UISearchBarDelegate, FilterDataDelegate, FilterParameterDelgate, FilterButtonClick{
     

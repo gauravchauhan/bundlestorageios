@@ -66,8 +66,6 @@ class LeftMenuViewController: UIViewController {
         DispatchQueue.main.async {
             print("set the user name")
             self.userName.text = Singelton.sharedInstance.userDataModel.userFirstName! + " " + Singelton.sharedInstance.userDataModel.userLastName!
-            self.userName.removeFromSuperview()
-            self.view.addSubview(self.userName)
         }
     }
     
