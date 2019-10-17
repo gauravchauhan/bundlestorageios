@@ -83,7 +83,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     func filterDataRequestResponse(data: [String : Any]) {
         print("filter response \(data)")
         !(data["status"]as! Bool) ? DispatchQueue.main.async {
-            alert(message: data["message"]as! String , Controller: self)
+            alert(message: "No storage found for \(self.zipCode.text!) zipcode" , Controller: self)
             } : self.setTheStorageDataIntoModal(data: data["storageList"]as! [[String : Any]])
     }
     
@@ -175,7 +175,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         for index in 0...data.count - 1{
             var imageModal = [StorageImageModal]()
             let storageObj = StorageListModal()
-            storageObj.storageName = data[index]["storageName"]as? String
+            storageObj.storageName = (data[index]["storageName"]as? String)?.capitalized
             storageObj.stoargeID = data[index]["storageId"]as? String
             storageObj.storageHostId = data[index]["hostId"]as? String
             storageObj.storageHostName = data[index]["hostName"]as? String

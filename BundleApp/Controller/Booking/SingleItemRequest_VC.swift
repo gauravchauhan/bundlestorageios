@@ -89,9 +89,21 @@ class SingleItemRequest_VC: UIViewController , UICollectionViewDelegate, UIColle
     func bookingStorageResponse(data: [String : Any]) {
         print("bookingStorageResponse  \(data)")
         Indicator.shared.hideProgressView()
-        data["status"]as! Bool ? self.pushToPaymentController() : alert(message: data["message"]as! String, Controller: self)
+        data["status"]as! Bool ? self.congratulation_SingleBookingAlert() : alert(message: data["message"]as! String, Controller: self)
     }
     
+    
+    func congratulation_SingleBookingAlert(){
+        DispatchQueue.main.async {
+            let alertView = UIAlertController(title: NSLocalizedString(Strings_Const.app_Name, comment: ""), message: "Congratulations, You have successfully sent a request for booking this space. You will get notified once the host will approve your request.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+                print("action on the user bookked")
+                self.pushToTabBarController()
+            })
+            alertView.addAction(action)
+            self.present(alertView, animated: true, completion: nil)
+        }
+    }
     
     func pickerResponse(userImage: UIImage, imageData: Any) {
         let image_Description = UploadImageModal()

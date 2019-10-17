@@ -231,8 +231,8 @@ class Service{
     func uploadImageFile(image: NSData , imageParameter : String , apiName : String , parameter : [NSString : NSObject]){
         
         do {
-            try Network.reachability = Reachability(hostname: "www.google.com")
-            print("Network.reachability \(String(describing: Network.reachability.status))")
+//            try Network.reachability = Reachability(hostname: "www.google.com")
+//            print("Network.reachability \(String(describing: Network.reachability.status))")
             //
             //            guard let networkStatus : String = "\(Network.reachability.status)",  networkStatus != "unreachable"else {
             //                print("Network error")

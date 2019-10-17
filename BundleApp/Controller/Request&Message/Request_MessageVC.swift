@@ -58,7 +58,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("search text")
+        print("search text \(searchBar.text!)")
         if !searchBar.text!.isEmpty{
             print("text is not wmpty")
             if segment.selectedSegmentIndex == 0{
@@ -80,9 +80,9 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             }else{
                 self.searchChatListModel.removeAll()
                 print(self.searchChatListModel.filter({($0.message_RecieverName?.contains(searchBar.text!))!}).map({$0}))
-                self.searchChatListModel.filter({($0.message_RecieverName?.contains(searchBar.text!))!}).map({$0}).count != 0 ?  (self.searchChatListModel = self.searchChatListModel.filter({($0.message_RecieverName?.contains(searchBar.text!))!}).map({$0})): nil
+                self.chatListModal.filter({($0.message_RecieverName?.contains(searchBar.text!))!}).map({$0}).count != 0 ?  (self.searchChatListModel = self.chatListModal.filter({($0.message_RecieverName?.contains(searchBar.text!))!}).map({$0})): nil
                 
-                print("search modal count \(self.searchChatListModel.count)")
+                print("searchChatListModel count \(self.searchChatListModel.count)")
                 
                 if self.searchChatListModel.count != 0 {
                     print(" empty modal")
@@ -197,6 +197,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             cell.descriptionLabel.text! = self.searchClick ? self.searchChatListModel[indexPath.row].message_lastMessage! : self.chatListModal[indexPath.row].message_lastMessage!
             cell.timeLabel.text! = self.searchClick ? self.searchChatListModel[indexPath.row].message_Time! : self.chatListModal[indexPath.row].message_Time!
             cell.userImage!.setImageWith(URL(string : self.searchClick ? self.searchChatListModel[indexPath.row].message_RecieverImage! : self.chatListModal[indexPath.row].message_RecieverImage!), placeholderImage: UIImage(named: "app_Logo"))
+            cell.userImage.layer.masksToBounds = true
             return cell
         }else{
             let cell = bookingRequestList.dequeueReusableCell(withIdentifier: "RequestViewCell", for: indexPath) as! RequestViewCell
@@ -206,6 +207,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             cell.storageName.text! = self.searchClick ? self.searchBookingModel[indexPath.row].booking_StorageName! : self.bookingRequestmodal[indexPath.row].booking_StorageName!
             cell.statusLabel.text! =  self.searchClick ? self.searchBookingModel[indexPath.row].booking_Status! :  self.bookingRequestmodal[indexPath.row].booking_Status!
             cell.imgView.setImageWith(URL(string : self.searchClick ? self.searchBookingModel[indexPath.row].booked_UserProfileImage! :  self.bookingRequestmodal[indexPath.row].booked_UserProfileImage!), placeholderImage: UIImage(named: "app_Logo"))
+            cell.imageView?.layer.masksToBounds = true
             cell.statusImgView.image =  setTheBookingStatus(status: self.searchClick ? self.searchBookingModel[indexPath.row].booking_Status! :  self.bookingRequestmodal[indexPath.row].booking_Status!)
             
             
@@ -234,9 +236,6 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
                             cell.statusLabel.isHidden = false; cell.statusImgView.isHidden = false;cell.payNow.isHidden = true; cell.accept_Deneid.isHidden = true;
                 }
             }
-            
-            
-           
             return cell
         }
     }
@@ -247,7 +246,12 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
 //            print("Parameter \(param)")
 //            Singelton.sharedInstance.service.createChatDelegate = self
 //            Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.createChat, api_Type: apiType.POST.rawValue)
-            self.pushToChatController(userName: self.chatListModal[indexPath.row].message_RecieverName!, chatId: self.chatListModal[indexPath.row].message_ChatId!, reciverId: self.chatListModal[indexPath.row].message_reciver_Id!)
+            
+            if searchClick{
+                self.pushToChatController(userName: self.searchChatListModel[indexPath.row].message_RecieverName!, chatId: self.searchChatListModel[indexPath.row].message_ChatId!, reciverId: self.searchChatListModel[indexPath.row].message_reciver_Id!)
+            }else{
+                self.pushToChatController(userName: self.chatListModal[indexPath.row].message_RecieverName!, chatId: self.chatListModal[indexPath.row].message_ChatId!, reciverId: self.chatListModal[indexPath.row].message_reciver_Id!)
+            }
         }
     }
     
@@ -265,7 +269,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             bookingModal.booking_StorageId = (data[index])["storageId"]as? String
             bookingModal.user_id = (data[index])["userId"]as? String
             bookingModal.booking_UserName = (data[index])["userName"]as? String
-            bookingModal.booking_StorageName = (data[index])["storageName"]as? String
+            bookingModal.booking_StorageName = ((data[index])["storageName"]as? String)
             self.bookingRequestmodal.append(bookingModal)
         }
         reload_RequestList()
@@ -277,10 +281,10 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
         for index in 0...data.count - 1{
             let list = ChatListModal()
             list.message_ChatId = (data[index])["chatId"]as? String
-            list.message_lastMessage = (data[index])["lastMessage"]as? String
+            list.message_lastMessage = ((data[index])["lastMessage"]as? String)!.isEmpty ? "No message found" : (data[index])["lastMessage"]as? String
             list.message_RecieverImage = !(data[index]["profileImage"] is NSNull) ? (data[index])["profileImage"]as? String : ""
             list.message_Time = (data[index])["time"]as? String
-            list.message_RecieverName = (data[index])["userName"]as? String
+            list.message_RecieverName = ((data[index])["userName"]as? String)
             list.message_reciver_Id = (data[index])["userId"]as? String
             self.chatListModal.append(list)
         }
@@ -298,7 +302,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             bookingModal.booked_UserProfileImage = !(data[index]["profileImage"] is NSNull) ? (data[index])["profileImage"]as? String : ""
             bookingModal.booking_StorageId = (data[index])["storageId"]as? String
             bookingModal.user_id = (data[index])["hostId"]as? String
-            bookingModal.booking_UserName = (data[index])["hostName"]as? String
+            bookingModal.booking_UserName = ((data[index])["hostName"]as? String)
             bookingModal.booking_StorageName = (data[index])["hostStorageName"]as? String
             self.bookingRequestmodal.append(bookingModal)
         }
@@ -329,8 +333,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             self.getRequests()
             currentSegment = Strings_Const.request
             (segment.subviews[0] as UIView).tintColor = UIColor.red
-        }
-        else{
+        }else{
             print("Message API")
             self.messageList()
             currentSegment = Strings_Const.message

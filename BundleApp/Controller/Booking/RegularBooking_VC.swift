@@ -58,6 +58,19 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
     
     
     //MARK:- User Defined functions
+    func congratulationAlert(){
+        DispatchQueue.main.async {
+            let alertView = UIAlertController(title: NSLocalizedString(Strings_Const.app_Name, comment: ""), message: "Congratulations, You have successfully sent a request for booking this space. You will get notified once the host will approve your request.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+                print("action on the user bookked")
+                self.pushToTabBarController()
+            })
+            alertView.addAction(action)
+            self.present(alertView, animated: true, completion: nil)
+        }
+    }
+    
+    
     
     func validatio_For_Field(){
         guard let imageCountNotBeZero : Int = self.storageImageModal.count , imageCountNotBeZero != 0 else {
@@ -96,7 +109,7 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
     func bookingStorageResponse(data: [String : Any]) {
         print("Storage response \(data)")
         Indicator.shared.hideProgressView()
-        data["status"]as! Bool ? self.pushToPaymentController() : alert(message: data["message"]as! String, Controller: self)
+        data["status"]as! Bool ? self.congratulationAlert() : alert(message: data["message"]as! String, Controller: self)
         
     }
     

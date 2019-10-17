@@ -38,7 +38,7 @@ class MyBubbleViewCell: UITableViewCell {
         self.lbText!.text = data.text
         self.lbTime.text = data.date._stringFromDateFormat(Constants.Format.TIME)
 //        self.senderImage.image = data.userData.userProfileImage!
-        self.senderImage.setImageWith(URL(string : Constants.AppUrls.baseUrl + Constants.AppUrls.showImage + Singelton.sharedInstance.userDataModel.userProfilePic!  ), placeholderImage: UIImage(named: "app_Logo"))
+        self.senderImage.setImageWith(URL(string :  Singelton.sharedInstance.userDataModel.userProfilePic!  ), placeholderImage: UIImage(named: "app_Logo"))
     }
     
     @objc func longTap(sender : UIGestureRecognizer){
