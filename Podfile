@@ -18,6 +18,7 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod "ImageSlideshow/SDWebImage"
 pod 'Socket.IO-Client-Swift', '~> 13.2.0'
+pod 'BraintreeDropIn'
 
   # Pods for BundleApp
 

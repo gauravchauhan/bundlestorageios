@@ -33,7 +33,7 @@ class ChatViewController: UIViewController, LynnBubbleViewDataSource, GetChatHis
     
     var chatHistoryModal = [ChatListModal]()
     
-    //    var hostDetailModal = StorageListModal()
+//        var hostDetailModal = StorageListModal()
     
     //MARK:- Properties
     var chat_Array:Array<LynnBubbleData> = []

@@ -13,6 +13,8 @@ import GooglePlaces
 import RESideMenu
 import Fabric
 import Crashlytics
+import BraintreeDropIn
+import Braintree
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //Add the fb  and google signin to the app with the appID's
+        BTAppSwitch.setReturnURLScheme("com.jft.BundleApp.payments")
         GIDSignIn.sharedInstance().clientID = Constants.Google_Credentials.googleClient_id
         GMSServices.provideAPIKey("AIzaSyDdDIw3AV25HSDH2e9V6RfurCV4V1uu61k")
         GMSPlacesClient.provideAPIKey("AIzaSyB962fIXTbtjlO_pf5vFk1yYBBPCp5NGg8")
@@ -34,11 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("com.jft.BundleApp.payments") == .orderedSame {
+            return BTAppSwitch.handleOpen(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+        }
+        return false
+    }
+    
+    // If you support iOS 8, add the following method.
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        
-        //Register for social logins(Fb, Google)
-        
-        return (GIDSignIn.sharedInstance()?.handle(url as URL))!
+        if url.scheme?.localizedCaseInsensitiveCompare("com.jft.BundleApp.payments") == .orderedSame {
+            return BTAppSwitch.handleOpen(url, sourceApplication: sourceApplication) && (GIDSignIn.sharedInstance()?.handle(url as URL))!
+        }
+        return false
     }
     
     func application(application: UIApplication,
