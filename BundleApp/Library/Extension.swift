@@ -1215,9 +1215,11 @@ extension UIViewController {
         }
     }
     
-    func pushToPaymentController(){
+    func pushToPaymentController(storageId : String, bookingID : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentDetailController") as! PaymentDetailController
+            next.storageID = storageId
+            next.bookingID = bookingID
             self.navigationController?.pushViewController(next, animated: true)
         }
     }

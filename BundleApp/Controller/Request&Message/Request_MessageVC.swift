@@ -143,7 +143,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     func click_PayNow(_ cell: UITableViewCell, didPressButton: UIButton) {
         print("click Paynow")
-        self.pushToPaymentController()
+        self.pushToPaymentController(storageId: self.searchClick ? self.searchBookingModel[cell.tag].booking_StorageId! : self.bookingRequestmodal[cell.tag].booking_StorageId!, bookingID: self.searchClick ? self.searchBookingModel[cell.tag].booking_Id! : self.bookingRequestmodal[cell.tag].booking_Id!)
     }
     
     func click_Approved(_ cell: UITableViewCell, didPressButton: UIButton) {
@@ -300,7 +300,7 @@ class Request_MessageVC: UIViewController, UITableViewDataSource, UITableViewDel
             bookingModal.booking_Description = ""
             bookingModal.booking_Id = (data[index])["id"]as? String
             bookingModal.booked_UserProfileImage = !(data[index]["profileImage"] is NSNull) ? (data[index])["profileImage"]as? String : ""
-            bookingModal.booking_StorageId = (data[index])["storageId"]as? String
+            bookingModal.booking_StorageId = (data[index])["stoargeId"]as? String
             bookingModal.user_id = (data[index])["hostId"]as? String
             bookingModal.booking_UserName = ((data[index])["hostName"]as? String)
             bookingModal.booking_StorageName = (data[index])["hostStorageName"]as? String

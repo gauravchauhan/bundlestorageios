@@ -5191,7 +5191,7 @@
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="$7000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KZ-1D-XYQ">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KZ-1D-XYQ">
                                                                 <rect key="frame" x="145" y="2" width="197" height="26"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -5228,7 +5228,7 @@
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-$700" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpd-4i-0Sm">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpd-4i-0Sm">
                                                                 <rect key="frame" x="130" y="2" width="212" height="26"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -5265,7 +5265,7 @@
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+$700" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6a-kY-qE9">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6a-kY-qE9">
                                                                 <rect key="frame" x="113" y="2" width="229" height="26"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -5297,7 +5297,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="$7000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qe2-zm-lmt">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qe2-zm-lmt">
                                                                 <rect key="frame" x="81" y="2" width="266" height="26"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                                 <nil key="textColor"/>
@@ -5459,10 +5459,18 @@
                         <viewLayoutGuide key="safeArea" id="JGV-Sb-YhF"/>
                     </view>
                     <connections>
+                        <outlet property="Storage_Description" destination="fJM-D3-ePh" id="SCU-tF-2fs"/>
+                        <outlet property="address" destination="d8Q-dn-pgd" id="jBf-1a-9Yt"/>
                         <outlet property="agreeButton" destination="Bk3-wm-Zoe" id="IUQ-2W-kCS"/>
+                        <outlet property="bunndle_Fee_Price" destination="F6a-kY-qE9" id="Vir-ya-2gW"/>
                         <outlet property="dashedView" destination="aP9-lv-skn" id="riM-jS-oKg"/>
+                        <outlet property="discount_Price" destination="Mpd-4i-0Sm" id="UYP-Lv-Zim"/>
+                        <outlet property="duration" destination="dqY-QP-zws" id="Cew-LB-ItX"/>
+                        <outlet property="host_Discount" destination="Vex-cN-fJp" id="bPS-ET-SC8"/>
                         <outlet property="offerLabel" destination="Yu1-bH-ToB" id="fol-YI-CeX"/>
                         <outlet property="payNowButton" destination="zlb-9w-hI0" id="F3k-j6-8Pq"/>
+                        <outlet property="storag_Price" destination="9KZ-1D-XYQ" id="bAK-Vc-hqy"/>
+                        <outlet property="total_Price" destination="qe2-zm-lmt" id="bFR-vk-Pev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhz-fV-kg0" userLabel="First Responder" sceneMemberID="firstResponder"/>

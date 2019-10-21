@@ -10,16 +10,26 @@ import UIKit
 import BraintreeDropIn
 import Braintree
 
-class PaymentDetailController: UIViewController {
+class PaymentDetailController: UIViewController , StorageSummaryDelegate, GetClientTokenDelegate, SendNonceDelegate{
 
     //MARK:- Outlets
     @IBOutlet weak var dashedView: UIView!
     @IBOutlet weak var offerLabel: UILabel!
     @IBOutlet weak var agreeButton: UIButton!
     @IBOutlet weak var payNowButton: UIButton!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var Storage_Description: UILabel!
+    @IBOutlet weak var storag_Price: UILabel!
+    @IBOutlet weak var bunndle_Fee_Price: UILabel!
+    @IBOutlet weak var discount_Price: UILabel!
     
+    @IBOutlet weak var host_Discount: UILabel!
+    @IBOutlet weak var duration: UILabel!
+    @IBOutlet weak var total_Price: UILabel!
     
     var clientToken : String?
+    var storageID : String?
+    var bookingID : String?
     
     //MARK:- Properties
     let uncheckImage = UIImage(named: Image.CheckBox_Blank)
@@ -40,13 +50,53 @@ class PaymentDetailController: UIViewController {
         payNowButton.alpha = 0.5
         offerLabel.font = offerLabel.font.italic
         setBackButtonWithTitle(title: "Summary")
-        fetchClientToken()
+        let param = "storageId=\(String(describing: self.storageID! ))&id=\(String(describing: self.bookingID!))"
+        print("Param \(param)")
+        Indicator.shared.showProgressView(self.view)
+        Singelton.sharedInstance.service.storageSummaryDelegate = self
+        Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.storageSummery, api_Type: apiType.POST.rawValue)
     }
     
     
+    func sendNonceResponse(data: [String : Any]) {
+        print("sendNonceResponse   \(data)")
+    }
+    
+    func getClientTokenResponse(data: [String : Any]) {
+        print("vgetClientTokenResponse   \(data)")
+        Indicator.shared.hideProgressView()
+        data["status"]as! Bool ? DispatchQueue.main.async {
+            (self.clientToken = data["clientToken"]as? String);
+            self.showDropIn(clientTokenOrTokenizationKey: self.clientToken!)
+            } : nil
+    }
+    
+    
+    func storageSummaryResponse(data: [String : Any]) {
+        Indicator.shared.hideProgressView()
+        print("storageSummaryResponse   \(data)")
+        if data["status"]as! Bool{
+            DispatchQueue.main.async {
+                
+                self.host_Discount.text! = "(" + ((data["storageDetail"]as! [String : Any])["discount"]as! String) + "%)"
+                self.duration.text! = "Duration: " + ((data["storageDetail"]as! [String : Any])["duration"]as! String)
+                self.address.text! = (data["storageDetail"]as! [String : Any])["address"]as! String
+                self.Storage_Description.text! = (data["storageDetail"]as! [String : Any])["description"]as! String
+                self.storag_Price.text! = "$" + "\((data["storageDetail"]as! [String : Any])["storageprice"]as! Double)"
+                self.bunndle_Fee_Price.text! = "+$" + "\((data["storageDetail"]as! [String : Any])["bunDleCharge"]as! Double)"
+                
+                let totalValaue = (data["storageDetail"]as! [String : Any])["totalprice"]as! CGFloat
+                let total_Price = String(format: "%.2f", totalValaue)
+                self.total_Price.text! = "$" + "\(total_Price)"
+                self.discount_Price.text! = "-$" + "\((data["storageDetail"]as! [String : Any])["discountprice"]as! Double)"
+            }
+        }
+    }
     
     @IBAction func payNowButtonClicked(_ sender: UIButton) {
-        self.showDropIn(clientTokenOrTokenizationKey: self.clientToken!)
+        Indicator.shared.showProgressView(self.view)
+        Singelton.sharedInstance.service.getClientTokenDelegate = self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.client_token, api_Type: apiType.GET.rawValue)
     }
     
     @IBAction func agreeButtonClicked(_ sender: UIButton) {
@@ -63,29 +113,8 @@ class PaymentDetailController: UIViewController {
     
     //MARK:- Brain tree dropin function
     
-    
-    func fetchClientToken() {
-        // TODO: Switch this URL to your own authenticated API
-        let clientTokenURL = NSURL(string: "https://braintree-sample-merchant.herokuapp.com/client_token")!
-        let clientTokenRequest = NSMutableURLRequest(url: clientTokenURL as URL)
-        clientTokenRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
-        
-        URLSession.shared.dataTask(with: clientTokenRequest as URLRequest) { (data, response, error) -> Void in
-            // TODO: Handle errors
-            Indicator.shared.hideProgressView()
-            self.clientToken = String(data: data!, encoding: String.Encoding.utf8)
-            print("clientToken   \(String(describing: self.clientToken))")
-            //            self.showDropIn(clientTokenOrTokenizationKey: clientToken!)
-            // As an example, you may wish to present Drop-in at this point.
-            // Continue to the next section to learn more...
-            }.resume()
-    }
-    
     func showDropIn(clientTokenOrTokenizationKey: String) {
         let request =  BTDropInRequest()
-        //        request.applePayDisabled = true
-        print("client token \(clientTokenOrTokenizationKey)")
-        
         let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
         { (controller, result, error) in
             if (error != nil) {
@@ -94,7 +123,11 @@ class PaymentDetailController: UIViewController {
                 print("CANCELLED")
             } else if let result = result {
                 // Use the BTDropInResult properties to update your UI
-                print("result \(String(describing: result.paymentMethod?.nonce))")
+                print("result \(String(describing: result.paymentMethod!.nonce))")
+                let param = "paymentMethodNonce=\(String(describing: result.paymentMethod!.nonce ))&amount=\(String(describing: self.total_Price.text! ))"
+                print("Param \(param)")
+                Singelton.sharedInstance.service.sendNonceDelegate = self
+                Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.sendNonce, api_Type: apiType.POST.rawValue)
             }
             controller.dismiss(animated: true, completion: nil)
         }

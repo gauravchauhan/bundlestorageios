@@ -82,6 +82,14 @@ protocol SubmitReviewDelegate {
     func submitReviewResponse(data : [String : Any])
 }
 
+protocol StorageSummaryDelegate {
+    func storageSummaryResponse(data : [String : Any])
+}
+
+protocol SendNonceDelegate {
+    func sendNonceResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -104,6 +112,9 @@ protocol GetChatListDelegate {
     func getChatListResponse(data : [String : Any])
 }
 
+protocol GetClientTokenDelegate {
+    func getClientTokenResponse(data : [String : Any])
+}
 
 //MARK: Start Class
 
@@ -131,6 +142,8 @@ class Service{
     var getChatHistoryDelegate : GetChatHistoryDelegate!
     var createChatDelegate : CreateChatDelegate!
     var submitReviewDelegate : SubmitReviewDelegate!
+    var storageSummaryDelegate : StorageSummaryDelegate!
+    var sendNonceDelegate : SendNonceDelegate!
     
     
     //MARK:- Get Delegates varriables
@@ -139,6 +152,7 @@ class Service{
     var getUpcomingBookinRequestDelegate : GetUpcomingBookinRequestDelegate!
     var userBookinRequestDelegate : UserBookinRequestDelegate!
     var getChatListDelegate : GetChatListDelegate!
+    var getClientTokenDelegate : GetClientTokenDelegate!
     
     //MARK:- Post method
     
@@ -364,6 +378,12 @@ class Service{
             self.createChatDelegate.createChatResponse(data: response)
         case Constants.AppUrls.submitReview:
             self.submitReviewDelegate.submitReviewResponse(data: response)
+        case Constants.AppUrls.storageSummery:
+            self.storageSummaryDelegate.storageSummaryResponse(data: response)
+        case Constants.AppUrls.client_token:
+            self.getClientTokenDelegate.getClientTokenResponse(data: response)
+        case Constants.AppUrls.sendNonce:
+            self.sendNonceDelegate.sendNonceResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }
