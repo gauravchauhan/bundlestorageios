@@ -39,6 +39,7 @@
 "Describe what you will be using the space?" = "Tell us a little about the purposes of your rental";
 "Booking includes whole space listed, or something of that style." = "Booking includes whole space listed, or something of that style.";
 "Message can't be empty" = "Message can't be empty";
+"Select start date first."= "Select start date first.";
 
 "Small item" = "Small item";
 "Medium item" = "Medium item";
@@ -58,8 +59,10 @@
 "Switch to a user" = "Switch to a user";
 "Switch to a host" = "Switch to a host";
 "My Earnings" = "My Earnings";
+"My Savings" = "My Savings";
 "Request" = "Request";
 "Message" = "Message";
+"My Storage" = "My Storage";
 "logout" = "Logout";
 "Something error" = "Something error, Please try again";
 
@@ -72,6 +75,7 @@
 "User Licensing Agreement" = "User Licensing Agreement";
 "FAQ's" = "FAQ's";
 "Web Link" = "Web Link";
+"Goverment ID" = "Goverment ID";
 
 
 //Enter Storage Name

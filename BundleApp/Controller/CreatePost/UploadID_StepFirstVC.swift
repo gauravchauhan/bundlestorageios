@@ -14,10 +14,14 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
     
     var imagePicker : ImagePiker!
     var imageData : NSData!
+    var comingFromSettings : Bool?
+    
+    
     @IBOutlet weak var caption: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.comingFromSettings! ? self.proof_Image.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userIDProofURL!), placeholderImage: UIImage(named: "app_Logo")) : nil
         self.navigationController?.isNavigationBarHidden = false
         self.setRightBarButtonItems(Step: "01")
         self.setBackButtonWithTitle(title: "Create")
@@ -25,6 +29,10 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
         let tapUploadImage = UITapGestureRecognizer(target: self, action: #selector(self.clickImageButton))
         self.proof_Image.isUserInteractionEnabled = true
         self.proof_Image.addGestureRecognizer(tapUploadImage)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
     }
     
     //MARK:- Delgate
@@ -38,7 +46,8 @@ class UploadID_StepFirstVC: UIViewController, SelectedImage , UploadIDProofDeleg
             let location = (uploadResponse["location"]as! [String : Any]).nullKeyRemoval()
             uploadResponse.updateValue( location , forKey: "location")
             UserDefaults.standard.set(uploadResponse , forKey: "userData");
-            Singelton.sharedInstance.setUserData(data: uploadResponse); self.pushToSpaceSelectController()
+            Singelton.sharedInstance.setUserData(data: uploadResponse);
+            !self.comingFromSettings! ?  self.pushToSpaceSelectController() : self.click_BackButton()
         }  : alert(message: data["message"]as! String, Controller: self)
     }
     

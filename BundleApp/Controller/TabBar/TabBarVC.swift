@@ -12,7 +12,35 @@ class TabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.click_MenuItems), name: NSNotification.Name(rawValue:"Click_MenuItems"), object: nil)
         self.addDrawerButton()
         self.setNotification_FilterButton()
     }
+    
+    
+    @objc  func click_MenuItems(notification: Notification){
+        print("Click menu items  \((notification.userInfo! as NSDictionary))")
+        switch (notification.userInfo! as! [String : Any])["click_Items"]as! Int {
+        case 0:
+            self.selectedIndex = 2
+        case 1:
+            self.pushToReferalController()
+            print("refer")
+        case 2:
+            self.pushToSettingsController()
+            print("support")
+        case 3:
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? print("switch to User") : print("switch to host")
+        case 4:
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ?  print("Earnings") : print("savings")
+        case 5:
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToMyStorageListController() : self.logout_Click()
+        case 6:
+            self.logout_Click()
+            print("Logout")
+        default:
+            print("default")
+        }
+    }
+    
 }

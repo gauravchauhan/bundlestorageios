@@ -40,7 +40,7 @@ class LeftMenuViewController: UIViewController {
     
     lazy var userName: UILabel = {
         let name = UILabel()
-        name.text = Singelton.sharedInstance.userDataModel.userFirstName! + " "  + Singelton.sharedInstance.userDataModel.userLastName!
+        name.text = Singelton.sharedInstance.userDataModel.userFirstName!.capitalized + " "  + Singelton.sharedInstance.userDataModel.userLastName!.capitalized
         print("tableView.x   \(tableView.x)")
         name.frame = CGRect(x: self.view.frame.width - 210  , y: imageView.y + imageView.height + 2, width: 200 , height: 50)
         name.font = UIFont(name: Constants.fonts.ProximaNova_Semibold, size: 22)
@@ -111,15 +111,10 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Select option form the side menu ")
-        
+        let clickItemsInfo = ["click_Items" : indexPath.row ]
+        NotificationCenter.default.post(name: Notification.Name(rawValue:"Click_MenuItems"), object: nil, userInfo: clickItemsInfo)
         if Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER"{
             switch indexPath.row {
-            case 0:
-                print("profile")
-            case 1:
-                print("refer")
-            case 2:
-                print("support")
             case 3:
                 print("switch to HOST \(UserDefaults.standard.value(forKey: "userData") as! [String : Any])")
                 var userData = UserDefaults.standard.value(forKey: "userData") as! [String : Any]
@@ -135,13 +130,6 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }else{
             switch indexPath.row {
-            case 0:
-                print("profile")
-            case 1:
-                print("refer")
-//                pushToReferalController()
-            case 2:
-                print("support")
             case 3:
                 print("switch to user \(UserDefaults.standard.value(forKey: "userData") as! [String : Any])")
                 var userData = UserDefaults.standard.value(forKey: "userData") as! [String : Any]
@@ -153,8 +141,6 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.frame = CGRect(x: self.view.frame.width - 200, y: 300, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
                 self.tableView.reloadData()
                 NotificationCenter.default.post(name: Notification.Name(rawValue:"Switch_User"), object: nil, userInfo: nil)
-            case 4:
-                print("switch to user")
             default:
                 print("default")
             }

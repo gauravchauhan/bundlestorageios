@@ -7,7 +7,7 @@ struct Constants {
      */
     //http://bundle.teamjft.com
     struct AppUrls{
-        static let baseUrl = "http://84f7607e.ngrok.io"
+        static let baseUrl = "http://bundle.teamjft.com"
         static let getListType = "/getListingType"
         static let getAmenities = "/getAmenities"
         static let login = "/login"
@@ -35,7 +35,9 @@ struct Constants {
         static let storageSummery = "/storageSummery"
         static let client_token = "/client_token"
         static let sendNonce = "/checkout"
-        //checkout
+        static let idProof_Status = "/getIdproofStatus"
+        static let hostStorageList = "/hostStorageList"
+        //hostStorageList
 
     }
     
@@ -111,6 +113,8 @@ struct Strings_Const{
     static let switch_User = NSLocalizedString("Switch to a user", comment: "")
     static let switch_Host = NSLocalizedString("Switch to a host", comment: "")
     static let earnings = NSLocalizedString("My Earnings", comment: "")
+    static let savings = NSLocalizedString("My Savings", comment: "")
+    static let my_storage = NSLocalizedString("My Storage", comment: "")
     static let logout = NSLocalizedString("logout", comment: "")
     static let someError = NSLocalizedString("Something error", comment: "")
     static let per_Day = NSLocalizedString("Enter per day price", comment: "")
@@ -122,6 +126,7 @@ struct Strings_Const{
     static let min_Image = NSLocalizedString("Minimum image", comment: "")
     static let describe_What_Space = NSLocalizedString("Describe what you will be using the space?", comment: "")
     static let storage_Book_Message = NSLocalizedString(" Booking includes whole space listed, or something of that style.", comment: "")
+    static let select_StartDate = NSLocalizedString( "Select start date first.", comment: "")
     
     static let small_item = NSLocalizedString( "Small item", comment: "")
     static let medium_item = NSLocalizedString( "Medium item", comment: "")
@@ -134,7 +139,8 @@ struct Strings_Const{
     static let select_start_date = NSLocalizedString( "Select start date", comment: "")
     static let select_end_date = NSLocalizedString( "Select end date", comment: "")
     static let message_empty = NSLocalizedString( "Message can't be empty", comment: "")
-    //"Select start date" = "Select start date";
+    
+    //"My Storage"
 
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")
@@ -143,14 +149,18 @@ struct Strings_Const{
         refer ,
         support ,
         switch_User,
-        earnings
+        earnings,
+        my_storage,
+        logout
     ]
     
     static let SideBarMenuItems_User = [
         profile ,
         refer ,
         support ,
-        switch_Host
+        switch_Host,
+        savings,
+        logout
     ]
     
     
@@ -160,7 +170,8 @@ struct Strings_Const{
      "Privacy Policy" = "Privacy Policy";
      "User Licensing Agreement" = "User Licensing Agreement";
      "FAQ's" = "FAQ's";
-     "Web Link" = "Web Link";*/
+     "Web Link" = "Web Link"
+     Goverment ID;*/
     
     static let setting_Support = NSLocalizedString( "Support", comment: "")
     static let setting_Community = NSLocalizedString( "Community guidlines", comment: "")
@@ -169,8 +180,10 @@ struct Strings_Const{
     static let setting_License = NSLocalizedString( "User Licensing Agreement", comment: "")
     static let setting_FAQ = NSLocalizedString( "FAQ's", comment: "")
     static let setting_WebLink = NSLocalizedString( "Web Link", comment: "")
+    static let setting_GovermentId = NSLocalizedString( "Goverment ID", comment: "")
     
     static let Settings_Items = [
+        setting_GovermentId,
         setting_Support ,
         setting_Community ,
         setting_Terms ,

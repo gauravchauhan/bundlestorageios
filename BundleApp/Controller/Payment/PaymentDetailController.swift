@@ -124,7 +124,7 @@ class PaymentDetailController: UIViewController , StorageSummaryDelegate, GetCli
             } else if let result = result {
                 // Use the BTDropInResult properties to update your UI
                 print("result \(String(describing: result.paymentMethod!.nonce))")
-                let param = "paymentMethodNonce=\(String(describing: result.paymentMethod!.nonce ))&amount=\(String(describing: self.total_Price.text! ))"
+                let param = "paymentMethodNonce=\(String(describing: result.paymentMethod!.nonce ))&amount=\(String(describing: self.total_Price.text!.replacingOccurrences(of: "$", with: "") ))"
                 print("Param \(param)")
                 Singelton.sharedInstance.service.sendNonceDelegate = self
                 Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.sendNonce, api_Type: apiType.POST.rawValue)

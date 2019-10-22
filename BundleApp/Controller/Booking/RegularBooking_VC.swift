@@ -119,10 +119,15 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
             self.startDate =  self.datePicker.datePicker.date
             self.startDateTextField.text! = "\(self.datePicker.datePicker.date)".dateConversion (requiredFormat: "MM/dd/yyyy" , comingFormat: "yyyy-MM-dd HH:mm:ss Z").0
         }else{
-            print("date validate check \(self.datePicker.datePicker.date > self.startDate)")
-            (self.datePicker.datePicker.date > self.startDate) ? DispatchQueue.main.async {
-                (self.endDatetextField.text! = "\(self.datePicker.datePicker.date)".dateConversion (requiredFormat: "MM/dd/yyyy" , comingFormat: "yyyy-MM-dd HH:mm:ss Z").0); (self.endDate =  self.datePicker.datePicker.date)
-                } : alert(message: Strings_Const.end_date , Controller: self)
+            if self.startDate != nil {
+                print("date validate check \(self.datePicker.datePicker.date > self.startDate)")
+                (self.datePicker.datePicker.date > self.startDate) ? DispatchQueue.main.async {
+                    (self.endDatetextField.text! = "\(self.datePicker.datePicker.date)".dateConversion (requiredFormat: "MM/dd/yyyy" , comingFormat: "yyyy-MM-dd HH:mm:ss Z").0); (self.endDate =  self.datePicker.datePicker.date)
+                    } : alert(message: Strings_Const.end_date , Controller: self)
+            }else{
+                alert(message: Strings_Const.select_StartDate, Controller: self)
+            }
+            
         }
         self.cancelBtnPressed()
     }

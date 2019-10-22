@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Regular.ttf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" rowHeight="77" id="xxa-ZS-xfL" customClass="SettingsTableViewCell" customModule="BundleApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="459" height="77"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xxa-ZS-xfL" id="SNm-7T-0OK">
+                <rect key="frame" x="0.0" y="0.0" width="459" height="76.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK8-0x-aw8" customClass="MDCCard">
+                        <rect key="frame" x="15" y="12" width="429" height="52"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgu-FW-vtk">
+                        <rect key="frame" x="15" y="12" width="429" height="52"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwm-VD-oiY">
+                                <rect key="frame" x="10" y="13" width="409" height="26"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved/Deneid" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If5-Sh-ZKJ">
+                                <rect key="frame" x="283.5" y="17" width="117.5" height="18"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pending" translatesAutoresizingMaskIntoConstraints="NO" id="M77-hS-HXc">
+                                <rect key="frame" x="404" y="14" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="71R-D5-0FN"/>
+                                    <constraint firstAttribute="height" constant="25" id="pON-P1-s19"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rwm-VD-oiY" firstAttribute="centerY" secondItem="fgu-FW-vtk" secondAttribute="centerY" id="KKt-Uz-t9C"/>
+                            <constraint firstAttribute="bottom" secondItem="M77-hS-HXc" secondAttribute="bottom" constant="13" id="KOB-en-baf"/>
+                            <constraint firstAttribute="trailing" secondItem="Rwm-VD-oiY" secondAttribute="trailing" constant="10" id="Nvh-BB-KfX"/>
+                            <constraint firstAttribute="bottom" secondItem="If5-Sh-ZKJ" secondAttribute="bottom" constant="17" id="WLr-u1-7ac"/>
+                            <constraint firstItem="Rwm-VD-oiY" firstAttribute="top" secondItem="fgu-FW-vtk" secondAttribute="top" constant="13" id="bc5-fS-u5l"/>
+                            <constraint firstItem="M77-hS-HXc" firstAttribute="leading" secondItem="If5-Sh-ZKJ" secondAttribute="trailing" constant="3" id="mfM-fN-fgj"/>
+                            <constraint firstItem="M77-hS-HXc" firstAttribute="top" secondItem="fgu-FW-vtk" secondAttribute="top" constant="14" id="ohN-Ea-dNb"/>
+                            <constraint firstItem="Rwm-VD-oiY" firstAttribute="leading" secondItem="fgu-FW-vtk" secondAttribute="leading" constant="10" id="stb-PX-OGE"/>
+                            <constraint firstItem="If5-Sh-ZKJ" firstAttribute="top" secondItem="fgu-FW-vtk" secondAttribute="top" constant="17" id="xdd-Op-wvX"/>
+                            <constraint firstAttribute="trailing" secondItem="M77-hS-HXc" secondAttribute="trailing" id="yn2-jq-nxN"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="width" secondItem="nK8-0x-aw8" secondAttribute="width" id="6Vl-fz-tCG"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="trailing" secondItem="nK8-0x-aw8" secondAttribute="trailing" id="BIq-wY-cKB"/>
+                    <constraint firstAttribute="trailing" secondItem="fgu-FW-vtk" secondAttribute="trailing" constant="15" id="Qa5-vL-yUU"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="height" secondItem="nK8-0x-aw8" secondAttribute="height" id="RXc-aw-85I"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="top" secondItem="nK8-0x-aw8" secondAttribute="top" id="aaE-H3-ntl"/>
+                    <constraint firstAttribute="bottom" secondItem="fgu-FW-vtk" secondAttribute="bottom" constant="12.5" id="jdi-1F-6K2"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="top" secondItem="SNm-7T-0OK" secondAttribute="top" constant="12" id="lcC-IH-iRy"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="leading" secondItem="SNm-7T-0OK" secondAttribute="leading" constant="15" id="m4f-Ep-Iqs"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="leading" secondItem="nK8-0x-aw8" secondAttribute="leading" id="oPd-Mw-plw"/>
+                    <constraint firstItem="fgu-FW-vtk" firstAttribute="bottom" secondItem="nK8-0x-aw8" secondAttribute="bottom" id="yUM-X0-fyu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="settingTitle" destination="Rwm-VD-oiY" id="iIU-LM-GmB"/>
+                <outlet property="status" destination="If5-Sh-ZKJ" id="jGb-9e-OCP"/>
+                <outlet property="statusImage" destination="M77-hS-HXc" id="3JN-m2-8v1"/>
+            </connections>
+            <point key="canvasLocation" x="-502" y="17"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Pending" width="30" height="30"/>
+    </resources>
+</document>

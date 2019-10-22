@@ -10,6 +10,9 @@
 		1E144DF02341CEC100255E39 /* StorageImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E144DEF2341CEC100255E39 /* StorageImageModal.swift */; };
 		1E15CAF2232CC16200BF56D3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15CAF1232CC16200BF56D3 /* Service.swift */; };
 		1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AC329230BC1C800CF2373 /* SignUpVC.swift */; };
+		1E3C185C235F0F0E00AB83D0 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E3C185B235F0F0E00AB83D0 /* SettingsCell.xib */; };
+		1E3C185E235F109800AB83D0 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C185D235F109800AB83D0 /* SettingsTableViewCell.swift */; };
+		1E3C1860235F31CC00AB83D0 /* MyStorageListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C185F235F31CC00AB83D0 /* MyStorageListVC.swift */; };
 		1E573441230BF68F00CB4EF6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573440230BF68F00CB4EF6 /* SignInVC.swift */; };
 		1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */; };
 		1E573446230C07B900CB4EF6 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */; };
@@ -127,6 +130,9 @@
 		1E144DEF2341CEC100255E39 /* StorageImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageImageModal.swift; sourceTree = "<group>"; };
 		1E15CAF1232CC16200BF56D3 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1E2AC329230BC1C800CF2373 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		1E3C185B235F0F0E00AB83D0 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		1E3C185D235F109800AB83D0 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		1E3C185F235F31CC00AB83D0 /* MyStorageListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStorageListVC.swift; sourceTree = "<group>"; };
 		1E573440230BF68F00CB4EF6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		1E573443230C040400CB4EF6 /* EnterVerificationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeVC.swift; sourceTree = "<group>"; };
 		1E573445230C07B900CB4EF6 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -460,6 +466,8 @@
 				1ECA47AC230FC71C00FC939D /* HostListTableViewCell.swift */,
 				1E84DA75233C8A21005FC68B /* UploadImage.xib */,
 				1E84DA77233C9116005FC68B /* UploadImageCell.swift */,
+				1E3C185B235F0F0E00AB83D0 /* SettingsCell.xib */,
+				1E3C185D235F109800AB83D0 /* SettingsTableViewCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -583,6 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				F90BD163231FD9BB00916512 /* SingleListingViewController.swift */,
+				1E3C185F235F31CC00AB83D0 /* MyStorageListVC.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -720,6 +729,7 @@
 				1EB80ECA23012E1800D0FCB4 /* Assets.xcassets in Resources */,
 				F9C86F2423194A11006B6E90 /* MyBubbleViewCell.xib in Resources */,
 				1EB80EFC2301479B00D0FCB4 /* ProximaNova-Bold.ttf in Resources */,
+				1E3C185C235F0F0E00AB83D0 /* SettingsCell.xib in Resources */,
 				1EB80F012301479B00D0FCB4 /* ProximaNova-Regular.ttf in Resources */,
 				1EB80EFD2301479B00D0FCB4 /* ProximaNova-Extrabld.ttf in Resources */,
 				1ECA47AB230FC70400FC939D /* HostListCell.xib in Resources */,
@@ -825,6 +835,7 @@
 				1E573444230C040400CB4EF6 /* EnterVerificationCodeVC.swift in Sources */,
 				1EA6992A2317BB1300C50AE7 /* FeaturesVC.swift in Sources */,
 				1E573449230C0F8D00CB4EF6 /* UploadID_StepFirstVC.swift in Sources */,
+				1E3C185E235F109800AB83D0 /* SettingsTableViewCell.swift in Sources */,
 				1EA698D72314076F00C50AE7 /* StorageListModal.swift in Sources */,
 				F9215AE0232275850053385B /* RegularBooking_VC.swift in Sources */,
 				F90BD15F231FBDA100916512 /* UserFeedbackController.swift in Sources */,
@@ -861,6 +872,7 @@
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				F90BD167231FDEC000916512 /* PaymentStatusController.swift in Sources */,
+				1E3C1860235F31CC00AB83D0 /* MyStorageListVC.swift in Sources */,
 				1EB80EC323012E1700D0FCB4 /* AppDelegate.swift in Sources */,
 				1ECB609D235079B4001867B5 /* ReferalVC.swift in Sources */,
 				1EA6992C2317F52B00C50AE7 /* DiscountVC.swift in Sources */,

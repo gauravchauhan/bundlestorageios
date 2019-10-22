@@ -8,18 +8,25 @@
 
 import UIKit
 
-class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource , GetIdProofStatusDelegate{
     
     
     @IBOutlet weak var settingsList: UITableView!
+    var idProofStatus : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Singelton.sharedInstance.service.getIdProofStatusDelegate = self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.idProof_Status, api_Type: apiType.GET.rawValue)
         setBackButtonWithTitle(title: "Settings")
-        self.settingsList.register(UINib(nibName:"ListingCell" , bundle: nil), forCellReuseIdentifier: "ListingTableViewCell")
-        reloadSettingsList()
+        self.settingsList.register(UINib(nibName:"SettingsCell" , bundle: nil), forCellReuseIdentifier: "SettingsTableViewCell")
     }
     
+    func getIdProofStatusResponse(data: [String : Any]) {
+        print("getIdProofStatusResponse  \(data)")
+        !((data["user"]as! [String : Any])["isIdProofVerified"] is NSNull) ? ((data["user"]as! [String : Any])["isIdProofVerified"]as! Bool) ? (self.idProofStatus = "Verified") : (self.idProofStatus = "Deneid/Pending") : (self.idProofStatus = "Not Uploaded")
+        reloadSettingsList()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -28,13 +35,30 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return Strings_Const.Settings_Items.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.settingsList.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath)as! ListingTableViewCell
-        cell.typeName.text! = Strings_Const.Settings_Items[indexPath.row]
-        cell.generalView.isHidden = true
-        cell.generalView.isHidden = true
-        cell.check.isHidden = true
+        let cell = self.settingsList.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath)as! SettingsTableViewCell
+        cell.settingTitle.text! = Strings_Const.Settings_Items[indexPath.row]
+        
+        if indexPath.row == 0{
+            cell.status.isHidden = false
+            cell.statusImage.isHidden = false
+            self.idProofStatus == "Not Uploaded" ? DispatchQueue.main.async {
+                (cell.statusImage.image = UIImage(named: "upload"));(cell.status.text! = self.idProofStatus!)
+                } : self.idProofStatus == "Verified" ? DispatchQueue.main.async {
+                (cell.statusImage.image = UIImage(named: "Approved"));(cell.status.text! = self.idProofStatus!)
+                    } : DispatchQueue.main.async {
+                        (cell.statusImage.image = UIImage(named: "Pending"));(cell.status.text! = self.idProofStatus!)
+            }
+        }else{
+            cell.status.isHidden = true
+            cell.statusImage.isHidden = true
+        }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexPath.row == 0 ? self.pushToStep_FirstController(comingFromSettings: true) : nil
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 77

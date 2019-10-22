@@ -1095,9 +1095,10 @@ extension UIViewController {
     }
     
     
-    func pushToStep_FirstController(){
+    func pushToStep_FirstController(comingFromSettings : Bool){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "UploadID_StepFirstVC") as! UploadID_StepFirstVC
+            next.comingFromSettings =  comingFromSettings
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1264,6 +1265,12 @@ extension UIViewController {
     func pushToRatingController(){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "UserFeedbackController") as! UserFeedbackController
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    func pushToMyStorageListController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "MyStorageListVC") as! MyStorageListVC
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1437,11 +1444,11 @@ extension UIViewController {
         
         notificationBtn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         
-        notificationBtn.setImage(UIImage(named:"logout"), for: .normal)
+        notificationBtn.setImage(UIImage(named:"notification"), for: .normal)
         
         notificationBtn.setTitleColor(UIColor.black, for: .normal)
         
-        notificationBtn.addTarget(self, action: #selector(self.logout_Click), for: .touchUpInside)
+//        notificationBtn.addTarget(self, action: #selector(self.logout_Click), for: .touchUpInside)
         
         let notificationNavBtn = UIBarButtonItem.init(customView: notificationBtn)
         

@@ -116,6 +116,14 @@ protocol GetClientTokenDelegate {
     func getClientTokenResponse(data : [String : Any])
 }
 
+protocol GetIdProofStatusDelegate {
+    func getIdProofStatusResponse(data : [String : Any])
+}
+
+protocol GetHostStorageListDelegate {
+    func getHostStorageListResponse(data : [String : Any])
+}
+
 //MARK: Start Class
 
 class Service{
@@ -153,6 +161,8 @@ class Service{
     var userBookinRequestDelegate : UserBookinRequestDelegate!
     var getChatListDelegate : GetChatListDelegate!
     var getClientTokenDelegate : GetClientTokenDelegate!
+    var getIdProofStatusDelegate : GetIdProofStatusDelegate!
+    var getHostStorageListDelegate : GetHostStorageListDelegate!
     
     //MARK:- Post method
     
@@ -384,6 +394,10 @@ class Service{
             self.getClientTokenDelegate.getClientTokenResponse(data: response)
         case Constants.AppUrls.sendNonce:
             self.sendNonceDelegate.sendNonceResponse(data: response)
+        case Constants.AppUrls.idProof_Status:
+            self.getIdProofStatusDelegate.getIdProofStatusResponse(data: response)
+        case Constants.AppUrls.getStorageList:
+            self.getHostStorageListDelegate.getHostStorageListResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

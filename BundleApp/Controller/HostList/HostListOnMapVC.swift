@@ -285,7 +285,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     
     @IBAction func click_adStorageButton(_ sender: Any) {
         print("Singelton.sharedInstance.userDataModel.uploadIDProofStatus!    \(Singelton.sharedInstance.userDataModel.uploadIDProofStatus!)")
-        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToSpaceSelectController()  : self.pushToStep_FirstController()
+        Singelton.sharedInstance.userDataModel.uploadIDProofStatus! ? self.pushToSpaceSelectController()  : self.pushToStep_FirstController(comingFromSettings: false)
     }
 
 }
