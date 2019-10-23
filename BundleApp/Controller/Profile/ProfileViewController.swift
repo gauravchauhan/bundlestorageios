@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ClickRateDelegate {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ClickRateDelegate, GetUserBookingStatusesListDelegate {
     
     //MARK:- Outlets
     @IBOutlet weak var profileImage: UIImageView!
@@ -37,10 +37,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.profileImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         self.companyTitle.text! = Singelton.sharedInstance.userDataModel.userFirstName! + " " + Singelton.sharedInstance.userDataModel.userLastName!
         tableView.register(UINib(nibName: "StatusViewCell", bundle: nil), forCellReuseIdentifier: "StatusViewCell")
+        getUserBookingStatusList()
     }
     
     
     //MARK:- Delagate
+    
+    func getUserBookingStatusesResponse(data: [String : Any]) {
+        print("getUserBookingStatusesResponse   \(data)")
+    }
     
     
     func click_Rate(_ cell: UITableViewCell, didPressButton: UIButton) {
@@ -51,6 +56,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc  func SwitchUserObserverActions(notification: Notification){
         print("User Change")
         self.viewWillAppear(true)
+    }
+    
+    func getUserBookingStatusList(){
+        Singelton.sharedInstance.service.getUserBookingStatusesListDelegate = self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.userBookingStatuses, api_Type: apiType.GET.rawValue)
     }
     
 

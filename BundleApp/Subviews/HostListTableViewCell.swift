@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DeleteButtonDelegate {
+    func click_DeleteButton(_ cell: UITableViewCell, didPressButton: UIButton)
+}
+
 class HostListTableViewCell: UITableViewCell {
     
     //MARK:- Outlets
@@ -17,7 +21,9 @@ class HostListTableViewCell: UITableViewCell {
     @IBOutlet weak var spaceType: UILabel!
     @IBOutlet weak var hostName: UILabel!
     @IBOutlet weak var spaceDescription: UILabel!
+    @IBOutlet weak var deleteBttn: UIButton!
     
+    var delegate : DeleteButtonDelegate!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,4 +36,7 @@ class HostListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func deleteButton(_ sender: UIButton) {
+        delegate.click_DeleteButton(self, didPressButton: sender)
+    }
 }

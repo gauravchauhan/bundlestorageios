@@ -1275,6 +1275,14 @@ extension UIViewController {
         }
     }
     
+    func pushToThankYouController(summarymodal : SummaryModal){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentStatusController") as! PaymentStatusController
+            next.paymentDetailModal = summarymodal
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
 //    func pushToAddCardController(){
 //        DispatchQueue.main.async {
 //            let next = self.storyboard?.instantiateViewController(withIdentifier: "AddCardDetailVC") as! AddCardDetailVC

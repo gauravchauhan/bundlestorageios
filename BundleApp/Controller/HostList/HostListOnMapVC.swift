@@ -129,6 +129,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.hostList.dequeueReusableCell(withIdentifier: "HostListTableViewCell", for: indexPath)as! HostListTableViewCell
+        cell.deleteBttn.isHidden = true
         cell.spaceName.text! = self.storageModal[indexPath.row].storageName!
         cell.hostName.text! = self.storageModal[indexPath.row].storageName!
         cell.spaceType.text! = self.storageModal[indexPath.row].storageType!.capitalized

@@ -124,6 +124,10 @@ protocol GetHostStorageListDelegate {
     func getHostStorageListResponse(data : [String : Any])
 }
 
+protocol GetUserBookingStatusesListDelegate {
+    func getUserBookingStatusesResponse(data : [String : Any])
+}
+
 //MARK: Start Class
 
 class Service{
@@ -163,6 +167,7 @@ class Service{
     var getClientTokenDelegate : GetClientTokenDelegate!
     var getIdProofStatusDelegate : GetIdProofStatusDelegate!
     var getHostStorageListDelegate : GetHostStorageListDelegate!
+    var getUserBookingStatusesListDelegate : GetUserBookingStatusesListDelegate!
     
     //MARK:- Post method
     
@@ -317,6 +322,7 @@ class Service{
                     return
                 }
                 let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                print("responseJSON   \(responseJSON)")
                 if let dictionary = responseJSON as? [String: Any] {
                     self.returnResponseToDelegate(apiName: apiName, response: dictionary)
                 }
@@ -396,8 +402,10 @@ class Service{
             self.sendNonceDelegate.sendNonceResponse(data: response)
         case Constants.AppUrls.idProof_Status:
             self.getIdProofStatusDelegate.getIdProofStatusResponse(data: response)
-        case Constants.AppUrls.getStorageList:
+        case Constants.AppUrls.hostStorageList:
             self.getHostStorageListDelegate.getHostStorageListResponse(data: response)
+        case Constants.AppUrls.userBookingStatuses:
+            self.getUserBookingStatusesListDelegate.getUserBookingStatusesResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

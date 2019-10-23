@@ -28,6 +28,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     @IBOutlet weak var storage_LengthWidth: UILabel!
     @IBOutlet weak var requestStorageButton: TGFlingActionButton!
     @IBOutlet weak var availablity: UILabel!
+    @IBOutlet weak var book_MessageView: UIStackView!
     
     //MARK:- PROPERTIES
     var detailModal = StorageListModal()
@@ -40,6 +41,7 @@ class DetailViewController: UIViewController, NWSTokenDataSource, NWSTokenDelega
     
     var storageListID : String!
     var chatId : String!
+    var comingFromMyStorage : Bool = false
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
