@@ -19,6 +19,8 @@ pod 'Crashlytics'
 pod "ImageSlideshow/SDWebImage"
 pod 'Socket.IO-Client-Swift', '~> 13.2.0'
 pod 'BraintreeDropIn'
+pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
   # Pods for BundleApp
 

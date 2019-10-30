@@ -12,7 +12,6 @@ class PaymentStatusController: UIViewController {
     
     
     @IBOutlet weak var startDate: UILabel!
-    
     @IBOutlet weak var hostImage: UIImageView!
     @IBOutlet weak var hostName: UILabel!
     @IBOutlet weak var stoargeAddress: UILabel!
@@ -25,9 +24,7 @@ class PaymentStatusController: UIViewController {
         setBackButtonWithTitle(title: " ");setPaymentData()
     }
     
-    
     func setPaymentData(){
-        print("setPaymentData  \(self.paymentDetailModal.storage_Address!)")
         DispatchQueue.main.async {
             self.stoargeAddress.text! = self.paymentDetailModal.storage_Address!
             self.hostName.text! = self.paymentDetailModal.storage_hostName!

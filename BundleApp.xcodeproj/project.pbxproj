@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0A64E52361B11900244EA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E0A64E42361B11900244EA1 /* GoogleService-Info.plist */; };
 		1E144DF02341CEC100255E39 /* StorageImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E144DEF2341CEC100255E39 /* StorageImageModal.swift */; };
 		1E15CAF2232CC16200BF56D3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15CAF1232CC16200BF56D3 /* Service.swift */; };
 		1E2AC32A230BC1C800CF2373 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AC329230BC1C800CF2373 /* SignUpVC.swift */; };
@@ -39,6 +40,7 @@
 		1E84DA76233C8A21005FC68B /* UploadImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E84DA75233C8A21005FC68B /* UploadImage.xib */; };
 		1E84DA78233C9116005FC68B /* UploadImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84DA77233C9116005FC68B /* UploadImageCell.swift */; };
 		1E84DA7A233CB6DF005FC68B /* UploadImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */; };
+		1E85147223608A9C00EEACD4 /* StatusesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85147123608A9C00EEACD4 /* StatusesModal.swift */; };
 		1E892A712345CC6A0023D4DF /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E892A6F2345CC6A0023D4DF /* DateTime.swift */; };
 		1E892A722345CC6A0023D4DF /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E892A702345CC6A0023D4DF /* DateTime.xib */; };
 		1E892A76234743A80023D4DF /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E892A75234743A80023D4DF /* EditProfileVC.swift */; };
@@ -128,6 +130,7 @@
 
 /* Begin PBXFileReference section */
 		121761E2CB17089D10EF81AB /* Pods-BundleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BundleApp.release.xcconfig"; path = "Target Support Files/Pods-BundleApp/Pods-BundleApp.release.xcconfig"; sourceTree = "<group>"; };
+		1E0A64E42361B11900244EA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E144DEF2341CEC100255E39 /* StorageImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageImageModal.swift; sourceTree = "<group>"; };
 		1E15CAF1232CC16200BF56D3 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1E2AC329230BC1C800CF2373 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 		1E84DA75233C8A21005FC68B /* UploadImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImage.xib; sourceTree = "<group>"; };
 		1E84DA77233C9116005FC68B /* UploadImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCell.swift; sourceTree = "<group>"; };
 		1E84DA79233CB6DF005FC68B /* UploadImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageModal.swift; sourceTree = "<group>"; };
+		1E85147123608A9C00EEACD4 /* StatusesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesModal.swift; sourceTree = "<group>"; };
+		1E8514832361AA0500EEACD4 /* BundleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BundleApp.entitlements; sourceTree = "<group>"; };
 		1E892A6F2345CC6A0023D4DF /* DateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		1E892A702345CC6A0023D4DF /* DateTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTime.xib; sourceTree = "<group>"; };
 		1E892A75234743A80023D4DF /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
@@ -358,6 +363,7 @@
 		1EB80EC123012E1700D0FCB4 /* BundleApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E8514832361AA0500EEACD4 /* BundleApp.entitlements */,
 				1EB80EF42301473200D0FCB4 /* Fonts */,
 				1EB80EED2301414E00D0FCB4 /* SkyFloating */,
 				1EB80EE423013CD300D0FCB4 /* CheckInterNetConnection */,
@@ -367,6 +373,7 @@
 				1EB80ED62301318800D0FCB4 /* KeyBoard */,
 				1EB80ED52301317A00D0FCB4 /* Modal */,
 				1EB80ED42301317400D0FCB4 /* Library */,
+				1E0A64E42361B11900244EA1 /* GoogleService-Info.plist */,
 				1EB80EC223012E1700D0FCB4 /* AppDelegate.swift */,
 				1EB80EC423012E1700D0FCB4 /* ViewController.swift */,
 				1EB80ECB23012E1800D0FCB4 /* LaunchScreen.storyboard */,
@@ -406,6 +413,7 @@
 				1E892A77234DE3E80023D4DF /* BookingRequestModal.swift */,
 				1E8EF6EF235589B100AB4478 /* ChatListModal.swift */,
 				1E3C186123603D4C00AB83D0 /* SummaryModal.swift */,
+				1E85147123608A9C00EEACD4 /* StatusesModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -692,6 +700,14 @@
 					1EB80EBE23012E1700D0FCB4 = {
 						CreatedOnToolsVersion = 10.3;
 						LastSwiftMigration = 1030;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -731,6 +747,7 @@
 				1EB80EFF2301479B00D0FCB4 /* ProximaNova-Light.ttf in Resources */,
 				1EB80ECA23012E1800D0FCB4 /* Assets.xcassets in Resources */,
 				F9C86F2423194A11006B6E90 /* MyBubbleViewCell.xib in Resources */,
+				1E0A64E52361B11900244EA1 /* GoogleService-Info.plist in Resources */,
 				1EB80EFC2301479B00D0FCB4 /* ProximaNova-Bold.ttf in Resources */,
 				1E3C185C235F0F0E00AB83D0 /* SettingsCell.xib in Resources */,
 				1EB80F012301479B00D0FCB4 /* ProximaNova-Regular.ttf in Resources */,
@@ -869,6 +886,7 @@
 				1EA698D52313ED1D00C50AE7 /* Location.swift in Sources */,
 				1EB80EC523012E1700D0FCB4 /* ViewController.swift in Sources */,
 				F9C86F1C23194A11006B6E90 /* LynnBubbleViewHeaderCell.swift in Sources */,
+				1E85147223608A9C00EEACD4 /* StatusesModal.swift in Sources */,
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E3C186223603D4C00AB83D0 /* SummaryModal.swift in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
@@ -1065,6 +1083,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BundleApp/BundleApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1091,6 +1110,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BundleApp/BundleApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = QM7SLXKDA5;
 				INFOPLIST_FILE = BundleApp/Info.plist;

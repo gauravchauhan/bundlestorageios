@@ -38,7 +38,8 @@ struct Constants {
         static let idProof_Status = "/getIdproofStatus"
         static let hostStorageList = "/hostStorageList"
         static let userBookingStatuses = "/userBookingDetailStatus"
-        //userBookingDetailStatus
+        static let hostStorageStatus = "/hostStorageStatus"
+        //hostStorageStatus
 
     }
     

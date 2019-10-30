@@ -128,6 +128,10 @@ protocol GetUserBookingStatusesListDelegate {
     func getUserBookingStatusesResponse(data : [String : Any])
 }
 
+protocol GetHostBookingStatusesListDelegate {
+    func getHostBookingStatusesResponse(data : [String : Any])
+}
+
 //MARK: Start Class
 
 class Service{
@@ -168,6 +172,7 @@ class Service{
     var getIdProofStatusDelegate : GetIdProofStatusDelegate!
     var getHostStorageListDelegate : GetHostStorageListDelegate!
     var getUserBookingStatusesListDelegate : GetUserBookingStatusesListDelegate!
+    var getHostBookingStatusesListDelegate : GetHostBookingStatusesListDelegate!
     
     //MARK:- Post method
     
@@ -297,8 +302,8 @@ class Service{
     func getService(apiName: String, api_Type : String){
         
         do {
-            try Network.reachability = Reachability(hostname: "www.google.com")
-            print("Network.reachability \(String(describing: Network.reachability.status))")
+//            try Network.reachability = Reachability(hostname: "www.google.com")
+//            print("Network.reachability \(String(describing: Network.reachability.status))")
             
             //            guard let networkStatus : String = "\(Network.reachability.status)",  networkStatus != "unreachable"else {
             //                print("Network error")
@@ -322,7 +327,7 @@ class Service{
                     return
                 }
                 let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                print("responseJSON   \(responseJSON)")
+//                print("responseJSON   \(responseJSON)")
                 if let dictionary = responseJSON as? [String: Any] {
                     self.returnResponseToDelegate(apiName: apiName, response: dictionary)
                 }
@@ -406,6 +411,8 @@ class Service{
             self.getHostStorageListDelegate.getHostStorageListResponse(data: response)
         case Constants.AppUrls.userBookingStatuses:
             self.getUserBookingStatusesListDelegate.getUserBookingStatusesResponse(data: response)
+        case Constants.AppUrls.hostStorageStatus:
+            self.getHostBookingStatusesListDelegate.getHostBookingStatusesResponse(data: response)
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

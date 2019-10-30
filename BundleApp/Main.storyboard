@@ -2774,11 +2774,23 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hk6-fo-rg5">
                                 <rect key="frame" x="0.0" y="356" width="414" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="5vX-Fw-JpU" id="Sbm-FH-RWT"/>
-                                    <outlet property="delegate" destination="5vX-Fw-JpU" id="U0V-0G-86T"/>
-                                </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2k-vU-Nrj">
+                                <rect key="frame" x="0.0" y="356" width="414" height="457"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVh-Jk-Z5G">
+                                        <rect key="frame" x="144.5" y="216.5" width="125.5" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MVh-Jk-Z5G" firstAttribute="centerY" secondItem="T2k-vU-Nrj" secondAttribute="centerY" id="4rc-Ib-vBm"/>
+                                    <constraint firstItem="MVh-Jk-Z5G" firstAttribute="centerX" secondItem="T2k-vU-Nrj" secondAttribute="centerX" id="pyo-Tj-DwV"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmz-IU-tHU">
                                 <rect key="frame" x="348" y="44" width="50" height="50"/>
                                 <constraints>
@@ -2809,10 +2821,14 @@
                             <constraint firstItem="nBM-4O-Am6" firstAttribute="trailing" secondItem="cmz-IU-tHU" secondAttribute="trailing" constant="16" id="Qzc-aX-vJa"/>
                             <constraint firstItem="wt7-cO-LEh" firstAttribute="leading" secondItem="nBM-4O-Am6" secondAttribute="leading" constant="20" id="XWO-Pf-kT8"/>
                             <constraint firstItem="Chk-0D-sDp" firstAttribute="centerX" secondItem="axe-mR-gOM" secondAttribute="centerX" id="XvR-g0-oki"/>
+                            <constraint firstItem="T2k-vU-Nrj" firstAttribute="leading" secondItem="hk6-fo-rg5" secondAttribute="leading" id="ZGB-vo-dUa"/>
                             <constraint firstItem="EYZ-Y0-Ttx" firstAttribute="top" secondItem="nBM-4O-Am6" secondAttribute="top" constant="99" id="aty-F2-Pww"/>
+                            <constraint firstItem="T2k-vU-Nrj" firstAttribute="trailing" secondItem="hk6-fo-rg5" secondAttribute="trailing" id="bu9-Or-XGz"/>
                             <constraint firstItem="EYZ-Y0-Ttx" firstAttribute="leading" secondItem="nBM-4O-Am6" secondAttribute="leading" constant="220" id="cAM-6k-yan"/>
                             <constraint firstItem="nBM-4O-Am6" firstAttribute="trailing" secondItem="4hV-J1-sZw" secondAttribute="trailing" constant="20" id="cJd-GX-C4Z"/>
+                            <constraint firstItem="T2k-vU-Nrj" firstAttribute="bottom" secondItem="hk6-fo-rg5" secondAttribute="bottom" id="f6R-c9-9CU"/>
                             <constraint firstItem="nBM-4O-Am6" firstAttribute="trailing" secondItem="6Rz-kQ-ezx" secondAttribute="trailing" constant="20" id="nBL-hx-c6h"/>
+                            <constraint firstItem="T2k-vU-Nrj" firstAttribute="top" secondItem="hk6-fo-rg5" secondAttribute="top" id="qGL-ba-hld"/>
                             <constraint firstItem="4hV-J1-sZw" firstAttribute="top" secondItem="EYZ-Y0-Ttx" secondAttribute="bottom" constant="7" id="sta-OK-Kz5"/>
                             <constraint firstItem="tQS-1a-AkI" firstAttribute="centerX" secondItem="axe-mR-gOM" secondAttribute="centerX" id="wfU-MW-thz"/>
                             <constraint firstItem="nBM-4O-Am6" firstAttribute="trailing" secondItem="wt7-cO-LEh" secondAttribute="trailing" constant="20" id="yfh-o6-lwT"/>
@@ -2825,6 +2841,7 @@
                     <connections>
                         <outlet property="acceptSingleItemSwitch" destination="Chk-0D-sDp" id="Yqs-oU-gSI"/>
                         <outlet property="companyTitle" destination="4hV-J1-sZw" id="6qZ-gn-bmq"/>
+                        <outlet property="noDataFoundView" destination="T2k-vU-Nrj" id="FB6-Kq-ZCj"/>
                         <outlet property="profileImage" destination="kr0-5B-qr4" id="1D1-PV-zcf"/>
                         <outlet property="ratingView" destination="v4c-MK-gbb" id="6CD-UQ-Txd"/>
                         <outlet property="singleItemAccept" destination="wt7-cO-LEh" id="Kqu-HE-HbR"/>
