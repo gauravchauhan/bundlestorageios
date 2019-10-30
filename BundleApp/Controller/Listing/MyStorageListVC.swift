@@ -46,7 +46,7 @@ class MyStorageListVC: UIViewController , GetHostStorageListDelegate, UITableVie
         cell.tag =  indexPath.row
         cell.spaceName.text! = self.myStorageModal[indexPath.row].storageName!
         cell.hostName.text! = self.myStorageModal[indexPath.row].storageName!
-        cell.spaceType.text! = self.myStorageModal[indexPath.row].storageType!.capitalized
+        cell.spaceType.text! = " " +  self.myStorageModal[indexPath.row].storageType!.capitalized + " "
         cell.spaceDescription.text! = "$" + self.myStorageModal[indexPath.row].storageDailyPrice! + " per day | $ " + self.myStorageModal[indexPath.row].storageWeeklyPrice! + " per week | $ " + self.myStorageModal[indexPath.row].storageMonthlyPrice! + " per month"
         cell.hostImage.setImageWith(URL(string : self.myStorageModal[indexPath.row].storageImage![0].imageURL! ), placeholderImage: UIImage(named: "app_Logo"))
         return cell

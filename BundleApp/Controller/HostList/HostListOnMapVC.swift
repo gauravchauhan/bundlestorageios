@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import Crashlytics
 
-class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate  , CurrentLocationDelegate, UISearchBarDelegate, FilterDataDelegate, FilterParameterDelgate, FilterButtonClick{
+class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSource, UIGestureRecognizerDelegate , GetStorageListDelegate  , CurrentLocationDelegate, UISearchBarDelegate, FilterDataDelegate, FilterParameterDelgate, FilterButtonClick, GMSMapViewDelegate{
     
     //MARK:- Outlets
     @IBOutlet weak var hostList: UITableView!
@@ -41,9 +41,58 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         Singelton.sharedInstance.location.setLatLong()
         Singelton.sharedInstance.location.current_Delegate = self
         Singelton.sharedInstance.location.getCurrentLocation()
+        storageMapView.delegate = self
     }
     
     //MARK:- Delagate
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        let storageInfoWindow = UIView(frame: CGRect.init(x: 0, y: 0, width: 310, height: 80))
+        storageInfoWindow.backgroundColor = UIColor.white
+        storageInfoWindow.cornerRadius = 10
+        storageInfoWindow.borderWidth = 1.0
+        storageInfoWindow.borderColor = UIColor(hex: Constants.Colors.textColor, alpha: 1.0)
+        storageInfoWindow.layer.cornerRadius = 6
+        print("Map view title \(String(describing: self.storageMapView.selectedMarker!.title!))")
+        let findIndex = self.storageModal.firstIndex(where: {
+            $0.storageName! == self.storageMapView.selectedMarker!.title!
+        })
+        
+        let storageImage = UIImageView(frame: CGRect.init(x: 8, y: 8, width: 40, height: 40))
+        storageImage.setImageWith(URL(string : self.storageModal[findIndex!].storageImage![0].imageURL! ), placeholderImage: UIImage(named: "app_Logo"))
+        storageInfoWindow.addSubview(storageImage)
+        
+        let storageName = UILabel(frame: CGRect.init(x: storageImage.x + storageImage.width + 5 , y: 8, width: view.frame.size.width - 16, height: 20))
+        storageName.textColor = UIColor(hex: Constants.Colors.textColor, alpha: 1.0)
+        storageName.text = "Storage Name: " + self.storageModal[findIndex!].storageHostName!
+        storageName.font  = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 14)
+        print("character count \(storageName.text!.count)")
+        let nameLength = storageName.text!.count - 13
+        print(nameLength)
+        storageName.attributedText = colorString(location: 13, length: nameLength , String: storageName.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
+        
+        storageInfoWindow.addSubview(storageName)
+        
+        let storageType = UILabel(frame: CGRect.init(x: storageName.x , y: storageName.y + storageName.height + 2, width: view.frame.size.width - 16, height: 20))
+        storageType.textColor = UIColor(hex: Constants.Colors.textColor, alpha: 1.0)
+        storageType.text = "Storage Type: " + self.storageModal[findIndex!].storageType!
+        storageType.font  = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 14)
+        let typeLength = storageType.text!.count - 13
+        print(typeLength)
+        storageType.attributedText = colorString(location: 13, length: typeLength , String: storageType.text!, Color: UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
+        storageInfoWindow.addSubview(storageType)
+        
+        
+        let storagePrice = UILabel(frame: CGRect.init(x: storageName.x , y: storageType.y + storageType.height , width: view.frame.size.width - 16, height: 20))
+        storagePrice.textColor = UIColor(hex: Constants.Colors.textColor, alpha: 1.0)
+//        storagePrice.backgroundColor = UIColor.red
+        storagePrice.font  = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 12)
+        storagePrice.numberOfLines = 3
+        storagePrice.text = "Price $" + self.storageModal[findIndex!].storageDailyPrice! + " per day | $ " + self.storageModal[findIndex!].storageWeeklyPrice! + " per week | $ " + self.storageModal[findIndex!].storageMonthlyPrice! + " per month"
+        storageInfoWindow.addSubview(storagePrice)
+        
+        return storageInfoWindow
+    }
     
     
     func filterClick() {
@@ -132,7 +181,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         cell.deleteBttn.isHidden = true
         cell.spaceName.text! = self.storageModal[indexPath.row].storageName!
         cell.hostName.text! = self.storageModal[indexPath.row].storageName!
-        cell.spaceType.text! = self.storageModal[indexPath.row].storageType!.capitalized
+        cell.spaceType.text! = " " + self.storageModal[indexPath.row].storageType!.capitalized + " "
         cell.spaceDescription.text! = "$" + self.storageModal[indexPath.row].storageDailyPrice! + " per day | $ " + self.storageModal[indexPath.row].storageWeeklyPrice! + " per week | $ " + self.storageModal[indexPath.row].storageMonthlyPrice! + " per month"
         cell.hostImage.setImageWith(URL(string : self.storageModal[indexPath.row].storageImage![0].imageURL! ), placeholderImage: UIImage(named: "app_Logo"))
         return cell

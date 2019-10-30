@@ -34,21 +34,21 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4I-65-iBb">
-                        <rect key="frame" x="79" y="23" width="70.5" height="17.5"/>
+                        <rect key="frame" x="79" y="23" width="80.5" height="19.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="16"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-Qi-ehC">
-                        <rect key="frame" x="79" y="44.5" width="276" height="16"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="13"/>
+                        <rect key="frame" x="79" y="46.5" width="276" height="18.5"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyj-yZ-LTY">
-                        <rect key="frame" x="79" y="64.5" width="276" height="16"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="13"/>
+                        <rect key="frame" x="79" y="69" width="276" height="18.5"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -62,15 +62,15 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GARAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMN-IV-oEm">
-                        <rect key="frame" x="155.5" y="23" width="47" height="15"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" GARAGE  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMN-IV-oEm">
+                        <rect key="frame" x="167.5" y="23" width="65.5" height="17.5"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.67843137254901964" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
+                                <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
@@ -92,7 +92,7 @@
                     <constraint firstAttribute="trailing" secondItem="hyj-yZ-LTY" secondAttribute="trailing" constant="20" id="I47-bX-aze"/>
                     <constraint firstItem="hyj-yZ-LTY" firstAttribute="leading" secondItem="Uxx-da-TpX" secondAttribute="trailing" constant="9" id="KwB-Vj-U9r"/>
                     <constraint firstAttribute="bottom" secondItem="UBB-9E-vY9" secondAttribute="bottom" id="LYv-nQ-0og"/>
-                    <constraint firstItem="cMN-IV-oEm" firstAttribute="leading" secondItem="V4I-65-iBb" secondAttribute="trailing" constant="6" id="MX9-Y5-fGQ"/>
+                    <constraint firstItem="cMN-IV-oEm" firstAttribute="leading" secondItem="V4I-65-iBb" secondAttribute="trailing" constant="8" id="MX9-Y5-fGQ"/>
                     <constraint firstItem="9Ji-Qi-ehC" firstAttribute="top" secondItem="V4I-65-iBb" secondAttribute="bottom" constant="4" id="RgJ-pT-a3H"/>
                     <constraint firstAttribute="trailing" secondItem="eUr-b6-ylm" secondAttribute="trailing" constant="10" id="Xt5-UX-JuB"/>
                     <constraint firstItem="Uxx-da-TpX" firstAttribute="top" secondItem="6T0-73-G0m" secondAttribute="top" constant="20" id="YT7-Yf-SlO"/>
