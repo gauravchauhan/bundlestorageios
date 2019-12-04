@@ -47,6 +47,21 @@ protocol BackButtonDelegate {
     func click_BackButton()
 }
 
+func generateQRCode(from string: String) -> UIImage? {
+    let data = string.data(using: String.Encoding.ascii)
+    
+    if let filter = CIFilter(name: "CIQRCodeGenerator") {
+        filter.setValue(data, forKey: "inputMessage")
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        
+        if let output = filter.outputImage?.transformed(by: transform) {
+            return UIImage(ciImage: output)
+        }
+    }
+    
+    return nil
+}
+
 let gradientLayer = CAGradientLayer()
 var filterButtonClickObserver : FilterButtonClick!
 
@@ -1262,9 +1277,11 @@ extension UIViewController {
         }
     }
     
-    func pushToRatingController(){
+    func pushToRatingController(storageId : String, userName : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "UserFeedbackController") as! UserFeedbackController
+            next.storageID = storageId
+            next.user_Name = userName
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1283,15 +1300,47 @@ extension UIViewController {
         }
     }
     
+    func pushToAddBankDetailController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "AddBankDetailVC") as! AddBankDetailVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToBookingHistory(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "BookingHistoryVC") as! BookingHistoryVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    func pushToQRCodeViewController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "MyQRViewController") as! MyQRViewController
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToScanQRCodeontroller(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "ScanQRVC") as! ScanQRVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToNOtificationListontroller(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "NotificationListVC") as! NotificationListVC
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
 //    func pushToAddCardController(){
 //        DispatchQueue.main.async {
 //            let next = self.storyboard?.instantiateViewController(withIdentifier: "AddCardDetailVC") as! AddCardDetailVC
 //            self.navigationController?.pushViewController(next, animated: true)
 //        }
 //    }
-    
-    
-    
+        
     func setLeftButnEmpty(){
         let backBtn = UIButton()
         
@@ -1456,7 +1505,7 @@ extension UIViewController {
         
         notificationBtn.setTitleColor(UIColor.black, for: .normal)
         
-//        notificationBtn.addTarget(self, action: #selector(self.logout_Click), for: .touchUpInside)
+        notificationBtn.addTarget(self, action: #selector(self.nortificationClick), for: .touchUpInside)
         
         let notificationNavBtn = UIBarButtonItem.init(customView: notificationBtn)
         
@@ -1481,6 +1530,10 @@ extension UIViewController {
         self.navigationItem.rightBarButtonItems = [notificationNavBtn, filterNavButton]
     }
     
+    @objc func nortificationClick(){
+        self.pushToNOtificationListontroller()
+    }
+    
     @objc func filterSreenClick(){
         self.pushToFilterController()
     }
@@ -1493,6 +1546,7 @@ extension UIViewController {
         showActionsheet(viewController: self, title: "", message: "Are you sure want to logout?", actions: actions) { (index) in
             print("call action \(index)")
             if index == 0 {
+                Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.logout, api_Type: apiType.GET.rawValue)
                 UserDefaults.standard.set(nil , forKey: "userData")
                 UserDefaults.standard.set(nil , forKey: "authToken")
                 self.pushToLoginController()

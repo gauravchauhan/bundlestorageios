@@ -64,7 +64,7 @@ class HostListOnMapVC: UIViewController, UITableViewDelegate , UITableViewDataSo
         
         let storageName = UILabel(frame: CGRect.init(x: storageImage.x + storageImage.width + 5 , y: 8, width: view.frame.size.width - 16, height: 20))
         storageName.textColor = UIColor(hex: Constants.Colors.textColor, alpha: 1.0)
-        storageName.text = "Storage Name: " + self.storageModal[findIndex!].storageHostName!
+        storageName.text = "Storage Name: " + self.storageModal[findIndex!].storageName!
         storageName.font  = UIFont(name: Constants.fonts.ProximaNova_Regular, size: 14)
         print("character count \(storageName.text!.count)")
         let nameLength = storageName.text!.count - 13

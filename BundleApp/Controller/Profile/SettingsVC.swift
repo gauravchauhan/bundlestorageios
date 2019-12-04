@@ -16,10 +16,21 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Singelton.sharedInstance.service.getIdProofStatusDelegate = self
-        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.idProof_Status, api_Type: apiType.GET.rawValue)
+        getIDProofStatus()
         setBackButtonWithTitle(title: "Settings")
         self.settingsList.register(UINib(nibName:"SettingsCell" , bundle: nil), forCellReuseIdentifier: "SettingsTableViewCell")
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        settingsList.refreshControl = refreshControl
+    }
+    
+    
+    //MARK:- Delegate
+    
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        // Do your job, when done
+        getIDProofStatus()
+        refreshControl.endRefreshing()
     }
     
     func getIdProofStatusResponse(data: [String : Any]) {
@@ -56,7 +67,7 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexPath.row == 0 ? self.pushToStep_FirstController(comingFromSettings: true) : nil
+        indexPath.row == 0 ? self.pushToStep_FirstController(comingFromSettings: true) : self.pushToBookingHistory()
     }
     
     
@@ -66,6 +77,11 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,
     
     
     //MARK:- User Defined fucntion
+    
+    func getIDProofStatus(){
+        Singelton.sharedInstance.service.getIdProofStatusDelegate = self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.idProof_Status, api_Type: apiType.GET.rawValue)
+    }
     
     func reloadSettingsList(){
         DispatchQueue.main.async {

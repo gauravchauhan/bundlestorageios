@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func click_Rate(_ cell: UITableViewCell, didPressButton: UIButton) {
         print("Click rate ")
-        self.pushToRatingController()
+        self.pushToRatingController(storageId: self.userStatusesModal[cell.tag].storageId!, userName: self.userStatusesModal[cell.tag].hostName!)
     }
     
     @objc  func SwitchUserObserverActions(notification: Notification){
@@ -89,6 +89,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             object.hostName = data[index]["hostName"]as? String
             object.hostProfileImage = data[index]["hostProfileImage"]as? String
             object.storageStatus = data[index]["status"]as? String
+            object.storageName = data[index]["storageName"]as? String
+            object.storageId = data[index]["storageId"]as? String
             self.userStatusesModal.append(object)
         }
         self.reloadTheStatusTable()
@@ -101,6 +103,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             object.hostName = data[index]["userName"]as? String
             object.hostProfileImage = data[index]["userProfileImage"]as? String
             object.storageStatus = data[index]["status"]as? String
+            object.storageName = data[index]["storageName"]as? String
+            object.storageId = data[index]["storageId"]as? String
             self.userStatusesModal.append(object)
         }
         self.reloadTheStatusTable()
@@ -130,11 +134,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatusViewCell", for: indexPath) as! StatusViewCell
         cell.rateClickDelgate = self
-        cell.userName.text! = self.userStatusesModal[indexPath.row].hostName!
+        cell.userName.text! = self.userStatusesModal[indexPath.row].storageName!
         cell.curretnStatus.text! = self.userStatusesModal[indexPath.row].storageStatus!
         cell.userImage.setImageWith(URL(string : self.userStatusesModal[indexPath.row].hostProfileImage!), placeholderImage: UIImage(named: "app_Logo"))
         cell.tag = indexPath.row
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     

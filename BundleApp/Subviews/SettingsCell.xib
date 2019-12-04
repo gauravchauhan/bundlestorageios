@@ -39,13 +39,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved/Deneid" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If5-Sh-ZKJ">
-                                <rect key="frame" x="283.5" y="17" width="117.5" height="18"/>
+                                <rect key="frame" x="278.5" y="17" width="117.5" height="18"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.054901960780000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pending" translatesAutoresizingMaskIntoConstraints="NO" id="M77-hS-HXc">
-                                <rect key="frame" x="404" y="14" width="25" height="25"/>
+                                <rect key="frame" x="399" y="14" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="71R-D5-0FN"/>
                                     <constraint firstAttribute="height" constant="25" id="pON-P1-s19"/>
@@ -63,7 +63,7 @@
                             <constraint firstItem="M77-hS-HXc" firstAttribute="top" secondItem="fgu-FW-vtk" secondAttribute="top" constant="14" id="ohN-Ea-dNb"/>
                             <constraint firstItem="Rwm-VD-oiY" firstAttribute="leading" secondItem="fgu-FW-vtk" secondAttribute="leading" constant="10" id="stb-PX-OGE"/>
                             <constraint firstItem="If5-Sh-ZKJ" firstAttribute="top" secondItem="fgu-FW-vtk" secondAttribute="top" constant="17" id="xdd-Op-wvX"/>
-                            <constraint firstAttribute="trailing" secondItem="M77-hS-HXc" secondAttribute="trailing" id="yn2-jq-nxN"/>
+                            <constraint firstAttribute="trailing" secondItem="M77-hS-HXc" secondAttribute="trailing" constant="5" id="yn2-jq-nxN"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>

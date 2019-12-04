@@ -24,6 +24,7 @@ class Singelton {
     var currentLatitude : CLLocationDegrees!
     var currentLongitude : CLLocationDegrees!
     var senderImage : String!
+    var FCM_Token : String!
     
     // METHODS
     private init() {

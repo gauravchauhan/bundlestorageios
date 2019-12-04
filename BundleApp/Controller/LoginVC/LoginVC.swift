@@ -83,7 +83,7 @@ class LoginVC: UIViewController , GIDSignInDelegate, SocialLoginDelegate, CLLoca
             print(user.profile.givenName!)
             print(user.profile.email!)
             Indicator.shared.showProgressView(self.view)
-            let param = "googleId=\(String(describing: user.userID!))&role=ROLE_USER&firstName=\(String(describing: user.profile.givenName!))&lastName=\(String(describing: user.profile.name.components(separatedBy: " ")[1]))&email=\(String(describing: user.profile.email!))"
+            let param = "googleId=\(String(describing: user.userID!))&role=ROLE_USER&firstName=\(String(describing: user.profile.givenName!))&lastName=\(String(describing: user.profile.name.components(separatedBy: " ")[1]))&email=\(String(describing: user.profile.email!))&firebasetoken=\(String(describing: Singelton.sharedInstance.FCM_Token!))"
             print("Param \(param)")
             Singelton.sharedInstance.service.socialLoginDelegate = self
             Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.socialLogin, api_Type: apiType.POST.rawValue)

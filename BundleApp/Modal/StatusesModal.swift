@@ -13,6 +13,27 @@ class StatusesModal{
     private var name : String!
     private var image : String!
     private var status : String!
+    private var storage_Name : String!
+    private var id : String!
+    
+    
+    var storageName : String?{
+        get{
+            return storage_Name
+        }
+        set{
+            self.storage_Name = newValue
+        }
+    }
+    var storageId : String?{
+        get{
+            return id
+        }
+        set{
+            self.id = newValue
+        }
+    }
+    
     
     var hostName : String?{
         get{

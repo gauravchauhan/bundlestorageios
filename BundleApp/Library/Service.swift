@@ -90,6 +90,10 @@ protocol SendNonceDelegate {
     func sendNonceResponse(data : [String : Any])
 }
 
+protocol AddBAnkDetailDelegate {
+    func addBAnkDetailResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -132,6 +136,22 @@ protocol GetHostBookingStatusesListDelegate {
     func getHostBookingStatusesResponse(data : [String : Any])
 }
 
+protocol GetMyEarningsListDelegate {
+    func getMyEarningsListResponse(data : [String : Any])
+}
+
+protocol GetNotificationListDelegate {
+    func getNotificationListResponse(data : [String : Any])
+}
+
+protocol RemoveNotificationDelegate {
+    func removeNotificationResponse(data : [String : Any])
+}
+
+protocol LogoutDelegate {
+    func logouttResponse(data : [String : Any])
+}
+
 //MARK: Start Class
 
 class Service{
@@ -160,6 +180,7 @@ class Service{
     var submitReviewDelegate : SubmitReviewDelegate!
     var storageSummaryDelegate : StorageSummaryDelegate!
     var sendNonceDelegate : SendNonceDelegate!
+    var addBAnkDetailDelegate : AddBAnkDetailDelegate!
     
     
     //MARK:- Get Delegates varriables
@@ -173,6 +194,10 @@ class Service{
     var getHostStorageListDelegate : GetHostStorageListDelegate!
     var getUserBookingStatusesListDelegate : GetUserBookingStatusesListDelegate!
     var getHostBookingStatusesListDelegate : GetHostBookingStatusesListDelegate!
+    var getMyEarningsListDelegate : GetMyEarningsListDelegate!
+    var getNotificationListDelegate : GetNotificationListDelegate!
+    var removeNotificationDelegate : RemoveNotificationDelegate!
+    var logoutDelegate : LogoutDelegate!
     
     //MARK:- Post method
     
@@ -413,6 +438,16 @@ class Service{
             self.getUserBookingStatusesListDelegate.getUserBookingStatusesResponse(data: response)
         case Constants.AppUrls.hostStorageStatus:
             self.getHostBookingStatusesListDelegate.getHostBookingStatusesResponse(data: response)
+        case Constants.AppUrls.hostEarning:
+            self.getMyEarningsListDelegate.getMyEarningsListResponse(data: response)
+        case Constants.AppUrls.addBankDetail:
+            self.addBAnkDetailDelegate.addBAnkDetailResponse(data: response)
+        case Constants.AppUrls.getAllNotifications:
+            self.getNotificationListDelegate.getNotificationListResponse(data: response)
+        case Constants.AppUrls.removeAllNotifications:
+            self.removeNotificationDelegate.removeNotificationResponse(data: response)
+        case Constants.AppUrls.logout:
+            print("logout resposne \(response)")
         default:
             return returnFromDefaultCase(apiName : apiName , response : response)
         }

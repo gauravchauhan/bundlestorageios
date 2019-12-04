@@ -8,13 +8,17 @@
 
 import UIKit
 
-class TabBarVC: UITabBarController {
+class TabBarVC: UITabBarController , LogoutDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.click_MenuItems), name: NSNotification.Name(rawValue:"Click_MenuItems"), object: nil)
         self.addDrawerButton()
         self.setNotification_FilterButton()
+    }
+    
+    func logouttResponse(data: [String : Any]) {
+        print("logouttResponse   \(data)")
     }
     
     
@@ -36,6 +40,7 @@ class TabBarVC: UITabBarController {
         case 5:
             Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToMyStorageListController() : self.logout_Click()
         case 6:
+            Singelton.sharedInstance.service.logoutDelegate =  self
             self.logout_Click()
             print("Logout")
         default:

@@ -39,7 +39,12 @@ struct Constants {
         static let hostStorageList = "/hostStorageList"
         static let userBookingStatuses = "/userBookingDetailStatus"
         static let hostStorageStatus = "/hostStorageStatus"
-        //hostStorageStatus
+        static let hostEarning = "/hostEarning"
+        static let addBankDetail = "/addBankDetails"
+        static let logout = "/logout"
+        static let getAllNotifications = "/getAllNotifications"
+        static let removeAllNotifications = "/removeAllNotifications"
+        //removeAllNotifications
 
     }
     
@@ -173,7 +178,8 @@ struct Strings_Const{
      "User Licensing Agreement" = "User Licensing Agreement";
      "FAQ's" = "FAQ's";
      "Web Link" = "Web Link"
-     Goverment ID;*/
+     Goverment ID;
+     Booking history list*/
     
     static let setting_Support = NSLocalizedString( "Support", comment: "")
     static let setting_Community = NSLocalizedString( "Community guidlines", comment: "")
@@ -183,16 +189,18 @@ struct Strings_Const{
     static let setting_FAQ = NSLocalizedString( "FAQ's", comment: "")
     static let setting_WebLink = NSLocalizedString( "Web Link", comment: "")
     static let setting_GovermentId = NSLocalizedString( "Goverment ID", comment: "")
+    static let booking_HistoryList = NSLocalizedString( "Booking history list", comment: "")
     
     static let Settings_Items = [
         setting_GovermentId,
+        booking_HistoryList,
         setting_Support ,
         setting_Community ,
         setting_Terms ,
         setting_Policy,
         setting_License,
         setting_FAQ,
-        setting_WebLink
+        setting_WebLink,
     ]
     
 }

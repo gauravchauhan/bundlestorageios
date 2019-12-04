@@ -121,7 +121,7 @@ class SignInVC: UIViewController , SignInDelegate, ForgotPasswordDelegate{
                     return alert(message: Strings_Const.enter_Password, Controller: self)
                 }
                 
-                let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))"
+                let param = "username=\(String(describing: self.emailOrPhone.text!))&password=\(String(describing: self.password.text!))&firebasetoken=\(String(describing: Singelton.sharedInstance.FCM_Token!))"
                 print("Param \(param)")
                 Indicator.shared.showProgressView(self.view)
                 Singelton.sharedInstance.service.signInDelegate = self

@@ -7,8 +7,9 @@ target 'BundleApp' do
 pod 'MaterialComponents'
 pod 'AFNetworking', '~> 2.5.4'
 pod 'GoogleSignIn'
-pod 'GoogleMaps'
-pod 'GooglePlaces'
+pod ‘GooglePlaces’, ‘= 3.1.0’
+pod ‘GooglePlacePicker’, ‘= 3.1.0’
+pod ‘GoogleMaps’, ‘= 3.1.0’
 pod 'NWSTokenView'
 pod 'ImageSlideshow', '~> 1.8'
 pod 'Cosmos', '~> 16.0'
