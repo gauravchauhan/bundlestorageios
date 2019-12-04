@@ -44,7 +44,12 @@ struct Constants {
         static let logout = "/logout"
         static let getAllNotifications = "/getAllNotifications"
         static let removeAllNotifications = "/removeAllNotifications"
-        //removeAllNotifications
+        static let removeNotification = "/removeNotification"
+        static let privayPolicy = "/privayPolicy"
+        static let termsAndCondition = "/termsAndCondition"
+        static let communityGuidelines = "/communityGuidelines"
+        static let FAQs = "/FAQs"
+        //FAQs
 
     }
     

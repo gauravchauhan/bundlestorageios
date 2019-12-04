@@ -227,12 +227,14 @@ class RegularBooking_VC: UIViewController , UITextViewDelegate , UICollectionVie
     @IBAction func click_StartDate(_ sender: Any) {
         self.startDateClick = true
         self.datePicker.isHidden = false
+        self.view.endEditing(false)
         self.datePicker.PopUpAnimatedView()
     }
     
     @IBAction func click_EndDate(_ sender: Any) {
         self.startDateClick = false
         self.datePicker.isHidden = false
+        self.view.endEditing(false)
         self.datePicker.PopUpAnimatedView()
     }
     

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDataSource, GetNotificationListDelegate{
+class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDataSource, GetNotificationListDelegate, RemoveNotificationDelegate, RemoveParticularNotificationDelegate{
     
     @IBOutlet weak var notificationList: UITableView!
     @IBOutlet weak var notNotificaon: UILabel!
@@ -18,17 +18,28 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Indicator.shared.showProgressView(self.view)
+        Singelton.sharedInstance.service.removeNotificationDelegate =  self
         Singelton.sharedInstance.service.getNotificationListDelegate =  self
         Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getAllNotifications, api_Type: apiType.GET.rawValue)
         self.notificationList.register(UINib(nibName:"NotificationCell" , bundle: nil), forCellReuseIdentifier: "NotificationTableVieCell")
         setBackButtonWithTitle(title: "Booking history list")
-        
+        self.setDeleteAllNotificationButton()
         // Do any additional setup after loading the view.
     }
     
     //MARK:- Delegate
     
+    func removeParticularNotificationResponse(data: [String : Any]) {
+        print("remove one notification \(data)")
+    }
+    
+    func removeNotificationResponse(data: [String : Any]) {
+        print("remove all notification \(data)")
+    }
+    
     func getNotificationListResponse(data: [String : Any]) {
+        Indicator.shared.hideProgressView()
         print("Norificaion list \(data)")
         (data["data"]as! [[String : Any]]).count != 0 ? DispatchQueue.main.async {
             self.notificationList.isHidden =  false;self.notNotificaon.isHidden = true;self.setNotificatioNModal(data : data["data"]as! [[String : Any]])
@@ -57,6 +68,30 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected history cell")
     }
+    
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action =  UIContextualAction(style: .normal, title: "" , handler: { (action,view,completionHandler ) in
+            //do stuff
+            completionHandler(true)
+            print("Delete tapped")
+
+            let param = "notificationId=\(String(describing: self.notificationModal[indexPath.row].notification_ID!))"
+            Singelton.sharedInstance.service.removeParticularNotificationDelegate =  self
+            Singelton.sharedInstance.service.PostService(parameter: param, apiName: Constants.AppUrls.removeNotification, api_Type: apiType.POST.rawValue)
+            self.notificationModal.remove(at: indexPath.row)
+            self.reloadNotificationList()
+        })
+        action.image = UIImage(named: "delete")
+        action.backgroundColor = UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0)
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        
+        return configuration
+    }
+    
+    
     //MARK:-  use Defined function
     
     

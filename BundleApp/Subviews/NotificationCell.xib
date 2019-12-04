@@ -81,7 +81,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="notificationContent" destination="MiB-Th-AaO" id="4RM-FW-hQD"/>
+                <outlet property="notificationContent" destination="JgH-Yg-13O" id="4yG-QE-k3t"/>
                 <outlet property="notificationTime" destination="qaJ-pY-s1d" id="FUX-GE-B5o"/>
                 <outlet property="notificationTitle" destination="MiB-Th-AaO" id="jZf-KM-Dwv"/>
             </connections>

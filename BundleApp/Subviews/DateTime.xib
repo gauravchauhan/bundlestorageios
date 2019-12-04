@@ -8,11 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Montserrat-Medium.otf">
-            <string>Montserrat-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateTime" customModule="BundleApp" customModuleProvider="target">
             <connections>
@@ -26,37 +21,47 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-X8-JAJ">
-                    <rect key="frame" x="0.0" y="51" width="375" height="170"/>
+                    <rect key="frame" x="0.0" y="47" width="375" height="174"/>
                     <date key="date" timeIntervalSinceReferenceDate="566213706.18498504">
                         <!--2018-12-11 09:35:06 +0000-->
                     </date>
                 </datePicker>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fkX-I3-Ouj">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPL-iG-jlr">
-                            <rect key="frame" x="0.0" y="0.0" width="182.5" height="40"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
-                            <state key="normal" title="CANCEL">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPL-iG-jlr">
+                            <rect key="frame" x="0.0" y="0.0" width="182.5" height="45"/>
+                            <color key="backgroundColor" red="0.89411764709999997" green="0.1215686275" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="error">
                                 <color key="titleColor" red="0.35686274509999999" green="0.1450980392" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="click_Cancel:" destination="-1" eventType="touchUpInside" id="RIf-xc-bxd"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDS-7h-dZB">
-                            <rect key="frame" x="192.5" y="0.0" width="182.5" height="40"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
-                            <state key="normal" title="DONE">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDS-7h-dZB">
+                            <rect key="frame" x="192.5" y="0.0" width="182.5" height="45"/>
+                            <color key="backgroundColor" red="0.0" green="0.70588235290000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <state key="normal" image="success">
                                 <color key="titleColor" red="0.89411764709999997" green="0.1215686275" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="click_Done:" destination="-1" eventType="touchUpInside" id="FH9-Zu-uJ0"/>
                             </connections>
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Gdp-ul-KUC"/>
+                        <constraint firstAttribute="height" constant="45" id="Gdp-ul-KUC"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -68,11 +73,20 @@
                 <constraint firstItem="fkX-I3-Ouj" firstAttribute="top" secondItem="JJC-Yq-YfJ" secondAttribute="top" id="cwW-6T-czS"/>
                 <constraint firstItem="JJC-Yq-YfJ" firstAttribute="trailing" secondItem="fkX-I3-Ouj" secondAttribute="trailing" id="j2A-cu-FXh"/>
                 <constraint firstItem="fkX-I3-Ouj" firstAttribute="leading" secondItem="JJC-Yq-YfJ" secondAttribute="leading" id="lLk-QF-HOq"/>
-                <constraint firstItem="uCS-X8-JAJ" firstAttribute="top" secondItem="fkX-I3-Ouj" secondAttribute="bottom" constant="11" id="yWY-It-P32"/>
+                <constraint firstItem="uCS-X8-JAJ" firstAttribute="top" secondItem="fkX-I3-Ouj" secondAttribute="bottom" constant="2" id="yWY-It-P32"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="JJC-Yq-YfJ"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-132.5" y="-685.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="error" width="30" height="30"/>
+        <image name="success" width="30" height="30"/>
+    </resources>
 </document>

@@ -4977,6 +4977,52 @@
             </objects>
             <point key="canvasLocation" x="18328.98550724638" y="-1538.1696428571429"/>
         </scene>
+        <!--Privacy PolicyVC-->
+        <scene sceneID="3Y8-Vu-q5X">
+            <objects>
+                <viewController storyboardIdentifier="PrivacyPolicyVC" id="Mi1-fk-FWt" customClass="PrivacyPolicyVC" customModule="BundleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zqu-vh-I3h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUA-Gj-ySu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-dO-Afg">
+                                        <rect key="frame" x="10" y="20" width="394" height="633.5"/>
+                                        <mutableString key="text">The html is just text from a CMS editor, encoded to return on a JSON string. The app access the web service, gets the JSON that contains this specific text object - the requirement from the client here is the possibility of adding html tags to the text, similar to a CMS (wordpress) of a website. Maybe I'm encoding the return incorrectly? When I parse the JSON, I print the string return on debug and appears correctly, including the '&lt;b&gt;&lt;/b&gt;', but on both the emulator and the device for tests, the tags won't work. I'm using Swift The html is just text from a CMS editor, encoded to return on a JSON string. The app access the web service, gets the JSON that contains this specific text object - the requirement from the client here is the possibility of adding html tags to the text, similar to a CMS (wordpress) of a website. Maybe I'm encoding the return incorrectly? When I parse the JSON, I print the string return on debug and appears correctly, including the '&lt;b&gt;&lt;/b&gt;', but on both the emulator and the device for tests, the tags won't work. I'm using Swift </mutableString>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qcw-dO-Afg" secondAttribute="bottom" constant="481" id="E81-zE-MoO"/>
+                                    <constraint firstItem="qcw-dO-Afg" firstAttribute="leading" secondItem="MUA-Gj-ySu" secondAttribute="leading" constant="10" id="I55-GA-Xry"/>
+                                    <constraint firstItem="qcw-dO-Afg" firstAttribute="centerX" secondItem="MUA-Gj-ySu" secondAttribute="centerX" id="Llg-Q3-lsr"/>
+                                    <constraint firstItem="qcw-dO-Afg" firstAttribute="top" secondItem="MUA-Gj-ySu" secondAttribute="top" constant="20" id="O1S-qH-Kqc"/>
+                                    <constraint firstAttribute="trailing" secondItem="qcw-dO-Afg" secondAttribute="trailing" constant="10" id="WXI-iw-OsA"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MUA-Gj-ySu" firstAttribute="centerX" secondItem="Zqu-vh-I3h" secondAttribute="centerX" id="3nC-vX-pOi"/>
+                            <constraint firstItem="MUA-Gj-ySu" firstAttribute="top" secondItem="D1a-Th-E2A" secondAttribute="top" id="Ewn-XJ-9Wq"/>
+                            <constraint firstItem="D1a-Th-E2A" firstAttribute="bottom" secondItem="MUA-Gj-ySu" secondAttribute="bottom" id="eyB-aJ-CeL"/>
+                            <constraint firstItem="MUA-Gj-ySu" firstAttribute="trailing" secondItem="D1a-Th-E2A" secondAttribute="trailing" id="gkP-Ie-Fho"/>
+                            <constraint firstItem="MUA-Gj-ySu" firstAttribute="leading" secondItem="D1a-Th-E2A" secondAttribute="leading" id="z25-zc-Oyo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D1a-Th-E2A"/>
+                    </view>
+                    <connections>
+                        <outlet property="urlText" destination="qcw-dO-Afg" id="77Y-zP-O3X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB7-HT-Dwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19102.89855072464" y="-1585.0446428571429"/>
+        </scene>
         <!--Payment View Controller-->
         <scene sceneID="YMO-cB-097">
             <objects>

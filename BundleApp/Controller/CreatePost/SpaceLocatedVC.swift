@@ -42,6 +42,7 @@ class SpaceLocatedVC: UIViewController {
 extension SpaceLocatedVC: GMSAutocompleteViewControllerDelegate {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        self.addressMapView.clear()
         self.address.text! =  place.formattedAddress!
         let position = CLLocationCoordinate2D(latitude: place.coordinate.latitude , longitude: place.coordinate.longitude)
         self.addressMapView.addMarker(position: position, title: "\(place.name)")

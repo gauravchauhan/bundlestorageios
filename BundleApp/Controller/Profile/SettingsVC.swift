@@ -67,7 +67,30 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexPath.row == 0 ? self.pushToStep_FirstController(comingFromSettings: true) : self.pushToBookingHistory()
+//        indexPath.row == 0 ? self.pushToStep_FirstController(comingFromSettings: true) : self.pushToBookingHistory()
+        
+        switch indexPath.row {
+        case 0:
+            self.pushToStep_FirstController(comingFromSettings: true)
+        case 1:
+            self.pushToBookingHistory()
+        case 2:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+        case 3:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.communityGuidelines)
+        case 4:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.termsAndCondition)
+        case 5:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+        case 6:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+        case 7:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+        case 8:
+            self.pushToPrivacyController(apiName: Constants.AppUrls.FAQs)
+        default:
+            print("default")
+        }
     }
     
     

@@ -94,6 +94,10 @@ protocol AddBAnkDetailDelegate {
     func addBAnkDetailResponse(data : [String : Any])
 }
 
+protocol RemoveParticularNotificationDelegate {
+    func removeParticularNotificationResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -148,6 +152,10 @@ protocol RemoveNotificationDelegate {
     func removeNotificationResponse(data : [String : Any])
 }
 
+protocol PrivacyPolicyDelgateDelegate {
+    func privacyPolicyDelgateResponse(data : [String : Any])
+}
+
 protocol LogoutDelegate {
     func logouttResponse(data : [String : Any])
 }
@@ -181,6 +189,7 @@ class Service{
     var storageSummaryDelegate : StorageSummaryDelegate!
     var sendNonceDelegate : SendNonceDelegate!
     var addBAnkDetailDelegate : AddBAnkDetailDelegate!
+    var removeParticularNotificationDelegate : RemoveParticularNotificationDelegate!
     
     
     //MARK:- Get Delegates varriables
@@ -197,6 +206,7 @@ class Service{
     var getMyEarningsListDelegate : GetMyEarningsListDelegate!
     var getNotificationListDelegate : GetNotificationListDelegate!
     var removeNotificationDelegate : RemoveNotificationDelegate!
+    var privacyPolicyDelgateDelegate : PrivacyPolicyDelgateDelegate!
     var logoutDelegate : LogoutDelegate!
     
     //MARK:- Post method
@@ -446,6 +456,16 @@ class Service{
             self.getNotificationListDelegate.getNotificationListResponse(data: response)
         case Constants.AppUrls.removeAllNotifications:
             self.removeNotificationDelegate.removeNotificationResponse(data: response)
+        case Constants.AppUrls.removeNotification:
+            self.removeParticularNotificationDelegate.removeParticularNotificationResponse(data: response)
+        case Constants.AppUrls.privayPolicy:
+            self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
+        case Constants.AppUrls.termsAndCondition:
+            self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
+        case Constants.AppUrls.communityGuidelines:
+            self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
+        case Constants.AppUrls.FAQs:
+            self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
         case Constants.AppUrls.logout:
             print("logout resposne \(response)")
         default:

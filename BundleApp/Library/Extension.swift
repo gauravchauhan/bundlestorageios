@@ -1333,6 +1333,13 @@ extension UIViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
+    func pushToPrivacyController(apiName : String){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
+            next.apiName = apiName
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
     
 //    func pushToAddCardController(){
 //        DispatchQueue.main.async {
@@ -1493,6 +1500,32 @@ extension UIViewController {
     
     //Set the notification and filter icon on the tabBar
     
+    
+    func setDeleteAllNotificationButton(){
+        
+        //Notification button
+        
+        let delete = UIButton()
+        
+        delete.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        delete.setImage(UIImage(named:"delete_Notification"), for: .normal)
+        
+        delete.setTitleColor(UIColor.black, for: .normal)
+        
+        delete.addTarget(self, action: #selector(self.deleteNotificationClick), for: .touchUpInside)
+        
+        let deleteNavBtn = UIBarButtonItem.init(customView: delete)
+        
+        deleteNavBtn.customView = delete
+        
+        let _ = navigationItem.backBarButtonItem
+        
+        self.navigationItem.rightBarButtonItems = [deleteNavBtn]
+        
+    }
+    
+    
     func setNotification_FilterButton(){
         
         //Notification button
@@ -1532,6 +1565,20 @@ extension UIViewController {
     
     @objc func nortificationClick(){
         self.pushToNOtificationListontroller()
+    }
+    
+    @objc func deleteNotificationClick(){
+        print("Delete all notification")
+        var actions:[[String:UIAlertAction.Style]] = []
+        actions.append(["Yes": UIAlertAction.Style.default])
+        actions.append(["Cancel": UIAlertAction.Style.cancel])
+        showActionsheet(viewController: self, title: Strings_Const.app_Name, message: "Are you sure want to Delete all notification ?", actions: actions) { (index) in
+            print("call action \(index)")
+            if index == 0 {
+                Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.removeAllNotifications, api_Type: apiType.GET.rawValue)
+            }
+        }
+        
     }
     
     @objc func filterSreenClick(){
