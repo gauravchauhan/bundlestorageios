@@ -1333,10 +1333,18 @@ extension UIViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
-    func pushToPrivacyController(apiName : String){
+    func pushToPrivacyController(apiName : String, screenName : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
             next.apiName = apiName
+            next.screenName = screenName
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+    
+    func pushToSupportControllerController(){
+        DispatchQueue.main.async {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "SupportVC") as! SupportVC
             self.navigationController?.pushViewController(next, animated: true)
         }
     }

@@ -48,7 +48,7 @@ extension SpaceLocatedVC: GMSAutocompleteViewControllerDelegate {
         self.addressMapView.addMarker(position: position, title: "\(place.name)")
         let location = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude,
                                               longitude: place.coordinate.longitude,
-                                              zoom: 6)
+                                              zoom: 15)
         self.addressMapView.camera = location
         Singelton.sharedInstance.addStorageModal.storageAddress = self.address.text!
         Singelton.sharedInstance.addStorageModal.storageLatitude = place.coordinate.latitude

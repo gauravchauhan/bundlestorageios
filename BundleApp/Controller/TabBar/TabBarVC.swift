@@ -31,7 +31,7 @@ class TabBarVC: UITabBarController , LogoutDelegate{
             self.pushToReferalController()
             print("refer")
         case 2:
-            self.pushToSettingsController()
+            self.pushToSupportControllerController()
             print("support")
         case 3:
             Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? print("switch to User") : print("switch to host")

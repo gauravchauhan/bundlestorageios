@@ -23,7 +23,7 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
         Singelton.sharedInstance.service.getNotificationListDelegate =  self
         Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getAllNotifications, api_Type: apiType.GET.rawValue)
         self.notificationList.register(UINib(nibName:"NotificationCell" , bundle: nil), forCellReuseIdentifier: "NotificationTableVieCell")
-        setBackButtonWithTitle(title: "Booking history list")
+        setBackButtonWithTitle(title: "Notification list")
         self.setDeleteAllNotificationButton()
         // Do any additional setup after loading the view.
     }

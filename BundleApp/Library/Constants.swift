@@ -49,7 +49,9 @@ struct Constants {
         static let termsAndCondition = "/termsAndCondition"
         static let communityGuidelines = "/communityGuidelines"
         static let FAQs = "/FAQs"
-        //FAQs
+        static let userSupport = "/userSupport"
+        static let bookingHistoryList = "/bookingHistoryList"
+        //bookingHistoryList
 
     }
     
@@ -184,7 +186,8 @@ struct Strings_Const{
      "FAQ's" = "FAQ's";
      "Web Link" = "Web Link"
      Goverment ID;
-     Booking history list*/
+     Booking history list
+     Contact Us*/
     
     static let setting_Support = NSLocalizedString( "Support", comment: "")
     static let setting_Community = NSLocalizedString( "Community guidlines", comment: "")
@@ -195,6 +198,8 @@ struct Strings_Const{
     static let setting_WebLink = NSLocalizedString( "Web Link", comment: "")
     static let setting_GovermentId = NSLocalizedString( "Goverment ID", comment: "")
     static let booking_HistoryList = NSLocalizedString( "Booking history list", comment: "")
+    
+    static let contact_US = NSLocalizedString( "Contact Us", comment: "")
     
     static let Settings_Items = [
         setting_GovermentId,

@@ -59,6 +59,7 @@ class FilterVC: UIViewController {
     }
     
     @IBAction func click_CancelButton(_ sender: Any) {
+        self.click_BackButton()
     }
     
 }

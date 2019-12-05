@@ -71,23 +71,29 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,
         
         switch indexPath.row {
         case 0:
+            //GovermentID
             self.pushToStep_FirstController(comingFromSettings: true)
         case 1:
+             //Booking history
             self.pushToBookingHistory()
         case 2:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+             //support
+            self.pushToSupportControllerController()
         case 3:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.communityGuidelines)
+             //Community guidlines
+            self.pushToPrivacyController(apiName: Constants.AppUrls.communityGuidelines, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 4:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.termsAndCondition)
+            //Terms & Conditions
+            self.pushToPrivacyController(apiName: Constants.AppUrls.termsAndCondition, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 5:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+            
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 6:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 7:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy)
+            self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 8:
-            self.pushToPrivacyController(apiName: Constants.AppUrls.FAQs)
+            self.pushToPrivacyController(apiName: Constants.AppUrls.FAQs, screenName: Strings_Const.Settings_Items[indexPath.row])
         default:
             print("default")
         }

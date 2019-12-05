@@ -56,6 +56,8 @@
 		1E892A722345CC6A0023D4DF /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E892A702345CC6A0023D4DF /* DateTime.xib */; };
 		1E892A76234743A80023D4DF /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E892A75234743A80023D4DF /* EditProfileVC.swift */; };
 		1E892A78234DE3E80023D4DF /* BookingRequestModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E892A77234DE3E80023D4DF /* BookingRequestModal.swift */; };
+		1E8948212398DB73005A7B78 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8948202398DB73005A7B78 /* SupportVC.swift */; };
+		1E894823239900BB005A7B78 /* BookingHistoryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E894822239900BB005A7B78 /* BookingHistoryModal.swift */; };
 		1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */; };
 		1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */; };
 		1E8AF9BD230D12A800240F65 /* ListingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BC230D12A800240F65 /* ListingModal.swift */; };
@@ -208,6 +210,8 @@
 		1E892A702345CC6A0023D4DF /* DateTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTime.xib; sourceTree = "<group>"; };
 		1E892A75234743A80023D4DF /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		1E892A77234DE3E80023D4DF /* BookingRequestModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequestModal.swift; sourceTree = "<group>"; };
+		1E8948202398DB73005A7B78 /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
+		1E894822239900BB005A7B78 /* BookingHistoryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryModal.swift; sourceTree = "<group>"; };
 		1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
 		1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeListingVC.swift; sourceTree = "<group>"; };
 		1E8AF9BC230D12A800240F65 /* ListingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingModal.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 				1E3C186123603D4C00AB83D0 /* SummaryModal.swift */,
 				1E85147123608A9C00EEACD4 /* StatusesModal.swift */,
 				1E134BB12396995700659113 /* NotificatioModal.swift */,
+				1E894822239900BB005A7B78 /* BookingHistoryModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				1ECB609723505541001867B5 /* SettingsVC.swift */,
 				1E134BA823967A1D00659113 /* ScanQRVC.swift */,
 				1E134BB32397D7CC00659113 /* PrivacyPolicyVC.swift */,
+				1E8948202398DB73005A7B78 /* SupportVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -946,6 +952,7 @@
 				1E7F92762301C19C006E2CEF /* IQToolbar.m in Sources */,
 				1E3C186223603D4C00AB83D0 /* SummaryModal.swift in Sources */,
 				1E7F92742301C19C006E2CEF /* IQSegmentedNextPrevious.m in Sources */,
+				1E8948212398DB73005A7B78 /* SupportVC.swift in Sources */,
 				9B7E1679231543FC00DA055C /* DetailViewController.swift in Sources */,
 				1E57344B230C21F400CB4EF6 /* SpaceLocatedVC.swift in Sources */,
 				1EB80EF22301416900D0FCB4 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
@@ -957,6 +964,7 @@
 				1E9EB0C823190151003E6F80 /* TabBarVC.swift in Sources */,
 				F9C2E54B231E7F3B0087AF35 /* StatusViewCell.swift in Sources */,
 				1E7F92782301C19C006E2CEF /* IQUIWindow+Hierarchy.m in Sources */,
+				1E894823239900BB005A7B78 /* BookingHistoryModal.swift in Sources */,
 				1E7F92772301C19C006E2CEF /* IQTitleBarButtonItem.m in Sources */,
 				1EB80EDF23013B6200D0FCB4 /* Webservice.swift in Sources */,
 				1E134BB42397D7CC00659113 /* PrivacyPolicyVC.swift in Sources */,

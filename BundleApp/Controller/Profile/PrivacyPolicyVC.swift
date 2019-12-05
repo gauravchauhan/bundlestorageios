@@ -14,10 +14,11 @@ class PrivacyPolicyVC: UIViewController, PrivacyPolicyDelgateDelegate {
     @IBOutlet weak var urlText: UILabel!
     
     var apiName : String?
+    var screenName : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackButtonWithTitle(title: apiName!)
+        setBackButtonWithTitle(title: screenName!)
         Singelton.sharedInstance.service.privacyPolicyDelgateDelegate = self
         
         Singelton.sharedInstance.service.getService(apiName: self.apiName!, api_Type: apiType.GET.rawValue)
@@ -26,5 +27,8 @@ class PrivacyPolicyVC: UIViewController, PrivacyPolicyDelgateDelegate {
     
     func privacyPolicyDelgateResponse(data: [String : Any]) {
         print("privacyPolicyDelgateResponse   \(data)")
+        (data["status"]as! Bool) ? DispatchQueue.main.async {
+            self.urlText.text = ((data["data"]as! [String : Any])["document"]as! String).html2String
+            } : alert(message: data["message"]as! String, Controller: self)
     }
 }

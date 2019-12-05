@@ -64,7 +64,7 @@
 "Message" = "Message";
 "My Storage" = "My Storage";
 "logout" = "Logout";
-"Something error" = "Something error, Please try again";
+"Something error" = "Something went wrong, Please try again";
 
 //Settings items
 
@@ -77,6 +77,8 @@
 "Web Link" = "Web Link";
 "Goverment ID" = "Goverment ID";
 "Booking history list" = "Booking history list";
+
+"Contact Us" = "You are very important to us, all information received will always remain confidential. We will contact you as soon as we review your message.";
 
 
 //Enter Storage Name

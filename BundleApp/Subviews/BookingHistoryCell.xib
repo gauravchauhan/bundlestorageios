@@ -31,7 +31,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtl-wF-uVs">
                                 <rect key="frame" x="6" y="6" width="70" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Approved" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-7a-VOk">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bundle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-7a-VOk">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -60,17 +60,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiF-nX-x5r">
-                                <rect key="frame" x="82" y="42" width="298" height="24.5"/>
+                                <rect key="frame" x="82" y="42" width="253" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXW-E8-rlT">
-                                <rect key="frame" x="383" y="40" width="60" height="25"/>
+                                <rect key="frame" x="343" y="47" width="100" height="25"/>
                                 <color key="backgroundColor" red="0.0" green="0.70588235290000001" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="BAb-6E-CVB"/>
-                                    <constraint firstAttribute="width" constant="60" id="zz8-Wc-VEz"/>
+                                    <constraint firstAttribute="width" constant="100" id="zz8-Wc-VEz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,10 +84,10 @@
                             <constraint firstAttribute="bottom" secondItem="qtl-wF-uVs" secondAttribute="bottom" constant="6" id="T4M-yO-uyg"/>
                             <constraint firstItem="qtl-wF-uVs" firstAttribute="leading" secondItem="pfV-km-Sn6" secondAttribute="leading" constant="6" id="ULt-ug-GFB"/>
                             <constraint firstItem="cH9-yJ-8LE" firstAttribute="leading" secondItem="qtl-wF-uVs" secondAttribute="trailing" constant="6" id="V0Y-gh-6Vx"/>
-                            <constraint firstAttribute="bottom" secondItem="PXW-E8-rlT" secondAttribute="bottom" constant="17" id="aYW-yc-cdM"/>
+                            <constraint firstAttribute="bottom" secondItem="PXW-E8-rlT" secondAttribute="bottom" constant="10" id="aYW-yc-cdM"/>
                             <constraint firstItem="cH9-yJ-8LE" firstAttribute="top" secondItem="pfV-km-Sn6" secondAttribute="top" constant="15" id="iAS-3y-dZZ"/>
                             <constraint firstAttribute="trailing" secondItem="PXW-E8-rlT" secondAttribute="trailing" constant="10" id="leN-if-SVp"/>
-                            <constraint firstItem="PXW-E8-rlT" firstAttribute="leading" secondItem="BiF-nX-x5r" secondAttribute="trailing" constant="3" id="ohi-pF-bsP"/>
+                            <constraint firstItem="PXW-E8-rlT" firstAttribute="leading" secondItem="BiF-nX-x5r" secondAttribute="trailing" constant="8" id="ohi-pF-bsP"/>
                             <constraint firstItem="BiF-nX-x5r" firstAttribute="leading" secondItem="qtl-wF-uVs" secondAttribute="trailing" constant="6" id="siq-xy-OFJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -112,6 +112,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Approved" width="30" height="30"/>
+        <image name="bundle_logo" width="250" height="250"/>
     </resources>
 </document>

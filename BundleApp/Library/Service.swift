@@ -97,6 +97,9 @@ protocol AddBAnkDetailDelegate {
 protocol RemoveParticularNotificationDelegate {
     func removeParticularNotificationResponse(data : [String : Any])
 }
+protocol UserSupportDelegate {
+    func userSupport(data : [String : Any])
+}
 
 
 //MARK:- Get Delegates
@@ -156,6 +159,12 @@ protocol PrivacyPolicyDelgateDelegate {
     func privacyPolicyDelgateResponse(data : [String : Any])
 }
 
+protocol BookingHistoryListDelegate {
+    func bookingHistoryListResponse(data : [String : Any])
+}
+
+
+
 protocol LogoutDelegate {
     func logouttResponse(data : [String : Any])
 }
@@ -190,6 +199,7 @@ class Service{
     var sendNonceDelegate : SendNonceDelegate!
     var addBAnkDetailDelegate : AddBAnkDetailDelegate!
     var removeParticularNotificationDelegate : RemoveParticularNotificationDelegate!
+    var userSupportDelegate : UserSupportDelegate!
     
     
     //MARK:- Get Delegates varriables
@@ -207,6 +217,7 @@ class Service{
     var getNotificationListDelegate : GetNotificationListDelegate!
     var removeNotificationDelegate : RemoveNotificationDelegate!
     var privacyPolicyDelgateDelegate : PrivacyPolicyDelgateDelegate!
+    var bookingHistoryListDelegate : BookingHistoryListDelegate!
     var logoutDelegate : LogoutDelegate!
     
     //MARK:- Post method
@@ -466,6 +477,10 @@ class Service{
             self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
         case Constants.AppUrls.FAQs:
             self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
+        case Constants.AppUrls.bookingHistoryList:
+            self.bookingHistoryListDelegate.bookingHistoryListResponse(data: response)
+        case Constants.AppUrls.userSupport:
+            self.userSupportDelegate.userSupport(data: response)
         case Constants.AppUrls.logout:
             print("logout resposne \(response)")
         default:
