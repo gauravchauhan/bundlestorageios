@@ -140,6 +140,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="curretnStatus" destination="Ti5-9Z-dr2" id="To0-LE-60B"/>
+                <outlet property="statusButton" destination="s0L-XS-SOA" id="NWR-yp-kk8"/>
                 <outlet property="userImage" destination="wSm-OA-hQD" id="t0i-Ud-03Q"/>
                 <outlet property="userName" destination="Iio-5I-9i3" id="fYc-4s-vsz"/>
             </connections>

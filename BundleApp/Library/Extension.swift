@@ -1313,16 +1313,19 @@ extension UIViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
-    func pushToQRCodeViewController(){
+    func pushToQRCodeViewController(storageId : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "MyQRViewController") as! MyQRViewController
+            next.storageID = storageId
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
     
-    func pushToScanQRCodeontroller(){
+    func pushToScanQRCodeontroller(storageId : String, bookingID : String){
         DispatchQueue.main.async {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "ScanQRVC") as! ScanQRVC
+            next.storageID = storageId
+            next.bookingID = bookingID
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -1534,23 +1537,25 @@ extension UIViewController {
     }
     
     
-    func setNotification_FilterButton(){
+    func setNotification_FilterButton(notificationCount : String){
         
         //Notification button
         
-        let notificationBtn = UIButton()
         
-        notificationBtn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        let notificationButton = SSBadgeButton()
+        notificationButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        notificationButton.setImage(UIImage(named: "notification"), for: .normal)
+        notificationButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
         
-        notificationBtn.setImage(UIImage(named:"notification"), for: .normal)
+        notificationCount == "0" ? (notificationButton.badgeBackgroundColor = UIColor.clear) : (notificationButton.badgeBackgroundColor = UIColor(hex: Constants.Colors.redText_borderColor, alpha: 1.0))
+        notificationButton.badge = notificationCount
         
-        notificationBtn.setTitleColor(UIColor.black, for: .normal)
         
-        notificationBtn.addTarget(self, action: #selector(self.nortificationClick), for: .touchUpInside)
+        notificationButton.addTarget(self, action: #selector(self.nortificationClick), for: .touchUpInside)
         
-        let notificationNavBtn = UIBarButtonItem.init(customView: notificationBtn)
+        let notificationNavBtn = UIBarButtonItem(customView: notificationButton)
         
-        notificationNavBtn.customView = notificationBtn
+        notificationNavBtn.customView = notificationButton
         
         // filter button
         

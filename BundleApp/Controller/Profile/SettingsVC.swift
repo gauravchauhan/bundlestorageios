@@ -86,7 +86,6 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource ,
             //Terms & Conditions
             self.pushToPrivacyController(apiName: Constants.AppUrls.termsAndCondition, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 5:
-            
             self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy, screenName: Strings_Const.Settings_Items[indexPath.row])
         case 6:
             self.pushToPrivacyController(apiName: Constants.AppUrls.privayPolicy, screenName: Strings_Const.Settings_Items[indexPath.row])

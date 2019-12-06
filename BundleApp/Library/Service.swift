@@ -101,6 +101,10 @@ protocol UserSupportDelegate {
     func userSupport(data : [String : Any])
 }
 
+protocol QRCodeDelegate {
+    func QRCodeResponse(data : [String : Any])
+}
+
 
 //MARK:- Get Delegates
 
@@ -163,6 +167,10 @@ protocol BookingHistoryListDelegate {
     func bookingHistoryListResponse(data : [String : Any])
 }
 
+protocol NotificationCountDelegate {
+    func NotificationCountResponse(data : [String : Any])
+}
+
 
 
 protocol LogoutDelegate {
@@ -200,6 +208,7 @@ class Service{
     var addBAnkDetailDelegate : AddBAnkDetailDelegate!
     var removeParticularNotificationDelegate : RemoveParticularNotificationDelegate!
     var userSupportDelegate : UserSupportDelegate!
+    var qrCodeDelegate : QRCodeDelegate!
     
     
     //MARK:- Get Delegates varriables
@@ -218,6 +227,7 @@ class Service{
     var removeNotificationDelegate : RemoveNotificationDelegate!
     var privacyPolicyDelgateDelegate : PrivacyPolicyDelgateDelegate!
     var bookingHistoryListDelegate : BookingHistoryListDelegate!
+    var notificationCountDelegate : NotificationCountDelegate!
     var logoutDelegate : LogoutDelegate!
     
     //MARK:- Post method
@@ -479,8 +489,12 @@ class Service{
             self.privacyPolicyDelgateDelegate.privacyPolicyDelgateResponse(data: response)
         case Constants.AppUrls.bookingHistoryList:
             self.bookingHistoryListDelegate.bookingHistoryListResponse(data: response)
+        case Constants.AppUrls.notificationCount:
+            self.notificationCountDelegate.NotificationCountResponse(data: response)
         case Constants.AppUrls.userSupport:
             self.userSupportDelegate.userSupport(data: response)
+        case Constants.AppUrls.qrCodeData:
+            self.qrCodeDelegate.QRCodeResponse(data: response)
         case Constants.AppUrls.logout:
             print("logout resposne \(response)")
         default:

@@ -20,6 +20,8 @@ class StatusViewCell: UITableViewCell {
     
     @IBOutlet weak var curretnStatus: UILabel!
     
+    @IBOutlet weak var statusButton: UIButton!
+    
     var rateClickDelgate : ClickRateDelegate!
     
     override func awakeFromNib() {

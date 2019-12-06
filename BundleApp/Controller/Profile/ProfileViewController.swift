@@ -64,7 +64,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func click_Rate(_ cell: UITableViewCell, didPressButton: UIButton) {
         print("Click rate ")
-        self.pushToRatingController(storageId: self.userStatusesModal[cell.tag].storageId!, userName: self.userStatusesModal[cell.tag].hostName!)
+        if self.userStatusesModal[cell.tag].storageStatus!.contains("Coordinate drop off with user") || self.userStatusesModal[cell.tag].storageStatus!.contains("Coordinate drop of time with host"){
+            self.pushToRatingController(storageId: self.userStatusesModal[cell.tag].storageId!, userName: self.userStatusesModal[cell.tag].hostName!)
+        }else if self.userStatusesModal[cell.tag].storageStatus!.contains("on the way to drop off items") || self.userStatusesModal[cell.tag].storageStatus!.contains("Please drop of your items"){
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToScanQRCodeontroller(storageId: self.userStatusesModal[cell.tag].storageId!, bookingID: "") : self.pushToQRCodeViewController(storageId: self.userStatusesModal[cell.tag].storageId!)
+        }else if self.userStatusesModal[cell.tag].storageStatus!.contains("on the way to pick up items") || self.userStatusesModal[cell.tag].storageStatus!.contains("Please pick up your items"){
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToQRCodeViewController(storageId: self.userStatusesModal[cell.tag].storageId!) : self.pushToScanQRCodeontroller(storageId: self.userStatusesModal[cell.tag].storageId!, bookingID: "")
+        }
     }
     
     @objc  func SwitchUserObserverActions(notification: Notification){
@@ -101,7 +107,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         for index in 0...data.count - 1 {
             let object = StatusesModal()
             object.hostName = data[index]["userName"]as? String
-            object.hostProfileImage = data[index]["userProfileImage"]as? String
+            object.hostProfileImage = (data[index]["userProfileImage"]is NSNull) ? "" : data[index]["userProfileImage"]as? String
             object.storageStatus = data[index]["status"]as? String
             object.storageName = data[index]["storageName"]as? String
             object.storageId = data[index]["storageId"]as? String
@@ -136,6 +142,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.rateClickDelgate = self
         cell.userName.text! = self.userStatusesModal[indexPath.row].storageName!
         cell.curretnStatus.text! = self.userStatusesModal[indexPath.row].storageStatus!
+        if self.userStatusesModal[indexPath.row].storageStatus!.contains("Coordinate drop off with user") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Coordinate drop of time with host"){
+            cell.statusButton.setTitle("RATE", for: .normal)
+        }else if self.userStatusesModal[indexPath.row].storageStatus!.contains("on the way to drop off items") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Please drop of your items"){
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? cell.statusButton.setTitle("SCAN", for: .normal) : cell.statusButton.setTitle("QR", for: .normal)
+        }else if self.userStatusesModal[indexPath.row].storageStatus!.contains("on the way to pick up items") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Please pick up your items"){
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? cell.statusButton.setTitle("QR", for: .normal) : cell.statusButton.setTitle("SCAN", for: .normal)
+        }
         cell.userImage.setImageWith(URL(string : self.userStatusesModal[indexPath.row].hostProfileImage!), placeholderImage: UIImage(named: "app_Logo"))
         cell.tag = indexPath.row
         return cell

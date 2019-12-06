@@ -8,13 +8,22 @@
 
 import UIKit
 
-class TabBarVC: UITabBarController , LogoutDelegate{
+class TabBarVC: UITabBarController , LogoutDelegate, NotificationCountDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.click_MenuItems), name: NSNotification.Name(rawValue:"Click_MenuItems"), object: nil)
+        Singelton.sharedInstance.service.notificationCountDelegate = self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.notificationCount, api_Type: apiType.GET.rawValue)
         self.addDrawerButton()
-        self.setNotification_FilterButton()
+        self.setNotification_FilterButton(notificationCount: "0")
+    }
+    
+    func NotificationCountResponse(data: [String : Any]) {
+        print("NotificationCountResponse   \(data)    \(data["notificationCount"]as! Int)")
+        (data["status"]as! Bool) ? DispatchQueue.main.async {
+            self.setNotification_FilterButton(notificationCount: "\(data["notificationCount"]as! Int)")
+            } : self.setNotification_FilterButton(notificationCount: "0")
     }
     
     func logouttResponse(data: [String : Any]) {

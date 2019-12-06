@@ -15,12 +15,15 @@ class MyQRViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var qrCodeImage: UIImageView!
     
+    
+    var storageID : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackButtonWithTitle(title: "QR code scanner")
         self.userImage.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
         self.userName.text! = "\(Singelton.sharedInstance.userDataModel.userFirstName!) \(Singelton.sharedInstance.userDataModel.userLastName!)"
-        self.qrCodeImage.image = generateQRCode(from: "Hacking with Swift is the best iOS coding tutorial I've ever read!")
+        self.qrCodeImage.image = generateQRCode(from: storageID!)
         // Do any additional setup after loading the view.
     }
     

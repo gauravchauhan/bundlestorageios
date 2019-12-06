@@ -94,8 +94,6 @@ class BookingHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 //                imageObj.imageURL = ((storageData["media"]as? [[String : Any]])![imageIndex])["url"]as? String
 //                imageModal.append(imageObj)
 //            }
-            
-            
 //            storageObj.storageImage = imageModal
             
             storageObj.aboutStorage = (storageData!["descripton"] is NSNull) ? Strings_Const.no_Desc : storageData!["descripton"]as? String

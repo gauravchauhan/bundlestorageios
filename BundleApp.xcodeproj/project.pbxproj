@@ -58,6 +58,7 @@
 		1E892A78234DE3E80023D4DF /* BookingRequestModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E892A77234DE3E80023D4DF /* BookingRequestModal.swift */; };
 		1E8948212398DB73005A7B78 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8948202398DB73005A7B78 /* SupportVC.swift */; };
 		1E894823239900BB005A7B78 /* BookingHistoryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E894822239900BB005A7B78 /* BookingHistoryModal.swift */; };
+		1E894825239A37A8005A7B78 /* SSBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E894824239A37A8005A7B78 /* SSBadgeButton.swift */; };
 		1E8AF9B9230C553800240F65 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */; };
 		1E8AF9BB230C559600240F65 /* DescribeListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */; };
 		1E8AF9BD230D12A800240F65 /* ListingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8AF9BC230D12A800240F65 /* ListingModal.swift */; };
@@ -212,6 +213,7 @@
 		1E892A77234DE3E80023D4DF /* BookingRequestModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequestModal.swift; sourceTree = "<group>"; };
 		1E8948202398DB73005A7B78 /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
 		1E894822239900BB005A7B78 /* BookingHistoryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryModal.swift; sourceTree = "<group>"; };
+		1E894824239A37A8005A7B78 /* SSBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSBadgeButton.swift; sourceTree = "<group>"; };
 		1E8AF9B8230C553800240F65 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
 		1E8AF9BA230C559600240F65 /* DescribeListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeListingVC.swift; sourceTree = "<group>"; };
 		1E8AF9BC230D12A800240F65 /* ListingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingModal.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		1EB80ED42301317400D0FCB4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1E894824239A37A8005A7B78 /* SSBadgeButton.swift */,
 				1E15CAF1232CC16200BF56D3 /* Service.swift */,
 				1EA69925231667CF00C50AE7 /* ImagePicker.swift */,
 				1EB80EE923013E1C00D0FCB4 /* Indicator.swift */,
@@ -995,6 +998,7 @@
 				F9C86F2A23194A86006B6E90 /* ChatViewController.swift in Sources */,
 				1E84DA78233C9116005FC68B /* UploadImageCell.swift in Sources */,
 				1E134BA923967A1D00659113 /* ScanQRVC.swift in Sources */,
+				1E894825239A37A8005A7B78 /* SSBadgeButton.swift in Sources */,
 				F9C86F1F23194A11006B6E90 /* LynnBubbleData.swift in Sources */,
 				1E892A712345CC6A0023D4DF /* DateTime.swift in Sources */,
 				9BFD006823164365006D5C97 /* NWSImageToken.swift in Sources */,
