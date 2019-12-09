@@ -20,8 +20,7 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         Indicator.shared.showProgressView(self.view)
         Singelton.sharedInstance.service.removeNotificationDelegate =  self
-        Singelton.sharedInstance.service.getNotificationListDelegate =  self
-        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getAllNotifications, api_Type: apiType.GET.rawValue)
+        self.getNotification()
         self.notificationList.register(UINib(nibName:"NotificationCell" , bundle: nil), forCellReuseIdentifier: "NotificationTableVieCell")
         setBackButtonWithTitle(title: "Notification list")
         self.setDeleteAllNotificationButton()
@@ -36,6 +35,8 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
     
     func removeNotificationResponse(data: [String : Any]) {
         print("remove all notification \(data)")
+        Indicator.shared.showProgressView(self.view)
+        (data["status"]as! Bool) ? self.getNotification() : alert(message: Strings_Const.someError, Controller: self)
     }
     
     func getNotificationListResponse(data: [String : Any]) {
@@ -93,6 +94,11 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
     
     
     //MARK:-  use Defined function
+    
+    func getNotification(){
+        Singelton.sharedInstance.service.getNotificationListDelegate =  self
+        Singelton.sharedInstance.service.getService(apiName: Constants.AppUrls.getAllNotifications, api_Type: apiType.GET.rawValue)
+    }
     
     
     func setNotificatioNModal(data : [[String : Any]]){

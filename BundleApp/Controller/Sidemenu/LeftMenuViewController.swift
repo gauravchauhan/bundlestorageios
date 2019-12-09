@@ -17,7 +17,7 @@ class LeftMenuViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         print("Singelton.sharedInstance.userDataModel.userRole! \(Singelton.sharedInstance.userDataModel.userRole!)")
-        tableView.frame = CGRect(x: self.view.frame.width - 200, y: 300, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
+        tableView.frame = CGRect(x: self.view.frame.width - 200, y: 200 , width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
         tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.isOpaque = false
@@ -30,7 +30,7 @@ class LeftMenuViewController: UIViewController {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.setImageWith(URL(string : Singelton.sharedInstance.userDataModel.userProfilePic!), placeholderImage: UIImage(named: "app_Logo"))
-        imageView.frame = CGRect(x: self.tableView.x + 100, y: self.tableView.height - 150, width: 80 , height: 80)
+        imageView.frame = CGRect(x: self.tableView.x + 100, y: 80, width: 80 , height: 80)
         imageView.layer.cornerRadius = imageView.width / 2
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 1
@@ -122,7 +122,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 print("After change \(userData)")
                 UserDefaults.standard.set(userData , forKey: "userData")
                 Singelton.sharedInstance.setUserData(data: userData)
-                tableView.frame = CGRect(x: self.view.frame.width - 200, y: 300, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
+                tableView.frame = CGRect(x: self.view.frame.width - 200, y: 200, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
                 self.tableView.reloadData()
                 NotificationCenter.default.post(name: Notification.Name(rawValue:"Switch_User"), object: nil, userInfo: nil)
             default:
@@ -138,7 +138,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 UserDefaults.standard.set(userData , forKey: "userData")
                 Singelton.sharedInstance.setUserData(data: userData)
                 print(Singelton.sharedInstance.userDataModel.userRole!)
-                tableView.frame = CGRect(x: self.view.frame.width - 200, y: 300, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
+                tableView.frame = CGRect(x: self.view.frame.width - 200, y: 200, width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
                 self.tableView.reloadData()
                 NotificationCenter.default.post(name: Notification.Name(rawValue:"Switch_User"), object: nil, userInfo: nil)
             default:
