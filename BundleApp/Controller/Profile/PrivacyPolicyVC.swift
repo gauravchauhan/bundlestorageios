@@ -28,7 +28,7 @@ class PrivacyPolicyVC: UIViewController, PrivacyPolicyDelgateDelegate {
     func privacyPolicyDelgateResponse(data: [String : Any]) {
         print("privacyPolicyDelgateResponse   \(data)")
         (data["status"]as! Bool) ? DispatchQueue.main.async {
-            self.urlText.text = ((data["data"]as! [String : Any])["document"]as! String).html2String
+            self.urlText.attributedText = ((data["data"]as! [String : Any])["document"]as! String).html2AttributedString
             } : alert(message: data["message"]as! String, Controller: self)
     }
 }
