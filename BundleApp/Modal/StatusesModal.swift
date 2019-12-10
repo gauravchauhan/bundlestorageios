@@ -15,6 +15,17 @@ class StatusesModal{
     private var status : String!
     private var storage_Name : String!
     private var id : String!
+    private var booking_id : String!
+    
+   
+    var storageBookingId : String?{
+        get{
+            return booking_id
+        }
+        set{
+            self.booking_id = newValue
+        }
+    }
     
     
     var storageName : String?{
