@@ -17,7 +17,7 @@ class LeftMenuViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         print("Singelton.sharedInstance.userDataModel.userRole! \(Singelton.sharedInstance.userDataModel.userRole!)")
-        tableView.frame = CGRect(x: self.view.frame.width - 200, y: 200 , width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
+        tableView.frame = CGRect(x: self.view.frame.width - 200, y: 160 , width: 200, height: CGFloat(54 * (Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host.count : Strings_Const.SideBarMenuItems_User.count)))
         tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.isOpaque = false
@@ -59,7 +59,7 @@ class LeftMenuViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
         view.addSubview(imageView)
-        view.addSubview(userName)
+        //view.addSubview(userName)
     }
     
     func setTheName(){
@@ -96,11 +96,10 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.backgroundColor = UIColor.clear
-        cell.textLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular , size: 18)
+        indexPath.row != 0 ?  (cell.textLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Regular , size: 18)) : (cell.textLabel?.font = UIFont(name: Constants.fonts.ProximaNova_Bold , size: 20))
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text  = Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host[indexPath.row] : Strings_Const.SideBarMenuItems_User[indexPath.row]
+        indexPath.row != 0 ? (cell.textLabel?.text  = Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? Strings_Const.SideBarMenuItems_host[indexPath.row] : Strings_Const.SideBarMenuItems_User[indexPath.row]) : (cell.textLabel?.text = Singelton.sharedInstance.userDataModel.userFirstName! + " " + Singelton.sharedInstance.userDataModel.userLastName! )
         print("cell width \(String(describing: cell.textLabel?.width))")
-//        cell.textLabel?.backgroundColor = UIColor.blue
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textAlignment = .right
         cell.selectionStyle = .none
@@ -115,7 +114,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.post(name: Notification.Name(rawValue:"Click_MenuItems"), object: nil, userInfo: clickItemsInfo)
         if Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER"{
             switch indexPath.row {
-            case 3:
+            case 4:
                 print("switch to HOST \(UserDefaults.standard.value(forKey: "userData") as! [String : Any])")
                 var userData = UserDefaults.standard.value(forKey: "userData") as! [String : Any]
                 userData.updateValue("ROLE_USER", forKey: "role")
@@ -130,7 +129,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }else{
             switch indexPath.row {
-            case 3:
+            case 4:
                 print("switch to user \(UserDefaults.standard.value(forKey: "userData") as! [String : Any])")
                 var userData = UserDefaults.standard.value(forKey: "userData") as! [String : Any]
                 userData.updateValue("ROLE_HOST", forKey: "role")

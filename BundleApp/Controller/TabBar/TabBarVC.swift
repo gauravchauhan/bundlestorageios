@@ -34,21 +34,21 @@ class TabBarVC: UITabBarController , LogoutDelegate, NotificationCountDelegate{
     @objc  func click_MenuItems(notification: Notification){
         print("Click menu items  \((notification.userInfo! as NSDictionary))")
         switch (notification.userInfo! as! [String : Any])["click_Items"]as! Int {
-        case 0:
-            self.selectedIndex = 2
         case 1:
+            self.selectedIndex = 2
+        case 2:
             self.pushToReferalController()
             print("refer")
-        case 2:
+        case 3:
             self.pushToSupportControllerController()
             print("support")
-        case 3:
-            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? print("switch to User") : print("switch to host")
         case 4:
-            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ?  print("Earnings") : print("savings")
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? print("switch to User") : print("switch to host")
         case 5:
-            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToMyStorageListController() : self.logout_Click()
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ?  print("Earnings") : print("savings")
         case 6:
+            Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToMyStorageListController() : self.logout_Click()
+        case 7:
             Singelton.sharedInstance.service.logoutDelegate =  self
             self.logout_Click()
             print("Logout")

@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("Click rate ")
         if self.userStatusesModal[cell.tag].storageStatus!.contains("Coordinate drop off with user") || self.userStatusesModal[cell.tag].storageStatus!.contains("Coordinate drop of time with host"){
             self.pushToRatingController(storageId: self.userStatusesModal[cell.tag].storageId!, userName: self.userStatusesModal[cell.tag].hostName!)
-        }else if self.userStatusesModal[cell.tag].storageStatus!.contains("on the way to drop off items") || self.userStatusesModal[cell.tag].storageStatus!.contains("Please drop of your items"){
+        }else if self.userStatusesModal[cell.tag].storageStatus!.contains("on the way to drop-off items") || self.userStatusesModal[cell.tag].storageStatus!.contains("Please drop of your items"){
             Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToScanQRCodeontroller(storageId: self.userStatusesModal[cell.tag].storageId!, bookingID: self.userStatusesModal[cell.tag].storageBookingId!) : self.pushToQRCodeViewController(storageId: self.userStatusesModal[cell.tag].storageId!)
         }else if self.userStatusesModal[cell.tag].storageStatus!.contains("on the way to pick up items") || self.userStatusesModal[cell.tag].storageStatus!.contains("Please pick up your items"){
             Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? self.pushToQRCodeViewController(storageId: self.userStatusesModal[cell.tag].storageId!) : self.pushToScanQRCodeontroller(storageId: self.userStatusesModal[cell.tag].storageId!, bookingID: self.userStatusesModal[cell.tag].storageBookingId!)
@@ -146,7 +146,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.curretnStatus.text! = self.userStatusesModal[indexPath.row].storageStatus!
         if self.userStatusesModal[indexPath.row].storageStatus!.contains("Coordinate drop off with user") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Coordinate drop of time with host"){
             cell.statusButton.setTitle("RATE", for: .normal)
-        }else if self.userStatusesModal[indexPath.row].storageStatus!.contains("on the way to drop off items") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Please drop of your items"){
+        }else if self.userStatusesModal[indexPath.row].storageStatus!.contains("on the way to drop-off items") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Please drop of your items"){
             Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? cell.statusButton.setTitle("SCAN", for: .normal) : cell.statusButton.setTitle("QR", for: .normal)
         }else if self.userStatusesModal[indexPath.row].storageStatus!.contains("on the way to pick up items") || self.userStatusesModal[indexPath.row].storageStatus!.contains("Please pick up your items"){
             Singelton.sharedInstance.userDataModel.userRole! != "ROLE_USER" ? cell.statusButton.setTitle("QR", for: .normal) : cell.statusButton.setTitle("SCAN", for: .normal)

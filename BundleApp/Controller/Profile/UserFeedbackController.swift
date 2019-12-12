@@ -30,6 +30,19 @@ class UserFeedbackController: UIViewController , SubmitReviewDelegate{
     
     func submitReviewResponse(data: [String : Any]) {
         print("submitReviewResponse   \(data)")
+        data["sttaus"]as! Bool ? DispatchQueue.main.async {
+            let alertController = UIAlertController(title: Strings_Const.app_Name, message: "Rated Succesfully." , preferredStyle: .alert)
+            
+            // Create the actions
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            // Add the actions
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+            } : alert(message: data["message"]as! String, Controller: self)
     }
     
     
