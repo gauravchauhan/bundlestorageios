@@ -161,6 +161,7 @@ struct Strings_Const{
     static let message = NSLocalizedString("Message", comment: "")
     static let request = NSLocalizedString("Request", comment: "")
     static let SideBarMenuItems_host = [
+        Singelton.sharedInstance.userDataModel.userFirstName! + "" + Singelton.sharedInstance.userDataModel.userLastName!,
         profile ,
         refer ,
         support ,
@@ -171,6 +172,7 @@ struct Strings_Const{
     ]
     
     static let SideBarMenuItems_User = [
+        Singelton.sharedInstance.userDataModel.userFirstName! + "" + Singelton.sharedInstance.userDataModel.userLastName!,
         profile ,
         refer ,
         support ,
