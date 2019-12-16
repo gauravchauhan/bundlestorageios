@@ -40,6 +40,7 @@ class BookingHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         cell.hostName.text! = self.bookingHistoryModal[indexPath.row].storage_HostName!
         cell.storageTitle.text! = self.bookingHistoryModal[indexPath.row].storage_List.storageName!
         cell.status.text! = self.bookingHistoryModal[indexPath.row].storage_Status!
+        cell.storageImage.setImageWith(URL(string : (self.bookingHistoryModal[indexPath.row].storage_List.storageImage![0].imageURL!)), placeholderImage: UIImage(named: "app_Logo"))
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -66,7 +67,7 @@ class BookingHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             let storageData = historyData[index]["storage"]as? [String : Any]
             
-//            var imageModal = [StorageImageModal]()
+            var imageModal = [StorageImageModal]()
             let storageObj = StorageListModal()
             storageObj.storageName = (storageData!["storageName"]as? String)?.capitalized
             storageObj.stoargeID = storageData!["id"]as? String
@@ -88,13 +89,13 @@ class BookingHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             }else{
                 storageObj.storagePriceType = ""
             }
-//
-//            for imageIndex in 0...(storageData["media"]as? [[String : Any]])!.count - 1{
-//                let imageObj = StorageImageModal()
-//                imageObj.imageURL = ((storageData["media"]as? [[String : Any]])![imageIndex])["url"]as? String
-//                imageModal.append(imageObj)
-//            }
-//            storageObj.storageImage = imageModal
+
+            for imageIndex in 0...(storageData!["mediaArr"]as? [[String : Any]])!.count - 1{
+                let imageObj = StorageImageModal()
+                imageObj.imageURL = ((storageData!["mediaArr"]as? [[String : Any]])![imageIndex])["url"]as? String
+                imageModal.append(imageObj)
+            }
+            storageObj.storageImage = imageModal
             
             storageObj.aboutStorage = (storageData!["descripton"] is NSNull) ? Strings_Const.no_Desc : storageData!["descripton"]as? String
             storageObj.offers = (storageData!["discount"] is NSNull) ? "No discount" : storageData!["discount"]as? String

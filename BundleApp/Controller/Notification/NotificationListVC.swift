@@ -35,7 +35,7 @@ class NotificationListVC: UIViewController , UITableViewDelegate, UITableViewDat
     
     func removeNotificationResponse(data: [String : Any]) {
         print("remove all notification \(data)")
-        Indicator.shared.showProgressView(self.view)
+        //Indicator.shared.showProgressView(self.view)
         (data["status"]as! Bool) ? self.getNotification() : alert(message: Strings_Const.someError, Controller: self)
     }
     
